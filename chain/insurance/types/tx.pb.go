@@ -379,14 +379,14 @@ func (m *MsgUpdateParamsResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgUpdateParamsResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgCreateInsuranceFund)(nil), "injective.insurance.v1beta1.MsgCreateInsuranceFund")
-	proto.RegisterType((*MsgCreateInsuranceFundResponse)(nil), "injective.insurance.v1beta1.MsgCreateInsuranceFundResponse")
-	proto.RegisterType((*MsgUnderwrite)(nil), "injective.insurance.v1beta1.MsgUnderwrite")
-	proto.RegisterType((*MsgUnderwriteResponse)(nil), "injective.insurance.v1beta1.MsgUnderwriteResponse")
-	proto.RegisterType((*MsgRequestRedemption)(nil), "injective.insurance.v1beta1.MsgRequestRedemption")
-	proto.RegisterType((*MsgRequestRedemptionResponse)(nil), "injective.insurance.v1beta1.MsgRequestRedemptionResponse")
-	proto.RegisterType((*MsgUpdateParams)(nil), "injective.insurance.v1beta1.MsgUpdateParams")
-	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "injective.insurance.v1beta1.MsgUpdateParamsResponse")
+	proto.RegisterType((*MsgCreateInsuranceFund)(nil), "helios.insurance.v1beta1.MsgCreateInsuranceFund")
+	proto.RegisterType((*MsgCreateInsuranceFundResponse)(nil), "helios.insurance.v1beta1.MsgCreateInsuranceFundResponse")
+	proto.RegisterType((*MsgUnderwrite)(nil), "helios.insurance.v1beta1.MsgUnderwrite")
+	proto.RegisterType((*MsgUnderwriteResponse)(nil), "helios.insurance.v1beta1.MsgUnderwriteResponse")
+	proto.RegisterType((*MsgRequestRedemption)(nil), "helios.insurance.v1beta1.MsgRequestRedemption")
+	proto.RegisterType((*MsgRequestRedemptionResponse)(nil), "helios.insurance.v1beta1.MsgRequestRedemptionResponse")
+	proto.RegisterType((*MsgUpdateParams)(nil), "helios.insurance.v1beta1.MsgUpdateParams")
+	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "helios.insurance.v1beta1.MsgUpdateParamsResponse")
 }
 
 func init() {
@@ -620,7 +620,7 @@ func _Msg_UpdateParams_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.insurance.v1beta1.Msg",
+	ServiceName: "helios.insurance.v1beta1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

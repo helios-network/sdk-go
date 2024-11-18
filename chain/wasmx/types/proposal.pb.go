@@ -336,12 +336,12 @@ func (m *BatchStoreCodeProposal) XXX_DiscardUnknown() {
 var xxx_messageInfo_BatchStoreCodeProposal proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterEnum("injective.wasmx.v1.FundingMode", FundingMode_name, FundingMode_value)
-	proto.RegisterType((*ContractRegistrationRequestProposal)(nil), "injective.wasmx.v1.ContractRegistrationRequestProposal")
-	proto.RegisterType((*BatchContractRegistrationRequestProposal)(nil), "injective.wasmx.v1.BatchContractRegistrationRequestProposal")
-	proto.RegisterType((*BatchContractDeregistrationProposal)(nil), "injective.wasmx.v1.BatchContractDeregistrationProposal")
-	proto.RegisterType((*ContractRegistrationRequest)(nil), "injective.wasmx.v1.ContractRegistrationRequest")
-	proto.RegisterType((*BatchStoreCodeProposal)(nil), "injective.wasmx.v1.BatchStoreCodeProposal")
+	proto.RegisterEnum("helios.wasmx.v1.FundingMode", FundingMode_name, FundingMode_value)
+	proto.RegisterType((*ContractRegistrationRequestProposal)(nil), "helios.wasmx.v1.ContractRegistrationRequestProposal")
+	proto.RegisterType((*BatchContractRegistrationRequestProposal)(nil), "helios.wasmx.v1.BatchContractRegistrationRequestProposal")
+	proto.RegisterType((*BatchContractDeregistrationProposal)(nil), "helios.wasmx.v1.BatchContractDeregistrationProposal")
+	proto.RegisterType((*ContractRegistrationRequest)(nil), "helios.wasmx.v1.ContractRegistrationRequest")
+	proto.RegisterType((*BatchStoreCodeProposal)(nil), "helios.wasmx.v1.BatchStoreCodeProposal")
 }
 
 func init() { proto.RegisterFile("injective/wasmx/v1/proposal.proto", fileDescriptor_ba51f3e994cc61a5) }

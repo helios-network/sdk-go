@@ -157,8 +157,8 @@ func (m *GenesisDenom) GetDecimals() uint32 {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "injective.tokenfactory.v1beta1.GenesisState")
-	proto.RegisterType((*GenesisDenom)(nil), "injective.tokenfactory.v1beta1.GenesisDenom")
+	proto.RegisterType((*GenesisState)(nil), "helios.tokenfactory.v1beta1.GenesisState")
+	proto.RegisterType((*GenesisDenom)(nil), "helios.tokenfactory.v1beta1.GenesisDenom")
 }
 
 func init() {

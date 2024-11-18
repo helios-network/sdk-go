@@ -65,7 +65,7 @@ func (m *UpdateDenomsMetadataProposal) XXX_DiscardUnknown() {
 var xxx_messageInfo_UpdateDenomsMetadataProposal proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*UpdateDenomsMetadataProposal)(nil), "injective.tokenfactory.v1beta1.UpdateDenomsMetadataProposal")
+	proto.RegisterType((*UpdateDenomsMetadataProposal)(nil), "helios.tokenfactory.v1beta1.UpdateDenomsMetadataProposal")
 }
 
 func init() {

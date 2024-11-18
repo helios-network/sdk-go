@@ -73,7 +73,7 @@ func (m *Params) GetDenomCreationFee() github_com_cosmos_cosmos_sdk_types.Coins 
 }
 
 func init() {
-	proto.RegisterType((*Params)(nil), "injective.tokenfactory.v1beta1.Params")
+	proto.RegisterType((*Params)(nil), "helios.tokenfactory.v1beta1.Params")
 }
 
 func init() {

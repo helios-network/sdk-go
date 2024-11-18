@@ -203,10 +203,10 @@ func (m *MsgUpdateParamsResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgUpdateParamsResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgBid)(nil), "injective.auction.v1beta1.MsgBid")
-	proto.RegisterType((*MsgBidResponse)(nil), "injective.auction.v1beta1.MsgBidResponse")
-	proto.RegisterType((*MsgUpdateParams)(nil), "injective.auction.v1beta1.MsgUpdateParams")
-	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "injective.auction.v1beta1.MsgUpdateParamsResponse")
+	proto.RegisterType((*MsgBid)(nil), "helios.auction.v1beta1.MsgBid")
+	proto.RegisterType((*MsgBidResponse)(nil), "helios.auction.v1beta1.MsgBidResponse")
+	proto.RegisterType((*MsgUpdateParams)(nil), "helios.auction.v1beta1.MsgUpdateParams")
+	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "helios.auction.v1beta1.MsgUpdateParamsResponse")
 }
 
 func init() {
@@ -351,7 +351,7 @@ func _Msg_UpdateParams_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.auction.v1beta1.Msg",
+	ServiceName: "helios.auction.v1beta1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

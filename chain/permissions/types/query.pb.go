@@ -584,18 +584,18 @@ func (m *QueryVouchersForAddressResponse) GetVouchers() github_com_cosmos_cosmos
 }
 
 func init() {
-	proto.RegisterType((*QueryParamsRequest)(nil), "injective.permissions.v1beta1.QueryParamsRequest")
-	proto.RegisterType((*QueryParamsResponse)(nil), "injective.permissions.v1beta1.QueryParamsResponse")
-	proto.RegisterType((*QueryAllNamespacesRequest)(nil), "injective.permissions.v1beta1.QueryAllNamespacesRequest")
-	proto.RegisterType((*QueryAllNamespacesResponse)(nil), "injective.permissions.v1beta1.QueryAllNamespacesResponse")
-	proto.RegisterType((*QueryNamespaceByDenomRequest)(nil), "injective.permissions.v1beta1.QueryNamespaceByDenomRequest")
-	proto.RegisterType((*QueryNamespaceByDenomResponse)(nil), "injective.permissions.v1beta1.QueryNamespaceByDenomResponse")
-	proto.RegisterType((*QueryAddressesByRoleRequest)(nil), "injective.permissions.v1beta1.QueryAddressesByRoleRequest")
-	proto.RegisterType((*QueryAddressesByRoleResponse)(nil), "injective.permissions.v1beta1.QueryAddressesByRoleResponse")
-	proto.RegisterType((*QueryAddressRolesRequest)(nil), "injective.permissions.v1beta1.QueryAddressRolesRequest")
-	proto.RegisterType((*QueryAddressRolesResponse)(nil), "injective.permissions.v1beta1.QueryAddressRolesResponse")
-	proto.RegisterType((*QueryVouchersForAddressRequest)(nil), "injective.permissions.v1beta1.QueryVouchersForAddressRequest")
-	proto.RegisterType((*QueryVouchersForAddressResponse)(nil), "injective.permissions.v1beta1.QueryVouchersForAddressResponse")
+	proto.RegisterType((*QueryParamsRequest)(nil), "helios.permissions.v1beta1.QueryParamsRequest")
+	proto.RegisterType((*QueryParamsResponse)(nil), "helios.permissions.v1beta1.QueryParamsResponse")
+	proto.RegisterType((*QueryAllNamespacesRequest)(nil), "helios.permissions.v1beta1.QueryAllNamespacesRequest")
+	proto.RegisterType((*QueryAllNamespacesResponse)(nil), "helios.permissions.v1beta1.QueryAllNamespacesResponse")
+	proto.RegisterType((*QueryNamespaceByDenomRequest)(nil), "helios.permissions.v1beta1.QueryNamespaceByDenomRequest")
+	proto.RegisterType((*QueryNamespaceByDenomResponse)(nil), "helios.permissions.v1beta1.QueryNamespaceByDenomResponse")
+	proto.RegisterType((*QueryAddressesByRoleRequest)(nil), "helios.permissions.v1beta1.QueryAddressesByRoleRequest")
+	proto.RegisterType((*QueryAddressesByRoleResponse)(nil), "helios.permissions.v1beta1.QueryAddressesByRoleResponse")
+	proto.RegisterType((*QueryAddressRolesRequest)(nil), "helios.permissions.v1beta1.QueryAddressRolesRequest")
+	proto.RegisterType((*QueryAddressRolesResponse)(nil), "helios.permissions.v1beta1.QueryAddressRolesResponse")
+	proto.RegisterType((*QueryVouchersForAddressRequest)(nil), "helios.permissions.v1beta1.QueryVouchersForAddressRequest")
+	proto.RegisterType((*QueryVouchersForAddressResponse)(nil), "helios.permissions.v1beta1.QueryVouchersForAddressResponse")
 }
 
 func init() {
@@ -911,7 +911,7 @@ func _Query_VouchersForAddress_Handler(srv interface{}, ctx context.Context, dec
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.permissions.v1beta1.Query",
+	ServiceName: "helios.permissions.v1beta1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

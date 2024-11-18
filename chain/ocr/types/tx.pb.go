@@ -754,24 +754,24 @@ func (m *MsgUpdateParamsResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgUpdateParamsResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgCreateFeed)(nil), "injective.ocr.v1beta1.MsgCreateFeed")
-	proto.RegisterType((*MsgCreateFeedResponse)(nil), "injective.ocr.v1beta1.MsgCreateFeedResponse")
-	proto.RegisterType((*MsgUpdateFeed)(nil), "injective.ocr.v1beta1.MsgUpdateFeed")
-	proto.RegisterType((*MsgUpdateFeedResponse)(nil), "injective.ocr.v1beta1.MsgUpdateFeedResponse")
-	proto.RegisterType((*MsgTransmit)(nil), "injective.ocr.v1beta1.MsgTransmit")
-	proto.RegisterType((*MsgTransmitResponse)(nil), "injective.ocr.v1beta1.MsgTransmitResponse")
-	proto.RegisterType((*MsgFundFeedRewardPool)(nil), "injective.ocr.v1beta1.MsgFundFeedRewardPool")
-	proto.RegisterType((*MsgFundFeedRewardPoolResponse)(nil), "injective.ocr.v1beta1.MsgFundFeedRewardPoolResponse")
-	proto.RegisterType((*MsgWithdrawFeedRewardPool)(nil), "injective.ocr.v1beta1.MsgWithdrawFeedRewardPool")
-	proto.RegisterType((*MsgWithdrawFeedRewardPoolResponse)(nil), "injective.ocr.v1beta1.MsgWithdrawFeedRewardPoolResponse")
-	proto.RegisterType((*MsgSetPayees)(nil), "injective.ocr.v1beta1.MsgSetPayees")
-	proto.RegisterType((*MsgSetPayeesResponse)(nil), "injective.ocr.v1beta1.MsgSetPayeesResponse")
-	proto.RegisterType((*MsgTransferPayeeship)(nil), "injective.ocr.v1beta1.MsgTransferPayeeship")
-	proto.RegisterType((*MsgTransferPayeeshipResponse)(nil), "injective.ocr.v1beta1.MsgTransferPayeeshipResponse")
-	proto.RegisterType((*MsgAcceptPayeeship)(nil), "injective.ocr.v1beta1.MsgAcceptPayeeship")
-	proto.RegisterType((*MsgAcceptPayeeshipResponse)(nil), "injective.ocr.v1beta1.MsgAcceptPayeeshipResponse")
-	proto.RegisterType((*MsgUpdateParams)(nil), "injective.ocr.v1beta1.MsgUpdateParams")
-	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "injective.ocr.v1beta1.MsgUpdateParamsResponse")
+	proto.RegisterType((*MsgCreateFeed)(nil), "helios.ocr.v1beta1.MsgCreateFeed")
+	proto.RegisterType((*MsgCreateFeedResponse)(nil), "helios.ocr.v1beta1.MsgCreateFeedResponse")
+	proto.RegisterType((*MsgUpdateFeed)(nil), "helios.ocr.v1beta1.MsgUpdateFeed")
+	proto.RegisterType((*MsgUpdateFeedResponse)(nil), "helios.ocr.v1beta1.MsgUpdateFeedResponse")
+	proto.RegisterType((*MsgTransmit)(nil), "helios.ocr.v1beta1.MsgTransmit")
+	proto.RegisterType((*MsgTransmitResponse)(nil), "helios.ocr.v1beta1.MsgTransmitResponse")
+	proto.RegisterType((*MsgFundFeedRewardPool)(nil), "helios.ocr.v1beta1.MsgFundFeedRewardPool")
+	proto.RegisterType((*MsgFundFeedRewardPoolResponse)(nil), "helios.ocr.v1beta1.MsgFundFeedRewardPoolResponse")
+	proto.RegisterType((*MsgWithdrawFeedRewardPool)(nil), "helios.ocr.v1beta1.MsgWithdrawFeedRewardPool")
+	proto.RegisterType((*MsgWithdrawFeedRewardPoolResponse)(nil), "helios.ocr.v1beta1.MsgWithdrawFeedRewardPoolResponse")
+	proto.RegisterType((*MsgSetPayees)(nil), "helios.ocr.v1beta1.MsgSetPayees")
+	proto.RegisterType((*MsgSetPayeesResponse)(nil), "helios.ocr.v1beta1.MsgSetPayeesResponse")
+	proto.RegisterType((*MsgTransferPayeeship)(nil), "helios.ocr.v1beta1.MsgTransferPayeeship")
+	proto.RegisterType((*MsgTransferPayeeshipResponse)(nil), "helios.ocr.v1beta1.MsgTransferPayeeshipResponse")
+	proto.RegisterType((*MsgAcceptPayeeship)(nil), "helios.ocr.v1beta1.MsgAcceptPayeeship")
+	proto.RegisterType((*MsgAcceptPayeeshipResponse)(nil), "helios.ocr.v1beta1.MsgAcceptPayeeshipResponse")
+	proto.RegisterType((*MsgUpdateParams)(nil), "helios.ocr.v1beta1.MsgUpdateParams")
+	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "helios.ocr.v1beta1.MsgUpdateParamsResponse")
 }
 
 func init() { proto.RegisterFile("injective/ocr/v1beta1/tx.proto", fileDescriptor_570bfdb24a1374f8) }
@@ -1203,7 +1203,7 @@ func _Msg_UpdateParams_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.ocr.v1beta1.Msg",
+	ServiceName: "helios.ocr.v1beta1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

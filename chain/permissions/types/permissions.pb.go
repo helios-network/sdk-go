@@ -397,13 +397,13 @@ func (m *AddressVoucher) GetVoucher() *Voucher {
 }
 
 func init() {
-	proto.RegisterEnum("injective.permissions.v1beta1.Action", Action_name, Action_value)
-	proto.RegisterType((*Namespace)(nil), "injective.permissions.v1beta1.Namespace")
-	proto.RegisterType((*AddressRoles)(nil), "injective.permissions.v1beta1.AddressRoles")
-	proto.RegisterType((*Role)(nil), "injective.permissions.v1beta1.Role")
-	proto.RegisterType((*RoleIDs)(nil), "injective.permissions.v1beta1.RoleIDs")
-	proto.RegisterType((*Voucher)(nil), "injective.permissions.v1beta1.Voucher")
-	proto.RegisterType((*AddressVoucher)(nil), "injective.permissions.v1beta1.AddressVoucher")
+	proto.RegisterEnum("helios.permissions.v1beta1.Action", Action_name, Action_value)
+	proto.RegisterType((*Namespace)(nil), "helios.permissions.v1beta1.Namespace")
+	proto.RegisterType((*AddressRoles)(nil), "helios.permissions.v1beta1.AddressRoles")
+	proto.RegisterType((*Role)(nil), "helios.permissions.v1beta1.Role")
+	proto.RegisterType((*RoleIDs)(nil), "helios.permissions.v1beta1.RoleIDs")
+	proto.RegisterType((*Voucher)(nil), "helios.permissions.v1beta1.Voucher")
+	proto.RegisterType((*AddressVoucher)(nil), "helios.permissions.v1beta1.AddressVoucher")
 }
 
 func init() {

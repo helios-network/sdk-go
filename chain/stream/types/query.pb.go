@@ -1491,29 +1491,29 @@ func (m *OraclePriceFilter) GetSymbol() []string {
 }
 
 func init() {
-	proto.RegisterEnum("injective.stream.v1beta1.OrderUpdateStatus", OrderUpdateStatus_name, OrderUpdateStatus_value)
-	proto.RegisterType((*StreamRequest)(nil), "injective.stream.v1beta1.StreamRequest")
-	proto.RegisterType((*StreamResponse)(nil), "injective.stream.v1beta1.StreamResponse")
-	proto.RegisterType((*OrderbookUpdate)(nil), "injective.stream.v1beta1.OrderbookUpdate")
-	proto.RegisterType((*Orderbook)(nil), "injective.stream.v1beta1.Orderbook")
-	proto.RegisterType((*BankBalance)(nil), "injective.stream.v1beta1.BankBalance")
-	proto.RegisterType((*SubaccountDeposits)(nil), "injective.stream.v1beta1.SubaccountDeposits")
-	proto.RegisterType((*SubaccountDeposit)(nil), "injective.stream.v1beta1.SubaccountDeposit")
-	proto.RegisterType((*SpotOrderUpdate)(nil), "injective.stream.v1beta1.SpotOrderUpdate")
-	proto.RegisterType((*SpotOrder)(nil), "injective.stream.v1beta1.SpotOrder")
-	proto.RegisterType((*DerivativeOrderUpdate)(nil), "injective.stream.v1beta1.DerivativeOrderUpdate")
-	proto.RegisterType((*DerivativeOrder)(nil), "injective.stream.v1beta1.DerivativeOrder")
-	proto.RegisterType((*Position)(nil), "injective.stream.v1beta1.Position")
-	proto.RegisterType((*OraclePrice)(nil), "injective.stream.v1beta1.OraclePrice")
-	proto.RegisterType((*SpotTrade)(nil), "injective.stream.v1beta1.SpotTrade")
-	proto.RegisterType((*DerivativeTrade)(nil), "injective.stream.v1beta1.DerivativeTrade")
-	proto.RegisterType((*TradesFilter)(nil), "injective.stream.v1beta1.TradesFilter")
-	proto.RegisterType((*PositionsFilter)(nil), "injective.stream.v1beta1.PositionsFilter")
-	proto.RegisterType((*OrdersFilter)(nil), "injective.stream.v1beta1.OrdersFilter")
-	proto.RegisterType((*OrderbookFilter)(nil), "injective.stream.v1beta1.OrderbookFilter")
-	proto.RegisterType((*BankBalancesFilter)(nil), "injective.stream.v1beta1.BankBalancesFilter")
-	proto.RegisterType((*SubaccountDepositsFilter)(nil), "injective.stream.v1beta1.SubaccountDepositsFilter")
-	proto.RegisterType((*OraclePriceFilter)(nil), "injective.stream.v1beta1.OraclePriceFilter")
+	proto.RegisterEnum("helios.stream.v1beta1.OrderUpdateStatus", OrderUpdateStatus_name, OrderUpdateStatus_value)
+	proto.RegisterType((*StreamRequest)(nil), "helios.stream.v1beta1.StreamRequest")
+	proto.RegisterType((*StreamResponse)(nil), "helios.stream.v1beta1.StreamResponse")
+	proto.RegisterType((*OrderbookUpdate)(nil), "helios.stream.v1beta1.OrderbookUpdate")
+	proto.RegisterType((*Orderbook)(nil), "helios.stream.v1beta1.Orderbook")
+	proto.RegisterType((*BankBalance)(nil), "helios.stream.v1beta1.BankBalance")
+	proto.RegisterType((*SubaccountDeposits)(nil), "helios.stream.v1beta1.SubaccountDeposits")
+	proto.RegisterType((*SubaccountDeposit)(nil), "helios.stream.v1beta1.SubaccountDeposit")
+	proto.RegisterType((*SpotOrderUpdate)(nil), "helios.stream.v1beta1.SpotOrderUpdate")
+	proto.RegisterType((*SpotOrder)(nil), "helios.stream.v1beta1.SpotOrder")
+	proto.RegisterType((*DerivativeOrderUpdate)(nil), "helios.stream.v1beta1.DerivativeOrderUpdate")
+	proto.RegisterType((*DerivativeOrder)(nil), "helios.stream.v1beta1.DerivativeOrder")
+	proto.RegisterType((*Position)(nil), "helios.stream.v1beta1.Position")
+	proto.RegisterType((*OraclePrice)(nil), "helios.stream.v1beta1.OraclePrice")
+	proto.RegisterType((*SpotTrade)(nil), "helios.stream.v1beta1.SpotTrade")
+	proto.RegisterType((*DerivativeTrade)(nil), "helios.stream.v1beta1.DerivativeTrade")
+	proto.RegisterType((*TradesFilter)(nil), "helios.stream.v1beta1.TradesFilter")
+	proto.RegisterType((*PositionsFilter)(nil), "helios.stream.v1beta1.PositionsFilter")
+	proto.RegisterType((*OrdersFilter)(nil), "helios.stream.v1beta1.OrdersFilter")
+	proto.RegisterType((*OrderbookFilter)(nil), "helios.stream.v1beta1.OrderbookFilter")
+	proto.RegisterType((*BankBalancesFilter)(nil), "helios.stream.v1beta1.BankBalancesFilter")
+	proto.RegisterType((*SubaccountDepositsFilter)(nil), "helios.stream.v1beta1.SubaccountDepositsFilter")
+	proto.RegisterType((*OraclePriceFilter)(nil), "helios.stream.v1beta1.OraclePriceFilter")
 }
 
 func init() {
@@ -1721,7 +1721,7 @@ func (x *streamStreamServer) Send(m *StreamResponse) error {
 }
 
 var _Stream_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.stream.v1beta1.Stream",
+	ServiceName: "helios.stream.v1beta1.Stream",
 	HandlerType: (*StreamServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{

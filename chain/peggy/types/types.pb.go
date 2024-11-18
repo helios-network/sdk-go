@@ -315,11 +315,11 @@ func (m *ERC20ToDenom) GetDenom() string {
 }
 
 func init() {
-	proto.RegisterType((*BridgeValidator)(nil), "injective.peggy.v1.BridgeValidator")
-	proto.RegisterType((*Valset)(nil), "injective.peggy.v1.Valset")
-	proto.RegisterType((*LastObservedEthereumBlockHeight)(nil), "injective.peggy.v1.LastObservedEthereumBlockHeight")
-	proto.RegisterType((*LastClaimEvent)(nil), "injective.peggy.v1.LastClaimEvent")
-	proto.RegisterType((*ERC20ToDenom)(nil), "injective.peggy.v1.ERC20ToDenom")
+	proto.RegisterType((*BridgeValidator)(nil), "helios.peggy.v1.BridgeValidator")
+	proto.RegisterType((*Valset)(nil), "helios.peggy.v1.Valset")
+	proto.RegisterType((*LastObservedEthereumBlockHeight)(nil), "helios.peggy.v1.LastObservedEthereumBlockHeight")
+	proto.RegisterType((*LastClaimEvent)(nil), "helios.peggy.v1.LastClaimEvent")
+	proto.RegisterType((*ERC20ToDenom)(nil), "helios.peggy.v1.ERC20ToDenom")
 }
 
 func init() { proto.RegisterFile("injective/peggy/v1/types.proto", fileDescriptor_b641943ad411b503) }

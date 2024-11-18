@@ -287,9 +287,9 @@ func (m *RedemptionSchedule) GetRedemptionAmount() types1.Coin {
 }
 
 func init() {
-	proto.RegisterType((*Params)(nil), "injective.insurance.v1beta1.Params")
-	proto.RegisterType((*InsuranceFund)(nil), "injective.insurance.v1beta1.InsuranceFund")
-	proto.RegisterType((*RedemptionSchedule)(nil), "injective.insurance.v1beta1.RedemptionSchedule")
+	proto.RegisterType((*Params)(nil), "helios.insurance.v1beta1.Params")
+	proto.RegisterType((*InsuranceFund)(nil), "helios.insurance.v1beta1.InsuranceFund")
+	proto.RegisterType((*RedemptionSchedule)(nil), "helios.insurance.v1beta1.RedemptionSchedule")
 }
 
 func init() {

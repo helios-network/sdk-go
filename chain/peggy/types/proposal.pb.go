@@ -103,8 +103,8 @@ func (m *RevokeEthereumBlacklistProposal) XXX_DiscardUnknown() {
 var xxx_messageInfo_RevokeEthereumBlacklistProposal proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*BlacklistEthereumAddressesProposal)(nil), "injective.peggy.v1.BlacklistEthereumAddressesProposal")
-	proto.RegisterType((*RevokeEthereumBlacklistProposal)(nil), "injective.peggy.v1.RevokeEthereumBlacklistProposal")
+	proto.RegisterType((*BlacklistEthereumAddressesProposal)(nil), "helios.peggy.v1.BlacklistEthereumAddressesProposal")
+	proto.RegisterType((*RevokeEthereumBlacklistProposal)(nil), "helios.peggy.v1.RevokeEthereumBlacklistProposal")
 }
 
 func init() { proto.RegisterFile("injective/peggy/v1/proposal.proto", fileDescriptor_e5b158ea063afb2f) }

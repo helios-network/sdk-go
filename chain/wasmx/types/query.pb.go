@@ -287,12 +287,12 @@ func (m *QueryContractRegistrationInfoResponse) GetContract() *RegisteredContrac
 }
 
 func init() {
-	proto.RegisterType((*QueryWasmxParamsRequest)(nil), "injective.wasmx.v1.QueryWasmxParamsRequest")
-	proto.RegisterType((*QueryWasmxParamsResponse)(nil), "injective.wasmx.v1.QueryWasmxParamsResponse")
-	proto.RegisterType((*QueryModuleStateRequest)(nil), "injective.wasmx.v1.QueryModuleStateRequest")
-	proto.RegisterType((*QueryModuleStateResponse)(nil), "injective.wasmx.v1.QueryModuleStateResponse")
-	proto.RegisterType((*QueryContractRegistrationInfoRequest)(nil), "injective.wasmx.v1.QueryContractRegistrationInfoRequest")
-	proto.RegisterType((*QueryContractRegistrationInfoResponse)(nil), "injective.wasmx.v1.QueryContractRegistrationInfoResponse")
+	proto.RegisterType((*QueryWasmxParamsRequest)(nil), "helios.wasmx.v1.QueryWasmxParamsRequest")
+	proto.RegisterType((*QueryWasmxParamsResponse)(nil), "helios.wasmx.v1.QueryWasmxParamsResponse")
+	proto.RegisterType((*QueryModuleStateRequest)(nil), "helios.wasmx.v1.QueryModuleStateRequest")
+	proto.RegisterType((*QueryModuleStateResponse)(nil), "helios.wasmx.v1.QueryModuleStateResponse")
+	proto.RegisterType((*QueryContractRegistrationInfoRequest)(nil), "helios.wasmx.v1.QueryContractRegistrationInfoRequest")
+	proto.RegisterType((*QueryContractRegistrationInfoResponse)(nil), "helios.wasmx.v1.QueryContractRegistrationInfoResponse")
 }
 
 func init() { proto.RegisterFile("injective/wasmx/v1/query.proto", fileDescriptor_660c5209971a3cd4) }
@@ -471,7 +471,7 @@ func _Query_WasmxModuleState_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.wasmx.v1.Query",
+	ServiceName: "helios.wasmx.v1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

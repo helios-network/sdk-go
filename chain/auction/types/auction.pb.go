@@ -352,12 +352,12 @@ func (m *EventAuctionStart) GetNewBasket() github_com_cosmos_cosmos_sdk_types.Co
 }
 
 func init() {
-	proto.RegisterType((*Params)(nil), "injective.auction.v1beta1.Params")
-	proto.RegisterType((*Bid)(nil), "injective.auction.v1beta1.Bid")
-	proto.RegisterType((*LastAuctionResult)(nil), "injective.auction.v1beta1.LastAuctionResult")
-	proto.RegisterType((*EventBid)(nil), "injective.auction.v1beta1.EventBid")
-	proto.RegisterType((*EventAuctionResult)(nil), "injective.auction.v1beta1.EventAuctionResult")
-	proto.RegisterType((*EventAuctionStart)(nil), "injective.auction.v1beta1.EventAuctionStart")
+	proto.RegisterType((*Params)(nil), "helios.auction.v1beta1.Params")
+	proto.RegisterType((*Bid)(nil), "helios.auction.v1beta1.Bid")
+	proto.RegisterType((*LastAuctionResult)(nil), "helios.auction.v1beta1.LastAuctionResult")
+	proto.RegisterType((*EventBid)(nil), "helios.auction.v1beta1.EventBid")
+	proto.RegisterType((*EventAuctionResult)(nil), "helios.auction.v1beta1.EventAuctionResult")
+	proto.RegisterType((*EventAuctionStart)(nil), "helios.auction.v1beta1.EventAuctionStart")
 }
 
 func init() {

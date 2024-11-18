@@ -196,9 +196,9 @@ func (m *ERC20Token) GetContract() string {
 }
 
 func init() {
-	proto.RegisterEnum("injective.peggy.v1.ClaimType", ClaimType_name, ClaimType_value)
-	proto.RegisterType((*Attestation)(nil), "injective.peggy.v1.Attestation")
-	proto.RegisterType((*ERC20Token)(nil), "injective.peggy.v1.ERC20Token")
+	proto.RegisterEnum("helios.peggy.v1.ClaimType", ClaimType_name, ClaimType_value)
+	proto.RegisterType((*Attestation)(nil), "helios.peggy.v1.Attestation")
+	proto.RegisterType((*ERC20Token)(nil), "helios.peggy.v1.ERC20Token")
 }
 
 func init() {

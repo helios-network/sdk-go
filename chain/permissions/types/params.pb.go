@@ -72,7 +72,7 @@ func (m *Params) GetWasmHookQueryMaxGas() uint64 {
 }
 
 func init() {
-	proto.RegisterType((*Params)(nil), "injective.permissions.v1beta1.Params")
+	proto.RegisterType((*Params)(nil), "helios.permissions.v1beta1.Params")
 }
 
 func init() {

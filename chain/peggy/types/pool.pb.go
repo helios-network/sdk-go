@@ -115,8 +115,8 @@ func (m *BatchFees) GetToken() string {
 }
 
 func init() {
-	proto.RegisterType((*IDSet)(nil), "injective.peggy.v1.IDSet")
-	proto.RegisterType((*BatchFees)(nil), "injective.peggy.v1.BatchFees")
+	proto.RegisterType((*IDSet)(nil), "helios.peggy.v1.IDSet")
+	proto.RegisterType((*BatchFees)(nil), "helios.peggy.v1.BatchFees")
 }
 
 func init() { proto.RegisterFile("injective/peggy/v1/pool.proto", fileDescriptor_36397d69759ce164) }

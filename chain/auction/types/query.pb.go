@@ -395,14 +395,14 @@ func (m *QueryLastAuctionResultResponse) GetLastAuctionResult() *LastAuctionResu
 }
 
 func init() {
-	proto.RegisterType((*QueryAuctionParamsRequest)(nil), "injective.auction.v1beta1.QueryAuctionParamsRequest")
-	proto.RegisterType((*QueryAuctionParamsResponse)(nil), "injective.auction.v1beta1.QueryAuctionParamsResponse")
-	proto.RegisterType((*QueryCurrentAuctionBasketRequest)(nil), "injective.auction.v1beta1.QueryCurrentAuctionBasketRequest")
-	proto.RegisterType((*QueryCurrentAuctionBasketResponse)(nil), "injective.auction.v1beta1.QueryCurrentAuctionBasketResponse")
-	proto.RegisterType((*QueryModuleStateRequest)(nil), "injective.auction.v1beta1.QueryModuleStateRequest")
-	proto.RegisterType((*QueryModuleStateResponse)(nil), "injective.auction.v1beta1.QueryModuleStateResponse")
-	proto.RegisterType((*QueryLastAuctionResultRequest)(nil), "injective.auction.v1beta1.QueryLastAuctionResultRequest")
-	proto.RegisterType((*QueryLastAuctionResultResponse)(nil), "injective.auction.v1beta1.QueryLastAuctionResultResponse")
+	proto.RegisterType((*QueryAuctionParamsRequest)(nil), "helios.auction.v1beta1.QueryAuctionParamsRequest")
+	proto.RegisterType((*QueryAuctionParamsResponse)(nil), "helios.auction.v1beta1.QueryAuctionParamsResponse")
+	proto.RegisterType((*QueryCurrentAuctionBasketRequest)(nil), "helios.auction.v1beta1.QueryCurrentAuctionBasketRequest")
+	proto.RegisterType((*QueryCurrentAuctionBasketResponse)(nil), "helios.auction.v1beta1.QueryCurrentAuctionBasketResponse")
+	proto.RegisterType((*QueryModuleStateRequest)(nil), "helios.auction.v1beta1.QueryModuleStateRequest")
+	proto.RegisterType((*QueryModuleStateResponse)(nil), "helios.auction.v1beta1.QueryModuleStateResponse")
+	proto.RegisterType((*QueryLastAuctionResultRequest)(nil), "helios.auction.v1beta1.QueryLastAuctionResultRequest")
+	proto.RegisterType((*QueryLastAuctionResultResponse)(nil), "helios.auction.v1beta1.QueryLastAuctionResultResponse")
 }
 
 func init() {
@@ -627,7 +627,7 @@ func _Query_LastAuctionResult_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.auction.v1beta1.Query",
+	ServiceName: "helios.auction.v1beta1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

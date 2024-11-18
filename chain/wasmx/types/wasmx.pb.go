@@ -211,8 +211,8 @@ func (m *RegisteredContract) GetFundMode() FundingMode {
 }
 
 func init() {
-	proto.RegisterType((*Params)(nil), "injective.wasmx.v1.Params")
-	proto.RegisterType((*RegisteredContract)(nil), "injective.wasmx.v1.RegisteredContract")
+	proto.RegisterType((*Params)(nil), "helios.wasmx.v1.Params")
+	proto.RegisterType((*RegisteredContract)(nil), "helios.wasmx.v1.RegisteredContract")
 }
 
 func init() { proto.RegisterFile("injective/wasmx/v1/wasmx.proto", fileDescriptor_6818ff331f2cddc4) }

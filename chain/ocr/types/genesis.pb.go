@@ -516,14 +516,14 @@ func (m *PendingPayeeship) GetProposedPayee() string {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "injective.ocr.v1beta1.GenesisState")
-	proto.RegisterType((*FeedTransmission)(nil), "injective.ocr.v1beta1.FeedTransmission")
-	proto.RegisterType((*FeedEpochAndRound)(nil), "injective.ocr.v1beta1.FeedEpochAndRound")
-	proto.RegisterType((*FeedLatestAggregatorRoundIDs)(nil), "injective.ocr.v1beta1.FeedLatestAggregatorRoundIDs")
-	proto.RegisterType((*RewardPool)(nil), "injective.ocr.v1beta1.RewardPool")
-	proto.RegisterType((*FeedCounts)(nil), "injective.ocr.v1beta1.FeedCounts")
-	proto.RegisterType((*Count)(nil), "injective.ocr.v1beta1.Count")
-	proto.RegisterType((*PendingPayeeship)(nil), "injective.ocr.v1beta1.PendingPayeeship")
+	proto.RegisterType((*GenesisState)(nil), "helios.ocr.v1beta1.GenesisState")
+	proto.RegisterType((*FeedTransmission)(nil), "helios.ocr.v1beta1.FeedTransmission")
+	proto.RegisterType((*FeedEpochAndRound)(nil), "helios.ocr.v1beta1.FeedEpochAndRound")
+	proto.RegisterType((*FeedLatestAggregatorRoundIDs)(nil), "helios.ocr.v1beta1.FeedLatestAggregatorRoundIDs")
+	proto.RegisterType((*RewardPool)(nil), "helios.ocr.v1beta1.RewardPool")
+	proto.RegisterType((*FeedCounts)(nil), "helios.ocr.v1beta1.FeedCounts")
+	proto.RegisterType((*Count)(nil), "helios.ocr.v1beta1.Count")
+	proto.RegisterType((*PendingPayeeship)(nil), "helios.ocr.v1beta1.PendingPayeeship")
 }
 
 func init() {

@@ -700,22 +700,22 @@ func (m *MsgUpdateParamsResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgUpdateParamsResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgRelayProviderPrices)(nil), "injective.oracle.v1beta1.MsgRelayProviderPrices")
-	proto.RegisterType((*MsgRelayProviderPricesResponse)(nil), "injective.oracle.v1beta1.MsgRelayProviderPricesResponse")
-	proto.RegisterType((*MsgRelayPriceFeedPrice)(nil), "injective.oracle.v1beta1.MsgRelayPriceFeedPrice")
-	proto.RegisterType((*MsgRelayPriceFeedPriceResponse)(nil), "injective.oracle.v1beta1.MsgRelayPriceFeedPriceResponse")
-	proto.RegisterType((*MsgRelayBandRates)(nil), "injective.oracle.v1beta1.MsgRelayBandRates")
-	proto.RegisterType((*MsgRelayBandRatesResponse)(nil), "injective.oracle.v1beta1.MsgRelayBandRatesResponse")
-	proto.RegisterType((*MsgRelayCoinbaseMessages)(nil), "injective.oracle.v1beta1.MsgRelayCoinbaseMessages")
-	proto.RegisterType((*MsgRelayCoinbaseMessagesResponse)(nil), "injective.oracle.v1beta1.MsgRelayCoinbaseMessagesResponse")
-	proto.RegisterType((*MsgRelayStorkPrices)(nil), "injective.oracle.v1beta1.MsgRelayStorkPrices")
-	proto.RegisterType((*MsgRelayStorkPricesResponse)(nil), "injective.oracle.v1beta1.MsgRelayStorkPricesResponse")
-	proto.RegisterType((*MsgRequestBandIBCRates)(nil), "injective.oracle.v1beta1.MsgRequestBandIBCRates")
-	proto.RegisterType((*MsgRequestBandIBCRatesResponse)(nil), "injective.oracle.v1beta1.MsgRequestBandIBCRatesResponse")
-	proto.RegisterType((*MsgRelayPythPrices)(nil), "injective.oracle.v1beta1.MsgRelayPythPrices")
-	proto.RegisterType((*MsgRelayPythPricesResponse)(nil), "injective.oracle.v1beta1.MsgRelayPythPricesResponse")
-	proto.RegisterType((*MsgUpdateParams)(nil), "injective.oracle.v1beta1.MsgUpdateParams")
-	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "injective.oracle.v1beta1.MsgUpdateParamsResponse")
+	proto.RegisterType((*MsgRelayProviderPrices)(nil), "helios.oracle.v1beta1.MsgRelayProviderPrices")
+	proto.RegisterType((*MsgRelayProviderPricesResponse)(nil), "helios.oracle.v1beta1.MsgRelayProviderPricesResponse")
+	proto.RegisterType((*MsgRelayPriceFeedPrice)(nil), "helios.oracle.v1beta1.MsgRelayPriceFeedPrice")
+	proto.RegisterType((*MsgRelayPriceFeedPriceResponse)(nil), "helios.oracle.v1beta1.MsgRelayPriceFeedPriceResponse")
+	proto.RegisterType((*MsgRelayBandRates)(nil), "helios.oracle.v1beta1.MsgRelayBandRates")
+	proto.RegisterType((*MsgRelayBandRatesResponse)(nil), "helios.oracle.v1beta1.MsgRelayBandRatesResponse")
+	proto.RegisterType((*MsgRelayCoinbaseMessages)(nil), "helios.oracle.v1beta1.MsgRelayCoinbaseMessages")
+	proto.RegisterType((*MsgRelayCoinbaseMessagesResponse)(nil), "helios.oracle.v1beta1.MsgRelayCoinbaseMessagesResponse")
+	proto.RegisterType((*MsgRelayStorkPrices)(nil), "helios.oracle.v1beta1.MsgRelayStorkPrices")
+	proto.RegisterType((*MsgRelayStorkPricesResponse)(nil), "helios.oracle.v1beta1.MsgRelayStorkPricesResponse")
+	proto.RegisterType((*MsgRequestBandIBCRates)(nil), "helios.oracle.v1beta1.MsgRequestBandIBCRates")
+	proto.RegisterType((*MsgRequestBandIBCRatesResponse)(nil), "helios.oracle.v1beta1.MsgRequestBandIBCRatesResponse")
+	proto.RegisterType((*MsgRelayPythPrices)(nil), "helios.oracle.v1beta1.MsgRelayPythPrices")
+	proto.RegisterType((*MsgRelayPythPricesResponse)(nil), "helios.oracle.v1beta1.MsgRelayPythPricesResponse")
+	proto.RegisterType((*MsgUpdateParams)(nil), "helios.oracle.v1beta1.MsgUpdateParams")
+	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "helios.oracle.v1beta1.MsgUpdateParamsResponse")
 }
 
 func init() { proto.RegisterFile("injective/oracle/v1beta1/tx.proto", fileDescriptor_5fdf1c490eba4310) }
@@ -1102,7 +1102,7 @@ func _Msg_UpdateParams_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.oracle.v1beta1.Msg",
+	ServiceName: "helios.oracle.v1beta1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

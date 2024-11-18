@@ -117,8 +117,8 @@ func (m *PrivKey) GetKey() []byte {
 }
 
 func init() {
-	proto.RegisterType((*PubKey)(nil), "injective.crypto.v1beta1.ethsecp256k1.PubKey")
-	proto.RegisterType((*PrivKey)(nil), "injective.crypto.v1beta1.ethsecp256k1.PrivKey")
+	proto.RegisterType((*PubKey)(nil), "helios.crypto.v1beta1.ethsecp256k1.PubKey")
+	proto.RegisterType((*PrivKey)(nil), "helios.crypto.v1beta1.ethsecp256k1.PrivKey")
 }
 
 func init() {

@@ -47,7 +47,7 @@ func (SignType) EnumDescriptor() ([]byte, []int) {
 }
 
 func init() {
-	proto.RegisterEnum("injective.peggy.v1.SignType", SignType_name, SignType_value)
+	proto.RegisterEnum("helios.peggy.v1.SignType", SignType_name, SignType_value)
 }
 
 func init() {

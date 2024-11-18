@@ -250,8 +250,8 @@ func (m *CalldataRecord) GetCalldata() []byte {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "injective.oracle.v1beta1.GenesisState")
-	proto.RegisterType((*CalldataRecord)(nil), "injective.oracle.v1beta1.CalldataRecord")
+	proto.RegisterType((*GenesisState)(nil), "helios.oracle.v1beta1.GenesisState")
+	proto.RegisterType((*CalldataRecord)(nil), "helios.oracle.v1beta1.CalldataRecord")
 }
 
 func init() {

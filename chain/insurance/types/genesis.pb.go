@@ -109,7 +109,7 @@ func (m *GenesisState) GetNextRedemptionScheduleId() uint64 {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "injective.insurance.v1beta1.GenesisState")
+	proto.RegisterType((*GenesisState)(nil), "helios.insurance.v1beta1.GenesisState")
 }
 
 func init() {

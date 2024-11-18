@@ -132,8 +132,8 @@ func (m *GenesisState) GetRegisteredContracts() []RegisteredContractWithAddress 
 }
 
 func init() {
-	proto.RegisterType((*RegisteredContractWithAddress)(nil), "injective.wasmx.v1.RegisteredContractWithAddress")
-	proto.RegisterType((*GenesisState)(nil), "injective.wasmx.v1.GenesisState")
+	proto.RegisterType((*RegisteredContractWithAddress)(nil), "helios.wasmx.v1.RegisteredContractWithAddress")
+	proto.RegisterType((*GenesisState)(nil), "helios.wasmx.v1.GenesisState")
 }
 
 func init() { proto.RegisterFile("injective/wasmx/v1/genesis.proto", fileDescriptor_8642938473ffc6e5) }

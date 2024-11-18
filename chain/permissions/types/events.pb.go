@@ -78,7 +78,7 @@ func (m *EventSetVoucher) GetVoucher() types.Coin {
 }
 
 func init() {
-	proto.RegisterType((*EventSetVoucher)(nil), "injective.permissions.v1beta1.EventSetVoucher")
+	proto.RegisterType((*EventSetVoucher)(nil), "helios.permissions.v1beta1.EventSetVoucher")
 }
 
 func init() {

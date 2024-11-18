@@ -78,7 +78,7 @@ func (m *GenesisState) GetNamespaces() []Namespace {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "injective.permissions.v1beta1.GenesisState")
+	proto.RegisterType((*GenesisState)(nil), "helios.permissions.v1beta1.GenesisState")
 }
 
 func init() {

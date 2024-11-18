@@ -106,7 +106,7 @@ func (m *GenesisState) GetLastAuctionResult() *LastAuctionResult {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "injective.auction.v1beta1.GenesisState")
+	proto.RegisterType((*GenesisState)(nil), "helios.auction.v1beta1.GenesisState")
 }
 
 func init() {

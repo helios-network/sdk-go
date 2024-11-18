@@ -463,17 +463,17 @@ func (m *RevokeStorkPublisherPrivilegeProposal) XXX_DiscardUnknown() {
 var xxx_messageInfo_RevokeStorkPublisherPrivilegeProposal proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*GrantBandOraclePrivilegeProposal)(nil), "injective.oracle.v1beta1.GrantBandOraclePrivilegeProposal")
-	proto.RegisterType((*RevokeBandOraclePrivilegeProposal)(nil), "injective.oracle.v1beta1.RevokeBandOraclePrivilegeProposal")
-	proto.RegisterType((*GrantPriceFeederPrivilegeProposal)(nil), "injective.oracle.v1beta1.GrantPriceFeederPrivilegeProposal")
-	proto.RegisterType((*GrantProviderPrivilegeProposal)(nil), "injective.oracle.v1beta1.GrantProviderPrivilegeProposal")
-	proto.RegisterType((*RevokeProviderPrivilegeProposal)(nil), "injective.oracle.v1beta1.RevokeProviderPrivilegeProposal")
-	proto.RegisterType((*RevokePriceFeederPrivilegeProposal)(nil), "injective.oracle.v1beta1.RevokePriceFeederPrivilegeProposal")
-	proto.RegisterType((*AuthorizeBandOracleRequestProposal)(nil), "injective.oracle.v1beta1.AuthorizeBandOracleRequestProposal")
-	proto.RegisterType((*UpdateBandOracleRequestProposal)(nil), "injective.oracle.v1beta1.UpdateBandOracleRequestProposal")
-	proto.RegisterType((*EnableBandIBCProposal)(nil), "injective.oracle.v1beta1.EnableBandIBCProposal")
-	proto.RegisterType((*GrantStorkPublisherPrivilegeProposal)(nil), "injective.oracle.v1beta1.GrantStorkPublisherPrivilegeProposal")
-	proto.RegisterType((*RevokeStorkPublisherPrivilegeProposal)(nil), "injective.oracle.v1beta1.RevokeStorkPublisherPrivilegeProposal")
+	proto.RegisterType((*GrantBandOraclePrivilegeProposal)(nil), "helios.oracle.v1beta1.GrantBandOraclePrivilegeProposal")
+	proto.RegisterType((*RevokeBandOraclePrivilegeProposal)(nil), "helios.oracle.v1beta1.RevokeBandOraclePrivilegeProposal")
+	proto.RegisterType((*GrantPriceFeederPrivilegeProposal)(nil), "helios.oracle.v1beta1.GrantPriceFeederPrivilegeProposal")
+	proto.RegisterType((*GrantProviderPrivilegeProposal)(nil), "helios.oracle.v1beta1.GrantProviderPrivilegeProposal")
+	proto.RegisterType((*RevokeProviderPrivilegeProposal)(nil), "helios.oracle.v1beta1.RevokeProviderPrivilegeProposal")
+	proto.RegisterType((*RevokePriceFeederPrivilegeProposal)(nil), "helios.oracle.v1beta1.RevokePriceFeederPrivilegeProposal")
+	proto.RegisterType((*AuthorizeBandOracleRequestProposal)(nil), "helios.oracle.v1beta1.AuthorizeBandOracleRequestProposal")
+	proto.RegisterType((*UpdateBandOracleRequestProposal)(nil), "helios.oracle.v1beta1.UpdateBandOracleRequestProposal")
+	proto.RegisterType((*EnableBandIBCProposal)(nil), "helios.oracle.v1beta1.EnableBandIBCProposal")
+	proto.RegisterType((*GrantStorkPublisherPrivilegeProposal)(nil), "helios.oracle.v1beta1.GrantStorkPublisherPrivilegeProposal")
+	proto.RegisterType((*RevokeStorkPublisherPrivilegeProposal)(nil), "helios.oracle.v1beta1.RevokeStorkPublisherPrivilegeProposal")
 }
 
 func init() {

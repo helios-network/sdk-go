@@ -630,18 +630,18 @@ func (m *MsgUpdateParamsResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgUpdateParamsResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgCreateDenom)(nil), "injective.tokenfactory.v1beta1.MsgCreateDenom")
-	proto.RegisterType((*MsgCreateDenomResponse)(nil), "injective.tokenfactory.v1beta1.MsgCreateDenomResponse")
-	proto.RegisterType((*MsgMint)(nil), "injective.tokenfactory.v1beta1.MsgMint")
-	proto.RegisterType((*MsgMintResponse)(nil), "injective.tokenfactory.v1beta1.MsgMintResponse")
-	proto.RegisterType((*MsgBurn)(nil), "injective.tokenfactory.v1beta1.MsgBurn")
-	proto.RegisterType((*MsgBurnResponse)(nil), "injective.tokenfactory.v1beta1.MsgBurnResponse")
-	proto.RegisterType((*MsgChangeAdmin)(nil), "injective.tokenfactory.v1beta1.MsgChangeAdmin")
-	proto.RegisterType((*MsgChangeAdminResponse)(nil), "injective.tokenfactory.v1beta1.MsgChangeAdminResponse")
-	proto.RegisterType((*MsgSetDenomMetadata)(nil), "injective.tokenfactory.v1beta1.MsgSetDenomMetadata")
-	proto.RegisterType((*MsgSetDenomMetadataResponse)(nil), "injective.tokenfactory.v1beta1.MsgSetDenomMetadataResponse")
-	proto.RegisterType((*MsgUpdateParams)(nil), "injective.tokenfactory.v1beta1.MsgUpdateParams")
-	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "injective.tokenfactory.v1beta1.MsgUpdateParamsResponse")
+	proto.RegisterType((*MsgCreateDenom)(nil), "helios.tokenfactory.v1beta1.MsgCreateDenom")
+	proto.RegisterType((*MsgCreateDenomResponse)(nil), "helios.tokenfactory.v1beta1.MsgCreateDenomResponse")
+	proto.RegisterType((*MsgMint)(nil), "helios.tokenfactory.v1beta1.MsgMint")
+	proto.RegisterType((*MsgMintResponse)(nil), "helios.tokenfactory.v1beta1.MsgMintResponse")
+	proto.RegisterType((*MsgBurn)(nil), "helios.tokenfactory.v1beta1.MsgBurn")
+	proto.RegisterType((*MsgBurnResponse)(nil), "helios.tokenfactory.v1beta1.MsgBurnResponse")
+	proto.RegisterType((*MsgChangeAdmin)(nil), "helios.tokenfactory.v1beta1.MsgChangeAdmin")
+	proto.RegisterType((*MsgChangeAdminResponse)(nil), "helios.tokenfactory.v1beta1.MsgChangeAdminResponse")
+	proto.RegisterType((*MsgSetDenomMetadata)(nil), "helios.tokenfactory.v1beta1.MsgSetDenomMetadata")
+	proto.RegisterType((*MsgSetDenomMetadataResponse)(nil), "helios.tokenfactory.v1beta1.MsgSetDenomMetadataResponse")
+	proto.RegisterType((*MsgUpdateParams)(nil), "helios.tokenfactory.v1beta1.MsgUpdateParams")
+	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "helios.tokenfactory.v1beta1.MsgUpdateParamsResponse")
 }
 
 func init() {
@@ -936,7 +936,7 @@ func _Msg_UpdateParams_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.tokenfactory.v1beta1.Msg",
+	ServiceName: "helios.tokenfactory.v1beta1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

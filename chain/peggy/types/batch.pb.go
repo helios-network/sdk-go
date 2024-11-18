@@ -177,8 +177,8 @@ func (m *OutgoingTransferTx) GetErc20Fee() *ERC20Token {
 }
 
 func init() {
-	proto.RegisterType((*OutgoingTxBatch)(nil), "injective.peggy.v1.OutgoingTxBatch")
-	proto.RegisterType((*OutgoingTransferTx)(nil), "injective.peggy.v1.OutgoingTransferTx")
+	proto.RegisterType((*OutgoingTxBatch)(nil), "helios.peggy.v1.OutgoingTxBatch")
+	proto.RegisterType((*OutgoingTransferTx)(nil), "helios.peggy.v1.OutgoingTransferTx")
 }
 
 func init() { proto.RegisterFile("injective/peggy/v1/batch.proto", fileDescriptor_48fd09581f1b5901) }

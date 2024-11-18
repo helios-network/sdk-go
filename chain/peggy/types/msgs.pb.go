@@ -1577,34 +1577,34 @@ func (m *MsgRevokeEthereumBlacklistResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgRevokeEthereumBlacklistResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgSetOrchestratorAddresses)(nil), "injective.peggy.v1.MsgSetOrchestratorAddresses")
-	proto.RegisterType((*MsgSetOrchestratorAddressesResponse)(nil), "injective.peggy.v1.MsgSetOrchestratorAddressesResponse")
-	proto.RegisterType((*MsgValsetConfirm)(nil), "injective.peggy.v1.MsgValsetConfirm")
-	proto.RegisterType((*MsgValsetConfirmResponse)(nil), "injective.peggy.v1.MsgValsetConfirmResponse")
-	proto.RegisterType((*MsgSendToEth)(nil), "injective.peggy.v1.MsgSendToEth")
-	proto.RegisterType((*MsgSendToEthResponse)(nil), "injective.peggy.v1.MsgSendToEthResponse")
-	proto.RegisterType((*MsgRequestBatch)(nil), "injective.peggy.v1.MsgRequestBatch")
-	proto.RegisterType((*MsgRequestBatchResponse)(nil), "injective.peggy.v1.MsgRequestBatchResponse")
-	proto.RegisterType((*MsgConfirmBatch)(nil), "injective.peggy.v1.MsgConfirmBatch")
-	proto.RegisterType((*MsgConfirmBatchResponse)(nil), "injective.peggy.v1.MsgConfirmBatchResponse")
-	proto.RegisterType((*MsgDepositClaim)(nil), "injective.peggy.v1.MsgDepositClaim")
-	proto.RegisterType((*MsgDepositClaimResponse)(nil), "injective.peggy.v1.MsgDepositClaimResponse")
-	proto.RegisterType((*MsgWithdrawClaim)(nil), "injective.peggy.v1.MsgWithdrawClaim")
-	proto.RegisterType((*MsgWithdrawClaimResponse)(nil), "injective.peggy.v1.MsgWithdrawClaimResponse")
-	proto.RegisterType((*MsgERC20DeployedClaim)(nil), "injective.peggy.v1.MsgERC20DeployedClaim")
-	proto.RegisterType((*MsgERC20DeployedClaimResponse)(nil), "injective.peggy.v1.MsgERC20DeployedClaimResponse")
-	proto.RegisterType((*MsgCancelSendToEth)(nil), "injective.peggy.v1.MsgCancelSendToEth")
-	proto.RegisterType((*MsgCancelSendToEthResponse)(nil), "injective.peggy.v1.MsgCancelSendToEthResponse")
-	proto.RegisterType((*MsgSubmitBadSignatureEvidence)(nil), "injective.peggy.v1.MsgSubmitBadSignatureEvidence")
-	proto.RegisterType((*MsgSubmitBadSignatureEvidenceResponse)(nil), "injective.peggy.v1.MsgSubmitBadSignatureEvidenceResponse")
-	proto.RegisterType((*MsgValsetUpdatedClaim)(nil), "injective.peggy.v1.MsgValsetUpdatedClaim")
-	proto.RegisterType((*MsgValsetUpdatedClaimResponse)(nil), "injective.peggy.v1.MsgValsetUpdatedClaimResponse")
-	proto.RegisterType((*MsgUpdateParams)(nil), "injective.peggy.v1.MsgUpdateParams")
-	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "injective.peggy.v1.MsgUpdateParamsResponse")
-	proto.RegisterType((*MsgBlacklistEthereumAddresses)(nil), "injective.peggy.v1.MsgBlacklistEthereumAddresses")
-	proto.RegisterType((*MsgBlacklistEthereumAddressesResponse)(nil), "injective.peggy.v1.MsgBlacklistEthereumAddressesResponse")
-	proto.RegisterType((*MsgRevokeEthereumBlacklist)(nil), "injective.peggy.v1.MsgRevokeEthereumBlacklist")
-	proto.RegisterType((*MsgRevokeEthereumBlacklistResponse)(nil), "injective.peggy.v1.MsgRevokeEthereumBlacklistResponse")
+	proto.RegisterType((*MsgSetOrchestratorAddresses)(nil), "helios.peggy.v1.MsgSetOrchestratorAddresses")
+	proto.RegisterType((*MsgSetOrchestratorAddressesResponse)(nil), "helios.peggy.v1.MsgSetOrchestratorAddressesResponse")
+	proto.RegisterType((*MsgValsetConfirm)(nil), "helios.peggy.v1.MsgValsetConfirm")
+	proto.RegisterType((*MsgValsetConfirmResponse)(nil), "helios.peggy.v1.MsgValsetConfirmResponse")
+	proto.RegisterType((*MsgSendToEth)(nil), "helios.peggy.v1.MsgSendToEth")
+	proto.RegisterType((*MsgSendToEthResponse)(nil), "helios.peggy.v1.MsgSendToEthResponse")
+	proto.RegisterType((*MsgRequestBatch)(nil), "helios.peggy.v1.MsgRequestBatch")
+	proto.RegisterType((*MsgRequestBatchResponse)(nil), "helios.peggy.v1.MsgRequestBatchResponse")
+	proto.RegisterType((*MsgConfirmBatch)(nil), "helios.peggy.v1.MsgConfirmBatch")
+	proto.RegisterType((*MsgConfirmBatchResponse)(nil), "helios.peggy.v1.MsgConfirmBatchResponse")
+	proto.RegisterType((*MsgDepositClaim)(nil), "helios.peggy.v1.MsgDepositClaim")
+	proto.RegisterType((*MsgDepositClaimResponse)(nil), "helios.peggy.v1.MsgDepositClaimResponse")
+	proto.RegisterType((*MsgWithdrawClaim)(nil), "helios.peggy.v1.MsgWithdrawClaim")
+	proto.RegisterType((*MsgWithdrawClaimResponse)(nil), "helios.peggy.v1.MsgWithdrawClaimResponse")
+	proto.RegisterType((*MsgERC20DeployedClaim)(nil), "helios.peggy.v1.MsgERC20DeployedClaim")
+	proto.RegisterType((*MsgERC20DeployedClaimResponse)(nil), "helios.peggy.v1.MsgERC20DeployedClaimResponse")
+	proto.RegisterType((*MsgCancelSendToEth)(nil), "helios.peggy.v1.MsgCancelSendToEth")
+	proto.RegisterType((*MsgCancelSendToEthResponse)(nil), "helios.peggy.v1.MsgCancelSendToEthResponse")
+	proto.RegisterType((*MsgSubmitBadSignatureEvidence)(nil), "helios.peggy.v1.MsgSubmitBadSignatureEvidence")
+	proto.RegisterType((*MsgSubmitBadSignatureEvidenceResponse)(nil), "helios.peggy.v1.MsgSubmitBadSignatureEvidenceResponse")
+	proto.RegisterType((*MsgValsetUpdatedClaim)(nil), "helios.peggy.v1.MsgValsetUpdatedClaim")
+	proto.RegisterType((*MsgValsetUpdatedClaimResponse)(nil), "helios.peggy.v1.MsgValsetUpdatedClaimResponse")
+	proto.RegisterType((*MsgUpdateParams)(nil), "helios.peggy.v1.MsgUpdateParams")
+	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "helios.peggy.v1.MsgUpdateParamsResponse")
+	proto.RegisterType((*MsgBlacklistEthereumAddresses)(nil), "helios.peggy.v1.MsgBlacklistEthereumAddresses")
+	proto.RegisterType((*MsgBlacklistEthereumAddressesResponse)(nil), "helios.peggy.v1.MsgBlacklistEthereumAddressesResponse")
+	proto.RegisterType((*MsgRevokeEthereumBlacklist)(nil), "helios.peggy.v1.MsgRevokeEthereumBlacklist")
+	proto.RegisterType((*MsgRevokeEthereumBlacklistResponse)(nil), "helios.peggy.v1.MsgRevokeEthereumBlacklistResponse")
 }
 
 func init() { proto.RegisterFile("injective/peggy/v1/msgs.proto", fileDescriptor_751daa04abed7ef4) }
@@ -2214,7 +2214,7 @@ func _Msg_RevokeEthereumBlacklist_Handler(srv interface{}, ctx context.Context, 
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.peggy.v1.Msg",
+	ServiceName: "helios.peggy.v1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

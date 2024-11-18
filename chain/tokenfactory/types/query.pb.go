@@ -390,14 +390,14 @@ func (m *QueryModuleStateResponse) GetState() *GenesisState {
 }
 
 func init() {
-	proto.RegisterType((*QueryParamsRequest)(nil), "injective.tokenfactory.v1beta1.QueryParamsRequest")
-	proto.RegisterType((*QueryParamsResponse)(nil), "injective.tokenfactory.v1beta1.QueryParamsResponse")
-	proto.RegisterType((*QueryDenomAuthorityMetadataRequest)(nil), "injective.tokenfactory.v1beta1.QueryDenomAuthorityMetadataRequest")
-	proto.RegisterType((*QueryDenomAuthorityMetadataResponse)(nil), "injective.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse")
-	proto.RegisterType((*QueryDenomsFromCreatorRequest)(nil), "injective.tokenfactory.v1beta1.QueryDenomsFromCreatorRequest")
-	proto.RegisterType((*QueryDenomsFromCreatorResponse)(nil), "injective.tokenfactory.v1beta1.QueryDenomsFromCreatorResponse")
-	proto.RegisterType((*QueryModuleStateRequest)(nil), "injective.tokenfactory.v1beta1.QueryModuleStateRequest")
-	proto.RegisterType((*QueryModuleStateResponse)(nil), "injective.tokenfactory.v1beta1.QueryModuleStateResponse")
+	proto.RegisterType((*QueryParamsRequest)(nil), "helios.tokenfactory.v1beta1.QueryParamsRequest")
+	proto.RegisterType((*QueryParamsResponse)(nil), "helios.tokenfactory.v1beta1.QueryParamsResponse")
+	proto.RegisterType((*QueryDenomAuthorityMetadataRequest)(nil), "helios.tokenfactory.v1beta1.QueryDenomAuthorityMetadataRequest")
+	proto.RegisterType((*QueryDenomAuthorityMetadataResponse)(nil), "helios.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse")
+	proto.RegisterType((*QueryDenomsFromCreatorRequest)(nil), "helios.tokenfactory.v1beta1.QueryDenomsFromCreatorRequest")
+	proto.RegisterType((*QueryDenomsFromCreatorResponse)(nil), "helios.tokenfactory.v1beta1.QueryDenomsFromCreatorResponse")
+	proto.RegisterType((*QueryModuleStateRequest)(nil), "helios.tokenfactory.v1beta1.QueryModuleStateRequest")
+	proto.RegisterType((*QueryModuleStateResponse)(nil), "helios.tokenfactory.v1beta1.QueryModuleStateResponse")
 }
 
 func init() {
@@ -630,7 +630,7 @@ func _Query_TokenfactoryModuleState_Handler(srv interface{}, ctx context.Context
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.tokenfactory.v1beta1.Query",
+	ServiceName: "helios.tokenfactory.v1beta1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

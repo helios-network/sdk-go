@@ -299,11 +299,11 @@ func (m *EventInsuranceWithdraw) GetWithdrawal() types.Coin {
 }
 
 func init() {
-	proto.RegisterType((*EventInsuranceFundUpdate)(nil), "injective.insurance.v1beta1.EventInsuranceFundUpdate")
-	proto.RegisterType((*EventRequestRedemption)(nil), "injective.insurance.v1beta1.EventRequestRedemption")
-	proto.RegisterType((*EventWithdrawRedemption)(nil), "injective.insurance.v1beta1.EventWithdrawRedemption")
-	proto.RegisterType((*EventUnderwrite)(nil), "injective.insurance.v1beta1.EventUnderwrite")
-	proto.RegisterType((*EventInsuranceWithdraw)(nil), "injective.insurance.v1beta1.EventInsuranceWithdraw")
+	proto.RegisterType((*EventInsuranceFundUpdate)(nil), "helios.insurance.v1beta1.EventInsuranceFundUpdate")
+	proto.RegisterType((*EventRequestRedemption)(nil), "helios.insurance.v1beta1.EventRequestRedemption")
+	proto.RegisterType((*EventWithdrawRedemption)(nil), "helios.insurance.v1beta1.EventWithdrawRedemption")
+	proto.RegisterType((*EventUnderwrite)(nil), "helios.insurance.v1beta1.EventUnderwrite")
+	proto.RegisterType((*EventInsuranceWithdraw)(nil), "helios.insurance.v1beta1.EventInsuranceWithdraw")
 }
 
 func init() {

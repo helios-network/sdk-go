@@ -576,18 +576,18 @@ func (m *QueryModuleStateResponse) GetState() *GenesisState {
 }
 
 func init() {
-	proto.RegisterType((*QueryInsuranceParamsRequest)(nil), "injective.insurance.v1beta1.QueryInsuranceParamsRequest")
-	proto.RegisterType((*QueryInsuranceParamsResponse)(nil), "injective.insurance.v1beta1.QueryInsuranceParamsResponse")
-	proto.RegisterType((*QueryInsuranceFundRequest)(nil), "injective.insurance.v1beta1.QueryInsuranceFundRequest")
-	proto.RegisterType((*QueryInsuranceFundResponse)(nil), "injective.insurance.v1beta1.QueryInsuranceFundResponse")
-	proto.RegisterType((*QueryInsuranceFundsRequest)(nil), "injective.insurance.v1beta1.QueryInsuranceFundsRequest")
-	proto.RegisterType((*QueryInsuranceFundsResponse)(nil), "injective.insurance.v1beta1.QueryInsuranceFundsResponse")
-	proto.RegisterType((*QueryEstimatedRedemptionsRequest)(nil), "injective.insurance.v1beta1.QueryEstimatedRedemptionsRequest")
-	proto.RegisterType((*QueryEstimatedRedemptionsResponse)(nil), "injective.insurance.v1beta1.QueryEstimatedRedemptionsResponse")
-	proto.RegisterType((*QueryPendingRedemptionsRequest)(nil), "injective.insurance.v1beta1.QueryPendingRedemptionsRequest")
-	proto.RegisterType((*QueryPendingRedemptionsResponse)(nil), "injective.insurance.v1beta1.QueryPendingRedemptionsResponse")
-	proto.RegisterType((*QueryModuleStateRequest)(nil), "injective.insurance.v1beta1.QueryModuleStateRequest")
-	proto.RegisterType((*QueryModuleStateResponse)(nil), "injective.insurance.v1beta1.QueryModuleStateResponse")
+	proto.RegisterType((*QueryInsuranceParamsRequest)(nil), "helios.insurance.v1beta1.QueryInsuranceParamsRequest")
+	proto.RegisterType((*QueryInsuranceParamsResponse)(nil), "helios.insurance.v1beta1.QueryInsuranceParamsResponse")
+	proto.RegisterType((*QueryInsuranceFundRequest)(nil), "helios.insurance.v1beta1.QueryInsuranceFundRequest")
+	proto.RegisterType((*QueryInsuranceFundResponse)(nil), "helios.insurance.v1beta1.QueryInsuranceFundResponse")
+	proto.RegisterType((*QueryInsuranceFundsRequest)(nil), "helios.insurance.v1beta1.QueryInsuranceFundsRequest")
+	proto.RegisterType((*QueryInsuranceFundsResponse)(nil), "helios.insurance.v1beta1.QueryInsuranceFundsResponse")
+	proto.RegisterType((*QueryEstimatedRedemptionsRequest)(nil), "helios.insurance.v1beta1.QueryEstimatedRedemptionsRequest")
+	proto.RegisterType((*QueryEstimatedRedemptionsResponse)(nil), "helios.insurance.v1beta1.QueryEstimatedRedemptionsResponse")
+	proto.RegisterType((*QueryPendingRedemptionsRequest)(nil), "helios.insurance.v1beta1.QueryPendingRedemptionsRequest")
+	proto.RegisterType((*QueryPendingRedemptionsResponse)(nil), "helios.insurance.v1beta1.QueryPendingRedemptionsResponse")
+	proto.RegisterType((*QueryModuleStateRequest)(nil), "helios.insurance.v1beta1.QueryModuleStateRequest")
+	proto.RegisterType((*QueryModuleStateResponse)(nil), "helios.insurance.v1beta1.QueryModuleStateResponse")
 }
 
 func init() {
@@ -886,7 +886,7 @@ func _Query_InsuranceModuleState_Handler(srv interface{}, ctx context.Context, d
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.insurance.v1beta1.Query",
+	ServiceName: "helios.insurance.v1beta1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

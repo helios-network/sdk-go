@@ -182,7 +182,7 @@ func (m *GenesisState) GetEthereumBlacklist() []string {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "injective.peggy.v1.GenesisState")
+	proto.RegisterType((*GenesisState)(nil), "helios.peggy.v1.GenesisState")
 }
 
 func init() { proto.RegisterFile("injective/peggy/v1/genesis.proto", fileDescriptor_3b8a70f18b346efa) }

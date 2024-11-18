@@ -627,18 +627,18 @@ func (m *MsgRegisterContractResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgRegisterContractResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgExecuteContractCompat)(nil), "injective.wasmx.v1.MsgExecuteContractCompat")
-	proto.RegisterType((*MsgExecuteContractCompatResponse)(nil), "injective.wasmx.v1.MsgExecuteContractCompatResponse")
-	proto.RegisterType((*MsgUpdateContract)(nil), "injective.wasmx.v1.MsgUpdateContract")
-	proto.RegisterType((*MsgUpdateContractResponse)(nil), "injective.wasmx.v1.MsgUpdateContractResponse")
-	proto.RegisterType((*MsgActivateContract)(nil), "injective.wasmx.v1.MsgActivateContract")
-	proto.RegisterType((*MsgActivateContractResponse)(nil), "injective.wasmx.v1.MsgActivateContractResponse")
-	proto.RegisterType((*MsgDeactivateContract)(nil), "injective.wasmx.v1.MsgDeactivateContract")
-	proto.RegisterType((*MsgDeactivateContractResponse)(nil), "injective.wasmx.v1.MsgDeactivateContractResponse")
-	proto.RegisterType((*MsgUpdateParams)(nil), "injective.wasmx.v1.MsgUpdateParams")
-	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "injective.wasmx.v1.MsgUpdateParamsResponse")
-	proto.RegisterType((*MsgRegisterContract)(nil), "injective.wasmx.v1.MsgRegisterContract")
-	proto.RegisterType((*MsgRegisterContractResponse)(nil), "injective.wasmx.v1.MsgRegisterContractResponse")
+	proto.RegisterType((*MsgExecuteContractCompat)(nil), "helios.wasmx.v1.MsgExecuteContractCompat")
+	proto.RegisterType((*MsgExecuteContractCompatResponse)(nil), "helios.wasmx.v1.MsgExecuteContractCompatResponse")
+	proto.RegisterType((*MsgUpdateContract)(nil), "helios.wasmx.v1.MsgUpdateContract")
+	proto.RegisterType((*MsgUpdateContractResponse)(nil), "helios.wasmx.v1.MsgUpdateContractResponse")
+	proto.RegisterType((*MsgActivateContract)(nil), "helios.wasmx.v1.MsgActivateContract")
+	proto.RegisterType((*MsgActivateContractResponse)(nil), "helios.wasmx.v1.MsgActivateContractResponse")
+	proto.RegisterType((*MsgDeactivateContract)(nil), "helios.wasmx.v1.MsgDeactivateContract")
+	proto.RegisterType((*MsgDeactivateContractResponse)(nil), "helios.wasmx.v1.MsgDeactivateContractResponse")
+	proto.RegisterType((*MsgUpdateParams)(nil), "helios.wasmx.v1.MsgUpdateParams")
+	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "helios.wasmx.v1.MsgUpdateParamsResponse")
+	proto.RegisterType((*MsgRegisterContract)(nil), "helios.wasmx.v1.MsgRegisterContract")
+	proto.RegisterType((*MsgRegisterContractResponse)(nil), "helios.wasmx.v1.MsgRegisterContractResponse")
 }
 
 func init() { proto.RegisterFile("injective/wasmx/v1/tx.proto", fileDescriptor_f7afe23baa925f70) }
@@ -926,7 +926,7 @@ func _Msg_RegisterContract_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.wasmx.v1.Msg",
+	ServiceName: "helios.wasmx.v1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

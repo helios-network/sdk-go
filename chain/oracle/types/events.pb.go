@@ -638,17 +638,17 @@ func (m *EventSetPythPrices) GetPrices() []*PythPriceState {
 }
 
 func init() {
-	proto.RegisterType((*SetChainlinkPriceEvent)(nil), "injective.oracle.v1beta1.SetChainlinkPriceEvent")
-	proto.RegisterType((*SetBandPriceEvent)(nil), "injective.oracle.v1beta1.SetBandPriceEvent")
-	proto.RegisterType((*SetBandIBCPriceEvent)(nil), "injective.oracle.v1beta1.SetBandIBCPriceEvent")
-	proto.RegisterType((*EventBandIBCAckSuccess)(nil), "injective.oracle.v1beta1.EventBandIBCAckSuccess")
-	proto.RegisterType((*EventBandIBCAckError)(nil), "injective.oracle.v1beta1.EventBandIBCAckError")
-	proto.RegisterType((*EventBandIBCResponseTimeout)(nil), "injective.oracle.v1beta1.EventBandIBCResponseTimeout")
-	proto.RegisterType((*SetPriceFeedPriceEvent)(nil), "injective.oracle.v1beta1.SetPriceFeedPriceEvent")
-	proto.RegisterType((*SetProviderPriceEvent)(nil), "injective.oracle.v1beta1.SetProviderPriceEvent")
-	proto.RegisterType((*SetCoinbasePriceEvent)(nil), "injective.oracle.v1beta1.SetCoinbasePriceEvent")
-	proto.RegisterType((*EventSetStorkPrices)(nil), "injective.oracle.v1beta1.EventSetStorkPrices")
-	proto.RegisterType((*EventSetPythPrices)(nil), "injective.oracle.v1beta1.EventSetPythPrices")
+	proto.RegisterType((*SetChainlinkPriceEvent)(nil), "helios.oracle.v1beta1.SetChainlinkPriceEvent")
+	proto.RegisterType((*SetBandPriceEvent)(nil), "helios.oracle.v1beta1.SetBandPriceEvent")
+	proto.RegisterType((*SetBandIBCPriceEvent)(nil), "helios.oracle.v1beta1.SetBandIBCPriceEvent")
+	proto.RegisterType((*EventBandIBCAckSuccess)(nil), "helios.oracle.v1beta1.EventBandIBCAckSuccess")
+	proto.RegisterType((*EventBandIBCAckError)(nil), "helios.oracle.v1beta1.EventBandIBCAckError")
+	proto.RegisterType((*EventBandIBCResponseTimeout)(nil), "helios.oracle.v1beta1.EventBandIBCResponseTimeout")
+	proto.RegisterType((*SetPriceFeedPriceEvent)(nil), "helios.oracle.v1beta1.SetPriceFeedPriceEvent")
+	proto.RegisterType((*SetProviderPriceEvent)(nil), "helios.oracle.v1beta1.SetProviderPriceEvent")
+	proto.RegisterType((*SetCoinbasePriceEvent)(nil), "helios.oracle.v1beta1.SetCoinbasePriceEvent")
+	proto.RegisterType((*EventSetStorkPrices)(nil), "helios.oracle.v1beta1.EventSetStorkPrices")
+	proto.RegisterType((*EventSetPythPrices)(nil), "helios.oracle.v1beta1.EventSetPythPrices")
 }
 
 func init() {

@@ -286,11 +286,11 @@ func (m *EventSetTFDenomMetadata) GetMetadata() types1.Metadata {
 }
 
 func init() {
-	proto.RegisterType((*EventCreateTFDenom)(nil), "injective.tokenfactory.v1beta1.EventCreateTFDenom")
-	proto.RegisterType((*EventMintTFDenom)(nil), "injective.tokenfactory.v1beta1.EventMintTFDenom")
-	proto.RegisterType((*EventBurnDenom)(nil), "injective.tokenfactory.v1beta1.EventBurnDenom")
-	proto.RegisterType((*EventChangeTFAdmin)(nil), "injective.tokenfactory.v1beta1.EventChangeTFAdmin")
-	proto.RegisterType((*EventSetTFDenomMetadata)(nil), "injective.tokenfactory.v1beta1.EventSetTFDenomMetadata")
+	proto.RegisterType((*EventCreateTFDenom)(nil), "helios.tokenfactory.v1beta1.EventCreateTFDenom")
+	proto.RegisterType((*EventMintTFDenom)(nil), "helios.tokenfactory.v1beta1.EventMintTFDenom")
+	proto.RegisterType((*EventBurnDenom)(nil), "helios.tokenfactory.v1beta1.EventBurnDenom")
+	proto.RegisterType((*EventChangeTFAdmin)(nil), "helios.tokenfactory.v1beta1.EventChangeTFAdmin")
+	proto.RegisterType((*EventSetTFDenomMetadata)(nil), "helios.tokenfactory.v1beta1.EventSetTFDenomMetadata")
 }
 
 func init() {

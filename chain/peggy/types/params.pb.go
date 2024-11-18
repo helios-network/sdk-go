@@ -204,7 +204,7 @@ func (m *Params) GetAdmins() []string {
 }
 
 func init() {
-	proto.RegisterType((*Params)(nil), "injective.peggy.v1.Params")
+	proto.RegisterType((*Params)(nil), "helios.peggy.v1.Params")
 }
 
 func init() { proto.RegisterFile("injective/peggy/v1/params.proto", fileDescriptor_f21ffdf8d29783da) }

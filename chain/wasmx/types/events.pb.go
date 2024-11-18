@@ -236,9 +236,9 @@ func (m *EventContractDeregistered) GetContractAddress() string {
 }
 
 func init() {
-	proto.RegisterType((*EventContractExecution)(nil), "injective.wasmx.v1.EventContractExecution")
-	proto.RegisterType((*EventContractRegistered)(nil), "injective.wasmx.v1.EventContractRegistered")
-	proto.RegisterType((*EventContractDeregistered)(nil), "injective.wasmx.v1.EventContractDeregistered")
+	proto.RegisterType((*EventContractExecution)(nil), "helios.wasmx.v1.EventContractExecution")
+	proto.RegisterType((*EventContractRegistered)(nil), "helios.wasmx.v1.EventContractRegistered")
+	proto.RegisterType((*EventContractDeregistered)(nil), "helios.wasmx.v1.EventContractDeregistered")
 }
 
 func init() { proto.RegisterFile("injective/wasmx/v1/events.proto", fileDescriptor_f2ba06c5f04cb490) }

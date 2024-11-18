@@ -673,20 +673,20 @@ func (m *QueryModuleStateResponse) GetState() *GenesisState {
 }
 
 func init() {
-	proto.RegisterType((*QueryParamsRequest)(nil), "injective.ocr.v1beta1.QueryParamsRequest")
-	proto.RegisterType((*QueryParamsResponse)(nil), "injective.ocr.v1beta1.QueryParamsResponse")
-	proto.RegisterType((*QueryFeedConfigRequest)(nil), "injective.ocr.v1beta1.QueryFeedConfigRequest")
-	proto.RegisterType((*QueryFeedConfigResponse)(nil), "injective.ocr.v1beta1.QueryFeedConfigResponse")
-	proto.RegisterType((*QueryFeedConfigInfoRequest)(nil), "injective.ocr.v1beta1.QueryFeedConfigInfoRequest")
-	proto.RegisterType((*QueryFeedConfigInfoResponse)(nil), "injective.ocr.v1beta1.QueryFeedConfigInfoResponse")
-	proto.RegisterType((*QueryLatestRoundRequest)(nil), "injective.ocr.v1beta1.QueryLatestRoundRequest")
-	proto.RegisterType((*QueryLatestRoundResponse)(nil), "injective.ocr.v1beta1.QueryLatestRoundResponse")
-	proto.RegisterType((*QueryLatestTransmissionDetailsRequest)(nil), "injective.ocr.v1beta1.QueryLatestTransmissionDetailsRequest")
-	proto.RegisterType((*QueryLatestTransmissionDetailsResponse)(nil), "injective.ocr.v1beta1.QueryLatestTransmissionDetailsResponse")
-	proto.RegisterType((*QueryOwedAmountRequest)(nil), "injective.ocr.v1beta1.QueryOwedAmountRequest")
-	proto.RegisterType((*QueryOwedAmountResponse)(nil), "injective.ocr.v1beta1.QueryOwedAmountResponse")
-	proto.RegisterType((*QueryModuleStateRequest)(nil), "injective.ocr.v1beta1.QueryModuleStateRequest")
-	proto.RegisterType((*QueryModuleStateResponse)(nil), "injective.ocr.v1beta1.QueryModuleStateResponse")
+	proto.RegisterType((*QueryParamsRequest)(nil), "helios.ocr.v1beta1.QueryParamsRequest")
+	proto.RegisterType((*QueryParamsResponse)(nil), "helios.ocr.v1beta1.QueryParamsResponse")
+	proto.RegisterType((*QueryFeedConfigRequest)(nil), "helios.ocr.v1beta1.QueryFeedConfigRequest")
+	proto.RegisterType((*QueryFeedConfigResponse)(nil), "helios.ocr.v1beta1.QueryFeedConfigResponse")
+	proto.RegisterType((*QueryFeedConfigInfoRequest)(nil), "helios.ocr.v1beta1.QueryFeedConfigInfoRequest")
+	proto.RegisterType((*QueryFeedConfigInfoResponse)(nil), "helios.ocr.v1beta1.QueryFeedConfigInfoResponse")
+	proto.RegisterType((*QueryLatestRoundRequest)(nil), "helios.ocr.v1beta1.QueryLatestRoundRequest")
+	proto.RegisterType((*QueryLatestRoundResponse)(nil), "helios.ocr.v1beta1.QueryLatestRoundResponse")
+	proto.RegisterType((*QueryLatestTransmissionDetailsRequest)(nil), "helios.ocr.v1beta1.QueryLatestTransmissionDetailsRequest")
+	proto.RegisterType((*QueryLatestTransmissionDetailsResponse)(nil), "helios.ocr.v1beta1.QueryLatestTransmissionDetailsResponse")
+	proto.RegisterType((*QueryOwedAmountRequest)(nil), "helios.ocr.v1beta1.QueryOwedAmountRequest")
+	proto.RegisterType((*QueryOwedAmountResponse)(nil), "helios.ocr.v1beta1.QueryOwedAmountResponse")
+	proto.RegisterType((*QueryModuleStateRequest)(nil), "helios.ocr.v1beta1.QueryModuleStateRequest")
+	proto.RegisterType((*QueryModuleStateResponse)(nil), "helios.ocr.v1beta1.QueryModuleStateResponse")
 }
 
 func init() { proto.RegisterFile("injective/ocr/v1beta1/query.proto", fileDescriptor_9921480020d97b2c) }
@@ -1025,7 +1025,7 @@ func _Query_OcrModuleState_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.ocr.v1beta1.Query",
+	ServiceName: "helios.ocr.v1beta1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

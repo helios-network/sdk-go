@@ -886,24 +886,24 @@ func (m *MsgClaimVoucherResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgClaimVoucherResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgUpdateParams)(nil), "injective.permissions.v1beta1.MsgUpdateParams")
-	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "injective.permissions.v1beta1.MsgUpdateParamsResponse")
-	proto.RegisterType((*MsgCreateNamespace)(nil), "injective.permissions.v1beta1.MsgCreateNamespace")
-	proto.RegisterType((*MsgCreateNamespaceResponse)(nil), "injective.permissions.v1beta1.MsgCreateNamespaceResponse")
-	proto.RegisterType((*MsgDeleteNamespace)(nil), "injective.permissions.v1beta1.MsgDeleteNamespace")
-	proto.RegisterType((*MsgDeleteNamespaceResponse)(nil), "injective.permissions.v1beta1.MsgDeleteNamespaceResponse")
-	proto.RegisterType((*MsgUpdateNamespace)(nil), "injective.permissions.v1beta1.MsgUpdateNamespace")
-	proto.RegisterType((*MsgUpdateNamespace_MsgSetWasmHook)(nil), "injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetWasmHook")
-	proto.RegisterType((*MsgUpdateNamespace_MsgSetMintsPaused)(nil), "injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetMintsPaused")
-	proto.RegisterType((*MsgUpdateNamespace_MsgSetSendsPaused)(nil), "injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetSendsPaused")
-	proto.RegisterType((*MsgUpdateNamespace_MsgSetBurnsPaused)(nil), "injective.permissions.v1beta1.MsgUpdateNamespace.MsgSetBurnsPaused")
-	proto.RegisterType((*MsgUpdateNamespaceResponse)(nil), "injective.permissions.v1beta1.MsgUpdateNamespaceResponse")
-	proto.RegisterType((*MsgUpdateNamespaceRoles)(nil), "injective.permissions.v1beta1.MsgUpdateNamespaceRoles")
-	proto.RegisterType((*MsgUpdateNamespaceRolesResponse)(nil), "injective.permissions.v1beta1.MsgUpdateNamespaceRolesResponse")
-	proto.RegisterType((*MsgRevokeNamespaceRoles)(nil), "injective.permissions.v1beta1.MsgRevokeNamespaceRoles")
-	proto.RegisterType((*MsgRevokeNamespaceRolesResponse)(nil), "injective.permissions.v1beta1.MsgRevokeNamespaceRolesResponse")
-	proto.RegisterType((*MsgClaimVoucher)(nil), "injective.permissions.v1beta1.MsgClaimVoucher")
-	proto.RegisterType((*MsgClaimVoucherResponse)(nil), "injective.permissions.v1beta1.MsgClaimVoucherResponse")
+	proto.RegisterType((*MsgUpdateParams)(nil), "helios.permissions.v1beta1.MsgUpdateParams")
+	proto.RegisterType((*MsgUpdateParamsResponse)(nil), "helios.permissions.v1beta1.MsgUpdateParamsResponse")
+	proto.RegisterType((*MsgCreateNamespace)(nil), "helios.permissions.v1beta1.MsgCreateNamespace")
+	proto.RegisterType((*MsgCreateNamespaceResponse)(nil), "helios.permissions.v1beta1.MsgCreateNamespaceResponse")
+	proto.RegisterType((*MsgDeleteNamespace)(nil), "helios.permissions.v1beta1.MsgDeleteNamespace")
+	proto.RegisterType((*MsgDeleteNamespaceResponse)(nil), "helios.permissions.v1beta1.MsgDeleteNamespaceResponse")
+	proto.RegisterType((*MsgUpdateNamespace)(nil), "helios.permissions.v1beta1.MsgUpdateNamespace")
+	proto.RegisterType((*MsgUpdateNamespace_MsgSetWasmHook)(nil), "helios.permissions.v1beta1.MsgUpdateNamespace.MsgSetWasmHook")
+	proto.RegisterType((*MsgUpdateNamespace_MsgSetMintsPaused)(nil), "helios.permissions.v1beta1.MsgUpdateNamespace.MsgSetMintsPaused")
+	proto.RegisterType((*MsgUpdateNamespace_MsgSetSendsPaused)(nil), "helios.permissions.v1beta1.MsgUpdateNamespace.MsgSetSendsPaused")
+	proto.RegisterType((*MsgUpdateNamespace_MsgSetBurnsPaused)(nil), "helios.permissions.v1beta1.MsgUpdateNamespace.MsgSetBurnsPaused")
+	proto.RegisterType((*MsgUpdateNamespaceResponse)(nil), "helios.permissions.v1beta1.MsgUpdateNamespaceResponse")
+	proto.RegisterType((*MsgUpdateNamespaceRoles)(nil), "helios.permissions.v1beta1.MsgUpdateNamespaceRoles")
+	proto.RegisterType((*MsgUpdateNamespaceRolesResponse)(nil), "helios.permissions.v1beta1.MsgUpdateNamespaceRolesResponse")
+	proto.RegisterType((*MsgRevokeNamespaceRoles)(nil), "helios.permissions.v1beta1.MsgRevokeNamespaceRoles")
+	proto.RegisterType((*MsgRevokeNamespaceRolesResponse)(nil), "helios.permissions.v1beta1.MsgRevokeNamespaceRolesResponse")
+	proto.RegisterType((*MsgClaimVoucher)(nil), "helios.permissions.v1beta1.MsgClaimVoucher")
+	proto.RegisterType((*MsgClaimVoucherResponse)(nil), "helios.permissions.v1beta1.MsgClaimVoucherResponse")
 }
 
 func init() {
@@ -1235,7 +1235,7 @@ func _Msg_ClaimVoucher_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "injective.permissions.v1beta1.Msg",
+	ServiceName: "helios.permissions.v1beta1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

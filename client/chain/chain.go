@@ -61,8 +61,8 @@ const (
 	defaultBroadcastTimeout          = 40 * time.Second
 	defaultTimeoutHeight             = 20
 	defaultTimeoutHeightSyncInterval = 10 * time.Second
-	SpotOrderbook                    = "injective.exchange.v1beta1.EventOrderbookUpdate.spot_orderbooks"
-	DerivativeOrderbook              = "injective.exchange.v1beta1.EventOrderbookUpdate.derivative_orderbooks"
+	SpotOrderbook                    = "helios.exchange.v1beta1.EventOrderbookUpdate.spot_orderbooks"
+	DerivativeOrderbook              = "helios.exchange.v1beta1.EventOrderbookUpdate.derivative_orderbooks"
 )
 
 var (
@@ -1332,13 +1332,13 @@ func (c *chainClient) StreamEventOrderFailWithWebsocket(sender string, websocket
 		e := <-eventCh
 
 		var failedOrderHashes []string
-		err = json.Unmarshal([]byte(e.Events["injective.exchange.v1beta1.EventOrderFail.hashes"][0]), &failedOrderHashes)
+		err = json.Unmarshal([]byte(e.Events["helios.exchange.v1beta1.EventOrderFail.hashes"][0]), &failedOrderHashes)
 		if err != nil {
 			panic(err)
 		}
 
 		var failedOrderCodes []uint
-		err = json.Unmarshal([]byte(e.Events["injective.exchange.v1beta1.EventOrderFail.flags"][0]), &failedOrderCodes)
+		err = json.Unmarshal([]byte(e.Events["helios.exchange.v1beta1.EventOrderFail.flags"][0]), &failedOrderCodes)
 		if err != nil {
 			panic(err)
 		}
