@@ -7,9 +7,9 @@ import (
 
 	"os"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 
@@ -58,7 +58,7 @@ func main() {
 
 	ctx := context.Background()
 
-	denoms := []string{"inj", "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5"}
+	denoms := []string{"helios", "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5"}
 
 	res, err := chainClient.FetchDenomDecimals(ctx, denoms)
 	if err != nil {

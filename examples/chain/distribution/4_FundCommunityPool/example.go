@@ -10,9 +10,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types"
 	distriutiontypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 
@@ -59,7 +59,7 @@ func main() {
 		panic(err)
 	}
 
-	amount := types.NewCoin("inj", math.NewInt(1))
+	amount := types.NewCoin("helios", math.NewInt(1))
 
 	msg := &distriutiontypes.MsgFundCommunityPool{
 		Amount:    []types.Coin{amount},

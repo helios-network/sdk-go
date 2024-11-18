@@ -12,12 +12,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	"github.com/InjectiveLabs/sdk-go/client/core"
-	"github.com/InjectiveLabs/sdk-go/client/exchange"
-	derivativeExchangePB "github.com/InjectiveLabs/sdk-go/exchange/derivative_exchange_rpc/pb"
-	spotExchangePB "github.com/InjectiveLabs/sdk-go/exchange/spot_exchange_rpc/pb"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client/core"
+	"github.com/Helios-Chain-Labs/sdk-go/client/exchange"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 )
 
 func TestMarketAssistantCreationUsingMarketsFromExchange(t *testing.T) {
@@ -132,15 +132,15 @@ func TestMarketAssistantCreation(t *testing.T) {
 			TokenVerification: "internal",
 		},
 		{
-			Address:           "inj",
+			Address:           "helios",
 			IsNative:          true,
 			TokenVerification: "verified",
 			Decimals:          18,
-			Symbol:            "INJ",
+			Symbol:            "HELIOS",
 			Name:              "Injective",
 			Logo:              "https://imagedelivery.net/lPzngbR8EltRfBOi_WYaXw/18984c0b-3e61-431d-241d-dfbb60b57600/public",
 			CoinGeckoId:       "injective-protocol",
-			Denom:             "inj",
+			Denom:             "helios",
 			TokenType:         "native",
 			ExternalLogo:      "injective-v3.png",
 		},

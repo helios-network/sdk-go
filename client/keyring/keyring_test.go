@@ -12,10 +12,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	crypto_cdc "github.com/InjectiveLabs/sdk-go/chain/crypto/codec"
-	"github.com/InjectiveLabs/sdk-go/chain/crypto/hd"
-	ctypes "github.com/InjectiveLabs/sdk-go/chain/types"
-	"github.com/InjectiveLabs/sdk-go/client/chain"
+	crypto_cdc "github.com/Helios-Chain-Labs/sdk-go/chain/crypto/codec"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
+	ctypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client/chain"
 )
 
 const KeyringAppName = "keyring_test"

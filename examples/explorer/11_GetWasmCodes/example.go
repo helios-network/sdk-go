@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	explorerPB "github.com/InjectiveLabs/sdk-go/exchange/explorer_rpc/pb"
+	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	explorerclient "github.com/InjectiveLabs/sdk-go/client/explorer"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	explorerclient "github.com/Helios-Chain-Labs/sdk-go/client/explorer"
 )
 
 func main() {

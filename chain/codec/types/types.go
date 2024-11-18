@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/tx"
 	"github.com/cosmos/gogoproto/proto"
 
-	injcodec "github.com/InjectiveLabs/sdk-go/chain/codec"
+	injcodec "github.com/Helios-Chain-Labs/sdk-go/chain/codec"
 )
 
 type EncodingConfig struct {

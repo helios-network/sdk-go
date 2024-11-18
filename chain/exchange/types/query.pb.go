@@ -7,7 +7,7 @@ import (
 	context "context"
 	cosmossdk_io_math "cosmossdk.io/math"
 	fmt "fmt"
-	types "github.com/InjectiveLabs/sdk-go/chain/oracle/types"
+	types "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	grpc1 "github.com/cosmos/gogoproto/grpc"
 	proto "github.com/cosmos/gogoproto/proto"

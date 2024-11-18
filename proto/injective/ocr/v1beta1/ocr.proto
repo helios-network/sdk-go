@@ -7,7 +7,7 @@ import "gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 import "amino/amino.proto";
 
-option go_package = "github.com/InjectiveLabs/injective-core/injective-chain/modules/ocr/types";
+option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/ocr/types";
 
 message Params {
   option (amino.name) = "ocr/Params";

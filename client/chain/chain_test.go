@@ -9,9 +9,9 @@ import (
 	cosmtypes "github.com/cosmos/cosmos-sdk/types"
 	eth "github.com/ethereum/go-ethereum/common"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	"github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func accountForTests() (cosmtypes.AccAddress, keyring.Keyring, error) {

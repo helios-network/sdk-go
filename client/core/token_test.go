@@ -10,8 +10,8 @@ import (
 func createINJToken() Token {
 	token := Token{
 		Name:     "Injective Protocol",
-		Symbol:   "INJ",
-		Denom:    "inj",
+		Symbol:   "HELIOS",
+		Denom:    "helios",
 		Address:  "0xe28b3B32B6c345A34Ff64674606124Dd5Aceca30",
 		Decimals: 18,
 		Logo:     "https://static.alchemyapi.io/images/assets/7226.png",

@@ -18,7 +18,7 @@ const (
 // DefaultParams returns a copy of the default params
 func DefaultParams() *Params {
 	return &Params{
-		PeggyId:                       "injective-peggyid",
+		PeggyId:                       "helios-peggyid",
 		SignedValsetsWindow:           10000,
 		SignedBatchesWindow:           10000,
 		SignedClaimsWindow:            10000,
@@ -30,7 +30,7 @@ func DefaultParams() *Params {
 		SlashFractionClaim:            math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
 		SlashFractionConflictingClaim: math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
 		SlashFractionBadEthSignature:  math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
-		CosmosCoinDenom:               "inj",
+		CosmosCoinDenom:               "helios",
 		UnbondSlashingValsetsWindow:   10000,
 		ClaimSlashingEnabled:          false,
 		Admins:                        nil,

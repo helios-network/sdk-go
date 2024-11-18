@@ -3,7 +3,7 @@ package keyring
 import (
 	"os"
 
-	"github.com/InjectiveLabs/sdk-go/chain/crypto/hd"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
 	cosmkeyring "github.com/cosmos/cosmos-sdk/crypto/keyring"
 )
 

@@ -65,7 +65,7 @@ func (m *EthAccount) XXX_DiscardUnknown() {
 var xxx_messageInfo_EthAccount proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*EthAccount)(nil), "injective.types.v1beta1.EthAccount")
+	proto.RegisterType((*EthAccount)(nil), "helios.types.v1beta1.EthAccount")
 }
 
 func init() {

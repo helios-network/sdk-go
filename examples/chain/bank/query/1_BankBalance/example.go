@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/InjectiveLabs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
 
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 
 	"os"
@@ -58,7 +58,7 @@ func main() {
 	}
 
 	address := "inj14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
-	denom := "inj"
+	denom := "helios"
 	ctx := context.Background()
 
 	res, err := chainClient.GetBankBalance(ctx, address, denom)

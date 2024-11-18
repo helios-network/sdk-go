@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/InjectiveLabs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
 
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func main() {

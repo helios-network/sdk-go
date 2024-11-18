@@ -4,17 +4,17 @@ import (
 	"cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	oracletypes "github.com/InjectiveLabs/sdk-go/chain/oracle/types"
-	derivativeExchangePB "github.com/InjectiveLabs/sdk-go/exchange/derivative_exchange_rpc/pb"
-	spotExchangePB "github.com/InjectiveLabs/sdk-go/exchange/spot_exchange_rpc/pb"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 )
 
 func createINJTokenMeta() spotExchangePB.TokenMeta {
 	return spotExchangePB.TokenMeta{
 		Name:      "Injective Protocol",
 		Address:   "0xe28b3B32B6c345A34Ff64674606124Dd5Aceca30",
-		Symbol:    "INJ",
+		Symbol:    "HELIOS",
 		Logo:      "https://static.alchemyapi.io/images/assets/7226.png",
 		Decimals:  18,
 		UpdatedAt: 1681739137644,
@@ -61,7 +61,7 @@ func createINJUSDTSpotMarketInfo() *spotExchangePB.SpotMarketInfo {
 		MarketId:            "0x7a57e705bb4e09c88aecfc295569481dbf2fe1d5efe364651fbe72385938e9b0",
 		MarketStatus:        "active",
 		Ticker:              "INJ/USDT",
-		BaseDenom:           "inj",
+		BaseDenom:           "helios",
 		BaseTokenMeta:       &injTokenMeta,
 		QuoteDenom:          "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5",
 		QuoteTokenMeta:      &usdtTokenMeta,
@@ -168,7 +168,7 @@ func createSmartDenomMetadata() types.Metadata {
 func createINJUSDTChainSpotMarket() *exchangetypes.SpotMarket {
 	marketInfo := exchangetypes.SpotMarket{
 		Ticker:              "INJ/USDT",
-		BaseDenom:           "inj",
+		BaseDenom:           "helios",
 		QuoteDenom:          "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5",
 		MakerFeeRate:        math.LegacyMustNewDecFromStr("-0.0001"),
 		TakerFeeRate:        math.LegacyMustNewDecFromStr("0.001"),

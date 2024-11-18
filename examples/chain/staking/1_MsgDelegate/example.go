@@ -7,10 +7,10 @@ import (
 
 	"cosmossdk.io/math"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	sdktypes "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
@@ -63,7 +63,7 @@ func main() {
 	msg.DelegatorAddress = senderAddress.String()
 	msg.ValidatorAddress = "injvaloper14gy4acwjm96wd20awm9ar6j54lev5p7espy9ug"
 	msg.Amount = sdktypes.Coin{
-		Denom: "inj", Amount: math.NewInt(1000000000000000000), // 1 INJ
+		Denom: "helios", Amount: math.NewInt(1000000000000000000), // 1 INJ
 	}
 
 	// AsyncBroadcastMsg, SyncBroadcastMsg, QueueBroadcastMsg
@@ -82,5 +82,5 @@ func main() {
 		return
 	}
 
-	fmt.Println("gas fee:", gasFee, "INJ")
+	fmt.Println("gas fee:", gasFee, "HELIOS")
 }

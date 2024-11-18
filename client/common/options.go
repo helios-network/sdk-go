@@ -1,8 +1,8 @@
 package common
 
 import (
-	ctypes "github.com/InjectiveLabs/sdk-go/chain/types"
-	log "github.com/InjectiveLabs/suplog"
+	ctypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	log "github.com/Helios-Chain-Labs/suplog"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/pkg/errors"

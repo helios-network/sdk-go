@@ -4,7 +4,7 @@ package injective.permissions.v1beta1;
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/InjectiveLabs/injective-core/injective-chain/modules/permissions/types";
+option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/permissions/types";
 
 // Namespace defines a permissions namespace
 message Namespace {

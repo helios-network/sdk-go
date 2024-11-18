@@ -13,7 +13,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	permissionstypes "github.com/InjectiveLabs/sdk-go/chain/permissions/types"
+	permissionstypes "github.com/Helios-Chain-Labs/sdk-go/chain/permissions/types"
 
 	sdkmath "cosmossdk.io/math"
 
@@ -26,11 +26,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	chainstreamtypes "github.com/InjectiveLabs/sdk-go/chain/stream/types"
-	tokenfactorytypes "github.com/InjectiveLabs/sdk-go/chain/tokenfactory/types"
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	log "github.com/InjectiveLabs/suplog"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
+	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	log "github.com/Helios-Chain-Labs/suplog"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/tx"
@@ -1039,7 +1039,7 @@ func (c *chainClient) runBatchBroadcast() {
 }
 
 func (c *chainClient) GetGasFee() (string, error) {
-	gasPrices := strings.Trim(c.opts.GasPrices, "inj")
+	gasPrices := strings.Trim(c.opts.GasPrices, "helios")
 
 	gas, err := strconv.ParseFloat(gasPrices, 64)
 

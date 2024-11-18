@@ -4,16 +4,16 @@ import (
 	"context"
 	"errors"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 
-	accountPB "github.com/InjectiveLabs/sdk-go/exchange/accounts_rpc/pb"
-	auctionPB "github.com/InjectiveLabs/sdk-go/exchange/auction_rpc/pb"
-	derivativeExchangePB "github.com/InjectiveLabs/sdk-go/exchange/derivative_exchange_rpc/pb"
-	insurancePB "github.com/InjectiveLabs/sdk-go/exchange/insurance_rpc/pb"
-	metaPB "github.com/InjectiveLabs/sdk-go/exchange/meta_rpc/pb"
-	oraclePB "github.com/InjectiveLabs/sdk-go/exchange/oracle_rpc/pb"
-	portfolioExchangePB "github.com/InjectiveLabs/sdk-go/exchange/portfolio_rpc/pb"
-	spotExchangePB "github.com/InjectiveLabs/sdk-go/exchange/spot_exchange_rpc/pb"
+	accountPB "github.com/Helios-Chain-Labs/sdk-go/exchange/accounts_rpc/pb"
+	auctionPB "github.com/Helios-Chain-Labs/sdk-go/exchange/auction_rpc/pb"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	insurancePB "github.com/Helios-Chain-Labs/sdk-go/exchange/insurance_rpc/pb"
+	metaPB "github.com/Helios-Chain-Labs/sdk-go/exchange/meta_rpc/pb"
+	oraclePB "github.com/Helios-Chain-Labs/sdk-go/exchange/oracle_rpc/pb"
+	portfolioExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/portfolio_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 	"google.golang.org/grpc"
 )
 

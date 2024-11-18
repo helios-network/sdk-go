@@ -8,10 +8,10 @@ import (
 	"cosmossdk.io/math"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func main() {
@@ -69,7 +69,7 @@ func main() {
 	msg := &exchangetypes.MsgInstantSpotMarketLaunch{
 		Sender:              senderAddress.String(),
 		Ticker:              "INJ/USDC",
-		BaseDenom:           "inj",
+		BaseDenom:           "helios",
 		QuoteDenom:          "factory/inj17vytdwqczqz72j65saukplrktd4gyfme5agf6c/usdc",
 		MinPriceTickSize:    chainMinPriceTickSize,
 		MinQuantityTickSize: chainMinQuantityTickSize,

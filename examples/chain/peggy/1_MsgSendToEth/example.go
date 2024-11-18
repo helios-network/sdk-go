@@ -7,11 +7,11 @@ import (
 
 	"cosmossdk.io/math"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 
-	peggytypes "github.com/InjectiveLabs/sdk-go/chain/peggy/types"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
+	peggytypes "github.com/Helios-Chain-Labs/sdk-go/chain/peggy/types"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	sdktypes "github.com/cosmos/cosmos-sdk/types"
 )
@@ -62,10 +62,10 @@ func main() {
 	ethDest := "0xaf79152ac5df276d9a8e1e2e22822f9713474902"
 
 	amount := sdktypes.Coin{
-		Denom: "inj", Amount: math.NewInt(5000000000000000000), // 5 INJ
+		Denom: "helios", Amount: math.NewInt(5000000000000000000), // 5 INJ
 	}
 	bridgeFee := sdktypes.Coin{
-		Denom: "inj", Amount: math.NewInt(2000000000000000000), // 2 INJ
+		Denom: "helios", Amount: math.NewInt(2000000000000000000), // 2 INJ
 	}
 
 	msg := &peggytypes.MsgSendToEth{
@@ -91,5 +91,5 @@ func main() {
 		return
 	}
 
-	fmt.Println("gas fee:", gasFee, "INJ")
+	fmt.Println("gas fee:", gasFee, "HELIOS")
 }

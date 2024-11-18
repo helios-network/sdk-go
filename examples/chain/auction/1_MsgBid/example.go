@@ -7,11 +7,11 @@ import (
 
 	"cosmossdk.io/math"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 
-	auctiontypes "github.com/InjectiveLabs/sdk-go/chain/auction/types"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
+	auctiontypes "github.com/Helios-Chain-Labs/sdk-go/chain/auction/types"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	sdktypes "github.com/cosmos/cosmos-sdk/types"
 )
@@ -61,7 +61,7 @@ func main() {
 
 	round := uint64(9355)
 	bidAmount := sdktypes.Coin{
-		Denom: "inj", Amount: math.NewInt(1000000000000000000), // 1 INJ
+		Denom: "helios", Amount: math.NewInt(1000000000000000000), // 1 INJ
 	}
 
 	msg := &auctiontypes.MsgBid{
@@ -86,5 +86,5 @@ func main() {
 		return
 	}
 
-	fmt.Println("gas fee:", gasFee, "INJ")
+	fmt.Println("gas fee:", gasFee, "HELIOS")
 }
