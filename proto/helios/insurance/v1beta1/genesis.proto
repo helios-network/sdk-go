@@ -1,7 +1,7 @@
 syntax = "proto3";
-package injective.insurance.v1beta1;
+package helios.insurance.v1beta1;
 
-import "injective/insurance/v1beta1/insurance.proto";
+import "helios/insurance/v1beta1/insurance.proto";
 import "gogoproto/gogo.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/insurance/types";

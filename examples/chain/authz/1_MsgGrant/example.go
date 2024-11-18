@@ -21,8 +21,8 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliosd",
+		"heliosd",
 		"file",
 		"inj-user",
 		"12345678",
@@ -61,7 +61,7 @@ func main() {
 	expireIn := time.Now().AddDate(1, 0, 0) // years months days
 
 	// GENERIC AUTHZ
-	// msgtype := "/injective.exchange.v1beta1.MsgCreateSpotLimitOrder"
+	// msgtype := "/helios.exchange.v1beta1.MsgCreateSpotLimitOrder"
 	// msg := chainClient.BuildGenericAuthz(granter, grantee, msgtype, expireIn)
 
 	// TYPED AUTHZ

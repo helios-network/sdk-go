@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_oracle_rpc.proto
+// source: goadesign_goagen_helios_oracle_rpc.proto
 
-package injective_oracle_rpcpb
+package helios_oracle_rpcpb
 
 import (
 	context "context"
@@ -33,38 +33,38 @@ type InjectiveOracleRPCClient interface {
 	StreamPricesByMarkets(ctx context.Context, in *StreamPricesByMarketsRequest, opts ...grpc.CallOption) (InjectiveOracleRPC_StreamPricesByMarketsClient, error)
 }
 
-type injectiveOracleRPCClient struct {
+type heliosOracleRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveOracleRPCClient(cc grpc.ClientConnInterface) InjectiveOracleRPCClient {
-	return &injectiveOracleRPCClient{cc}
+	return &heliosOracleRPCClient{cc}
 }
 
-func (c *injectiveOracleRPCClient) OracleList(ctx context.Context, in *OracleListRequest, opts ...grpc.CallOption) (*OracleListResponse, error) {
+func (c *heliosOracleRPCClient) OracleList(ctx context.Context, in *OracleListRequest, opts ...grpc.CallOption) (*OracleListResponse, error) {
 	out := new(OracleListResponse)
-	err := c.cc.Invoke(ctx, "/injective_oracle_rpc.InjectiveOracleRPC/OracleList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_oracle_rpc.InjectiveOracleRPC/OracleList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveOracleRPCClient) Price(ctx context.Context, in *PriceRequest, opts ...grpc.CallOption) (*PriceResponse, error) {
+func (c *heliosOracleRPCClient) Price(ctx context.Context, in *PriceRequest, opts ...grpc.CallOption) (*PriceResponse, error) {
 	out := new(PriceResponse)
-	err := c.cc.Invoke(ctx, "/injective_oracle_rpc.InjectiveOracleRPC/Price", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_oracle_rpc.InjectiveOracleRPC/Price", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveOracleRPCClient) StreamPrices(ctx context.Context, in *StreamPricesRequest, opts ...grpc.CallOption) (InjectiveOracleRPC_StreamPricesClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveOracleRPC_ServiceDesc.Streams[0], "/injective_oracle_rpc.InjectiveOracleRPC/StreamPrices", opts...)
+func (c *heliosOracleRPCClient) StreamPrices(ctx context.Context, in *StreamPricesRequest, opts ...grpc.CallOption) (InjectiveOracleRPC_StreamPricesClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveOracleRPC_ServiceDesc.Streams[0], "/helios_oracle_rpc.InjectiveOracleRPC/StreamPrices", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveOracleRPCStreamPricesClient{stream}
+	x := &heliosOracleRPCStreamPricesClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -79,11 +79,11 @@ type InjectiveOracleRPC_StreamPricesClient interface {
 	grpc.ClientStream
 }
 
-type injectiveOracleRPCStreamPricesClient struct {
+type heliosOracleRPCStreamPricesClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveOracleRPCStreamPricesClient) Recv() (*StreamPricesResponse, error) {
+func (x *heliosOracleRPCStreamPricesClient) Recv() (*StreamPricesResponse, error) {
 	m := new(StreamPricesResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -91,12 +91,12 @@ func (x *injectiveOracleRPCStreamPricesClient) Recv() (*StreamPricesResponse, er
 	return m, nil
 }
 
-func (c *injectiveOracleRPCClient) StreamPricesByMarkets(ctx context.Context, in *StreamPricesByMarketsRequest, opts ...grpc.CallOption) (InjectiveOracleRPC_StreamPricesByMarketsClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveOracleRPC_ServiceDesc.Streams[1], "/injective_oracle_rpc.InjectiveOracleRPC/StreamPricesByMarkets", opts...)
+func (c *heliosOracleRPCClient) StreamPricesByMarkets(ctx context.Context, in *StreamPricesByMarketsRequest, opts ...grpc.CallOption) (InjectiveOracleRPC_StreamPricesByMarketsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveOracleRPC_ServiceDesc.Streams[1], "/helios_oracle_rpc.InjectiveOracleRPC/StreamPricesByMarkets", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveOracleRPCStreamPricesByMarketsClient{stream}
+	x := &heliosOracleRPCStreamPricesByMarketsClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -111,11 +111,11 @@ type InjectiveOracleRPC_StreamPricesByMarketsClient interface {
 	grpc.ClientStream
 }
 
-type injectiveOracleRPCStreamPricesByMarketsClient struct {
+type heliosOracleRPCStreamPricesByMarketsClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveOracleRPCStreamPricesByMarketsClient) Recv() (*StreamPricesByMarketsResponse, error) {
+func (x *heliosOracleRPCStreamPricesByMarketsClient) Recv() (*StreamPricesByMarketsResponse, error) {
 	m := new(StreamPricesByMarketsResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -178,7 +178,7 @@ func _InjectiveOracleRPC_OracleList_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_oracle_rpc.InjectiveOracleRPC/OracleList",
+		FullMethod: "/helios_oracle_rpc.InjectiveOracleRPC/OracleList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveOracleRPCServer).OracleList(ctx, req.(*OracleListRequest))
@@ -196,7 +196,7 @@ func _InjectiveOracleRPC_Price_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_oracle_rpc.InjectiveOracleRPC/Price",
+		FullMethod: "/helios_oracle_rpc.InjectiveOracleRPC/Price",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveOracleRPCServer).Price(ctx, req.(*PriceRequest))
@@ -209,7 +209,7 @@ func _InjectiveOracleRPC_StreamPrices_Handler(srv interface{}, stream grpc.Serve
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveOracleRPCServer).StreamPrices(m, &injectiveOracleRPCStreamPricesServer{stream})
+	return srv.(InjectiveOracleRPCServer).StreamPrices(m, &heliosOracleRPCStreamPricesServer{stream})
 }
 
 type InjectiveOracleRPC_StreamPricesServer interface {
@@ -217,11 +217,11 @@ type InjectiveOracleRPC_StreamPricesServer interface {
 	grpc.ServerStream
 }
 
-type injectiveOracleRPCStreamPricesServer struct {
+type heliosOracleRPCStreamPricesServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveOracleRPCStreamPricesServer) Send(m *StreamPricesResponse) error {
+func (x *heliosOracleRPCStreamPricesServer) Send(m *StreamPricesResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -230,7 +230,7 @@ func _InjectiveOracleRPC_StreamPricesByMarkets_Handler(srv interface{}, stream g
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveOracleRPCServer).StreamPricesByMarkets(m, &injectiveOracleRPCStreamPricesByMarketsServer{stream})
+	return srv.(InjectiveOracleRPCServer).StreamPricesByMarkets(m, &heliosOracleRPCStreamPricesByMarketsServer{stream})
 }
 
 type InjectiveOracleRPC_StreamPricesByMarketsServer interface {
@@ -238,11 +238,11 @@ type InjectiveOracleRPC_StreamPricesByMarketsServer interface {
 	grpc.ServerStream
 }
 
-type injectiveOracleRPCStreamPricesByMarketsServer struct {
+type heliosOracleRPCStreamPricesByMarketsServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveOracleRPCStreamPricesByMarketsServer) Send(m *StreamPricesByMarketsResponse) error {
+func (x *heliosOracleRPCStreamPricesByMarketsServer) Send(m *StreamPricesByMarketsResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -250,7 +250,7 @@ func (x *injectiveOracleRPCStreamPricesByMarketsServer) Send(m *StreamPricesByMa
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveOracleRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_oracle_rpc.InjectiveOracleRPC",
+	ServiceName: "helios_oracle_rpc.InjectiveOracleRPC",
 	HandlerType: (*InjectiveOracleRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -274,5 +274,5 @@ var InjectiveOracleRPC_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_oracle_rpc.proto",
+	Metadata: "goadesign_goagen_helios_oracle_rpc.proto",
 }

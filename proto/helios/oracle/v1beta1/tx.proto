@@ -1,8 +1,8 @@
 syntax = "proto3";
-package injective.oracle.v1beta1;
+package helios.oracle.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "injective/oracle/v1beta1/oracle.proto";
+import "helios/oracle/v1beta1/oracle.proto";
 import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
 import "amino/amino.proto";

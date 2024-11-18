@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_auction_rpc.proto
+// source: goadesign_goagen_helios_auction_rpc.proto
 
-package injective_auction_rpcpb
+package helios_auction_rpcpb
 
 import (
 	context "context"
@@ -30,38 +30,38 @@ type InjectiveAuctionRPCClient interface {
 	StreamBids(ctx context.Context, in *StreamBidsRequest, opts ...grpc.CallOption) (InjectiveAuctionRPC_StreamBidsClient, error)
 }
 
-type injectiveAuctionRPCClient struct {
+type heliosAuctionRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveAuctionRPCClient(cc grpc.ClientConnInterface) InjectiveAuctionRPCClient {
-	return &injectiveAuctionRPCClient{cc}
+	return &heliosAuctionRPCClient{cc}
 }
 
-func (c *injectiveAuctionRPCClient) AuctionEndpoint(ctx context.Context, in *AuctionEndpointRequest, opts ...grpc.CallOption) (*AuctionEndpointResponse, error) {
+func (c *heliosAuctionRPCClient) AuctionEndpoint(ctx context.Context, in *AuctionEndpointRequest, opts ...grpc.CallOption) (*AuctionEndpointResponse, error) {
 	out := new(AuctionEndpointResponse)
-	err := c.cc.Invoke(ctx, "/injective_auction_rpc.InjectiveAuctionRPC/AuctionEndpoint", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_auction_rpc.InjectiveAuctionRPC/AuctionEndpoint", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAuctionRPCClient) Auctions(ctx context.Context, in *AuctionsRequest, opts ...grpc.CallOption) (*AuctionsResponse, error) {
+func (c *heliosAuctionRPCClient) Auctions(ctx context.Context, in *AuctionsRequest, opts ...grpc.CallOption) (*AuctionsResponse, error) {
 	out := new(AuctionsResponse)
-	err := c.cc.Invoke(ctx, "/injective_auction_rpc.InjectiveAuctionRPC/Auctions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_auction_rpc.InjectiveAuctionRPC/Auctions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAuctionRPCClient) StreamBids(ctx context.Context, in *StreamBidsRequest, opts ...grpc.CallOption) (InjectiveAuctionRPC_StreamBidsClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveAuctionRPC_ServiceDesc.Streams[0], "/injective_auction_rpc.InjectiveAuctionRPC/StreamBids", opts...)
+func (c *heliosAuctionRPCClient) StreamBids(ctx context.Context, in *StreamBidsRequest, opts ...grpc.CallOption) (InjectiveAuctionRPC_StreamBidsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveAuctionRPC_ServiceDesc.Streams[0], "/helios_auction_rpc.InjectiveAuctionRPC/StreamBids", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveAuctionRPCStreamBidsClient{stream}
+	x := &heliosAuctionRPCStreamBidsClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -76,11 +76,11 @@ type InjectiveAuctionRPC_StreamBidsClient interface {
 	grpc.ClientStream
 }
 
-type injectiveAuctionRPCStreamBidsClient struct {
+type heliosAuctionRPCStreamBidsClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveAuctionRPCStreamBidsClient) Recv() (*StreamBidsResponse, error) {
+func (x *heliosAuctionRPCStreamBidsClient) Recv() (*StreamBidsResponse, error) {
 	m := new(StreamBidsResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -137,7 +137,7 @@ func _InjectiveAuctionRPC_AuctionEndpoint_Handler(srv interface{}, ctx context.C
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_auction_rpc.InjectiveAuctionRPC/AuctionEndpoint",
+		FullMethod: "/helios_auction_rpc.InjectiveAuctionRPC/AuctionEndpoint",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAuctionRPCServer).AuctionEndpoint(ctx, req.(*AuctionEndpointRequest))
@@ -155,7 +155,7 @@ func _InjectiveAuctionRPC_Auctions_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_auction_rpc.InjectiveAuctionRPC/Auctions",
+		FullMethod: "/helios_auction_rpc.InjectiveAuctionRPC/Auctions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAuctionRPCServer).Auctions(ctx, req.(*AuctionsRequest))
@@ -168,7 +168,7 @@ func _InjectiveAuctionRPC_StreamBids_Handler(srv interface{}, stream grpc.Server
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveAuctionRPCServer).StreamBids(m, &injectiveAuctionRPCStreamBidsServer{stream})
+	return srv.(InjectiveAuctionRPCServer).StreamBids(m, &heliosAuctionRPCStreamBidsServer{stream})
 }
 
 type InjectiveAuctionRPC_StreamBidsServer interface {
@@ -176,11 +176,11 @@ type InjectiveAuctionRPC_StreamBidsServer interface {
 	grpc.ServerStream
 }
 
-type injectiveAuctionRPCStreamBidsServer struct {
+type heliosAuctionRPCStreamBidsServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveAuctionRPCStreamBidsServer) Send(m *StreamBidsResponse) error {
+func (x *heliosAuctionRPCStreamBidsServer) Send(m *StreamBidsResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -188,7 +188,7 @@ func (x *injectiveAuctionRPCStreamBidsServer) Send(m *StreamBidsResponse) error 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveAuctionRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_auction_rpc.InjectiveAuctionRPC",
+	ServiceName: "helios_auction_rpc.InjectiveAuctionRPC",
 	HandlerType: (*InjectiveAuctionRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -207,5 +207,5 @@ var InjectiveAuctionRPC_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_auction_rpc.proto",
+	Metadata: "goadesign_goagen_helios_auction_rpc.proto",
 }

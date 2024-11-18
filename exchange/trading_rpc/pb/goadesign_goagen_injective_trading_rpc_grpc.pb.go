@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v4.25.3
-// source: goadesign_goagen_injective_trading_rpc.proto
+// source: goadesign_goagen_helios_trading_rpc.proto
 
-package injective_trading_rpcpb
+package helios_trading_rpcpb
 
 import (
 	context "context"
@@ -26,17 +26,17 @@ type InjectiveTradingRPCClient interface {
 	ListTradingStrategies(ctx context.Context, in *ListTradingStrategiesRequest, opts ...grpc.CallOption) (*ListTradingStrategiesResponse, error)
 }
 
-type injectiveTradingRPCClient struct {
+type heliosTradingRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveTradingRPCClient(cc grpc.ClientConnInterface) InjectiveTradingRPCClient {
-	return &injectiveTradingRPCClient{cc}
+	return &heliosTradingRPCClient{cc}
 }
 
-func (c *injectiveTradingRPCClient) ListTradingStrategies(ctx context.Context, in *ListTradingStrategiesRequest, opts ...grpc.CallOption) (*ListTradingStrategiesResponse, error) {
+func (c *heliosTradingRPCClient) ListTradingStrategies(ctx context.Context, in *ListTradingStrategiesRequest, opts ...grpc.CallOption) (*ListTradingStrategiesResponse, error) {
 	out := new(ListTradingStrategiesResponse)
-	err := c.cc.Invoke(ctx, "/injective_trading_rpc.InjectiveTradingRPC/ListTradingStrategies", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_trading_rpc.InjectiveTradingRPC/ListTradingStrategies", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +82,7 @@ func _InjectiveTradingRPC_ListTradingStrategies_Handler(srv interface{}, ctx con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_trading_rpc.InjectiveTradingRPC/ListTradingStrategies",
+		FullMethod: "/helios_trading_rpc.InjectiveTradingRPC/ListTradingStrategies",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveTradingRPCServer).ListTradingStrategies(ctx, req.(*ListTradingStrategiesRequest))
@@ -94,7 +94,7 @@ func _InjectiveTradingRPC_ListTradingStrategies_Handler(srv interface{}, ctx con
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveTradingRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_trading_rpc.InjectiveTradingRPC",
+	ServiceName: "helios_trading_rpc.InjectiveTradingRPC",
 	HandlerType: (*InjectiveTradingRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -103,5 +103,5 @@ var InjectiveTradingRPC_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "goadesign_goagen_injective_trading_rpc.proto",
+	Metadata: "goadesign_goagen_helios_trading_rpc.proto",
 }

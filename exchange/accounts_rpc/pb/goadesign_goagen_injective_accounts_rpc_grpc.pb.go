@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_accounts_rpc.proto
+// source: goadesign_goagen_helios_accounts_rpc.proto
 
-package injective_accounts_rpcpb
+package helios_accounts_rpcpb
 
 import (
 	context "context"
@@ -46,65 +46,65 @@ type InjectiveAccountsRPCClient interface {
 	StreamAccountData(ctx context.Context, in *StreamAccountDataRequest, opts ...grpc.CallOption) (InjectiveAccountsRPC_StreamAccountDataClient, error)
 }
 
-type injectiveAccountsRPCClient struct {
+type heliosAccountsRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveAccountsRPCClient(cc grpc.ClientConnInterface) InjectiveAccountsRPCClient {
-	return &injectiveAccountsRPCClient{cc}
+	return &heliosAccountsRPCClient{cc}
 }
 
-func (c *injectiveAccountsRPCClient) Portfolio(ctx context.Context, in *PortfolioRequest, opts ...grpc.CallOption) (*PortfolioResponse, error) {
+func (c *heliosAccountsRPCClient) Portfolio(ctx context.Context, in *PortfolioRequest, opts ...grpc.CallOption) (*PortfolioResponse, error) {
 	out := new(PortfolioResponse)
-	err := c.cc.Invoke(ctx, "/injective_accounts_rpc.InjectiveAccountsRPC/Portfolio", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_accounts_rpc.InjectiveAccountsRPC/Portfolio", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAccountsRPCClient) OrderStates(ctx context.Context, in *OrderStatesRequest, opts ...grpc.CallOption) (*OrderStatesResponse, error) {
+func (c *heliosAccountsRPCClient) OrderStates(ctx context.Context, in *OrderStatesRequest, opts ...grpc.CallOption) (*OrderStatesResponse, error) {
 	out := new(OrderStatesResponse)
-	err := c.cc.Invoke(ctx, "/injective_accounts_rpc.InjectiveAccountsRPC/OrderStates", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_accounts_rpc.InjectiveAccountsRPC/OrderStates", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAccountsRPCClient) SubaccountsList(ctx context.Context, in *SubaccountsListRequest, opts ...grpc.CallOption) (*SubaccountsListResponse, error) {
+func (c *heliosAccountsRPCClient) SubaccountsList(ctx context.Context, in *SubaccountsListRequest, opts ...grpc.CallOption) (*SubaccountsListResponse, error) {
 	out := new(SubaccountsListResponse)
-	err := c.cc.Invoke(ctx, "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountsList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountsList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAccountsRPCClient) SubaccountBalancesList(ctx context.Context, in *SubaccountBalancesListRequest, opts ...grpc.CallOption) (*SubaccountBalancesListResponse, error) {
+func (c *heliosAccountsRPCClient) SubaccountBalancesList(ctx context.Context, in *SubaccountBalancesListRequest, opts ...grpc.CallOption) (*SubaccountBalancesListResponse, error) {
 	out := new(SubaccountBalancesListResponse)
-	err := c.cc.Invoke(ctx, "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountBalancesList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountBalancesList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAccountsRPCClient) SubaccountBalanceEndpoint(ctx context.Context, in *SubaccountBalanceEndpointRequest, opts ...grpc.CallOption) (*SubaccountBalanceEndpointResponse, error) {
+func (c *heliosAccountsRPCClient) SubaccountBalanceEndpoint(ctx context.Context, in *SubaccountBalanceEndpointRequest, opts ...grpc.CallOption) (*SubaccountBalanceEndpointResponse, error) {
 	out := new(SubaccountBalanceEndpointResponse)
-	err := c.cc.Invoke(ctx, "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountBalanceEndpoint", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountBalanceEndpoint", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAccountsRPCClient) StreamSubaccountBalance(ctx context.Context, in *StreamSubaccountBalanceRequest, opts ...grpc.CallOption) (InjectiveAccountsRPC_StreamSubaccountBalanceClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveAccountsRPC_ServiceDesc.Streams[0], "/injective_accounts_rpc.InjectiveAccountsRPC/StreamSubaccountBalance", opts...)
+func (c *heliosAccountsRPCClient) StreamSubaccountBalance(ctx context.Context, in *StreamSubaccountBalanceRequest, opts ...grpc.CallOption) (InjectiveAccountsRPC_StreamSubaccountBalanceClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveAccountsRPC_ServiceDesc.Streams[0], "/helios_accounts_rpc.InjectiveAccountsRPC/StreamSubaccountBalance", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveAccountsRPCStreamSubaccountBalanceClient{stream}
+	x := &heliosAccountsRPCStreamSubaccountBalanceClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -119,11 +119,11 @@ type InjectiveAccountsRPC_StreamSubaccountBalanceClient interface {
 	grpc.ClientStream
 }
 
-type injectiveAccountsRPCStreamSubaccountBalanceClient struct {
+type heliosAccountsRPCStreamSubaccountBalanceClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveAccountsRPCStreamSubaccountBalanceClient) Recv() (*StreamSubaccountBalanceResponse, error) {
+func (x *heliosAccountsRPCStreamSubaccountBalanceClient) Recv() (*StreamSubaccountBalanceResponse, error) {
 	m := new(StreamSubaccountBalanceResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -131,39 +131,39 @@ func (x *injectiveAccountsRPCStreamSubaccountBalanceClient) Recv() (*StreamSubac
 	return m, nil
 }
 
-func (c *injectiveAccountsRPCClient) SubaccountHistory(ctx context.Context, in *SubaccountHistoryRequest, opts ...grpc.CallOption) (*SubaccountHistoryResponse, error) {
+func (c *heliosAccountsRPCClient) SubaccountHistory(ctx context.Context, in *SubaccountHistoryRequest, opts ...grpc.CallOption) (*SubaccountHistoryResponse, error) {
 	out := new(SubaccountHistoryResponse)
-	err := c.cc.Invoke(ctx, "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountHistory", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountHistory", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAccountsRPCClient) SubaccountOrderSummary(ctx context.Context, in *SubaccountOrderSummaryRequest, opts ...grpc.CallOption) (*SubaccountOrderSummaryResponse, error) {
+func (c *heliosAccountsRPCClient) SubaccountOrderSummary(ctx context.Context, in *SubaccountOrderSummaryRequest, opts ...grpc.CallOption) (*SubaccountOrderSummaryResponse, error) {
 	out := new(SubaccountOrderSummaryResponse)
-	err := c.cc.Invoke(ctx, "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountOrderSummary", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountOrderSummary", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAccountsRPCClient) Rewards(ctx context.Context, in *RewardsRequest, opts ...grpc.CallOption) (*RewardsResponse, error) {
+func (c *heliosAccountsRPCClient) Rewards(ctx context.Context, in *RewardsRequest, opts ...grpc.CallOption) (*RewardsResponse, error) {
 	out := new(RewardsResponse)
-	err := c.cc.Invoke(ctx, "/injective_accounts_rpc.InjectiveAccountsRPC/Rewards", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_accounts_rpc.InjectiveAccountsRPC/Rewards", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveAccountsRPCClient) StreamAccountData(ctx context.Context, in *StreamAccountDataRequest, opts ...grpc.CallOption) (InjectiveAccountsRPC_StreamAccountDataClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveAccountsRPC_ServiceDesc.Streams[1], "/injective_accounts_rpc.InjectiveAccountsRPC/StreamAccountData", opts...)
+func (c *heliosAccountsRPCClient) StreamAccountData(ctx context.Context, in *StreamAccountDataRequest, opts ...grpc.CallOption) (InjectiveAccountsRPC_StreamAccountDataClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveAccountsRPC_ServiceDesc.Streams[1], "/helios_accounts_rpc.InjectiveAccountsRPC/StreamAccountData", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveAccountsRPCStreamAccountDataClient{stream}
+	x := &heliosAccountsRPCStreamAccountDataClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -178,11 +178,11 @@ type InjectiveAccountsRPC_StreamAccountDataClient interface {
 	grpc.ClientStream
 }
 
-type injectiveAccountsRPCStreamAccountDataClient struct {
+type heliosAccountsRPCStreamAccountDataClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveAccountsRPCStreamAccountDataClient) Recv() (*StreamAccountDataResponse, error) {
+func (x *heliosAccountsRPCStreamAccountDataClient) Recv() (*StreamAccountDataResponse, error) {
 	m := new(StreamAccountDataResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -276,7 +276,7 @@ func _InjectiveAccountsRPC_Portfolio_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_accounts_rpc.InjectiveAccountsRPC/Portfolio",
+		FullMethod: "/helios_accounts_rpc.InjectiveAccountsRPC/Portfolio",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAccountsRPCServer).Portfolio(ctx, req.(*PortfolioRequest))
@@ -294,7 +294,7 @@ func _InjectiveAccountsRPC_OrderStates_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_accounts_rpc.InjectiveAccountsRPC/OrderStates",
+		FullMethod: "/helios_accounts_rpc.InjectiveAccountsRPC/OrderStates",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAccountsRPCServer).OrderStates(ctx, req.(*OrderStatesRequest))
@@ -312,7 +312,7 @@ func _InjectiveAccountsRPC_SubaccountsList_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountsList",
+		FullMethod: "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountsList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAccountsRPCServer).SubaccountsList(ctx, req.(*SubaccountsListRequest))
@@ -330,7 +330,7 @@ func _InjectiveAccountsRPC_SubaccountBalancesList_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountBalancesList",
+		FullMethod: "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountBalancesList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAccountsRPCServer).SubaccountBalancesList(ctx, req.(*SubaccountBalancesListRequest))
@@ -348,7 +348,7 @@ func _InjectiveAccountsRPC_SubaccountBalanceEndpoint_Handler(srv interface{}, ct
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountBalanceEndpoint",
+		FullMethod: "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountBalanceEndpoint",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAccountsRPCServer).SubaccountBalanceEndpoint(ctx, req.(*SubaccountBalanceEndpointRequest))
@@ -361,7 +361,7 @@ func _InjectiveAccountsRPC_StreamSubaccountBalance_Handler(srv interface{}, stre
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveAccountsRPCServer).StreamSubaccountBalance(m, &injectiveAccountsRPCStreamSubaccountBalanceServer{stream})
+	return srv.(InjectiveAccountsRPCServer).StreamSubaccountBalance(m, &heliosAccountsRPCStreamSubaccountBalanceServer{stream})
 }
 
 type InjectiveAccountsRPC_StreamSubaccountBalanceServer interface {
@@ -369,11 +369,11 @@ type InjectiveAccountsRPC_StreamSubaccountBalanceServer interface {
 	grpc.ServerStream
 }
 
-type injectiveAccountsRPCStreamSubaccountBalanceServer struct {
+type heliosAccountsRPCStreamSubaccountBalanceServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveAccountsRPCStreamSubaccountBalanceServer) Send(m *StreamSubaccountBalanceResponse) error {
+func (x *heliosAccountsRPCStreamSubaccountBalanceServer) Send(m *StreamSubaccountBalanceResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -387,7 +387,7 @@ func _InjectiveAccountsRPC_SubaccountHistory_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountHistory",
+		FullMethod: "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountHistory",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAccountsRPCServer).SubaccountHistory(ctx, req.(*SubaccountHistoryRequest))
@@ -405,7 +405,7 @@ func _InjectiveAccountsRPC_SubaccountOrderSummary_Handler(srv interface{}, ctx c
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_accounts_rpc.InjectiveAccountsRPC/SubaccountOrderSummary",
+		FullMethod: "/helios_accounts_rpc.InjectiveAccountsRPC/SubaccountOrderSummary",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAccountsRPCServer).SubaccountOrderSummary(ctx, req.(*SubaccountOrderSummaryRequest))
@@ -423,7 +423,7 @@ func _InjectiveAccountsRPC_Rewards_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_accounts_rpc.InjectiveAccountsRPC/Rewards",
+		FullMethod: "/helios_accounts_rpc.InjectiveAccountsRPC/Rewards",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveAccountsRPCServer).Rewards(ctx, req.(*RewardsRequest))
@@ -436,7 +436,7 @@ func _InjectiveAccountsRPC_StreamAccountData_Handler(srv interface{}, stream grp
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveAccountsRPCServer).StreamAccountData(m, &injectiveAccountsRPCStreamAccountDataServer{stream})
+	return srv.(InjectiveAccountsRPCServer).StreamAccountData(m, &heliosAccountsRPCStreamAccountDataServer{stream})
 }
 
 type InjectiveAccountsRPC_StreamAccountDataServer interface {
@@ -444,11 +444,11 @@ type InjectiveAccountsRPC_StreamAccountDataServer interface {
 	grpc.ServerStream
 }
 
-type injectiveAccountsRPCStreamAccountDataServer struct {
+type heliosAccountsRPCStreamAccountDataServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveAccountsRPCStreamAccountDataServer) Send(m *StreamAccountDataResponse) error {
+func (x *heliosAccountsRPCStreamAccountDataServer) Send(m *StreamAccountDataResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -456,7 +456,7 @@ func (x *injectiveAccountsRPCStreamAccountDataServer) Send(m *StreamAccountDataR
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveAccountsRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_accounts_rpc.InjectiveAccountsRPC",
+	ServiceName: "helios_accounts_rpc.InjectiveAccountsRPC",
 	HandlerType: (*InjectiveAccountsRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -504,5 +504,5 @@ var InjectiveAccountsRPC_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_accounts_rpc.proto",
+	Metadata: "goadesign_goagen_helios_accounts_rpc.proto",
 }

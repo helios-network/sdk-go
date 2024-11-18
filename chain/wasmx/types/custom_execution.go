@@ -9,7 +9,7 @@ import (
 )
 
 type InjectiveExecMsg struct {
-	ExecutionData ExecutionData `json:"injective_exec"`
+	ExecutionData ExecutionData `json:"helios_exec"`
 }
 
 type ExecutionData struct {

@@ -3,13 +3,13 @@
 // InjectiveTradingRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_trading_rpc;
+package helios_trading_rpc;
 
-option go_package = "/injective_trading_rpcpb";
+option go_package = "/helios_trading_rpcpb";
 
 // InjectiveTradingStrategiesRPC defined a gRPC service for Injective Trading
 // Strategies.

@@ -3,13 +3,13 @@
 // InjectiveDerivativeExchangeRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_derivative_exchange_rpc;
+package helios_derivative_exchange_rpc;
 
-option go_package = "/injective_derivative_exchange_rpcpb";
+option go_package = "/helios_derivative_exchange_rpcpb";
 
 // InjectiveDerivativeExchangeRPC defines gRPC API of Derivative Markets
 // provider.

@@ -1,13 +1,13 @@
 syntax = "proto3";
-package injective.exchange.v1beta1;
+package helios.exchange.v1beta1;
 
 import "cosmos/base/v1beta1/coin.proto";
 import "cosmos/distribution/v1beta1/distribution.proto";
 import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
-import "injective/exchange/v1beta1/exchange.proto";
-import "injective/oracle/v1beta1/oracle.proto";
+import "helios/exchange/v1beta1/exchange.proto";
+import "helios/oracle/v1beta1/oracle.proto";
 import "amino/amino.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/exchange/types";
@@ -407,7 +407,7 @@ message MsgInstantPerpetualMarketLaunch {
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 6;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 7;
+  helios.oracle.v1beta1.OracleType oracle_type = 7;
   // maker_fee_rate defines the trade fee rate for makers on the perpetual
   // market
   string maker_fee_rate = 8 [
@@ -473,7 +473,7 @@ message MsgInstantBinaryOptionsMarketLaunch {
   // Oracle Provider
   string oracle_provider = 4;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 5;
+  helios.oracle.v1beta1.OracleType oracle_type = 5;
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 6;
   // maker_fee_rate defines the trade fee rate for makers on the perpetual
@@ -539,7 +539,7 @@ message MsgInstantExpiryFuturesMarketLaunch {
   // Oracle quote currency
   string oracle_quote = 5;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 6;
+  helios.oracle.v1beta1.OracleType oracle_type = 6;
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 7;
   // Expiration time of the market

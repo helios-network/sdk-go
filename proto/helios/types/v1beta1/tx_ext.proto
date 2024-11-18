@@ -1,5 +1,5 @@
 syntax = "proto3";
-package injective.types.v1beta1;
+package helios.types.v1beta1;
 
 import "gogoproto/gogo.proto";
 

@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_insurance_rpc.proto
+// source: goadesign_goagen_helios_insurance_rpc.proto
 
-package injective_insurance_rpcpb
+package helios_insurance_rpcpb
 
 import (
 	context "context"
@@ -30,35 +30,35 @@ type InjectiveInsuranceRPCClient interface {
 	Redemptions(ctx context.Context, in *RedemptionsRequest, opts ...grpc.CallOption) (*RedemptionsResponse, error)
 }
 
-type injectiveInsuranceRPCClient struct {
+type heliosInsuranceRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveInsuranceRPCClient(cc grpc.ClientConnInterface) InjectiveInsuranceRPCClient {
-	return &injectiveInsuranceRPCClient{cc}
+	return &heliosInsuranceRPCClient{cc}
 }
 
-func (c *injectiveInsuranceRPCClient) Funds(ctx context.Context, in *FundsRequest, opts ...grpc.CallOption) (*FundsResponse, error) {
+func (c *heliosInsuranceRPCClient) Funds(ctx context.Context, in *FundsRequest, opts ...grpc.CallOption) (*FundsResponse, error) {
 	out := new(FundsResponse)
-	err := c.cc.Invoke(ctx, "/injective_insurance_rpc.InjectiveInsuranceRPC/Funds", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_insurance_rpc.InjectiveInsuranceRPC/Funds", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveInsuranceRPCClient) Fund(ctx context.Context, in *FundRequest, opts ...grpc.CallOption) (*FundResponse, error) {
+func (c *heliosInsuranceRPCClient) Fund(ctx context.Context, in *FundRequest, opts ...grpc.CallOption) (*FundResponse, error) {
 	out := new(FundResponse)
-	err := c.cc.Invoke(ctx, "/injective_insurance_rpc.InjectiveInsuranceRPC/Fund", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_insurance_rpc.InjectiveInsuranceRPC/Fund", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveInsuranceRPCClient) Redemptions(ctx context.Context, in *RedemptionsRequest, opts ...grpc.CallOption) (*RedemptionsResponse, error) {
+func (c *heliosInsuranceRPCClient) Redemptions(ctx context.Context, in *RedemptionsRequest, opts ...grpc.CallOption) (*RedemptionsResponse, error) {
 	out := new(RedemptionsResponse)
-	err := c.cc.Invoke(ctx, "/injective_insurance_rpc.InjectiveInsuranceRPC/Redemptions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_insurance_rpc.InjectiveInsuranceRPC/Redemptions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -114,7 +114,7 @@ func _InjectiveInsuranceRPC_Funds_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_insurance_rpc.InjectiveInsuranceRPC/Funds",
+		FullMethod: "/helios_insurance_rpc.InjectiveInsuranceRPC/Funds",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveInsuranceRPCServer).Funds(ctx, req.(*FundsRequest))
@@ -132,7 +132,7 @@ func _InjectiveInsuranceRPC_Fund_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_insurance_rpc.InjectiveInsuranceRPC/Fund",
+		FullMethod: "/helios_insurance_rpc.InjectiveInsuranceRPC/Fund",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveInsuranceRPCServer).Fund(ctx, req.(*FundRequest))
@@ -150,7 +150,7 @@ func _InjectiveInsuranceRPC_Redemptions_Handler(srv interface{}, ctx context.Con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_insurance_rpc.InjectiveInsuranceRPC/Redemptions",
+		FullMethod: "/helios_insurance_rpc.InjectiveInsuranceRPC/Redemptions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveInsuranceRPCServer).Redemptions(ctx, req.(*RedemptionsRequest))
@@ -162,7 +162,7 @@ func _InjectiveInsuranceRPC_Redemptions_Handler(srv interface{}, ctx context.Con
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveInsuranceRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_insurance_rpc.InjectiveInsuranceRPC",
+	ServiceName: "helios_insurance_rpc.InjectiveInsuranceRPC",
 	HandlerType: (*InjectiveInsuranceRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -179,5 +179,5 @@ var InjectiveInsuranceRPC_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "goadesign_goagen_injective_insurance_rpc.proto",
+	Metadata: "goadesign_goagen_helios_insurance_rpc.proto",
 }

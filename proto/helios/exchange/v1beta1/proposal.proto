@@ -1,13 +1,13 @@
 syntax = "proto3";
-package injective.exchange.v1beta1;
+package helios.exchange.v1beta1;
 
 import "cosmos/base/v1beta1/coin.proto";
 import "cosmos/distribution/v1beta1/distribution.proto";
 import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
-import "injective/exchange/v1beta1/exchange.proto";
-import "injective/oracle/v1beta1/oracle.proto";
+import "helios/exchange/v1beta1/exchange.proto";
+import "helios/oracle/v1beta1/oracle.proto";
 import "amino/amino.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/exchange/types";
@@ -182,7 +182,7 @@ message PerpetualMarketLaunchProposal {
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 7;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 8;
+  helios.oracle.v1beta1.OracleType oracle_type = 8;
   // initial_margin_ratio defines the initial margin ratio for the derivative
   // market
   string initial_margin_ratio = 9 [
@@ -246,7 +246,7 @@ message BinaryOptionsMarketLaunchProposal {
   // Oracle Provider
   string oracle_provider = 5;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 6;
+  helios.oracle.v1beta1.OracleType oracle_type = 6;
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 7;
   // expiration timestamp
@@ -309,7 +309,7 @@ message ExpiryFuturesMarketLaunchProposal {
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 7;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 8;
+  helios.oracle.v1beta1.OracleType oracle_type = 8;
   // Expiration time of the market
   int64 expiry = 9;
   // initial_margin_ratio defines the initial margin ratio for the derivative
@@ -555,7 +555,7 @@ message ProviderOracleParams {
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 3;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 4;
+  helios.oracle.v1beta1.OracleType oracle_type = 4;
 }
 
 message OracleParams {
@@ -566,7 +566,7 @@ message OracleParams {
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 3;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 4;
+  helios.oracle.v1beta1.OracleType oracle_type = 4;
 }
 
 message TradingRewardCampaignLaunchProposal {

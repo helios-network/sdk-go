@@ -1,10 +1,10 @@
 syntax = "proto3";
-package injective.wasmx.v1;
+package helios.wasmx.v1;
 
 import "gogoproto/gogo.proto";
 import "cosmwasm/wasm/v1/types.proto";
 import "amino/amino.proto";
-import "injective/wasmx/v1/proposal.proto";
+import "helios/wasmx/v1/proposal.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/wasmx/types";
 

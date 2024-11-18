@@ -1,9 +1,9 @@
 syntax = "proto3";
-package injective.tokenfactory.v1beta1;
+package helios.tokenfactory.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "injective/tokenfactory/v1beta1/authorityMetadata.proto";
-import "injective/tokenfactory/v1beta1/params.proto";
+import "helios/tokenfactory/v1beta1/authorityMetadata.proto";
+import "helios/tokenfactory/v1beta1/params.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/tokenfactory/types";
 

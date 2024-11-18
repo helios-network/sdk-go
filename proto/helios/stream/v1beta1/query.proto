@@ -1,10 +1,10 @@
 syntax = "proto3";
-package injective.stream.v1beta1;
+package helios.stream.v1beta1;
 
 import "cosmos/base/v1beta1/coin.proto";
 import "gogoproto/gogo.proto";
-import "injective/exchange/v1beta1/events.proto";
-import "injective/exchange/v1beta1/exchange.proto";
+import "helios/exchange/v1beta1/events.proto";
+import "helios/exchange/v1beta1/exchange.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainstream/types";
 
@@ -48,8 +48,8 @@ message OrderbookUpdate {
 
 message Orderbook {
   string market_id = 1;
-  repeated injective.exchange.v1beta1.Level buy_levels = 2;
-  repeated injective.exchange.v1beta1.Level sell_levels = 3;
+  repeated helios.exchange.v1beta1.Level buy_levels = 2;
+  repeated helios.exchange.v1beta1.Level sell_levels = 3;
 }
 
 message BankBalance {
@@ -67,7 +67,7 @@ message SubaccountDeposits {
 
 message SubaccountDeposit {
   string denom = 1;
-  injective.exchange.v1beta1.Deposit deposit = 2
+  helios.exchange.v1beta1.Deposit deposit = 2
       [ (gogoproto.nullable) = false ];
 }
 
@@ -87,7 +87,7 @@ message SpotOrderUpdate {
 
 message SpotOrder {
   string market_id = 1;
-  injective.exchange.v1beta1.SpotLimitOrder order = 2
+  helios.exchange.v1beta1.SpotLimitOrder order = 2
       [ (gogoproto.nullable) = false ];
 }
 
@@ -100,7 +100,7 @@ message DerivativeOrderUpdate {
 
 message DerivativeOrder {
   string market_id = 1;
-  injective.exchange.v1beta1.DerivativeLimitOrder order = 2
+  helios.exchange.v1beta1.DerivativeLimitOrder order = 2
       [ (gogoproto.nullable) = false ];
   bool is_market = 3;
 }
@@ -166,7 +166,7 @@ message DerivativeTrade {
   bool is_buy = 2;
   string executionType = 3;
   string subaccount_id = 4;
-  injective.exchange.v1beta1.PositionDelta position_delta = 5;
+  helios.exchange.v1beta1.PositionDelta position_delta = 5;
   string payout = 6 [
     (gogoproto.customtype) = "cosmossdk.io/math.LegacyDec",
     (gogoproto.nullable) = false

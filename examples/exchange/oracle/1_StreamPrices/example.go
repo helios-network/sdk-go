@@ -22,8 +22,8 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliosd",
+		"heliosd",
 		"file",
 		"inj-user",
 		"12345678",

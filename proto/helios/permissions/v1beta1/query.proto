@@ -1,13 +1,13 @@
 syntax = "proto3";
-package injective.permissions.v1beta1;
+package helios.permissions.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
-import "injective/permissions/v1beta1/params.proto";
-import "injective/permissions/v1beta1/genesis.proto";
-import "injective/permissions/v1beta1/permissions.proto";
+import "helios/permissions/v1beta1/params.proto";
+import "helios/permissions/v1beta1/genesis.proto";
+import "helios/permissions/v1beta1/permissions.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/permissions/types";
 
@@ -16,7 +16,7 @@ service Query {
   // Params defines a gRPC query method that returns the permissions module's
   // parameters.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/injective/permissions/v1beta1/params";
+    option (google.api.http).get = "/helios/permissions/v1beta1/params";
   }
 
   // AllNamespaces defines a gRPC query method that returns the permissions
@@ -24,7 +24,7 @@ service Query {
   rpc AllNamespaces(QueryAllNamespacesRequest)
       returns (QueryAllNamespacesResponse) {
     option (google.api.http).get =
-        "/injective/permissions/v1beta1/all_namespaces";
+        "/helios/permissions/v1beta1/all_namespaces";
   }
 
   // NamespaceByDenom defines a gRPC query method that returns the permissions
@@ -32,7 +32,7 @@ service Query {
   rpc NamespaceByDenom(QueryNamespaceByDenomRequest)
       returns (QueryNamespaceByDenomResponse) {
     option (google.api.http).get =
-        "/injective/permissions/v1beta1/namespace_by_denom";
+        "/helios/permissions/v1beta1/namespace_by_denom";
   }
 
   // AddressRoles defines a gRPC query method that returns address roles in the
@@ -40,7 +40,7 @@ service Query {
   rpc AddressRoles(QueryAddressRolesRequest)
       returns (QueryAddressRolesResponse) {
     option (google.api.http).get =
-        "/injective/permissions/v1beta1/addresses_by_role";
+        "/helios/permissions/v1beta1/addresses_by_role";
   }
 
   // AddressesByRole defines a gRPC query method that returns a namespace's
@@ -48,7 +48,7 @@ service Query {
   rpc AddressesByRole(QueryAddressesByRoleRequest)
       returns (QueryAddressesByRoleResponse) {
     option (google.api.http).get =
-        "/injective/permissions/v1beta1/addresses_by_role";
+        "/helios/permissions/v1beta1/addresses_by_role";
   }
 
   // VouchersForAddress defines a gRPC query method that returns a map of
@@ -57,7 +57,7 @@ service Query {
   rpc VouchersForAddress(QueryVouchersForAddressRequest)
       returns (QueryVouchersForAddressResponse) {
     option (google.api.http).get =
-        "/injective/permissions/v1beta1/vouchers_for_address";
+        "/helios/permissions/v1beta1/vouchers_for_address";
   }
 }
 

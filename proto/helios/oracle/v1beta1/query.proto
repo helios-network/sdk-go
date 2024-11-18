@@ -1,9 +1,9 @@
 syntax = "proto3";
-package injective.oracle.v1beta1;
+package helios.oracle.v1beta1;
 
 import "google/api/annotations.proto";
-import "injective/oracle/v1beta1/oracle.proto";
-import "injective/oracle/v1beta1/genesis.proto";
+import "helios/oracle/v1beta1/oracle.proto";
+import "helios/oracle/v1beta1/genesis.proto";
 import "gogoproto/gogo.proto";
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/oracle/types";
 
@@ -12,105 +12,105 @@ service Query {
 
   // Retrieves oracle params
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/params";
+    option (google.api.http).get = "/helios/oracle/v1beta1/params";
   }
 
   // Retrieves the band relayers
   rpc BandRelayers(QueryBandRelayersRequest)
       returns (QueryBandRelayersResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/band_relayers";
+    option (google.api.http).get = "/helios/oracle/v1beta1/band_relayers";
   }
 
   // Retrieves the state for all band price feeds
   rpc BandPriceStates(QueryBandPriceStatesRequest)
       returns (QueryBandPriceStatesResponse) {
     option (google.api.http).get =
-        "/injective/oracle/v1beta1/band_price_states";
+        "/helios/oracle/v1beta1/band_price_states";
   }
 
   // Retrieves the state for all band ibc price feeds
   rpc BandIBCPriceStates(QueryBandIBCPriceStatesRequest)
       returns (QueryBandIBCPriceStatesResponse) {
     option (google.api.http).get =
-        "/injective/oracle/v1beta1/band_ibc_price_states";
+        "/helios/oracle/v1beta1/band_ibc_price_states";
   }
 
   // Retrieves the state for all price feeds
   rpc PriceFeedPriceStates(QueryPriceFeedPriceStatesRequest)
       returns (QueryPriceFeedPriceStatesResponse) {
     option (google.api.http).get =
-        "/injective/oracle/v1beta1/pricefeed_price_states";
+        "/helios/oracle/v1beta1/pricefeed_price_states";
   }
 
   // Retrieves the state for all coinbase price feeds
   rpc CoinbasePriceStates(QueryCoinbasePriceStatesRequest)
       returns (QueryCoinbasePriceStatesResponse) {
     option (google.api.http).get =
-        "/injective/oracle/v1beta1/coinbase_price_states";
+        "/helios/oracle/v1beta1/coinbase_price_states";
   }
 
   // Retrieves the state for all pyth price feeds
   rpc PythPriceStates(QueryPythPriceStatesRequest)
       returns (QueryPythPriceStatesResponse) {
     option (google.api.http).get =
-        "/injective/oracle/v1beta1/pyth_price_states";
+        "/helios/oracle/v1beta1/pyth_price_states";
   }
 
   // Retrieves the state for all stork price feeds
   rpc StorkPriceStates(QueryStorkPriceStatesRequest)
       returns (QueryStorkPriceStatesResponse) {
     option (google.api.http).get =
-        "/injective/oracle/v1beta1/stork_price_states";
+        "/helios/oracle/v1beta1/stork_price_states";
   }
 
   // Retrieves all stork publishers
   rpc StorkPublishers(QueryStorkPublishersRequest)
       returns (QueryStorkPublishersResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/stork_publishers";
+    option (google.api.http).get = "/helios/oracle/v1beta1/stork_publishers";
   }
 
   // Retrieves the state for all provider price feeds
   rpc ProviderPriceState(QueryProviderPriceStateRequest)
       returns (QueryProviderPriceStateResponse) {
     option (google.api.http).get =
-        "/injective/oracle/v1beta1/provider_price_state/{provider}/{symbol}";
+        "/helios/oracle/v1beta1/provider_price_state/{provider}/{symbol}";
   }
 
   // Retrieves the entire oracle module's state
   rpc OracleModuleState(QueryModuleStateRequest)
       returns (QueryModuleStateResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/module_state";
+    option (google.api.http).get = "/helios/oracle/v1beta1/module_state";
   }
 
   // Retrieves historical price records for a given OracleType and Symbol
   rpc HistoricalPriceRecords(QueryHistoricalPriceRecordsRequest)
       returns (QueryHistoricalPriceRecordsResponse) {
     option (google.api.http).get =
-        "/injective/oracle/v1beta1/historical_price_records";
+        "/helios/oracle/v1beta1/historical_price_records";
   }
 
   // Retrieves mixed volatility value for the specified pair of base/quote
   rpc OracleVolatility(QueryOracleVolatilityRequest)
       returns (QueryOracleVolatilityResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/volatility";
+    option (google.api.http).get = "/helios/oracle/v1beta1/volatility";
   }
 
   rpc OracleProvidersInfo(QueryOracleProvidersInfoRequest)
       returns (QueryOracleProvidersInfoResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/providers";
+    option (google.api.http).get = "/helios/oracle/v1beta1/providers";
   }
 
   rpc OracleProviderPrices(QueryOracleProviderPricesRequest)
       returns (QueryOracleProviderPricesResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/provider_prices";
+    option (google.api.http).get = "/helios/oracle/v1beta1/provider_prices";
   }
 
   rpc OraclePrice(QueryOraclePriceRequest) returns (QueryOraclePriceResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/price";
+    option (google.api.http).get = "/helios/oracle/v1beta1/price";
   }
 
   rpc PythPrice(QueryPythPriceRequest) returns (QueryPythPriceResponse) {
-    option (google.api.http).get = "/injective/oracle/v1beta1/pyth_price";
+    option (google.api.http).get = "/helios/oracle/v1beta1/pyth_price";
   }
 }
 

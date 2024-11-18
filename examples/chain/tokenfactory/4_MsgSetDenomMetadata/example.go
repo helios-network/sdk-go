@@ -21,8 +21,8 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliosd",
+		"heliosd",
 		"file",
 		"inj-user",
 		"12345678",
@@ -77,7 +77,7 @@ func main() {
 		Display:     subdenom,
 		Name:        "Injective Test",
 		Symbol:      "INJTEST",
-		URI:         "http://injective-test.com/icon.jpg",
+		URI:         "http://helios-test.com/icon.jpg",
 		URIHash:     "",
 		Decimals:    tokenDecimals,
 	}

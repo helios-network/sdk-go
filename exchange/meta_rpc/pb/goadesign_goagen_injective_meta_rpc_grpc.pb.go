@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_meta_rpc.proto
+// source: goadesign_goagen_helios_meta_rpc.proto
 
-package injective_meta_rpcpb
+package helios_meta_rpcpb
 
 import (
 	context "context"
@@ -24,7 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 type InjectiveMetaRPCClient interface {
 	// Endpoint for checking server health.
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingResponse, error)
-	// Returns injective-exchange version.
+	// Returns helios-exchange version.
 	Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error)
 	// Gets connection info
 	Info(ctx context.Context, in *InfoRequest, opts ...grpc.CallOption) (*InfoResponse, error)
@@ -35,47 +35,47 @@ type InjectiveMetaRPCClient interface {
 	TokenMetadata(ctx context.Context, in *TokenMetadataRequest, opts ...grpc.CallOption) (*TokenMetadataResponse, error)
 }
 
-type injectiveMetaRPCClient struct {
+type heliosMetaRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveMetaRPCClient(cc grpc.ClientConnInterface) InjectiveMetaRPCClient {
-	return &injectiveMetaRPCClient{cc}
+	return &heliosMetaRPCClient{cc}
 }
 
-func (c *injectiveMetaRPCClient) Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingResponse, error) {
+func (c *heliosMetaRPCClient) Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingResponse, error) {
 	out := new(PingResponse)
-	err := c.cc.Invoke(ctx, "/injective_meta_rpc.InjectiveMetaRPC/Ping", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_meta_rpc.InjectiveMetaRPC/Ping", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveMetaRPCClient) Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error) {
+func (c *heliosMetaRPCClient) Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error) {
 	out := new(VersionResponse)
-	err := c.cc.Invoke(ctx, "/injective_meta_rpc.InjectiveMetaRPC/Version", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_meta_rpc.InjectiveMetaRPC/Version", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveMetaRPCClient) Info(ctx context.Context, in *InfoRequest, opts ...grpc.CallOption) (*InfoResponse, error) {
+func (c *heliosMetaRPCClient) Info(ctx context.Context, in *InfoRequest, opts ...grpc.CallOption) (*InfoResponse, error) {
 	out := new(InfoResponse)
-	err := c.cc.Invoke(ctx, "/injective_meta_rpc.InjectiveMetaRPC/Info", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_meta_rpc.InjectiveMetaRPC/Info", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveMetaRPCClient) StreamKeepalive(ctx context.Context, in *StreamKeepaliveRequest, opts ...grpc.CallOption) (InjectiveMetaRPC_StreamKeepaliveClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveMetaRPC_ServiceDesc.Streams[0], "/injective_meta_rpc.InjectiveMetaRPC/StreamKeepalive", opts...)
+func (c *heliosMetaRPCClient) StreamKeepalive(ctx context.Context, in *StreamKeepaliveRequest, opts ...grpc.CallOption) (InjectiveMetaRPC_StreamKeepaliveClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveMetaRPC_ServiceDesc.Streams[0], "/helios_meta_rpc.InjectiveMetaRPC/StreamKeepalive", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveMetaRPCStreamKeepaliveClient{stream}
+	x := &heliosMetaRPCStreamKeepaliveClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -90,11 +90,11 @@ type InjectiveMetaRPC_StreamKeepaliveClient interface {
 	grpc.ClientStream
 }
 
-type injectiveMetaRPCStreamKeepaliveClient struct {
+type heliosMetaRPCStreamKeepaliveClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveMetaRPCStreamKeepaliveClient) Recv() (*StreamKeepaliveResponse, error) {
+func (x *heliosMetaRPCStreamKeepaliveClient) Recv() (*StreamKeepaliveResponse, error) {
 	m := new(StreamKeepaliveResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -102,9 +102,9 @@ func (x *injectiveMetaRPCStreamKeepaliveClient) Recv() (*StreamKeepaliveResponse
 	return m, nil
 }
 
-func (c *injectiveMetaRPCClient) TokenMetadata(ctx context.Context, in *TokenMetadataRequest, opts ...grpc.CallOption) (*TokenMetadataResponse, error) {
+func (c *heliosMetaRPCClient) TokenMetadata(ctx context.Context, in *TokenMetadataRequest, opts ...grpc.CallOption) (*TokenMetadataResponse, error) {
 	out := new(TokenMetadataResponse)
-	err := c.cc.Invoke(ctx, "/injective_meta_rpc.InjectiveMetaRPC/TokenMetadata", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_meta_rpc.InjectiveMetaRPC/TokenMetadata", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -117,7 +117,7 @@ func (c *injectiveMetaRPCClient) TokenMetadata(ctx context.Context, in *TokenMet
 type InjectiveMetaRPCServer interface {
 	// Endpoint for checking server health.
 	Ping(context.Context, *PingRequest) (*PingResponse, error)
-	// Returns injective-exchange version.
+	// Returns helios-exchange version.
 	Version(context.Context, *VersionRequest) (*VersionResponse, error)
 	// Gets connection info
 	Info(context.Context, *InfoRequest) (*InfoResponse, error)
@@ -171,7 +171,7 @@ func _InjectiveMetaRPC_Ping_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_meta_rpc.InjectiveMetaRPC/Ping",
+		FullMethod: "/helios_meta_rpc.InjectiveMetaRPC/Ping",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveMetaRPCServer).Ping(ctx, req.(*PingRequest))
@@ -189,7 +189,7 @@ func _InjectiveMetaRPC_Version_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_meta_rpc.InjectiveMetaRPC/Version",
+		FullMethod: "/helios_meta_rpc.InjectiveMetaRPC/Version",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveMetaRPCServer).Version(ctx, req.(*VersionRequest))
@@ -207,7 +207,7 @@ func _InjectiveMetaRPC_Info_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_meta_rpc.InjectiveMetaRPC/Info",
+		FullMethod: "/helios_meta_rpc.InjectiveMetaRPC/Info",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveMetaRPCServer).Info(ctx, req.(*InfoRequest))
@@ -220,7 +220,7 @@ func _InjectiveMetaRPC_StreamKeepalive_Handler(srv interface{}, stream grpc.Serv
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveMetaRPCServer).StreamKeepalive(m, &injectiveMetaRPCStreamKeepaliveServer{stream})
+	return srv.(InjectiveMetaRPCServer).StreamKeepalive(m, &heliosMetaRPCStreamKeepaliveServer{stream})
 }
 
 type InjectiveMetaRPC_StreamKeepaliveServer interface {
@@ -228,11 +228,11 @@ type InjectiveMetaRPC_StreamKeepaliveServer interface {
 	grpc.ServerStream
 }
 
-type injectiveMetaRPCStreamKeepaliveServer struct {
+type heliosMetaRPCStreamKeepaliveServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveMetaRPCStreamKeepaliveServer) Send(m *StreamKeepaliveResponse) error {
+func (x *heliosMetaRPCStreamKeepaliveServer) Send(m *StreamKeepaliveResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -246,7 +246,7 @@ func _InjectiveMetaRPC_TokenMetadata_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_meta_rpc.InjectiveMetaRPC/TokenMetadata",
+		FullMethod: "/helios_meta_rpc.InjectiveMetaRPC/TokenMetadata",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveMetaRPCServer).TokenMetadata(ctx, req.(*TokenMetadataRequest))
@@ -258,7 +258,7 @@ func _InjectiveMetaRPC_TokenMetadata_Handler(srv interface{}, ctx context.Contex
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveMetaRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_meta_rpc.InjectiveMetaRPC",
+	ServiceName: "helios_meta_rpc.InjectiveMetaRPC",
 	HandlerType: (*InjectiveMetaRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -285,5 +285,5 @@ var InjectiveMetaRPC_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_meta_rpc.proto",
+	Metadata: "goadesign_goagen_helios_meta_rpc.proto",
 }

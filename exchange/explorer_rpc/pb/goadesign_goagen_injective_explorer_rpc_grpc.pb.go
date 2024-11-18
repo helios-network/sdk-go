@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_explorer_rpc.proto
+// source: goadesign_goagen_helios_explorer_rpc.proto
 
-package injective_explorer_rpcpb
+package helios_explorer_rpcpb
 
 import (
 	context "context"
@@ -59,7 +59,7 @@ type InjectiveExplorerRPCClient interface {
 	GetWasmContracts(ctx context.Context, in *GetWasmContractsRequest, opts ...grpc.CallOption) (*GetWasmContractsResponse, error)
 	// GetWasmContractByAddress list cosmwasm contract info by its address
 	GetWasmContractByAddress(ctx context.Context, in *GetWasmContractByAddressRequest, opts ...grpc.CallOption) (*GetWasmContractByAddressResponse, error)
-	// GetCw20Balance lists all cw20 balances of an injective account
+	// GetCw20Balance lists all cw20 balances of an helios account
 	GetCw20Balance(ctx context.Context, in *GetCw20BalanceRequest, opts ...grpc.CallOption) (*GetCw20BalanceResponse, error)
 	// Request relayers infos by marketIDs. If no ids are provided, all market with
 	// associated relayers are returned
@@ -72,200 +72,200 @@ type InjectiveExplorerRPCClient interface {
 	StreamBlocks(ctx context.Context, in *StreamBlocksRequest, opts ...grpc.CallOption) (InjectiveExplorerRPC_StreamBlocksClient, error)
 }
 
-type injectiveExplorerRPCClient struct {
+type heliosExplorerRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveExplorerRPCClient(cc grpc.ClientConnInterface) InjectiveExplorerRPCClient {
-	return &injectiveExplorerRPCClient{cc}
+	return &heliosExplorerRPCClient{cc}
 }
 
-func (c *injectiveExplorerRPCClient) GetAccountTxs(ctx context.Context, in *GetAccountTxsRequest, opts ...grpc.CallOption) (*GetAccountTxsResponse, error) {
+func (c *heliosExplorerRPCClient) GetAccountTxs(ctx context.Context, in *GetAccountTxsRequest, opts ...grpc.CallOption) (*GetAccountTxsResponse, error) {
 	out := new(GetAccountTxsResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetAccountTxs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetAccountTxs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetContractTxs(ctx context.Context, in *GetContractTxsRequest, opts ...grpc.CallOption) (*GetContractTxsResponse, error) {
+func (c *heliosExplorerRPCClient) GetContractTxs(ctx context.Context, in *GetContractTxsRequest, opts ...grpc.CallOption) (*GetContractTxsResponse, error) {
 	out := new(GetContractTxsResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetContractTxs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetContractTxs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetContractTxsV2(ctx context.Context, in *GetContractTxsV2Request, opts ...grpc.CallOption) (*GetContractTxsV2Response, error) {
+func (c *heliosExplorerRPCClient) GetContractTxsV2(ctx context.Context, in *GetContractTxsV2Request, opts ...grpc.CallOption) (*GetContractTxsV2Response, error) {
 	out := new(GetContractTxsV2Response)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetContractTxsV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetContractTxsV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetBlocks(ctx context.Context, in *GetBlocksRequest, opts ...grpc.CallOption) (*GetBlocksResponse, error) {
+func (c *heliosExplorerRPCClient) GetBlocks(ctx context.Context, in *GetBlocksRequest, opts ...grpc.CallOption) (*GetBlocksResponse, error) {
 	out := new(GetBlocksResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetBlocks", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetBlocks", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetBlock(ctx context.Context, in *GetBlockRequest, opts ...grpc.CallOption) (*GetBlockResponse, error) {
+func (c *heliosExplorerRPCClient) GetBlock(ctx context.Context, in *GetBlockRequest, opts ...grpc.CallOption) (*GetBlockResponse, error) {
 	out := new(GetBlockResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetBlock", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetBlock", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetValidators(ctx context.Context, in *GetValidatorsRequest, opts ...grpc.CallOption) (*GetValidatorsResponse, error) {
+func (c *heliosExplorerRPCClient) GetValidators(ctx context.Context, in *GetValidatorsRequest, opts ...grpc.CallOption) (*GetValidatorsResponse, error) {
 	out := new(GetValidatorsResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetValidators", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetValidators", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetValidator(ctx context.Context, in *GetValidatorRequest, opts ...grpc.CallOption) (*GetValidatorResponse, error) {
+func (c *heliosExplorerRPCClient) GetValidator(ctx context.Context, in *GetValidatorRequest, opts ...grpc.CallOption) (*GetValidatorResponse, error) {
 	out := new(GetValidatorResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetValidator", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetValidator", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetValidatorUptime(ctx context.Context, in *GetValidatorUptimeRequest, opts ...grpc.CallOption) (*GetValidatorUptimeResponse, error) {
+func (c *heliosExplorerRPCClient) GetValidatorUptime(ctx context.Context, in *GetValidatorUptimeRequest, opts ...grpc.CallOption) (*GetValidatorUptimeResponse, error) {
 	out := new(GetValidatorUptimeResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetValidatorUptime", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetValidatorUptime", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetTxs(ctx context.Context, in *GetTxsRequest, opts ...grpc.CallOption) (*GetTxsResponse, error) {
+func (c *heliosExplorerRPCClient) GetTxs(ctx context.Context, in *GetTxsRequest, opts ...grpc.CallOption) (*GetTxsResponse, error) {
 	out := new(GetTxsResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetTxs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetTxs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetTxByTxHash(ctx context.Context, in *GetTxByTxHashRequest, opts ...grpc.CallOption) (*GetTxByTxHashResponse, error) {
+func (c *heliosExplorerRPCClient) GetTxByTxHash(ctx context.Context, in *GetTxByTxHashRequest, opts ...grpc.CallOption) (*GetTxByTxHashResponse, error) {
 	out := new(GetTxByTxHashResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetTxByTxHash", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetTxByTxHash", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetPeggyDepositTxs(ctx context.Context, in *GetPeggyDepositTxsRequest, opts ...grpc.CallOption) (*GetPeggyDepositTxsResponse, error) {
+func (c *heliosExplorerRPCClient) GetPeggyDepositTxs(ctx context.Context, in *GetPeggyDepositTxsRequest, opts ...grpc.CallOption) (*GetPeggyDepositTxsResponse, error) {
 	out := new(GetPeggyDepositTxsResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetPeggyDepositTxs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetPeggyDepositTxs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetPeggyWithdrawalTxs(ctx context.Context, in *GetPeggyWithdrawalTxsRequest, opts ...grpc.CallOption) (*GetPeggyWithdrawalTxsResponse, error) {
+func (c *heliosExplorerRPCClient) GetPeggyWithdrawalTxs(ctx context.Context, in *GetPeggyWithdrawalTxsRequest, opts ...grpc.CallOption) (*GetPeggyWithdrawalTxsResponse, error) {
 	out := new(GetPeggyWithdrawalTxsResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetPeggyWithdrawalTxs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetPeggyWithdrawalTxs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetIBCTransferTxs(ctx context.Context, in *GetIBCTransferTxsRequest, opts ...grpc.CallOption) (*GetIBCTransferTxsResponse, error) {
+func (c *heliosExplorerRPCClient) GetIBCTransferTxs(ctx context.Context, in *GetIBCTransferTxsRequest, opts ...grpc.CallOption) (*GetIBCTransferTxsResponse, error) {
 	out := new(GetIBCTransferTxsResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetIBCTransferTxs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetIBCTransferTxs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetWasmCodes(ctx context.Context, in *GetWasmCodesRequest, opts ...grpc.CallOption) (*GetWasmCodesResponse, error) {
+func (c *heliosExplorerRPCClient) GetWasmCodes(ctx context.Context, in *GetWasmCodesRequest, opts ...grpc.CallOption) (*GetWasmCodesResponse, error) {
 	out := new(GetWasmCodesResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetWasmCodes", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetWasmCodes", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetWasmCodeByID(ctx context.Context, in *GetWasmCodeByIDRequest, opts ...grpc.CallOption) (*GetWasmCodeByIDResponse, error) {
+func (c *heliosExplorerRPCClient) GetWasmCodeByID(ctx context.Context, in *GetWasmCodeByIDRequest, opts ...grpc.CallOption) (*GetWasmCodeByIDResponse, error) {
 	out := new(GetWasmCodeByIDResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetWasmCodeByID", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetWasmCodeByID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetWasmContracts(ctx context.Context, in *GetWasmContractsRequest, opts ...grpc.CallOption) (*GetWasmContractsResponse, error) {
+func (c *heliosExplorerRPCClient) GetWasmContracts(ctx context.Context, in *GetWasmContractsRequest, opts ...grpc.CallOption) (*GetWasmContractsResponse, error) {
 	out := new(GetWasmContractsResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetWasmContracts", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetWasmContracts", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetWasmContractByAddress(ctx context.Context, in *GetWasmContractByAddressRequest, opts ...grpc.CallOption) (*GetWasmContractByAddressResponse, error) {
+func (c *heliosExplorerRPCClient) GetWasmContractByAddress(ctx context.Context, in *GetWasmContractByAddressRequest, opts ...grpc.CallOption) (*GetWasmContractByAddressResponse, error) {
 	out := new(GetWasmContractByAddressResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetWasmContractByAddress", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetWasmContractByAddress", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetCw20Balance(ctx context.Context, in *GetCw20BalanceRequest, opts ...grpc.CallOption) (*GetCw20BalanceResponse, error) {
+func (c *heliosExplorerRPCClient) GetCw20Balance(ctx context.Context, in *GetCw20BalanceRequest, opts ...grpc.CallOption) (*GetCw20BalanceResponse, error) {
 	out := new(GetCw20BalanceResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetCw20Balance", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetCw20Balance", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) Relayers(ctx context.Context, in *RelayersRequest, opts ...grpc.CallOption) (*RelayersResponse, error) {
+func (c *heliosExplorerRPCClient) Relayers(ctx context.Context, in *RelayersRequest, opts ...grpc.CallOption) (*RelayersResponse, error) {
 	out := new(RelayersResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/Relayers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/Relayers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) GetBankTransfers(ctx context.Context, in *GetBankTransfersRequest, opts ...grpc.CallOption) (*GetBankTransfersResponse, error) {
+func (c *heliosExplorerRPCClient) GetBankTransfers(ctx context.Context, in *GetBankTransfersRequest, opts ...grpc.CallOption) (*GetBankTransfersResponse, error) {
 	out := new(GetBankTransfersResponse)
-	err := c.cc.Invoke(ctx, "/injective_explorer_rpc.InjectiveExplorerRPC/GetBankTransfers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_explorer_rpc.InjectiveExplorerRPC/GetBankTransfers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExplorerRPCClient) StreamTxs(ctx context.Context, in *StreamTxsRequest, opts ...grpc.CallOption) (InjectiveExplorerRPC_StreamTxsClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveExplorerRPC_ServiceDesc.Streams[0], "/injective_explorer_rpc.InjectiveExplorerRPC/StreamTxs", opts...)
+func (c *heliosExplorerRPCClient) StreamTxs(ctx context.Context, in *StreamTxsRequest, opts ...grpc.CallOption) (InjectiveExplorerRPC_StreamTxsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveExplorerRPC_ServiceDesc.Streams[0], "/helios_explorer_rpc.InjectiveExplorerRPC/StreamTxs", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveExplorerRPCStreamTxsClient{stream}
+	x := &heliosExplorerRPCStreamTxsClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -280,11 +280,11 @@ type InjectiveExplorerRPC_StreamTxsClient interface {
 	grpc.ClientStream
 }
 
-type injectiveExplorerRPCStreamTxsClient struct {
+type heliosExplorerRPCStreamTxsClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveExplorerRPCStreamTxsClient) Recv() (*StreamTxsResponse, error) {
+func (x *heliosExplorerRPCStreamTxsClient) Recv() (*StreamTxsResponse, error) {
 	m := new(StreamTxsResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -292,12 +292,12 @@ func (x *injectiveExplorerRPCStreamTxsClient) Recv() (*StreamTxsResponse, error)
 	return m, nil
 }
 
-func (c *injectiveExplorerRPCClient) StreamBlocks(ctx context.Context, in *StreamBlocksRequest, opts ...grpc.CallOption) (InjectiveExplorerRPC_StreamBlocksClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveExplorerRPC_ServiceDesc.Streams[1], "/injective_explorer_rpc.InjectiveExplorerRPC/StreamBlocks", opts...)
+func (c *heliosExplorerRPCClient) StreamBlocks(ctx context.Context, in *StreamBlocksRequest, opts ...grpc.CallOption) (InjectiveExplorerRPC_StreamBlocksClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveExplorerRPC_ServiceDesc.Streams[1], "/helios_explorer_rpc.InjectiveExplorerRPC/StreamBlocks", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveExplorerRPCStreamBlocksClient{stream}
+	x := &heliosExplorerRPCStreamBlocksClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -312,11 +312,11 @@ type InjectiveExplorerRPC_StreamBlocksClient interface {
 	grpc.ClientStream
 }
 
-type injectiveExplorerRPCStreamBlocksClient struct {
+type heliosExplorerRPCStreamBlocksClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveExplorerRPCStreamBlocksClient) Recv() (*StreamBlocksResponse, error) {
+func (x *heliosExplorerRPCStreamBlocksClient) Recv() (*StreamBlocksResponse, error) {
 	m := new(StreamBlocksResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -365,7 +365,7 @@ type InjectiveExplorerRPCServer interface {
 	GetWasmContracts(context.Context, *GetWasmContractsRequest) (*GetWasmContractsResponse, error)
 	// GetWasmContractByAddress list cosmwasm contract info by its address
 	GetWasmContractByAddress(context.Context, *GetWasmContractByAddressRequest) (*GetWasmContractByAddressResponse, error)
-	// GetCw20Balance lists all cw20 balances of an injective account
+	// GetCw20Balance lists all cw20 balances of an helios account
 	GetCw20Balance(context.Context, *GetCw20BalanceRequest) (*GetCw20BalanceResponse, error)
 	// Request relayers infos by marketIDs. If no ids are provided, all market with
 	// associated relayers are returned
@@ -472,7 +472,7 @@ func _InjectiveExplorerRPC_GetAccountTxs_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetAccountTxs",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetAccountTxs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetAccountTxs(ctx, req.(*GetAccountTxsRequest))
@@ -490,7 +490,7 @@ func _InjectiveExplorerRPC_GetContractTxs_Handler(srv interface{}, ctx context.C
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetContractTxs",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetContractTxs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetContractTxs(ctx, req.(*GetContractTxsRequest))
@@ -508,7 +508,7 @@ func _InjectiveExplorerRPC_GetContractTxsV2_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetContractTxsV2",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetContractTxsV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetContractTxsV2(ctx, req.(*GetContractTxsV2Request))
@@ -526,7 +526,7 @@ func _InjectiveExplorerRPC_GetBlocks_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetBlocks",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetBlocks",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetBlocks(ctx, req.(*GetBlocksRequest))
@@ -544,7 +544,7 @@ func _InjectiveExplorerRPC_GetBlock_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetBlock",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetBlock",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetBlock(ctx, req.(*GetBlockRequest))
@@ -562,7 +562,7 @@ func _InjectiveExplorerRPC_GetValidators_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetValidators",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetValidators",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetValidators(ctx, req.(*GetValidatorsRequest))
@@ -580,7 +580,7 @@ func _InjectiveExplorerRPC_GetValidator_Handler(srv interface{}, ctx context.Con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetValidator",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetValidator",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetValidator(ctx, req.(*GetValidatorRequest))
@@ -598,7 +598,7 @@ func _InjectiveExplorerRPC_GetValidatorUptime_Handler(srv interface{}, ctx conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetValidatorUptime",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetValidatorUptime",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetValidatorUptime(ctx, req.(*GetValidatorUptimeRequest))
@@ -616,7 +616,7 @@ func _InjectiveExplorerRPC_GetTxs_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetTxs",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetTxs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetTxs(ctx, req.(*GetTxsRequest))
@@ -634,7 +634,7 @@ func _InjectiveExplorerRPC_GetTxByTxHash_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetTxByTxHash",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetTxByTxHash",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetTxByTxHash(ctx, req.(*GetTxByTxHashRequest))
@@ -652,7 +652,7 @@ func _InjectiveExplorerRPC_GetPeggyDepositTxs_Handler(srv interface{}, ctx conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetPeggyDepositTxs",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetPeggyDepositTxs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetPeggyDepositTxs(ctx, req.(*GetPeggyDepositTxsRequest))
@@ -670,7 +670,7 @@ func _InjectiveExplorerRPC_GetPeggyWithdrawalTxs_Handler(srv interface{}, ctx co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetPeggyWithdrawalTxs",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetPeggyWithdrawalTxs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetPeggyWithdrawalTxs(ctx, req.(*GetPeggyWithdrawalTxsRequest))
@@ -688,7 +688,7 @@ func _InjectiveExplorerRPC_GetIBCTransferTxs_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetIBCTransferTxs",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetIBCTransferTxs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetIBCTransferTxs(ctx, req.(*GetIBCTransferTxsRequest))
@@ -706,7 +706,7 @@ func _InjectiveExplorerRPC_GetWasmCodes_Handler(srv interface{}, ctx context.Con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetWasmCodes",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetWasmCodes",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetWasmCodes(ctx, req.(*GetWasmCodesRequest))
@@ -724,7 +724,7 @@ func _InjectiveExplorerRPC_GetWasmCodeByID_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetWasmCodeByID",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetWasmCodeByID",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetWasmCodeByID(ctx, req.(*GetWasmCodeByIDRequest))
@@ -742,7 +742,7 @@ func _InjectiveExplorerRPC_GetWasmContracts_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetWasmContracts",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetWasmContracts",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetWasmContracts(ctx, req.(*GetWasmContractsRequest))
@@ -760,7 +760,7 @@ func _InjectiveExplorerRPC_GetWasmContractByAddress_Handler(srv interface{}, ctx
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetWasmContractByAddress",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetWasmContractByAddress",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetWasmContractByAddress(ctx, req.(*GetWasmContractByAddressRequest))
@@ -778,7 +778,7 @@ func _InjectiveExplorerRPC_GetCw20Balance_Handler(srv interface{}, ctx context.C
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetCw20Balance",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetCw20Balance",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetCw20Balance(ctx, req.(*GetCw20BalanceRequest))
@@ -796,7 +796,7 @@ func _InjectiveExplorerRPC_Relayers_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/Relayers",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/Relayers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).Relayers(ctx, req.(*RelayersRequest))
@@ -814,7 +814,7 @@ func _InjectiveExplorerRPC_GetBankTransfers_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_explorer_rpc.InjectiveExplorerRPC/GetBankTransfers",
+		FullMethod: "/helios_explorer_rpc.InjectiveExplorerRPC/GetBankTransfers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveExplorerRPCServer).GetBankTransfers(ctx, req.(*GetBankTransfersRequest))
@@ -827,7 +827,7 @@ func _InjectiveExplorerRPC_StreamTxs_Handler(srv interface{}, stream grpc.Server
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveExplorerRPCServer).StreamTxs(m, &injectiveExplorerRPCStreamTxsServer{stream})
+	return srv.(InjectiveExplorerRPCServer).StreamTxs(m, &heliosExplorerRPCStreamTxsServer{stream})
 }
 
 type InjectiveExplorerRPC_StreamTxsServer interface {
@@ -835,11 +835,11 @@ type InjectiveExplorerRPC_StreamTxsServer interface {
 	grpc.ServerStream
 }
 
-type injectiveExplorerRPCStreamTxsServer struct {
+type heliosExplorerRPCStreamTxsServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveExplorerRPCStreamTxsServer) Send(m *StreamTxsResponse) error {
+func (x *heliosExplorerRPCStreamTxsServer) Send(m *StreamTxsResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -848,7 +848,7 @@ func _InjectiveExplorerRPC_StreamBlocks_Handler(srv interface{}, stream grpc.Ser
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveExplorerRPCServer).StreamBlocks(m, &injectiveExplorerRPCStreamBlocksServer{stream})
+	return srv.(InjectiveExplorerRPCServer).StreamBlocks(m, &heliosExplorerRPCStreamBlocksServer{stream})
 }
 
 type InjectiveExplorerRPC_StreamBlocksServer interface {
@@ -856,11 +856,11 @@ type InjectiveExplorerRPC_StreamBlocksServer interface {
 	grpc.ServerStream
 }
 
-type injectiveExplorerRPCStreamBlocksServer struct {
+type heliosExplorerRPCStreamBlocksServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveExplorerRPCStreamBlocksServer) Send(m *StreamBlocksResponse) error {
+func (x *heliosExplorerRPCStreamBlocksServer) Send(m *StreamBlocksResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -868,7 +868,7 @@ func (x *injectiveExplorerRPCStreamBlocksServer) Send(m *StreamBlocksResponse) e
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveExplorerRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_explorer_rpc.InjectiveExplorerRPC",
+	ServiceName: "helios_explorer_rpc.InjectiveExplorerRPC",
 	HandlerType: (*InjectiveExplorerRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -964,5 +964,5 @@ var InjectiveExplorerRPC_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_explorer_rpc.proto",
+	Metadata: "goadesign_goagen_helios_explorer_rpc.proto",
 }

@@ -21,8 +21,8 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliosd",
+		"heliosd",
 		"file",
 		"inj-user",
 		"12345678",
@@ -57,7 +57,7 @@ func main() {
 	}
 
 	grantee := "inj1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
-	msgType := "/injective.exchange.v1beta1.MsgCreateSpotLimitOrder"
+	msgType := "/helios.exchange.v1beta1.MsgCreateSpotLimitOrder"
 
 	msg := &authztypes.MsgRevoke{
 		Granter:    senderAddress.String(),

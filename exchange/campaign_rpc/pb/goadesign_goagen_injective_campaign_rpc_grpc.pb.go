@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_campaign_rpc.proto
+// source: goadesign_goagen_helios_campaign_rpc.proto
 
-package injective_campaign_rpcpb
+package helios_campaign_rpcpb
 
 import (
 	context "context"
@@ -36,62 +36,62 @@ type InjectiveCampaignRPCClient interface {
 	GetGuildMember(ctx context.Context, in *GetGuildMemberRequest, opts ...grpc.CallOption) (*GetGuildMemberResponse, error)
 }
 
-type injectiveCampaignRPCClient struct {
+type heliosCampaignRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveCampaignRPCClient(cc grpc.ClientConnInterface) InjectiveCampaignRPCClient {
-	return &injectiveCampaignRPCClient{cc}
+	return &heliosCampaignRPCClient{cc}
 }
 
-func (c *injectiveCampaignRPCClient) Ranking(ctx context.Context, in *RankingRequest, opts ...grpc.CallOption) (*RankingResponse, error) {
+func (c *heliosCampaignRPCClient) Ranking(ctx context.Context, in *RankingRequest, opts ...grpc.CallOption) (*RankingResponse, error) {
 	out := new(RankingResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/Ranking", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.InjectiveCampaignRPC/Ranking", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) Campaigns(ctx context.Context, in *CampaignsRequest, opts ...grpc.CallOption) (*CampaignsResponse, error) {
+func (c *heliosCampaignRPCClient) Campaigns(ctx context.Context, in *CampaignsRequest, opts ...grpc.CallOption) (*CampaignsResponse, error) {
 	out := new(CampaignsResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/Campaigns", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.InjectiveCampaignRPC/Campaigns", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) CampaignsV2(ctx context.Context, in *CampaignsV2Request, opts ...grpc.CallOption) (*CampaignsV2Response, error) {
+func (c *heliosCampaignRPCClient) CampaignsV2(ctx context.Context, in *CampaignsV2Request, opts ...grpc.CallOption) (*CampaignsV2Response, error) {
 	out := new(CampaignsV2Response)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/CampaignsV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.InjectiveCampaignRPC/CampaignsV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) ListGuilds(ctx context.Context, in *ListGuildsRequest, opts ...grpc.CallOption) (*ListGuildsResponse, error) {
+func (c *heliosCampaignRPCClient) ListGuilds(ctx context.Context, in *ListGuildsRequest, opts ...grpc.CallOption) (*ListGuildsResponse, error) {
 	out := new(ListGuildsResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/ListGuilds", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.InjectiveCampaignRPC/ListGuilds", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) ListGuildMembers(ctx context.Context, in *ListGuildMembersRequest, opts ...grpc.CallOption) (*ListGuildMembersResponse, error) {
+func (c *heliosCampaignRPCClient) ListGuildMembers(ctx context.Context, in *ListGuildMembersRequest, opts ...grpc.CallOption) (*ListGuildMembersResponse, error) {
 	out := new(ListGuildMembersResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/ListGuildMembers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.InjectiveCampaignRPC/ListGuildMembers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) GetGuildMember(ctx context.Context, in *GetGuildMemberRequest, opts ...grpc.CallOption) (*GetGuildMemberResponse, error) {
+func (c *heliosCampaignRPCClient) GetGuildMember(ctx context.Context, in *GetGuildMemberRequest, opts ...grpc.CallOption) (*GetGuildMemberResponse, error) {
 	out := new(GetGuildMemberResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/GetGuildMember", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.InjectiveCampaignRPC/GetGuildMember", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -162,7 +162,7 @@ func _InjectiveCampaignRPC_Ranking_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/Ranking",
+		FullMethod: "/helios_campaign_rpc.InjectiveCampaignRPC/Ranking",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveCampaignRPCServer).Ranking(ctx, req.(*RankingRequest))
@@ -180,7 +180,7 @@ func _InjectiveCampaignRPC_Campaigns_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/Campaigns",
+		FullMethod: "/helios_campaign_rpc.InjectiveCampaignRPC/Campaigns",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveCampaignRPCServer).Campaigns(ctx, req.(*CampaignsRequest))
@@ -198,7 +198,7 @@ func _InjectiveCampaignRPC_CampaignsV2_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/CampaignsV2",
+		FullMethod: "/helios_campaign_rpc.InjectiveCampaignRPC/CampaignsV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveCampaignRPCServer).CampaignsV2(ctx, req.(*CampaignsV2Request))
@@ -216,7 +216,7 @@ func _InjectiveCampaignRPC_ListGuilds_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/ListGuilds",
+		FullMethod: "/helios_campaign_rpc.InjectiveCampaignRPC/ListGuilds",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveCampaignRPCServer).ListGuilds(ctx, req.(*ListGuildsRequest))
@@ -234,7 +234,7 @@ func _InjectiveCampaignRPC_ListGuildMembers_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/ListGuildMembers",
+		FullMethod: "/helios_campaign_rpc.InjectiveCampaignRPC/ListGuildMembers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveCampaignRPCServer).ListGuildMembers(ctx, req.(*ListGuildMembersRequest))
@@ -252,7 +252,7 @@ func _InjectiveCampaignRPC_GetGuildMember_Handler(srv interface{}, ctx context.C
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/GetGuildMember",
+		FullMethod: "/helios_campaign_rpc.InjectiveCampaignRPC/GetGuildMember",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveCampaignRPCServer).GetGuildMember(ctx, req.(*GetGuildMemberRequest))
@@ -264,7 +264,7 @@ func _InjectiveCampaignRPC_GetGuildMember_Handler(srv interface{}, ctx context.C
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveCampaignRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_campaign_rpc.InjectiveCampaignRPC",
+	ServiceName: "helios_campaign_rpc.InjectiveCampaignRPC",
 	HandlerType: (*InjectiveCampaignRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -293,5 +293,5 @@ var InjectiveCampaignRPC_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "goadesign_goagen_injective_campaign_rpc.proto",
+	Metadata: "goadesign_goagen_helios_campaign_rpc.proto",
 }

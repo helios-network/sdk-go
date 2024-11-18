@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/InjectiveLabs/injective-core
+name: buf.build/InjectiveLabs/helios-core
 deps:
   - buf.build/googleapis/googleapis
   - buf.build/cosmos/cosmos-proto

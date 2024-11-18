@@ -3,13 +3,13 @@
 // InjectiveExplorerRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_explorer_rpc;
+package helios_explorer_rpc;
 
-option go_package = "/injective_explorer_rpcpb";
+option go_package = "/helios_explorer_rpcpb";
 
 // ExplorerAPI implements explorer data API for e.g. Blockchain Explorer
 service InjectiveExplorerRPC {
@@ -50,7 +50,7 @@ service InjectiveExplorerRPC {
 	rpc GetWasmContracts (GetWasmContractsRequest) returns (GetWasmContractsResponse);
 	// GetWasmContractByAddress list cosmwasm contract info by its address
 	rpc GetWasmContractByAddress (GetWasmContractByAddressRequest) returns (GetWasmContractByAddressResponse);
-	// GetCw20Balance lists all cw20 balances of an injective account
+	// GetCw20Balance lists all cw20 balances of an helios account
 	rpc GetCw20Balance (GetCw20BalanceRequest) returns (GetCw20BalanceResponse);
 	// Request relayers infos by marketIDs. If no ids are provided, all market with
 // associated relayers are returned
@@ -528,7 +528,7 @@ message IBCTransferTx {
 	uint64 packet_sequence = 11;
 	bytes data_hex = 12;
 	string state = 13;
-	// it's injective chain tx hash array
+	// it's helios chain tx hash array
 	repeated string tx_hashes = 14;
 	string created_at = 15;
 	string updated_at = 16;

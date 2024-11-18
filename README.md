@@ -17,7 +17,7 @@ $ go mod download
 ## Run examples
 ```bash
 # import pk into keyring if you use keyring
-injectived keys unsafe-import-eth-key inj-user 5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e
+heliosd keys unsafe-import-eth-key inj-user 5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e
 
 # run chain example
 go run examples/chain/bank/1_MsgSend/example.go
@@ -34,7 +34,7 @@ go run examples/exchange/derivatives/4_Orderbook/example.go
 $ make copy-exchange-client
 ```
 
-(you have to clone [this repo](https://github.com/InjectiveLabs/injective-indexer) into `../injective-indexer`)
+(you have to clone [this repo](https://github.com/InjectiveLabs/helios-indexer) into `../helios-indexer`)
 
 ---
 
@@ -53,14 +53,14 @@ $ git push origin master --tags
 
 Reach out to us at one of the following places!
 
-- Website at <a href="https://injective.com" target="_blank">`injective.com`</a>
+- Website at <a href="https://helios.com" target="_blank">`helios.com`</a>
 - Twitter at <a href="https://twitter.com/InjectiveLabs" target="_blank">`@InjectiveLabs`</a>
 
 ---
 
 ## License
 
-Copyright © 2020 - 2022 Injective Labs Inc. (https://injectivelabs.org/)
+Copyright © 2020 - 2022 Injective Labs Inc. (https://helioslabs.org/)
 
 <a href="https://drive.google.com/uc?export=view&id=1-fPQRh_D_dnun2yTtSsPW5MypVBOVYJP"><img src="https://drive.google.com/uc?export=view&id=1-fPQRh_D_dnun2yTtSsPW5MypVBOVYJP" style="width: 300px; max-width: 100%; height: auto" />
 

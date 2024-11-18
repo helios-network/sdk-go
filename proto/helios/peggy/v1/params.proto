@@ -1,5 +1,5 @@
 syntax = "proto3";
-package injective.peggy.v1;
+package helios.peggy.v1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";

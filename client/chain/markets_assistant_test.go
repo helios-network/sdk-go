@@ -139,10 +139,10 @@ func TestMarketAssistantCreation(t *testing.T) {
 			Symbol:            "HELIOS",
 			Name:              "Injective",
 			Logo:              "https://imagedelivery.net/lPzngbR8EltRfBOi_WYaXw/18984c0b-3e61-431d-241d-dfbb60b57600/public",
-			CoinGeckoId:       "injective-protocol",
+			CoinGeckoId:       "helios-protocol",
 			Denom:             "helios",
 			TokenType:         "native",
-			ExternalLogo:      "injective-v3.png",
+			ExternalLogo:      "helios-v3.png",
 		},
 		{
 			Decimals:          6,

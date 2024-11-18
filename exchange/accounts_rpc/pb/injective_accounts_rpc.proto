@@ -3,13 +3,13 @@
 // InjectiveAccountsRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_accounts_rpc;
+package helios_accounts_rpc;
 
-option go_package = "/injective_accounts_rpcpb";
+option go_package = "/helios_accounts_rpcpb";
 
 // InjectiveAccountsRPC defines API of Exchange Accounts provider.
 service InjectiveAccountsRPC {

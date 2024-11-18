@@ -1,9 +1,9 @@
 syntax = "proto3";
-package injective.exchange.v1beta1;
+package helios.exchange.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
-import "injective/oracle/v1beta1/oracle.proto";
+import "helios/oracle/v1beta1/oracle.proto";
 import "amino/amino.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/exchange/types";
@@ -206,7 +206,7 @@ message DerivativeMarket {
   // Oracle quote currency
   string oracle_quote = 3;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 4;
+  helios.oracle.v1beta1.OracleType oracle_type = 4;
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 5;
   // Address of the quote currency denomination for the derivative contract
@@ -281,7 +281,7 @@ message BinaryOptionsMarket {
   // Oracle Provider
   string oracle_provider = 3;
   // Oracle type
-  injective.oracle.v1beta1.OracleType oracle_type = 4;
+  helios.oracle.v1beta1.OracleType oracle_type = 4;
   // Scale factor for oracle prices.
   uint32 oracle_scale_factor = 5;
   // expiration timestamp

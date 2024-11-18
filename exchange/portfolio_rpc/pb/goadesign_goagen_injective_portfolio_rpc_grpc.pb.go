@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_portfolio_rpc.proto
+// source: goadesign_goagen_helios_portfolio_rpc.proto
 
-package injective_portfolio_rpcpb
+package helios_portfolio_rpcpb
 
 import (
 	context "context"
@@ -32,47 +32,47 @@ type InjectivePortfolioRPCClient interface {
 	StreamAccountPortfolio(ctx context.Context, in *StreamAccountPortfolioRequest, opts ...grpc.CallOption) (InjectivePortfolioRPC_StreamAccountPortfolioClient, error)
 }
 
-type injectivePortfolioRPCClient struct {
+type heliosPortfolioRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectivePortfolioRPCClient(cc grpc.ClientConnInterface) InjectivePortfolioRPCClient {
-	return &injectivePortfolioRPCClient{cc}
+	return &heliosPortfolioRPCClient{cc}
 }
 
-func (c *injectivePortfolioRPCClient) TokenHolders(ctx context.Context, in *TokenHoldersRequest, opts ...grpc.CallOption) (*TokenHoldersResponse, error) {
+func (c *heliosPortfolioRPCClient) TokenHolders(ctx context.Context, in *TokenHoldersRequest, opts ...grpc.CallOption) (*TokenHoldersResponse, error) {
 	out := new(TokenHoldersResponse)
-	err := c.cc.Invoke(ctx, "/injective_portfolio_rpc.InjectivePortfolioRPC/TokenHolders", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_portfolio_rpc.InjectivePortfolioRPC/TokenHolders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectivePortfolioRPCClient) AccountPortfolio(ctx context.Context, in *AccountPortfolioRequest, opts ...grpc.CallOption) (*AccountPortfolioResponse, error) {
+func (c *heliosPortfolioRPCClient) AccountPortfolio(ctx context.Context, in *AccountPortfolioRequest, opts ...grpc.CallOption) (*AccountPortfolioResponse, error) {
 	out := new(AccountPortfolioResponse)
-	err := c.cc.Invoke(ctx, "/injective_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolio", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolio", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectivePortfolioRPCClient) AccountPortfolioBalances(ctx context.Context, in *AccountPortfolioBalancesRequest, opts ...grpc.CallOption) (*AccountPortfolioBalancesResponse, error) {
+func (c *heliosPortfolioRPCClient) AccountPortfolioBalances(ctx context.Context, in *AccountPortfolioBalancesRequest, opts ...grpc.CallOption) (*AccountPortfolioBalancesResponse, error) {
 	out := new(AccountPortfolioBalancesResponse)
-	err := c.cc.Invoke(ctx, "/injective_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolioBalances", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolioBalances", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectivePortfolioRPCClient) StreamAccountPortfolio(ctx context.Context, in *StreamAccountPortfolioRequest, opts ...grpc.CallOption) (InjectivePortfolioRPC_StreamAccountPortfolioClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectivePortfolioRPC_ServiceDesc.Streams[0], "/injective_portfolio_rpc.InjectivePortfolioRPC/StreamAccountPortfolio", opts...)
+func (c *heliosPortfolioRPCClient) StreamAccountPortfolio(ctx context.Context, in *StreamAccountPortfolioRequest, opts ...grpc.CallOption) (InjectivePortfolioRPC_StreamAccountPortfolioClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectivePortfolioRPC_ServiceDesc.Streams[0], "/helios_portfolio_rpc.InjectivePortfolioRPC/StreamAccountPortfolio", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectivePortfolioRPCStreamAccountPortfolioClient{stream}
+	x := &heliosPortfolioRPCStreamAccountPortfolioClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -87,11 +87,11 @@ type InjectivePortfolioRPC_StreamAccountPortfolioClient interface {
 	grpc.ClientStream
 }
 
-type injectivePortfolioRPCStreamAccountPortfolioClient struct {
+type heliosPortfolioRPCStreamAccountPortfolioClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectivePortfolioRPCStreamAccountPortfolioClient) Recv() (*StreamAccountPortfolioResponse, error) {
+func (x *heliosPortfolioRPCStreamAccountPortfolioClient) Recv() (*StreamAccountPortfolioResponse, error) {
 	m := new(StreamAccountPortfolioResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -153,7 +153,7 @@ func _InjectivePortfolioRPC_TokenHolders_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_portfolio_rpc.InjectivePortfolioRPC/TokenHolders",
+		FullMethod: "/helios_portfolio_rpc.InjectivePortfolioRPC/TokenHolders",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectivePortfolioRPCServer).TokenHolders(ctx, req.(*TokenHoldersRequest))
@@ -171,7 +171,7 @@ func _InjectivePortfolioRPC_AccountPortfolio_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolio",
+		FullMethod: "/helios_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolio",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectivePortfolioRPCServer).AccountPortfolio(ctx, req.(*AccountPortfolioRequest))
@@ -189,7 +189,7 @@ func _InjectivePortfolioRPC_AccountPortfolioBalances_Handler(srv interface{}, ct
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolioBalances",
+		FullMethod: "/helios_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolioBalances",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectivePortfolioRPCServer).AccountPortfolioBalances(ctx, req.(*AccountPortfolioBalancesRequest))
@@ -202,7 +202,7 @@ func _InjectivePortfolioRPC_StreamAccountPortfolio_Handler(srv interface{}, stre
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectivePortfolioRPCServer).StreamAccountPortfolio(m, &injectivePortfolioRPCStreamAccountPortfolioServer{stream})
+	return srv.(InjectivePortfolioRPCServer).StreamAccountPortfolio(m, &heliosPortfolioRPCStreamAccountPortfolioServer{stream})
 }
 
 type InjectivePortfolioRPC_StreamAccountPortfolioServer interface {
@@ -210,11 +210,11 @@ type InjectivePortfolioRPC_StreamAccountPortfolioServer interface {
 	grpc.ServerStream
 }
 
-type injectivePortfolioRPCStreamAccountPortfolioServer struct {
+type heliosPortfolioRPCStreamAccountPortfolioServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectivePortfolioRPCStreamAccountPortfolioServer) Send(m *StreamAccountPortfolioResponse) error {
+func (x *heliosPortfolioRPCStreamAccountPortfolioServer) Send(m *StreamAccountPortfolioResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -222,7 +222,7 @@ func (x *injectivePortfolioRPCStreamAccountPortfolioServer) Send(m *StreamAccoun
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectivePortfolioRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_portfolio_rpc.InjectivePortfolioRPC",
+	ServiceName: "helios_portfolio_rpc.InjectivePortfolioRPC",
 	HandlerType: (*InjectivePortfolioRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -245,5 +245,5 @@ var InjectivePortfolioRPC_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_portfolio_rpc.proto",
+	Metadata: "goadesign_goagen_helios_portfolio_rpc.proto",
 }

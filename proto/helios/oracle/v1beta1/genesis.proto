@@ -1,7 +1,7 @@
 syntax = "proto3";
-package injective.oracle.v1beta1;
+package helios.oracle.v1beta1;
 
-import "injective/oracle/v1beta1/oracle.proto";
+import "helios/oracle/v1beta1/oracle.proto";
 import "gogoproto/gogo.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/oracle/types";

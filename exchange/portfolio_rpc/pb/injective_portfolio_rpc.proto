@@ -3,13 +3,13 @@
 // InjectivePortfolioRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_portfolio_rpc;
+package helios_portfolio_rpc;
 
-option go_package = "/injective_portfolio_rpcpb";
+option go_package = "/helios_portfolio_rpcpb";
 
 // InjectivePortfolioRPC defines gRPC API of Exchange Portfolio provider.
 service InjectivePortfolioRPC {

@@ -3,13 +3,13 @@
 // InjectiveCampaignRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_campaign_rpc;
+package helios_campaign_rpc;
 
-option go_package = "/injective_campaign_rpcpb";
+option go_package = "/helios_campaign_rpcpb";
 
 // InjectiveCampaignRPC defined a gRPC service for Injective Campaigns.
 service InjectiveCampaignRPC {

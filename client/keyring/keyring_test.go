@@ -275,7 +275,7 @@ func (s *KeyringTestSuite) TestNamedKeys() {
 	requireT.Equal(testSig, res)
 }
 
-const expectedPubKeyType = "/injective.crypto.v1beta1.ethsecp256k1.PubKey"
+const expectedPubKeyType = "/helios.crypto.v1beta1.ethsecp256k1.PubKey"
 
 const testAccAddressBech = "inj1ycc302kea06htx5zw2kj4eyk3hgj63sz206fq0"
 

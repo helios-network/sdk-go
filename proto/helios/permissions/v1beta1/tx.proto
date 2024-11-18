@@ -1,13 +1,13 @@
 syntax = "proto3";
-package injective.permissions.v1beta1;
+package helios.permissions.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "cosmos/bank/v1beta1/bank.proto";
 import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
-import "injective/permissions/v1beta1/params.proto";
-import "injective/permissions/v1beta1/permissions.proto";
+import "helios/permissions/v1beta1/params.proto";
+import "helios/permissions/v1beta1/permissions.proto";
 import "amino/amino.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/permissions/types";

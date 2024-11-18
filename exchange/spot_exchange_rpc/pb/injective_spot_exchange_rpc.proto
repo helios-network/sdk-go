@@ -3,13 +3,13 @@
 // InjectiveSpotExchangeRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_spot_exchange_rpc;
+package helios_spot_exchange_rpc;
 
-option go_package = "/injective_spot_exchange_rpcpb";
+option go_package = "/helios_spot_exchange_rpcpb";
 
 // InjectiveSpotExchangeRPC defines gRPC API of Spot Exchange provider.
 service InjectiveSpotExchangeRPC {

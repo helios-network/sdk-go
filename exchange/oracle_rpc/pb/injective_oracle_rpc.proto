@@ -3,13 +3,13 @@
 // InjectiveOracleRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_oracle_rpc;
+package helios_oracle_rpc;
 
-option go_package = "/injective_oracle_rpcpb";
+option go_package = "/helios_oracle_rpcpb";
 
 // InjectiveOracleRPC defines gRPC API of Exchange Oracle provider.
 service InjectiveOracleRPC {

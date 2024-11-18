@@ -1,12 +1,12 @@
 syntax = "proto3";
-package injective.insurance.v1beta1;
+package helios.insurance.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
-import "injective/insurance/v1beta1/insurance.proto";
-import "injective/oracle/v1beta1/oracle.proto";
+import "helios/insurance/v1beta1/insurance.proto";
+import "helios/oracle/v1beta1/oracle.proto";
 import "amino/amino.proto";
 
 option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/insurance/types";
@@ -53,7 +53,7 @@ message MsgCreateInsuranceFund {
   // the binary options market.
   string oracle_quote = 5;
   // Oracle type of the binary options or derivative market
-  injective.oracle.v1beta1.OracleType oracle_type = 6;
+  helios.oracle.v1beta1.OracleType oracle_type = 6;
   // Expiration time of the derivative market. Should be -1 for perpetual or -2
   // for binary options markets.
   int64 expiry = 7;

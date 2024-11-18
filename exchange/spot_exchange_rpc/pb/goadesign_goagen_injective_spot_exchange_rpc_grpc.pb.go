@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_spot_exchange_rpc.proto
+// source: goadesign_goagen_helios_spot_exchange_rpc.proto
 
-package injective_spot_exchange_rpcpb
+package helios_spot_exchange_rpcpb
 
 import (
 	context "context"
@@ -60,38 +60,38 @@ type InjectiveSpotExchangeRPCClient interface {
 	AtomicSwapHistory(ctx context.Context, in *AtomicSwapHistoryRequest, opts ...grpc.CallOption) (*AtomicSwapHistoryResponse, error)
 }
 
-type injectiveSpotExchangeRPCClient struct {
+type heliosSpotExchangeRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
 func NewInjectiveSpotExchangeRPCClient(cc grpc.ClientConnInterface) InjectiveSpotExchangeRPCClient {
-	return &injectiveSpotExchangeRPCClient{cc}
+	return &heliosSpotExchangeRPCClient{cc}
 }
 
-func (c *injectiveSpotExchangeRPCClient) Markets(ctx context.Context, in *MarketsRequest, opts ...grpc.CallOption) (*MarketsResponse, error) {
+func (c *heliosSpotExchangeRPCClient) Markets(ctx context.Context, in *MarketsRequest, opts ...grpc.CallOption) (*MarketsResponse, error) {
 	out := new(MarketsResponse)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/Markets", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/Markets", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) Market(ctx context.Context, in *MarketRequest, opts ...grpc.CallOption) (*MarketResponse, error) {
+func (c *heliosSpotExchangeRPCClient) Market(ctx context.Context, in *MarketRequest, opts ...grpc.CallOption) (*MarketResponse, error) {
 	out := new(MarketResponse)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/Market", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/Market", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) StreamMarkets(ctx context.Context, in *StreamMarketsRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamMarketsClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[0], "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamMarkets", opts...)
+func (c *heliosSpotExchangeRPCClient) StreamMarkets(ctx context.Context, in *StreamMarketsRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamMarketsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[0], "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamMarkets", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveSpotExchangeRPCStreamMarketsClient{stream}
+	x := &heliosSpotExchangeRPCStreamMarketsClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -106,11 +106,11 @@ type InjectiveSpotExchangeRPC_StreamMarketsClient interface {
 	grpc.ClientStream
 }
 
-type injectiveSpotExchangeRPCStreamMarketsClient struct {
+type heliosSpotExchangeRPCStreamMarketsClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamMarketsClient) Recv() (*StreamMarketsResponse, error) {
+func (x *heliosSpotExchangeRPCStreamMarketsClient) Recv() (*StreamMarketsResponse, error) {
 	m := new(StreamMarketsResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -118,30 +118,30 @@ func (x *injectiveSpotExchangeRPCStreamMarketsClient) Recv() (*StreamMarketsResp
 	return m, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) OrderbookV2(ctx context.Context, in *OrderbookV2Request, opts ...grpc.CallOption) (*OrderbookV2Response, error) {
+func (c *heliosSpotExchangeRPCClient) OrderbookV2(ctx context.Context, in *OrderbookV2Request, opts ...grpc.CallOption) (*OrderbookV2Response, error) {
 	out := new(OrderbookV2Response)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrderbookV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrderbookV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) OrderbooksV2(ctx context.Context, in *OrderbooksV2Request, opts ...grpc.CallOption) (*OrderbooksV2Response, error) {
+func (c *heliosSpotExchangeRPCClient) OrderbooksV2(ctx context.Context, in *OrderbooksV2Request, opts ...grpc.CallOption) (*OrderbooksV2Response, error) {
 	out := new(OrderbooksV2Response)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrderbooksV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrderbooksV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) StreamOrderbookV2(ctx context.Context, in *StreamOrderbookV2Request, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamOrderbookV2Client, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[1], "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamOrderbookV2", opts...)
+func (c *heliosSpotExchangeRPCClient) StreamOrderbookV2(ctx context.Context, in *StreamOrderbookV2Request, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamOrderbookV2Client, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[1], "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamOrderbookV2", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveSpotExchangeRPCStreamOrderbookV2Client{stream}
+	x := &heliosSpotExchangeRPCStreamOrderbookV2Client{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -156,11 +156,11 @@ type InjectiveSpotExchangeRPC_StreamOrderbookV2Client interface {
 	grpc.ClientStream
 }
 
-type injectiveSpotExchangeRPCStreamOrderbookV2Client struct {
+type heliosSpotExchangeRPCStreamOrderbookV2Client struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamOrderbookV2Client) Recv() (*StreamOrderbookV2Response, error) {
+func (x *heliosSpotExchangeRPCStreamOrderbookV2Client) Recv() (*StreamOrderbookV2Response, error) {
 	m := new(StreamOrderbookV2Response)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -168,12 +168,12 @@ func (x *injectiveSpotExchangeRPCStreamOrderbookV2Client) Recv() (*StreamOrderbo
 	return m, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) StreamOrderbookUpdate(ctx context.Context, in *StreamOrderbookUpdateRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamOrderbookUpdateClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[2], "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamOrderbookUpdate", opts...)
+func (c *heliosSpotExchangeRPCClient) StreamOrderbookUpdate(ctx context.Context, in *StreamOrderbookUpdateRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamOrderbookUpdateClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[2], "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamOrderbookUpdate", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveSpotExchangeRPCStreamOrderbookUpdateClient{stream}
+	x := &heliosSpotExchangeRPCStreamOrderbookUpdateClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -188,11 +188,11 @@ type InjectiveSpotExchangeRPC_StreamOrderbookUpdateClient interface {
 	grpc.ClientStream
 }
 
-type injectiveSpotExchangeRPCStreamOrderbookUpdateClient struct {
+type heliosSpotExchangeRPCStreamOrderbookUpdateClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamOrderbookUpdateClient) Recv() (*StreamOrderbookUpdateResponse, error) {
+func (x *heliosSpotExchangeRPCStreamOrderbookUpdateClient) Recv() (*StreamOrderbookUpdateResponse, error) {
 	m := new(StreamOrderbookUpdateResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -200,21 +200,21 @@ func (x *injectiveSpotExchangeRPCStreamOrderbookUpdateClient) Recv() (*StreamOrd
 	return m, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) Orders(ctx context.Context, in *OrdersRequest, opts ...grpc.CallOption) (*OrdersResponse, error) {
+func (c *heliosSpotExchangeRPCClient) Orders(ctx context.Context, in *OrdersRequest, opts ...grpc.CallOption) (*OrdersResponse, error) {
 	out := new(OrdersResponse)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/Orders", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/Orders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) StreamOrders(ctx context.Context, in *StreamOrdersRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamOrdersClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[3], "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamOrders", opts...)
+func (c *heliosSpotExchangeRPCClient) StreamOrders(ctx context.Context, in *StreamOrdersRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamOrdersClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[3], "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamOrders", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveSpotExchangeRPCStreamOrdersClient{stream}
+	x := &heliosSpotExchangeRPCStreamOrdersClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -229,11 +229,11 @@ type InjectiveSpotExchangeRPC_StreamOrdersClient interface {
 	grpc.ClientStream
 }
 
-type injectiveSpotExchangeRPCStreamOrdersClient struct {
+type heliosSpotExchangeRPCStreamOrdersClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamOrdersClient) Recv() (*StreamOrdersResponse, error) {
+func (x *heliosSpotExchangeRPCStreamOrdersClient) Recv() (*StreamOrdersResponse, error) {
 	m := new(StreamOrdersResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -241,21 +241,21 @@ func (x *injectiveSpotExchangeRPCStreamOrdersClient) Recv() (*StreamOrdersRespon
 	return m, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) Trades(ctx context.Context, in *TradesRequest, opts ...grpc.CallOption) (*TradesResponse, error) {
+func (c *heliosSpotExchangeRPCClient) Trades(ctx context.Context, in *TradesRequest, opts ...grpc.CallOption) (*TradesResponse, error) {
 	out := new(TradesResponse)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/Trades", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/Trades", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) StreamTrades(ctx context.Context, in *StreamTradesRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamTradesClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[4], "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamTrades", opts...)
+func (c *heliosSpotExchangeRPCClient) StreamTrades(ctx context.Context, in *StreamTradesRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamTradesClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[4], "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamTrades", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveSpotExchangeRPCStreamTradesClient{stream}
+	x := &heliosSpotExchangeRPCStreamTradesClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -270,11 +270,11 @@ type InjectiveSpotExchangeRPC_StreamTradesClient interface {
 	grpc.ClientStream
 }
 
-type injectiveSpotExchangeRPCStreamTradesClient struct {
+type heliosSpotExchangeRPCStreamTradesClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamTradesClient) Recv() (*StreamTradesResponse, error) {
+func (x *heliosSpotExchangeRPCStreamTradesClient) Recv() (*StreamTradesResponse, error) {
 	m := new(StreamTradesResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -282,21 +282,21 @@ func (x *injectiveSpotExchangeRPCStreamTradesClient) Recv() (*StreamTradesRespon
 	return m, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) TradesV2(ctx context.Context, in *TradesV2Request, opts ...grpc.CallOption) (*TradesV2Response, error) {
+func (c *heliosSpotExchangeRPCClient) TradesV2(ctx context.Context, in *TradesV2Request, opts ...grpc.CallOption) (*TradesV2Response, error) {
 	out := new(TradesV2Response)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/TradesV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/TradesV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) StreamTradesV2(ctx context.Context, in *StreamTradesV2Request, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamTradesV2Client, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[5], "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamTradesV2", opts...)
+func (c *heliosSpotExchangeRPCClient) StreamTradesV2(ctx context.Context, in *StreamTradesV2Request, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamTradesV2Client, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[5], "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamTradesV2", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveSpotExchangeRPCStreamTradesV2Client{stream}
+	x := &heliosSpotExchangeRPCStreamTradesV2Client{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -311,11 +311,11 @@ type InjectiveSpotExchangeRPC_StreamTradesV2Client interface {
 	grpc.ClientStream
 }
 
-type injectiveSpotExchangeRPCStreamTradesV2Client struct {
+type heliosSpotExchangeRPCStreamTradesV2Client struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamTradesV2Client) Recv() (*StreamTradesV2Response, error) {
+func (x *heliosSpotExchangeRPCStreamTradesV2Client) Recv() (*StreamTradesV2Response, error) {
 	m := new(StreamTradesV2Response)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -323,39 +323,39 @@ func (x *injectiveSpotExchangeRPCStreamTradesV2Client) Recv() (*StreamTradesV2Re
 	return m, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) SubaccountOrdersList(ctx context.Context, in *SubaccountOrdersListRequest, opts ...grpc.CallOption) (*SubaccountOrdersListResponse, error) {
+func (c *heliosSpotExchangeRPCClient) SubaccountOrdersList(ctx context.Context, in *SubaccountOrdersListRequest, opts ...grpc.CallOption) (*SubaccountOrdersListResponse, error) {
 	out := new(SubaccountOrdersListResponse)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/SubaccountOrdersList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/SubaccountOrdersList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) SubaccountTradesList(ctx context.Context, in *SubaccountTradesListRequest, opts ...grpc.CallOption) (*SubaccountTradesListResponse, error) {
+func (c *heliosSpotExchangeRPCClient) SubaccountTradesList(ctx context.Context, in *SubaccountTradesListRequest, opts ...grpc.CallOption) (*SubaccountTradesListResponse, error) {
 	out := new(SubaccountTradesListResponse)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/SubaccountTradesList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/SubaccountTradesList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) OrdersHistory(ctx context.Context, in *OrdersHistoryRequest, opts ...grpc.CallOption) (*OrdersHistoryResponse, error) {
+func (c *heliosSpotExchangeRPCClient) OrdersHistory(ctx context.Context, in *OrdersHistoryRequest, opts ...grpc.CallOption) (*OrdersHistoryResponse, error) {
 	out := new(OrdersHistoryResponse)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrdersHistory", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrdersHistory", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) StreamOrdersHistory(ctx context.Context, in *StreamOrdersHistoryRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamOrdersHistoryClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[6], "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamOrdersHistory", opts...)
+func (c *heliosSpotExchangeRPCClient) StreamOrdersHistory(ctx context.Context, in *StreamOrdersHistoryRequest, opts ...grpc.CallOption) (InjectiveSpotExchangeRPC_StreamOrdersHistoryClient, error) {
+	stream, err := c.cc.NewStream(ctx, &InjectiveSpotExchangeRPC_ServiceDesc.Streams[6], "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/StreamOrdersHistory", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveSpotExchangeRPCStreamOrdersHistoryClient{stream}
+	x := &heliosSpotExchangeRPCStreamOrdersHistoryClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -370,11 +370,11 @@ type InjectiveSpotExchangeRPC_StreamOrdersHistoryClient interface {
 	grpc.ClientStream
 }
 
-type injectiveSpotExchangeRPCStreamOrdersHistoryClient struct {
+type heliosSpotExchangeRPCStreamOrdersHistoryClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamOrdersHistoryClient) Recv() (*StreamOrdersHistoryResponse, error) {
+func (x *heliosSpotExchangeRPCStreamOrdersHistoryClient) Recv() (*StreamOrdersHistoryResponse, error) {
 	m := new(StreamOrdersHistoryResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -382,9 +382,9 @@ func (x *injectiveSpotExchangeRPCStreamOrdersHistoryClient) Recv() (*StreamOrder
 	return m, nil
 }
 
-func (c *injectiveSpotExchangeRPCClient) AtomicSwapHistory(ctx context.Context, in *AtomicSwapHistoryRequest, opts ...grpc.CallOption) (*AtomicSwapHistoryResponse, error) {
+func (c *heliosSpotExchangeRPCClient) AtomicSwapHistory(ctx context.Context, in *AtomicSwapHistoryRequest, opts ...grpc.CallOption) (*AtomicSwapHistoryResponse, error) {
 	out := new(AtomicSwapHistoryResponse)
-	err := c.cc.Invoke(ctx, "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/AtomicSwapHistory", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/AtomicSwapHistory", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -516,7 +516,7 @@ func _InjectiveSpotExchangeRPC_Markets_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/Markets",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/Markets",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).Markets(ctx, req.(*MarketsRequest))
@@ -534,7 +534,7 @@ func _InjectiveSpotExchangeRPC_Market_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/Market",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/Market",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).Market(ctx, req.(*MarketRequest))
@@ -547,7 +547,7 @@ func _InjectiveSpotExchangeRPC_StreamMarkets_Handler(srv interface{}, stream grp
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveSpotExchangeRPCServer).StreamMarkets(m, &injectiveSpotExchangeRPCStreamMarketsServer{stream})
+	return srv.(InjectiveSpotExchangeRPCServer).StreamMarkets(m, &heliosSpotExchangeRPCStreamMarketsServer{stream})
 }
 
 type InjectiveSpotExchangeRPC_StreamMarketsServer interface {
@@ -555,11 +555,11 @@ type InjectiveSpotExchangeRPC_StreamMarketsServer interface {
 	grpc.ServerStream
 }
 
-type injectiveSpotExchangeRPCStreamMarketsServer struct {
+type heliosSpotExchangeRPCStreamMarketsServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamMarketsServer) Send(m *StreamMarketsResponse) error {
+func (x *heliosSpotExchangeRPCStreamMarketsServer) Send(m *StreamMarketsResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -573,7 +573,7 @@ func _InjectiveSpotExchangeRPC_OrderbookV2_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrderbookV2",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrderbookV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).OrderbookV2(ctx, req.(*OrderbookV2Request))
@@ -591,7 +591,7 @@ func _InjectiveSpotExchangeRPC_OrderbooksV2_Handler(srv interface{}, ctx context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrderbooksV2",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrderbooksV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).OrderbooksV2(ctx, req.(*OrderbooksV2Request))
@@ -604,7 +604,7 @@ func _InjectiveSpotExchangeRPC_StreamOrderbookV2_Handler(srv interface{}, stream
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveSpotExchangeRPCServer).StreamOrderbookV2(m, &injectiveSpotExchangeRPCStreamOrderbookV2Server{stream})
+	return srv.(InjectiveSpotExchangeRPCServer).StreamOrderbookV2(m, &heliosSpotExchangeRPCStreamOrderbookV2Server{stream})
 }
 
 type InjectiveSpotExchangeRPC_StreamOrderbookV2Server interface {
@@ -612,11 +612,11 @@ type InjectiveSpotExchangeRPC_StreamOrderbookV2Server interface {
 	grpc.ServerStream
 }
 
-type injectiveSpotExchangeRPCStreamOrderbookV2Server struct {
+type heliosSpotExchangeRPCStreamOrderbookV2Server struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamOrderbookV2Server) Send(m *StreamOrderbookV2Response) error {
+func (x *heliosSpotExchangeRPCStreamOrderbookV2Server) Send(m *StreamOrderbookV2Response) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -625,7 +625,7 @@ func _InjectiveSpotExchangeRPC_StreamOrderbookUpdate_Handler(srv interface{}, st
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveSpotExchangeRPCServer).StreamOrderbookUpdate(m, &injectiveSpotExchangeRPCStreamOrderbookUpdateServer{stream})
+	return srv.(InjectiveSpotExchangeRPCServer).StreamOrderbookUpdate(m, &heliosSpotExchangeRPCStreamOrderbookUpdateServer{stream})
 }
 
 type InjectiveSpotExchangeRPC_StreamOrderbookUpdateServer interface {
@@ -633,11 +633,11 @@ type InjectiveSpotExchangeRPC_StreamOrderbookUpdateServer interface {
 	grpc.ServerStream
 }
 
-type injectiveSpotExchangeRPCStreamOrderbookUpdateServer struct {
+type heliosSpotExchangeRPCStreamOrderbookUpdateServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamOrderbookUpdateServer) Send(m *StreamOrderbookUpdateResponse) error {
+func (x *heliosSpotExchangeRPCStreamOrderbookUpdateServer) Send(m *StreamOrderbookUpdateResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -651,7 +651,7 @@ func _InjectiveSpotExchangeRPC_Orders_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/Orders",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/Orders",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).Orders(ctx, req.(*OrdersRequest))
@@ -664,7 +664,7 @@ func _InjectiveSpotExchangeRPC_StreamOrders_Handler(srv interface{}, stream grpc
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveSpotExchangeRPCServer).StreamOrders(m, &injectiveSpotExchangeRPCStreamOrdersServer{stream})
+	return srv.(InjectiveSpotExchangeRPCServer).StreamOrders(m, &heliosSpotExchangeRPCStreamOrdersServer{stream})
 }
 
 type InjectiveSpotExchangeRPC_StreamOrdersServer interface {
@@ -672,11 +672,11 @@ type InjectiveSpotExchangeRPC_StreamOrdersServer interface {
 	grpc.ServerStream
 }
 
-type injectiveSpotExchangeRPCStreamOrdersServer struct {
+type heliosSpotExchangeRPCStreamOrdersServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamOrdersServer) Send(m *StreamOrdersResponse) error {
+func (x *heliosSpotExchangeRPCStreamOrdersServer) Send(m *StreamOrdersResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -690,7 +690,7 @@ func _InjectiveSpotExchangeRPC_Trades_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/Trades",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/Trades",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).Trades(ctx, req.(*TradesRequest))
@@ -703,7 +703,7 @@ func _InjectiveSpotExchangeRPC_StreamTrades_Handler(srv interface{}, stream grpc
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveSpotExchangeRPCServer).StreamTrades(m, &injectiveSpotExchangeRPCStreamTradesServer{stream})
+	return srv.(InjectiveSpotExchangeRPCServer).StreamTrades(m, &heliosSpotExchangeRPCStreamTradesServer{stream})
 }
 
 type InjectiveSpotExchangeRPC_StreamTradesServer interface {
@@ -711,11 +711,11 @@ type InjectiveSpotExchangeRPC_StreamTradesServer interface {
 	grpc.ServerStream
 }
 
-type injectiveSpotExchangeRPCStreamTradesServer struct {
+type heliosSpotExchangeRPCStreamTradesServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamTradesServer) Send(m *StreamTradesResponse) error {
+func (x *heliosSpotExchangeRPCStreamTradesServer) Send(m *StreamTradesResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -729,7 +729,7 @@ func _InjectiveSpotExchangeRPC_TradesV2_Handler(srv interface{}, ctx context.Con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/TradesV2",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/TradesV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).TradesV2(ctx, req.(*TradesV2Request))
@@ -742,7 +742,7 @@ func _InjectiveSpotExchangeRPC_StreamTradesV2_Handler(srv interface{}, stream gr
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveSpotExchangeRPCServer).StreamTradesV2(m, &injectiveSpotExchangeRPCStreamTradesV2Server{stream})
+	return srv.(InjectiveSpotExchangeRPCServer).StreamTradesV2(m, &heliosSpotExchangeRPCStreamTradesV2Server{stream})
 }
 
 type InjectiveSpotExchangeRPC_StreamTradesV2Server interface {
@@ -750,11 +750,11 @@ type InjectiveSpotExchangeRPC_StreamTradesV2Server interface {
 	grpc.ServerStream
 }
 
-type injectiveSpotExchangeRPCStreamTradesV2Server struct {
+type heliosSpotExchangeRPCStreamTradesV2Server struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamTradesV2Server) Send(m *StreamTradesV2Response) error {
+func (x *heliosSpotExchangeRPCStreamTradesV2Server) Send(m *StreamTradesV2Response) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -768,7 +768,7 @@ func _InjectiveSpotExchangeRPC_SubaccountOrdersList_Handler(srv interface{}, ctx
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/SubaccountOrdersList",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/SubaccountOrdersList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).SubaccountOrdersList(ctx, req.(*SubaccountOrdersListRequest))
@@ -786,7 +786,7 @@ func _InjectiveSpotExchangeRPC_SubaccountTradesList_Handler(srv interface{}, ctx
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/SubaccountTradesList",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/SubaccountTradesList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).SubaccountTradesList(ctx, req.(*SubaccountTradesListRequest))
@@ -804,7 +804,7 @@ func _InjectiveSpotExchangeRPC_OrdersHistory_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrdersHistory",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/OrdersHistory",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).OrdersHistory(ctx, req.(*OrdersHistoryRequest))
@@ -817,7 +817,7 @@ func _InjectiveSpotExchangeRPC_StreamOrdersHistory_Handler(srv interface{}, stre
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveSpotExchangeRPCServer).StreamOrdersHistory(m, &injectiveSpotExchangeRPCStreamOrdersHistoryServer{stream})
+	return srv.(InjectiveSpotExchangeRPCServer).StreamOrdersHistory(m, &heliosSpotExchangeRPCStreamOrdersHistoryServer{stream})
 }
 
 type InjectiveSpotExchangeRPC_StreamOrdersHistoryServer interface {
@@ -825,11 +825,11 @@ type InjectiveSpotExchangeRPC_StreamOrdersHistoryServer interface {
 	grpc.ServerStream
 }
 
-type injectiveSpotExchangeRPCStreamOrdersHistoryServer struct {
+type heliosSpotExchangeRPCStreamOrdersHistoryServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveSpotExchangeRPCStreamOrdersHistoryServer) Send(m *StreamOrdersHistoryResponse) error {
+func (x *heliosSpotExchangeRPCStreamOrdersHistoryServer) Send(m *StreamOrdersHistoryResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -843,7 +843,7 @@ func _InjectiveSpotExchangeRPC_AtomicSwapHistory_Handler(srv interface{}, ctx co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_spot_exchange_rpc.InjectiveSpotExchangeRPC/AtomicSwapHistory",
+		FullMethod: "/helios_spot_exchange_rpc.InjectiveSpotExchangeRPC/AtomicSwapHistory",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InjectiveSpotExchangeRPCServer).AtomicSwapHistory(ctx, req.(*AtomicSwapHistoryRequest))
@@ -855,7 +855,7 @@ func _InjectiveSpotExchangeRPC_AtomicSwapHistory_Handler(srv interface{}, ctx co
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var InjectiveSpotExchangeRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_spot_exchange_rpc.InjectiveSpotExchangeRPC",
+	ServiceName: "helios_spot_exchange_rpc.InjectiveSpotExchangeRPC",
 	HandlerType: (*InjectiveSpotExchangeRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -940,5 +940,5 @@ var InjectiveSpotExchangeRPC_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_spot_exchange_rpc.proto",
+	Metadata: "goadesign_goagen_helios_spot_exchange_rpc.proto",
 }

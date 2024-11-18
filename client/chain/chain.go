@@ -1321,7 +1321,7 @@ func (c *chainClient) StreamEventOrderFail(sender string, failEventCh chan map[s
 }
 
 func (c *chainClient) StreamEventOrderFailWithWebsocket(sender string, websocket *rpchttp.HTTP, failEventCh chan map[string]uint) {
-	filter := fmt.Sprintf("tm.event='Tx' AND message.sender='%s' AND message.action='/injective.exchange.v1beta1.MsgBatchUpdateOrders' AND injective.exchange.v1beta1.EventOrderFail.flags EXISTS", sender)
+	filter := fmt.Sprintf("tm.event='Tx' AND message.sender='%s' AND message.action='/helios.exchange.v1beta1.MsgBatchUpdateOrders' AND helios.exchange.v1beta1.EventOrderFail.flags EXISTS", sender)
 	eventCh, err := websocket.Subscribe(context.Background(), "OrderFail", filter, 10000)
 	if err != nil {
 		panic(err)

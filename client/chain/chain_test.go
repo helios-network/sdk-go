@@ -16,8 +16,8 @@ import (
 
 func accountForTests() (cosmtypes.AccAddress, keyring.Keyring, error) {
 	senderAddress, cosmosKeyring, err := chain.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliosd",
+		"heliosd",
 		"file",
 		"inj-user",
 		"12345678",
