@@ -4,7 +4,7 @@ package helios.oracle.v1beta1;
 import "helios/oracle/v1beta1/oracle.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "helios-core/helios-chain/modules/oracle/types";
+option go_package = "sdk-go/chain/oracle/types";
 
 // GenesisState defines the oracle module's genesis state.
 message GenesisState {

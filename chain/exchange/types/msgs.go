@@ -10,8 +10,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
 
-	oracletypes "helios-core/helios-chain/modules/oracle/types"
-	wasmxtypes "helios-core/helios-chain/modules/wasmx/types"
+	oracletypes "sdk-go/chain/oracle/types"
+	wasmxtypes "sdk-go/chain/wasmx/types"
 )
 
 const RouterKey = ModuleName

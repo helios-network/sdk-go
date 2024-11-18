@@ -4,7 +4,7 @@ package helios.exchange.v1beta1;
 import "cosmos_proto/cosmos.proto";
 import "amino/amino.proto";
 
-option go_package = "helios-core/helios-chain/modules/exchange/types";
+option go_package = "sdk-go/chain/exchange/types";
 
 // spot authz messages
 message CreateSpotLimitOrderAuthz {

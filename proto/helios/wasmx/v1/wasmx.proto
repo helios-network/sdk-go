@@ -6,7 +6,7 @@ import "cosmwasm/wasm/v1/types.proto";
 import "amino/amino.proto";
 import "helios/wasmx/v1/proposal.proto";
 
-option go_package = "helios-core/helios-chain/modules/wasmx/types";
+option go_package = "sdk-go/chain/wasmx/types";
 
 message Params {
   option (amino.name) = "wasmx/Params";

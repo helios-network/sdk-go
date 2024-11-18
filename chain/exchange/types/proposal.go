@@ -12,7 +12,7 @@ import (
 	gov "github.com/cosmos/cosmos-sdk/x/gov/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	oracletypes "helios-core/helios-chain/modules/oracle/types"
+	oracletypes "sdk-go/chain/oracle/types"
 )
 
 // constants

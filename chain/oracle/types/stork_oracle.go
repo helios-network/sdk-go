@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	peggytypes "helios-core/helios-chain/modules/peggy/types"
+	peggytypes "sdk-go/chain/peggy/types"
 )
 
 func getMessageHash(publisher common.Address, assetPairID, timeStamp, price string) (hash common.Hash) {

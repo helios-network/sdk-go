@@ -7,8 +7,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	oracletypes "helios-core/helios-chain/modules/oracle/types"
-	peggytypes "helios-core/helios-chain/modules/peggy/types"
+	oracletypes "sdk-go/chain/oracle/types"
+	peggytypes "sdk-go/chain/peggy/types"
 )
 
 var BinaryOptionsMarketRefundFlagPrice = math.LegacyNewDec(-1)
