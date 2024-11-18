@@ -20,7 +20,7 @@ import (
 	ethmath "github.com/ethereum/go-ethereum/common/math"
 	"github.com/pkg/errors"
 
-	"github.com/Helios-Chain-Labs/sdk-go/typeddata"
+	"sdk-go/typeddata"
 )
 
 type EIP712Wrapper func(

@@ -18,7 +18,7 @@ import (
 	crypto_cdc "sdk-go/chain/crypto/codec"
 	"sdk-go/chain/crypto/ethsecp256k1"
 	"sdk-go/chain/crypto/hd"
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	"sdk-go/client/common"
 )
 
 const defaultKeyringKeyName = "validator"

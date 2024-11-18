@@ -6,12 +6,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client"
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	"sdk-go/client"
+	"sdk-go/client/common"
 
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 
-	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	chainclient "sdk-go/client/chain"
 )
 
 func main() {

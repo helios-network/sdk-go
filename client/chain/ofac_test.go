@@ -6,9 +6,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client"
-	"github.com/Helios-Chain-Labs/sdk-go/client/chain"
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	"sdk-go/client"
+	"sdk-go/client/chain"
+	"sdk-go/client/common"
+
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	cosmtypes "github.com/cosmos/cosmos-sdk/types"

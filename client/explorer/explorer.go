@@ -6,8 +6,9 @@ import (
 
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
-	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
+	"sdk-go/client/common"
+	explorerPB "sdk-go/exchange/explorer_rpc/pb"
+
 	log "github.com/Helios-Chain-Labs/suplog"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"

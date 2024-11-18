@@ -1,4 +1,4 @@
-module github.com/Helios-Chain-Labs/sdk-go
+module sdk-go
 
 go 1.22.2
 

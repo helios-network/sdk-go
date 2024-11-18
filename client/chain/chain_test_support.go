@@ -28,7 +28,7 @@ import (
 	permissionstypes "sdk-go/chain/permissions/types"
 	chainstreamtypes "sdk-go/chain/stream/types"
 	tokenfactorytypes "sdk-go/chain/tokenfactory/types"
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	"sdk-go/client/common"
 )
 
 var _ ChainClient = &MockChainClient{}

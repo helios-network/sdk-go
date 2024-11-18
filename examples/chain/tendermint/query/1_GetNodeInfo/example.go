@@ -7,9 +7,9 @@ import (
 
 	"os"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client"
-	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	"sdk-go/client"
+	chainclient "sdk-go/client/chain"
+	"sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 

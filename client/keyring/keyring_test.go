@@ -15,7 +15,7 @@ import (
 	crypto_cdc "sdk-go/chain/crypto/codec"
 	"sdk-go/chain/crypto/hd"
 	ctypes "sdk-go/chain/types"
-	"github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"sdk-go/client/chain"
 )
 
 const KeyringAppName = "keyring_test"

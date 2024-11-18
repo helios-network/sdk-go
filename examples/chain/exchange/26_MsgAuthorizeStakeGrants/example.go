@@ -7,12 +7,12 @@ import (
 
 	"cosmossdk.io/math"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"sdk-go/client"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	"sdk-go/client/common"
 
 	exchangetypes "sdk-go/chain/exchange/types"
-	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	chainclient "sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 

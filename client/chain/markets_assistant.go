@@ -8,10 +8,10 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/shopspring/decimal"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client/core"
-	"github.com/Helios-Chain-Labs/sdk-go/client/exchange"
-	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
-	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
+	"sdk-go/client/core"
+	"sdk-go/client/exchange"
+	derivativeExchangePB "sdk-go/exchange/derivative_exchange_rpc/pb"
+	spotExchangePB "sdk-go/exchange/spot_exchange_rpc/pb"
 )
 
 type TokenMetadata interface {

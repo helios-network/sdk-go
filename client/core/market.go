@@ -1,8 +1,9 @@
 package core
 
 import (
+	"sdk-go/client/common"
+
 	sdkmath "cosmossdk.io/math"
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	"github.com/shopspring/decimal"
 )
 
