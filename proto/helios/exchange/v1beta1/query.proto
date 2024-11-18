@@ -7,7 +7,7 @@ import "helios/exchange/v1beta1/genesis.proto";
 import "helios/oracle/v1beta1/oracle.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/exchange/types";
+option go_package = "helios-core/helios-chain/modules/exchange/types";
 
 // Query defines the gRPC querier service.
 service Query {
@@ -96,8 +96,7 @@ service Query {
   // Retrieves a list of spot markets with extra information.
   rpc FullSpotMarkets(QueryFullSpotMarketsRequest)
       returns (QueryFullSpotMarketsResponse) {
-    option (google.api.http).get =
-        "/helios/exchange/v1beta1/spot/full_markets";
+    option (google.api.http).get = "/helios/exchange/v1beta1/spot/full_markets";
   }
 
   // Retrieves a spot market with extra information.
@@ -353,8 +352,7 @@ service Query {
 
   // Retrieves market making pool info
   rpc MitoVaultInfos(MitoVaultInfosRequest) returns (MitoVaultInfosResponse) {
-    option (google.api.http).get =
-        "/helios/exchange/v1beta1/mito_vault_infos";
+    option (google.api.http).get = "/helios/exchange/v1beta1/mito_vault_infos";
   }
 
   // QueryMarketIDFromVault returns the market ID for a given vault subaccount

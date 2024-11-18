@@ -7,7 +7,7 @@ import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "helios/insurance/v1beta1/genesis.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/insurance/types";
+option go_package = "helios-core/helios-chain/modules/insurance/types";
 
 // Query defines the gRPC querier service.
 service Query {
@@ -28,8 +28,7 @@ service Query {
   // Retrieves all insurance funds
   rpc InsuranceFunds(QueryInsuranceFundsRequest)
       returns (QueryInsuranceFundsResponse) {
-    option (google.api.http).get =
-        "/helios/insurance/v1beta1/insurance_funds";
+    option (google.api.http).get = "/helios/insurance/v1beta1/insurance_funds";
   }
 
   // Retrives the value of insurance fund share token at current price (not

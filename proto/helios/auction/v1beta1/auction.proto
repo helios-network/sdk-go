@@ -5,7 +5,7 @@ import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "amino/amino.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/auction/types";
+option go_package = "helios-core/helios-chain/modules/auction/types";
 
 message Params {
   option (gogoproto.equal) = true;
@@ -16,6 +16,12 @@ message Params {
   // min_next_bid_increment_rate defines the minimum increment rate for new bids
   string min_next_bid_increment_rate = 2 [
     (gogoproto.customtype) = "cosmossdk.io/math.LegacyDec",
+    (gogoproto.nullable) = false
+  ];
+  // inj_basket_max_cap defines the maximum cap for INJ contained in an auction
+  // basket
+  string inj_basket_max_cap = 3 [
+    (gogoproto.customtype) = "cosmossdk.io/math.Int",
     (gogoproto.nullable) = false
   ];
 }

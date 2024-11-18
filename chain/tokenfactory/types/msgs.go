@@ -212,7 +212,7 @@ func (m MsgSetDenomMetadata) ValidateBasic() error {
 		return err
 	}
 
-	if m.Metadata.Base == types.InjectiveCoin {
+	if m.Metadata.Base == types.HeliosCoin {
 		return errors.Wrap(ErrInvalidDenom, "cannot set metadata for HELIOS")
 	}
 

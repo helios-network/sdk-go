@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	DefaultOfacListURL = "https://raw.githubusercontent.com/InjectiveLabs/helios-lists/refs/heads/master/json/wallets/ofac.json"
+	DefaultOfacListURL = "https://raw.githubusercontent.com/Helios-Chain-Labs/helios-lists/refs/heads/master/json/wallets/ofac.json"
 )
 
 var (

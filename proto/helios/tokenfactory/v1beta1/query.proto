@@ -8,7 +8,7 @@ import "helios/tokenfactory/v1beta1/authorityMetadata.proto";
 import "helios/tokenfactory/v1beta1/params.proto";
 import "helios/tokenfactory/v1beta1/genesis.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chainmodules/tokenfactory/types";
+option go_package = "helios-core/helios-chain/modules/tokenfactory/types";
 
 // Query defines the gRPC querier service.
 service Query {
@@ -37,8 +37,7 @@ service Query {
   // Retrieves the entire auction module's state
   rpc TokenfactoryModuleState(QueryModuleStateRequest)
       returns (QueryModuleStateResponse) {
-    option (google.api.http).get =
-        "/helios/tokenfactory/v1beta1/module_state";
+    option (google.api.http).get = "/helios/tokenfactory/v1beta1/module_state";
   }
 }
 

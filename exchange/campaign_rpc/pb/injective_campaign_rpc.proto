@@ -3,7 +3,7 @@
 // InjectiveCampaignRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/helios-indexer/api/design -o ../
+// $ goa gen github.com/Helios-Chain-Labs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 

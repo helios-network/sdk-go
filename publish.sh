@@ -1,4 +1,4 @@
-VERSION=${VERSION:-"v0.50.10-helios-3"}
+VERSION=${VERSION:-"v0.50.10-helios-4"}
 
 # version must be start by v8
 

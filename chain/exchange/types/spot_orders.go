@@ -229,9 +229,9 @@ func (m *SpotLimitOrder) ToTrimmed() *TrimmedSpotLimitOrder {
 
 // ComputeOrderHash computes the order hash for given spot limit order
 func (o *SpotOrder) ComputeOrderHash(nonce uint32) (common.Hash, error) {
-	chainID := ethmath.NewHexOrDecimal256(888)
+	chainID := ethmath.NewHexOrDecimal256(4242)
 	var domain = apitypes.TypedDataDomain{
-		Name:              "Injective Protocol",
+		Name:              "Helios Protocol",
 		Version:           "2.0.0",
 		ChainId:           chainID,
 		VerifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",

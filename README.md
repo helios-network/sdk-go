@@ -1,6 +1,6 @@
 # Injective Protocol Golang SDK 🌟
 
-[![codecov](https://codecov.io/gh/InjectiveLabs/sdk-go/graph/badge.svg?token=XDGZV265EE)](https://codecov.io/gh/InjectiveLabs/sdk-go)
+[![codecov](https://codecov.io/gh/Helios-Chain-Labs/sdk-go/graph/badge.svg?token=XDGZV265EE)](https://codecov.io/gh/Helios-Chain-Labs/sdk-go)
 
 ---
 
@@ -9,7 +9,7 @@
 Clone the repository locally and install needed dependencies
 
 ```bash
-$ git clone git@github.com:InjectiveLabs/sdk-go.git
+$ git clone git@github.com:Helios-Chain-Labs/sdk-go.git
 $ cd sdk-go
 $ go mod download
 ```
@@ -34,7 +34,7 @@ go run examples/exchange/derivatives/4_Orderbook/example.go
 $ make copy-exchange-client
 ```
 
-(you have to clone [this repo](https://github.com/InjectiveLabs/helios-indexer) into `../helios-indexer`)
+(you have to clone [this repo](https://github.com/Helios-Chain-Labs/helios-indexer) into `../helios-indexer`)
 
 ---
 
@@ -54,7 +54,7 @@ $ git push origin master --tags
 Reach out to us at one of the following places!
 
 - Website at <a href="https://helios.com" target="_blank">`helios.com`</a>
-- Twitter at <a href="https://twitter.com/InjectiveLabs" target="_blank">`@InjectiveLabs`</a>
+- Twitter at <a href="https://twitter.com/Helios-Chain-Labs" target="_blank">`@Helios-Chain-Labs`</a>
 
 ---
 
