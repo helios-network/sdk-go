@@ -10,8 +10,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
 
-	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
-	wasmxtypes "github.com/Helios-Chain-Labs/sdk-go/chain/wasmx/types"
+	oracletypes "helios-core/helios-chain/modules/oracle/types"
+	wasmxtypes "helios-core/helios-chain/modules/wasmx/types"
 )
 
 const RouterKey = ModuleName
@@ -1662,7 +1662,7 @@ func (msg *MsgPrivilegedExecuteContract) ValidateBasic() error {
 }
 
 func (msg *MsgPrivilegedExecuteContract) HasEmptyFunds() bool {
-	return msg.Funds == "" || msg.Funds == "0" || msg.Funds == "0helios"
+	return msg.Funds == "" || msg.Funds == "0" || msg.Funds == "0inj"
 }
 
 func (msg *MsgPrivilegedExecuteContract) GetSignBytes() []byte {

@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	chaintypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	chaintypes "helios-core/helios-chain/types"
 )
 
 // Parameter store keys.

@@ -1,13 +1,14 @@
 package types
 
 import (
+	"helios-core/helios-chain/types"
+	"strings"
+
 	"cosmossdk.io/errors"
 	"cosmossdk.io/math"
-	"github.com/Helios-Chain-Labs/sdk-go/chain/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"strings"
 )
 
 // constants
@@ -213,7 +214,7 @@ func (m MsgSetDenomMetadata) ValidateBasic() error {
 	}
 
 	if m.Metadata.Base == types.HeliosCoin {
-		return errors.Wrap(ErrInvalidDenom, "cannot set metadata for HELIOS")
+		return errors.Wrap(ErrInvalidDenom, "cannot set metadata for INJ")
 	}
 
 	err = sdk.ValidateDenom(m.Metadata.Base)
