@@ -8,7 +8,7 @@ import (
 	"cosmossdk.io/math"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	exchangetypes "sdk-go/chain/exchange/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"

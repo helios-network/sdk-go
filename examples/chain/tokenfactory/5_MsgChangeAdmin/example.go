@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
+	tokenfactorytypes "sdk-go/chain/tokenfactory/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"

@@ -13,7 +13,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	permissionstypes "github.com/Helios-Chain-Labs/sdk-go/chain/permissions/types"
+	permissionstypes "sdk-go/chain/permissions/types"
 
 	sdkmath "cosmossdk.io/math"
 
@@ -26,9 +26,9 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
-	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
-	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
+	exchangetypes "sdk-go/chain/exchange/types"
+	chainstreamtypes "sdk-go/chain/stream/types"
+	tokenfactorytypes "sdk-go/chain/tokenfactory/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	log "github.com/Helios-Chain-Labs/suplog"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"

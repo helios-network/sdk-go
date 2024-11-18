@@ -5,7 +5,7 @@ import (
 
 	"github.com/Helios-Chain-Labs/sdk-go/client"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	exchangetypes "sdk-go/chain/exchange/types"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )

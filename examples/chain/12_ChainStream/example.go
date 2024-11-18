@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	chainStreamModule "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
+	chainStreamModule "sdk-go/chain/stream/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"

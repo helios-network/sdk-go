@@ -24,10 +24,10 @@ import (
 	eth "github.com/ethereum/go-ethereum/common"
 	"google.golang.org/grpc"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
-	permissionstypes "github.com/Helios-Chain-Labs/sdk-go/chain/permissions/types"
-	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
-	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
+	exchangetypes "sdk-go/chain/exchange/types"
+	permissionstypes "sdk-go/chain/permissions/types"
+	chainstreamtypes "sdk-go/chain/stream/types"
+	tokenfactorytypes "sdk-go/chain/tokenfactory/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 

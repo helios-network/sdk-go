@@ -6,7 +6,7 @@ import (
 	"cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	tftypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
+	tftypes "sdk-go/chain/tokenfactory/types"
 )
 
 const (

@@ -15,9 +15,9 @@ import (
 	cosmtypes "github.com/cosmos/cosmos-sdk/types"
 	"github.com/pkg/errors"
 
-	crypto_cdc "github.com/Helios-Chain-Labs/sdk-go/chain/crypto/codec"
-	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/ethsecp256k1"
-	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
+	crypto_cdc "sdk-go/chain/crypto/codec"
+	"sdk-go/chain/crypto/ethsecp256k1"
+	"sdk-go/chain/crypto/hd"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 

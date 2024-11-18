@@ -9,7 +9,7 @@ import (
 
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	exchangetypes "sdk-go/chain/exchange/types"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )

@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	"sdk-go/chain/exchange/types"
 
 	"os"
 

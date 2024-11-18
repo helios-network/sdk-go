@@ -12,9 +12,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	crypto_cdc "github.com/Helios-Chain-Labs/sdk-go/chain/crypto/codec"
-	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
-	ctypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	crypto_cdc "sdk-go/chain/crypto/codec"
+	"sdk-go/chain/crypto/hd"
+	ctypes "sdk-go/chain/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client/chain"
 )
 

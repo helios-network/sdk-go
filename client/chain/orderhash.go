@@ -4,7 +4,7 @@ import (
 	"context"
 	"strconv"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	exchangetypes "sdk-go/chain/exchange/types"
 	"github.com/ethereum/go-ethereum/common"
 	ethmath "github.com/ethereum/go-ethereum/common/math"
 	gethsigner "github.com/ethereum/go-ethereum/signer/core/apitypes"

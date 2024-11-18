@@ -4,8 +4,8 @@ import (
 	"cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
-	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
+	exchangetypes "sdk-go/chain/exchange/types"
+	oracletypes "sdk-go/chain/oracle/types"
 	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
 	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 )

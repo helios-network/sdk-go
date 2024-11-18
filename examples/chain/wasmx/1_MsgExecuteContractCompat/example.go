@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	wasmxtypes "github.com/Helios-Chain-Labs/sdk-go/chain/wasmx/types"
+	wasmxtypes "sdk-go/chain/wasmx/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"

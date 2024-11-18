@@ -9,7 +9,7 @@ import (
 
 	"os"
 
-	"github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	"sdk-go/chain/exchange/types"
 
 	"github.com/Helios-Chain-Labs/sdk-go/client"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"

@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	exchangetypes "sdk-go/chain/exchange/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	"github.com/Helios-Chain-Labs/sdk-go/client/core"
 	"github.com/Helios-Chain-Labs/sdk-go/client/exchange"

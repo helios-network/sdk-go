@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	permissionstypes "github.com/Helios-Chain-Labs/sdk-go/chain/permissions/types"
+	permissionstypes "sdk-go/chain/permissions/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"

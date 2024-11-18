@@ -10,7 +10,7 @@ import (
 	"github.com/Helios-Chain-Labs/sdk-go/client"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 
-	auctiontypes "github.com/Helios-Chain-Labs/sdk-go/chain/auction/types"
+	auctiontypes "sdk-go/chain/auction/types"
 	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	sdktypes "github.com/cosmos/cosmos-sdk/types"

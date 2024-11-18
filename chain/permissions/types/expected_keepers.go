@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	tftypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
+	tftypes "sdk-go/chain/tokenfactory/types"
 )
 
 type BankKeeper interface {
