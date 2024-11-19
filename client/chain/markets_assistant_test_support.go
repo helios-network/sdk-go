@@ -1,8 +1,8 @@
 package chain
 
 import (
-	derivativeExchangePB "sdk-go/exchange/derivative_exchange_rpc/pb"
-	spotExchangePB "sdk-go/exchange/spot_exchange_rpc/pb"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 	"github.com/cosmos/cosmos-sdk/x/bank/types"
 )
 

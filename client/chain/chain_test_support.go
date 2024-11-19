@@ -5,13 +5,13 @@ import (
 	"errors"
 	"time"
 
-	tokenfactorytypes "sdk-go/chain/tokenfactory/types"
+	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 
-	exchangetypes "sdk-go/chain/exchange/types"
-	chainstreamtypes "sdk-go/chain/stream/types"
-	"sdk-go/client/common"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	"github.com/cosmos/cosmos-sdk/client"
 	sdk "github.com/cosmos/cosmos-sdk/types"

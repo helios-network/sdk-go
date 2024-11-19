@@ -1,6 +1,6 @@
 package price
 
-import "sdk-go/chain/oracle/bandchain/oracle/types"
+import "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/bandchain/oracle/types"
 
 type SymbolInput struct {
 	Symbols            []string `json:"symbols"`

@@ -10,7 +10,7 @@ import "helios/exchange/v1beta1/exchange.proto";
 import "helios/oracle/v1beta1/oracle.proto";
 import "amino/amino.proto";
 
-option go_package = "sdk-go/chain/exchange/types";
+option go_package = "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types";
 
 message SpotMarketParamUpdateProposal {
   option (amino.name) = "exchange/SpotMarketParamUpdateProposal";

@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	"sdk-go/client/exchange"
-	derivativeExchangePB "sdk-go/exchange/derivative_exchange_rpc/pb"
-	spotExchangePB "sdk-go/exchange/spot_exchange_rpc/pb"
+	"github.com/Helios-Chain-Labs/sdk-go/client/exchange"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/stretchr/testify/assert"
 )

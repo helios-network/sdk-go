@@ -5,7 +5,7 @@ import "helios/ocr/v1beta1/ocr.proto";
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "sdk-go/chain/ocr/types";
+option go_package = "github.com/Helios-Chain-Labs/sdk-go/chain/ocr/types";
 
 // GenesisState defines the OCR module's genesis state.
 message GenesisState {

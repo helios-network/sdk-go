@@ -6,8 +6,8 @@ import (
 
 	cosmoshd "github.com/cosmos/cosmos-sdk/crypto/hd"
 
-	"sdk-go/chain/crypto/ethsecp256k1"
-	"sdk-go/chain/crypto/hd"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/ethsecp256k1"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
 )
 
 // AppName defines the Ledger app used for signing. Evmos uses the Ethereum app

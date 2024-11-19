@@ -3,7 +3,7 @@ package helios.peggy.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "sdk-go/chain/peggy/types";
+option go_package = "github.com/Helios-Chain-Labs/sdk-go/chain/peggy/types";
 
 // IDSet represents a set of IDs
 message IDSet { repeated uint64 ids = 1; }

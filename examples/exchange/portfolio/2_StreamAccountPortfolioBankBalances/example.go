@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 
-	exchangeclient "sdk-go/client/exchange"
+	exchangeclient "github.com/Helios-Chain-Labs/sdk-go/client/exchange"
 )
 
 func main() {

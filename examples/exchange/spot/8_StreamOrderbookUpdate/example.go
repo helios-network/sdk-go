@@ -7,9 +7,9 @@ import (
 	"os"
 	"sort"
 
-	"sdk-go/client/common"
-	exchangeclient "sdk-go/client/exchange"
-	spotExchangePB "sdk-go/exchange/spot_exchange_rpc/pb"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	exchangeclient "github.com/Helios-Chain-Labs/sdk-go/client/exchange"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 	"github.com/shopspring/decimal"
 )
 

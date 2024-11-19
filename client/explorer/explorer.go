@@ -6,8 +6,8 @@ import (
 
 	"google.golang.org/grpc/credentials/insecure"
 
-	"sdk-go/client/common"
-	explorerPB "sdk-go/exchange/explorer_rpc/pb"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
 	"google.golang.org/grpc/metadata"
 
 	log "github.com/Helios-Chain-Labs/suplog"
@@ -69,7 +69,7 @@ func NewExplorerClient(network common.Network, options ...common.ClientOption) (
 
 		explorerClient: explorerPB.NewHeliosExplorerRPCClient(conn),
 		logger: log.WithFields(log.Fields{
-			"module": "sdk-go",
+			"module": "github.com/Helios-Chain-Labs/sdk-go",
 			"svc":    "exchangeClient",
 		}),
 	}

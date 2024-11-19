@@ -5,7 +5,7 @@ import (
 
 	sdksecp256k1 "github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 
-	"sdk-go/chain/crypto/ethsecp256k1"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/ethsecp256k1"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

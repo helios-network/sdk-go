@@ -10,7 +10,7 @@ import "helios/peggy/v1/batch.proto";
 import "google/api/annotations.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "sdk-go/chain/peggy/types";
+option go_package = "github.com/Helios-Chain-Labs/sdk-go/chain/peggy/types";
 
 // Query defines the gRPC querier service
 service Query {

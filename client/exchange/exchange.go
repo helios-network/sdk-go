@@ -7,16 +7,16 @@ import (
 
 	"google.golang.org/grpc/credentials/insecure"
 
-	"sdk-go/client/common"
-	accountPB "sdk-go/exchange/accounts_rpc/pb"
-	auctionPB "sdk-go/exchange/auction_rpc/pb"
-	derivativeExchangePB "sdk-go/exchange/derivative_exchange_rpc/pb"
-	explorerPB "sdk-go/exchange/explorer_rpc/pb"
-	insurancePB "sdk-go/exchange/insurance_rpc/pb"
-	metaPB "sdk-go/exchange/meta_rpc/pb"
-	oraclePB "sdk-go/exchange/oracle_rpc/pb"
-	portfolioExchangePB "sdk-go/exchange/portfolio_rpc/pb"
-	spotExchangePB "sdk-go/exchange/spot_exchange_rpc/pb"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	accountPB "github.com/Helios-Chain-Labs/sdk-go/exchange/accounts_rpc/pb"
+	auctionPB "github.com/Helios-Chain-Labs/sdk-go/exchange/auction_rpc/pb"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
+	insurancePB "github.com/Helios-Chain-Labs/sdk-go/exchange/insurance_rpc/pb"
+	metaPB "github.com/Helios-Chain-Labs/sdk-go/exchange/meta_rpc/pb"
+	oraclePB "github.com/Helios-Chain-Labs/sdk-go/exchange/oracle_rpc/pb"
+	portfolioExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/portfolio_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 	"google.golang.org/grpc/metadata"
 
 	log "github.com/Helios-Chain-Labs/suplog"
@@ -141,7 +141,7 @@ func NewExchangeClient(network common.Network, options ...common.ClientOption) (
 		portfolioExchangeClient:  portfolioExchangePB.NewHeliosPortfolioRPCClient(conn),
 
 		logger: log.WithFields(log.Fields{
-			"module": "sdk-go",
+			"module": "github.com/Helios-Chain-Labs/sdk-go",
 			"svc":    "exchangeClient",
 		}),
 	}

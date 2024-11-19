@@ -8,7 +8,7 @@ import "helios/ocr/v1beta1/ocr.proto";
 import "cosmos_proto/cosmos.proto";
 import "amino/amino.proto";
 
-option go_package = "sdk-go/chain/ocr/types";
+option go_package = "github.com/Helios-Chain-Labs/sdk-go/chain/ocr/types";
 
 // Msg defines the OCR Msg service.
 service Msg {

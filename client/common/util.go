@@ -10,7 +10,7 @@ import (
 
 	"github.com/shopspring/decimal"
 
-	chaintypes "sdk-go/chain/types"
+	chaintypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
 	"google.golang.org/grpc/credentials"
 )
 

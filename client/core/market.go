@@ -1,7 +1,7 @@
 package core
 
 import (
-	"sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	cosmtypes "github.com/cosmos/cosmos-sdk/types"
 	"github.com/shopspring/decimal"
 )

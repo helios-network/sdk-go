@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"sdk-go/client/common"
-	explorerclient "sdk-go/client/explorer"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	explorerclient "github.com/Helios-Chain-Labs/sdk-go/client/explorer"
 )
 
 func main() {

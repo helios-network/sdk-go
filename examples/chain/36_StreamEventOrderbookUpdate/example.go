@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
 
-	exchangetypes "sdk-go/chain/exchange/types"
-	chainclient "sdk-go/client/chain"
-	"sdk-go/client/common"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func main() {

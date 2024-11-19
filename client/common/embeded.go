@@ -1,6 +1,6 @@
 package common
 
 import (
-	_ "sdk-go/client/cert"
-	_ "sdk-go/client/metadata/assets"
+	_ "github.com/Helios-Chain-Labs/sdk-go/client/cert"
+	_ "github.com/Helios-Chain-Labs/sdk-go/client/metadata/assets"
 )
