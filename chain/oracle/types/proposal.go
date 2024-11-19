@@ -10,8 +10,8 @@ import (
 
 	bandobi "github.com/bandprotocol/bandchain-packet/obi"
 
-	bandprice "github.com/InjectiveLabs/sdk-go/chain/oracle/bandchain/hooks/price"
-	bandoracle "github.com/InjectiveLabs/sdk-go/chain/oracle/bandchain/oracle/types"
+	bandprice "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/bandchain/hooks/price"
+	bandoracle "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/bandchain/oracle/types"
 )
 
 // constants

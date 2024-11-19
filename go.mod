@@ -1,4 +1,4 @@
-module github.com/InjectiveLabs/sdk-go
+module github.com/Helios-Chain-Labs/sdk-go
 
 go 1.22
 
@@ -12,7 +12,7 @@ require (
 	cosmossdk.io/x/feegrant v0.1.1
 	cosmossdk.io/x/upgrade v0.1.3
 	github.com/CosmWasm/wasmd v0.40.2
-	github.com/InjectiveLabs/suplog v1.3.3
+	github.com/Helios-Chain-Labs/suplog v0.50.10-helios-2
 	github.com/bandprotocol/bandchain-packet v0.0.4
 	github.com/btcsuite/btcd v0.23.4
 	github.com/btcsuite/btcd/btcutil v1.1.3
@@ -63,7 +63,6 @@ require (
 	github.com/DataDog/sketches-go v1.4.2 // indirect
 	github.com/DataDog/zstd v1.5.5 // indirect
 	github.com/Helios-Chain-Labs/metrics v0.50.10-helios-2 // indirect
-	github.com/Helios-Chain-Labs/suplog v0.50.10-helios-2 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
 	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/alexcesaro/statsd v2.0.0+incompatible // indirect

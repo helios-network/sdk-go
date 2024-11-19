@@ -7,9 +7,9 @@ import (
 	"os"
 	"sort"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	exchangeclient "github.com/InjectiveLabs/sdk-go/client/exchange"
-	spotExchangePB "github.com/InjectiveLabs/sdk-go/exchange/spot_exchange_rpc/pb"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	exchangeclient "github.com/Helios-Chain-Labs/sdk-go/client/exchange"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 	"github.com/shopspring/decimal"
 )
 

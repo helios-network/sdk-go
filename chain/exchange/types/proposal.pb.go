@@ -9,7 +9,7 @@ import (
 	math "math"
 	math_bits "math/bits"
 
-	types "github.com/InjectiveLabs/sdk-go/chain/oracle/types"
+	types "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
 	_ "github.com/cosmos/cosmos-proto"
 	_ "github.com/cosmos/cosmos-sdk/types"
 	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"

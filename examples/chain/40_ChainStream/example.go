@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	chainStreamModule "github.com/InjectiveLabs/sdk-go/chain/stream/types"
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	chainStreamModule "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func main() {

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	wasmxtypes "github.com/InjectiveLabs/sdk-go/chain/wasmx/types"
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	wasmxtypes "github.com/Helios-Chain-Labs/sdk-go/chain/wasmx/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 

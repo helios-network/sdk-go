@@ -7,14 +7,14 @@ import (
 	"io/ioutil"
 	"os"
 
-	exchangeclient "github.com/InjectiveLabs/sdk-go/client/exchange"
+	exchangeclient "github.com/Helios-Chain-Labs/sdk-go/client/exchange"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	"github.com/shopspring/decimal"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 

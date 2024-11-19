@@ -8,7 +8,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	oracletypes "github.com/InjectiveLabs/sdk-go/chain/oracle/types"
+	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	gov "github.com/cosmos/cosmos-sdk/x/gov/types"

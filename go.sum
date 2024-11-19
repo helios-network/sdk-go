@@ -83,8 +83,6 @@ github.com/Helios-Chain-Labs/suplog v0.50.10-helios-2 h1:4Z+qXwo6H+rcoIuOLqyRX5q
 github.com/Helios-Chain-Labs/suplog v0.50.10-helios-2/go.mod h1:cxLwrKnl5QZsljZP/OmH/nEAIj89m4mE0FW5Mn31Nco=
 github.com/Helios-Chain-Labs/wasmd v0.50.10-helios-5 h1:hVPq/PpGoJl1aeKLd7DntGZ92N+QGSaf3JRlCNKLxg4=
 github.com/Helios-Chain-Labs/wasmd v0.50.10-helios-5/go.mod h1:+Bz6dLa+DbcjwTCzZT2Va33onxwoknwth+JSop9/CWY=
-github.com/InjectiveLabs/suplog v1.3.3 h1:ARIR3lWD9BxcrmqTwgcGBt8t7e10gwOqllUAXa/MfxI=
-github.com/InjectiveLabs/suplog v1.3.3/go.mod h1:+I9WRgUhzmo1V/n7IkW24kFBFB9ZTPAiXXXCogWxmTM=
 github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible/go.mod h1:r7JcOSlj0wfOMncg0iLm8Leh48TZaKVeNIfJntJ2wa0=
 github.com/Microsoft/go-winio v0.5.0/go.mod h1:JPGBdM1cNvN/6ISo+n8V5iA4v8pBzdOpzfwIujj1a84=
 github.com/Microsoft/go-winio v0.6.1 h1:9/kr64B9VUZrLm5YYwbGtUJnMgqWVOdUAXu6Migciow=

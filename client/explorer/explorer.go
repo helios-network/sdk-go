@@ -6,11 +6,11 @@ import (
 
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	explorerPB "github.com/InjectiveLabs/sdk-go/exchange/explorer_rpc/pb"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
 	"google.golang.org/grpc/metadata"
 
-	log "github.com/InjectiveLabs/suplog"
+	log "github.com/Helios-Chain-Labs/suplog"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )
