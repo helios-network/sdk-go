@@ -4,7 +4,7 @@ package helios.insurance.v1beta1;
 import "helios/insurance/v1beta1/insurance.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "helios-core/helios-chain/modules/insurance/types";
+option go_package = "sdk-go/chain/insurance/types";
 
 // GenesisState defines the insurance module's genesis state.
 message GenesisState {

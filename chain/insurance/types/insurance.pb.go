@@ -13,7 +13,7 @@ import (
 	github_com_cosmos_gogoproto_types "github.com/cosmos/gogoproto/types"
 	_ "google.golang.org/protobuf/types/known/durationpb"
 	_ "google.golang.org/protobuf/types/known/timestamppb"
-	types "helios-core/helios-chain/modules/oracle/types"
+	types "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
 	io "io"
 	math "math"
 	math_bits "math/bits"

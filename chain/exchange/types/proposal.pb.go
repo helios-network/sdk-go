@@ -13,7 +13,7 @@ import (
 	types1 "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	proto "github.com/cosmos/gogoproto/proto"
-	types "helios-core/helios-chain/modules/oracle/types"
+	types "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
 	io "io"
 	math "math"
 	math_bits "math/bits"

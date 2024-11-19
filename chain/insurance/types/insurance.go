@@ -7,7 +7,7 @@ import (
 	"cosmossdk.io/math"
 	"github.com/ethereum/go-ethereum/common"
 
-	oracletypes "helios-core/helios-chain/modules/oracle/types"
+	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
 )
 
 var (

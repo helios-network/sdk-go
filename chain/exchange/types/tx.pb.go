@@ -19,7 +19,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	types1 "helios-core/helios-chain/modules/oracle/types"
+	types1 "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
 	io "io"
 	math "math"
 	math_bits "math/bits"

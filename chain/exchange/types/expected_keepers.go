@@ -13,9 +13,9 @@ import (
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 
-	insurancetypes "helios-core/helios-chain/modules/insurance/types"
-	oracletypes "helios-core/helios-chain/modules/oracle/types"
-	wasmxtypes "helios-core/helios-chain/modules/wasmx/types"
+	insurancetypes "github.com/Helios-Chain-Labs/sdk-go/chain/insurance/types"
+	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
+	wasmxtypes "github.com/Helios-Chain-Labs/sdk-go/chain/wasmx/types"
 )
 
 // BankKeeper defines the expected bank keeper methods.
