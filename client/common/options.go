@@ -1,7 +1,7 @@
 package common
 
 import (
-	ctypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	ctypes "sdk-go/chain/types"
 	log "github.com/Helios-Chain-Labs/suplog"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"

@@ -37,10 +37,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
-	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
-	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	exchangetypes "sdk-go/chain/exchange/types"
+	chainstreamtypes "sdk-go/chain/stream/types"
+	tokenfactorytypes "sdk-go/chain/tokenfactory/types"
+	"sdk-go/client/common"
 
 	ethcommon "github.com/ethereum/go-ethereum/common"
 )

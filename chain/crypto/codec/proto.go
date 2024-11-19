@@ -4,7 +4,7 @@ import (
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 
-	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/ethsecp256k1"
+	"sdk-go/chain/crypto/ethsecp256k1"
 )
 
 var (

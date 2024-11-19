@@ -9,7 +9,7 @@ import (
 	types "github.com/cosmos/cosmos-sdk/types"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	proto "github.com/cosmos/gogoproto/proto"
-	_ "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
+	_ "sdk-go/chain/oracle/types"
 	io "io"
 	math "math"
 	math_bits "math/bits"

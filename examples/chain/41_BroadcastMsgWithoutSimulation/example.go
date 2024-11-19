@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client"
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
-	exchangeclient "github.com/Helios-Chain-Labs/sdk-go/client/exchange"
+	"sdk-go/client"
+	"sdk-go/client/common"
+	exchangeclient "sdk-go/client/exchange"
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 
-	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
-	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	exchangetypes "sdk-go/chain/exchange/types"
+	chainclient "sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 

@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
-	tmclient "github.com/Helios-Chain-Labs/sdk-go/client/tm"
+	"sdk-go/client/common"
+	tmclient "sdk-go/client/tm"
 )
 
 func main() {

@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Helios-Chain-Labs/sdk-go/client/common"
-	exchangeclient "github.com/Helios-Chain-Labs/sdk-go/client/exchange"
-	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	"sdk-go/client/common"
+	exchangeclient "sdk-go/client/exchange"
+	derivativeExchangePB "sdk-go/exchange/derivative_exchange_rpc/pb"
 
-	//derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	//derivativeExchangePB "sdk-go/exchange/derivative_exchange_rpc/pb"
 	"math"
 	"strconv"
 
-	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
+	spotExchangePB "sdk-go/exchange/spot_exchange_rpc/pb"
 )
 
 var metadataTemplate = `[%s]

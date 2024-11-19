@@ -4,14 +4,14 @@ import (
 	"context"
 	"errors"
 
-	accountPB "github.com/Helios-Chain-Labs/sdk-go/exchange/accounts_rpc/pb"
-	auctionPB "github.com/Helios-Chain-Labs/sdk-go/exchange/auction_rpc/pb"
-	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
-	insurancePB "github.com/Helios-Chain-Labs/sdk-go/exchange/insurance_rpc/pb"
-	metaPB "github.com/Helios-Chain-Labs/sdk-go/exchange/meta_rpc/pb"
-	oraclePB "github.com/Helios-Chain-Labs/sdk-go/exchange/oracle_rpc/pb"
-	portfolioExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/portfolio_rpc/pb"
-	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
+	accountPB "sdk-go/exchange/accounts_rpc/pb"
+	auctionPB "sdk-go/exchange/auction_rpc/pb"
+	derivativeExchangePB "sdk-go/exchange/derivative_exchange_rpc/pb"
+	insurancePB "sdk-go/exchange/insurance_rpc/pb"
+	metaPB "sdk-go/exchange/meta_rpc/pb"
+	oraclePB "sdk-go/exchange/oracle_rpc/pb"
+	portfolioExchangePB "sdk-go/exchange/portfolio_rpc/pb"
+	spotExchangePB "sdk-go/exchange/spot_exchange_rpc/pb"
 	"google.golang.org/grpc"
 )
 

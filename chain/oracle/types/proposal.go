@@ -12,8 +12,8 @@ import (
 	bandobi "github.com/bandprotocol/bandchain-packet/obi"
 	"github.com/ethereum/go-ethereum/common"
 
-	bandprice "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/bandchain/hooks/price"
-	bandoracle "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/bandchain/oracle/types"
+	bandprice "sdk-go/chain/oracle/bandchain/hooks/price"
+	bandoracle "sdk-go/chain/oracle/bandchain/oracle/types"
 )
 
 // constants
