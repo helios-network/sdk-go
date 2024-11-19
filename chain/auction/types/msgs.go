@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	chaintypes "helios-core/helios-chain/types"
+	chaintypes "sdk-go/chain/types"
 )
 
 const (

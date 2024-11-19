@@ -4,7 +4,7 @@ package helios.crypto.v1beta1.ethsecp256k1;
 import "gogoproto/gogo.proto";
 import "amino/amino.proto";
 
-option go_package = "helios-core/helios-chain/crypto/ethsecp256k1";
+option go_package = "sdk-go/chain/crypto/ethsecp256k1";
 
 // PubKey defines a type alias for an ecdsa.PublicKey that implements
 // Tendermint's PubKey interface. It represents the 33-byte compressed public
