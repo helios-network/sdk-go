@@ -1,18 +1,18 @@
 // Code generated with goa v3.5.2, DO NOT EDIT.
 //
-// InjectiveAuctionRPC protocol buffer definition
+// HeliosAuctionRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/Helios-Chain-Labs/-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_auction_rpc;
+package _auction_rpc;
 
-option go_package = "/injective_auction_rpcpb";
+option go_package = "/_auction_rpcpb";
 
-// InjectiveAuctionRPC defines gRPC API of the Auction API.
-service InjectiveAuctionRPC {
+// HeliosAuctionRPC defines gRPC API of the Auction API.
+service HeliosAuctionRPC {
 	// Provide historical auction info for a given auction
 	rpc AuctionEndpoint (AuctionEndpointRequest) returns (AuctionEndpointResponse);
 	// Provide the historical auctions info

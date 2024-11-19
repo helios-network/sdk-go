@@ -18,7 +18,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	denom := "inj"
+	denom := "helios"
 	subaccountId := "0xaf79152ac5df276d9a8e1e2e22822f9713474902000000000000000000000000"
 	transferTypes := []string{"deposit"}
 	skip := uint64(0)

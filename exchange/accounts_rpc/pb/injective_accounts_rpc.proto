@@ -1,18 +1,18 @@
 // Code generated with goa v3.5.2, DO NOT EDIT.
 //
-// InjectiveAccountsRPC protocol buffer definition
+// HeliosAccountsRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/Helios-Chain-Labs/-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_accounts_rpc;
+package _accounts_rpc;
 
-option go_package = "/injective_accounts_rpcpb";
+option go_package = "/_accounts_rpcpb";
 
-// InjectiveAccountsRPC defines API of Exchange Accounts provider.
-service InjectiveAccountsRPC {
+// HeliosAccountsRPC defines API of Exchange Accounts provider.
+service HeliosAccountsRPC {
 	// Provide the account's portfolio value in USD.
 	rpc Portfolio (PortfolioRequest) returns (PortfolioResponse);
 	// List order states by order hashes

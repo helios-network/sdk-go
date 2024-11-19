@@ -50,7 +50,7 @@ type OrderHashes struct {
 }
 
 var domain = gethsigner.TypedDataDomain{
-	Name:              "Injective Protocol",
+	Name:              "Helios Protocol",
 	Version:           "2.0.0",
 	ChainId:           ethmath.NewHexOrDecimal256(888),
 	VerifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",

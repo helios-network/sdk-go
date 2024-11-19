@@ -21,10 +21,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.d",
+		"d",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,
@@ -56,8 +56,8 @@ func main() {
 		panic(err)
 	}
 
-	grantee := "inj1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
-	msgType := "/injective.exchange.v1beta1.MsgCreateSpotLimitOrder"
+	grantee := "helios1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
+	msgType := "/.exchange.v1beta1.MsgCreateSpotLimitOrder"
 
 	msg := &authztypes.MsgRevoke{
 		Granter:    senderAddress.String(),
@@ -81,5 +81,5 @@ func main() {
 		return
 	}
 
-	fmt.Println("gas fee:", gasFee, "INJ")
+	fmt.Println("gas fee:", gasFee, "HELIOS")
 }

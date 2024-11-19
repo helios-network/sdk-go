@@ -13,7 +13,7 @@ func init() {
 	// set the address prefixes
 	config := sdk.GetConfig()
 
-	// This is specific to Injective chain
+	// This is specific to Helios chain
 	ctypes.SetBech32Prefixes(config)
 	ctypes.SetBip44CoinType(config)
 }

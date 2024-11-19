@@ -19,7 +19,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	receiver := "inj1ddcp5ftqmntudn4m6heg2adud6hn58urnwlmkh"
+	receiver := "helios1ddcp5ftqmntudn4m6heg2adud6hn58urnwlmkh"
 
 	req := explorerPB.GetIBCTransferTxsRequest{
 		Receiver: receiver,

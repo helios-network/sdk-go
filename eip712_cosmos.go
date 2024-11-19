@@ -63,7 +63,7 @@ func WrapTxToEIP712(
 	}
 
 	domain := typeddata.TypedDataDomain{
-		Name:              "Injective Web3",
+		Name:              "Helios Web3",
 		Version:           "1.0.0",
 		ChainId:           math.NewHexOrDecimal256(int64(chainID)),
 		VerifyingContract: "cosmos",
@@ -499,7 +499,7 @@ func WrapTxToEIP712V2(
 	feeDelegation *FeeDelegationOptions,
 ) (typeddata.TypedData, error) {
 	domain := typeddata.TypedDataDomain{
-		Name:              "Injective Web3",
+		Name:              "Helios Web3",
 		Version:           "1.0.0",
 		ChainId:           math.NewHexOrDecimal256(int64(chainID)),
 		VerifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",

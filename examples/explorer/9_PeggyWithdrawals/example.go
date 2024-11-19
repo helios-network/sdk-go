@@ -19,7 +19,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	sender := "inj14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
+	sender := "helios14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
 
 	req := explorerPB.GetPeggyWithdrawalTxsRequest{
 		Sender: sender,

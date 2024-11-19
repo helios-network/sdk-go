@@ -36,44 +36,44 @@ func main() {
 
 	subaccountId := "0xbdaedec95d563fb05240d6e01821008454c24c36000000000000000000000000"
 
-	injUsdtMarket := "0x0611780ba69656949525013d947713300f56c37b6175e02f26bffa495c3208fe"
-	injUsdtPerpMarket := "0x17ef48032cb24375ba7c2e39f384e56433bcab20cbee9a7357e4cba2eb00abe6"
+	heliosUsdtMarket := "0x0611780ba69656949525013d947713300f56c37b6175e02f26bffa495c3208fe"
+	heliosUsdtPerpMarket := "0x17ef48032cb24375ba7c2e39f384e56433bcab20cbee9a7357e4cba2eb00abe6"
 
 	req := chainStreamModule.StreamRequest{
 		BankBalancesFilter: &chainStreamModule.BankBalancesFilter{
 			Accounts: []string{"*"},
 		},
 		SpotOrdersFilter: &chainStreamModule.OrdersFilter{
-			MarketIds:     []string{injUsdtMarket},
+			MarketIds:     []string{heliosUsdtMarket},
 			SubaccountIds: []string{subaccountId},
 		},
 		DerivativeOrdersFilter: &chainStreamModule.OrdersFilter{
-			MarketIds:     []string{injUsdtPerpMarket},
+			MarketIds:     []string{heliosUsdtPerpMarket},
 			SubaccountIds: []string{subaccountId},
 		},
 		SpotTradesFilter: &chainStreamModule.TradesFilter{
-			MarketIds:     []string{injUsdtMarket},
+			MarketIds:     []string{heliosUsdtMarket},
 			SubaccountIds: []string{"*"},
 		},
 		SubaccountDepositsFilter: &chainStreamModule.SubaccountDepositsFilter{
 			SubaccountIds: []string{subaccountId},
 		},
 		DerivativeOrderbooksFilter: &chainStreamModule.OrderbookFilter{
-			MarketIds: []string{injUsdtPerpMarket},
+			MarketIds: []string{heliosUsdtPerpMarket},
 		},
 		SpotOrderbooksFilter: &chainStreamModule.OrderbookFilter{
-			MarketIds: []string{injUsdtMarket},
+			MarketIds: []string{heliosUsdtMarket},
 		},
 		PositionsFilter: &chainStreamModule.PositionsFilter{
 			SubaccountIds: []string{subaccountId},
-			MarketIds:     []string{injUsdtPerpMarket},
+			MarketIds:     []string{heliosUsdtPerpMarket},
 		},
 		DerivativeTradesFilter: &chainStreamModule.TradesFilter{
 			SubaccountIds: []string{"*"},
-			MarketIds:     []string{injUsdtPerpMarket},
+			MarketIds:     []string{heliosUsdtPerpMarket},
 		},
 		OraclePriceFilter: &chainStreamModule.OraclePriceFilter{
-			Symbol: []string{"INJ", "USDT"},
+			Symbol: []string{"HELIOS", "USDT"},
 		},
 	}
 

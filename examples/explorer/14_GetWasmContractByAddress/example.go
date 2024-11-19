@@ -21,7 +21,7 @@ func main() {
 	ctx := context.Background()
 
 	req := explorerPB.GetWasmContractByAddressRequest{
-		ContractAddress: "inj1ru9nhdjtjtz8u8wrwxmcl9zsns4fh2838yr5ga",
+		ContractAddress: "helios1ru9nhdjtjtz8u8wrwxmcl9zsns4fh2838yr5ga",
 	}
 	res, err := explorerClient.GetWasmContractByAddress(ctx, &req)
 	if err != nil {

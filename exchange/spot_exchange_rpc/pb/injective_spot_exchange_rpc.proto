@@ -1,18 +1,18 @@
 // Code generated with goa v3.5.2, DO NOT EDIT.
 //
-// InjectiveSpotExchangeRPC protocol buffer definition
+// HeliosSpotExchangeRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/Helios-Chain-Labs/-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_spot_exchange_rpc;
+package _spot_exchange_rpc;
 
-option go_package = "/injective_spot_exchange_rpcpb";
+option go_package = "/_spot_exchange_rpcpb";
 
-// InjectiveSpotExchangeRPC defines gRPC API of Spot Exchange provider.
-service InjectiveSpotExchangeRPC {
+// HeliosSpotExchangeRPC defines gRPC API of Spot Exchange provider.
+service HeliosSpotExchangeRPC {
 	// Get a list of Spot Markets
 	rpc Markets (MarketsRequest) returns (MarketsResponse);
 	// Get details of a single spot market

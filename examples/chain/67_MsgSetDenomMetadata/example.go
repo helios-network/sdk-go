@@ -21,10 +21,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.d",
+		"d",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"f9db9bf330e23cb7839039e944adef6e9df447b90b503d5b4464c90bea9022f3", // keyring will be used if pk not provided
 		false,
@@ -55,8 +55,8 @@ func main() {
 		panic(err)
 	}
 
-	denom := "factory/inj1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r/inj_test"
-	subdenom := "inj_test"
+	denom := "factory/helios1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r/helios_test"
+	subdenom := "helios_test"
 	tokenDecimals := uint32(6)
 
 	microDenomUnit := banktypes.DenomUnit{
@@ -71,13 +71,13 @@ func main() {
 	}
 
 	metadata := banktypes.Metadata{
-		Description: "Injective Test Token",
+		Description: "Helios Test Token",
 		DenomUnits:  []*banktypes.DenomUnit{&microDenomUnit, &denomUnit},
 		Base:        denom,
 		Display:     subdenom,
-		Name:        "Injective Test",
-		Symbol:      "INJTEST",
-		URI:         "http://injective-test.com/icon.jpg",
+		Name:        "Helios Test",
+		Symbol:      "HELIOSTEST",
+		URI:         "http://-test.com/icon.jpg",
 		URIHash:     "",
 	}
 

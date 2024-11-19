@@ -36,6 +36,6 @@ func ValidateFundsReclaimSignature(
 func ConstructFundsReclaimMessage(
 	recipient, signer sdk.AccAddress,
 ) []byte {
-	message := fmt.Sprintf("I authorize %s to reclaim my funds from locked account %s on Injective", recipient.String(), signer.String())
+	message := fmt.Sprintf("I authorize %s to reclaim my funds from locked account %s on Helios", recipient.String(), signer.String())
 	return []byte(message)
 }

@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	cryptocodec "github.com/Helios-Chain-Labs/sdk-go/chain/crypto/codec"
-	injective "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	 "github.com/Helios-Chain-Labs/sdk-go/chain/types"
 )
 
 // RegisterLegacyAminoCodec registers Interfaces from types, crypto, and SDK std.
@@ -20,5 +20,5 @@ func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 func RegisterInterfaces(interfaceRegistry codectypes.InterfaceRegistry) {
 	std.RegisterInterfaces(interfaceRegistry)
 	cryptocodec.RegisterInterfaces(interfaceRegistry)
-	injective.RegisterInterfaces(interfaceRegistry)
+	.RegisterInterfaces(interfaceRegistry)
 }

@@ -18,7 +18,7 @@ func main() {
 		panic(err)
 	}
 
-	address := "inj1akxycslq8cjt0uffw4rjmfm3echchptu52a2dq"
+	address := "helios1akxycslq8cjt0uffw4rjmfm3echchptu52a2dq"
 	after := uint64(14112176)
 
 	req := explorerPB.GetAccountTxsRequest{

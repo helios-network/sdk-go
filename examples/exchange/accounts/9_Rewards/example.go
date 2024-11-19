@@ -18,7 +18,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	accountAddress := "inj1rwv4zn3jptsqs7l8lpa3uvzhs57y8duemete9e"
+	accountAddress := "helios1rwv4zn3jptsqs7l8lpa3uvzhs57y8duemete9e"
 	epoch := int64(1)
 
 	req := accountPB.RewardsRequest{

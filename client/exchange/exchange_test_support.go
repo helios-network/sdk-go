@@ -37,15 +37,15 @@ func (e *MockExchangeClient) GetDerivativeOrderbooksV2(ctx context.Context, mark
 	return &derivativeExchangePB.OrderbooksV2Response{}, nil
 }
 
-func (e *MockExchangeClient) StreamDerivativeOrderbookV2(ctx context.Context, marketIds []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrderbookV2Client, error) {
+func (e *MockExchangeClient) StreamDerivativeOrderbookV2(ctx context.Context, marketIds []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrderbookV2Client, error) {
 	return nil, nil
 }
 
-func (e *MockExchangeClient) StreamDerivativeOrderbookUpdate(ctx context.Context, marketIds []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateClient, error) {
+func (e *MockExchangeClient) StreamDerivativeOrderbookUpdate(ctx context.Context, marketIds []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrderbookUpdateClient, error) {
 	return nil, nil
 }
 
-func (e *MockExchangeClient) StreamDerivativeMarket(ctx context.Context, marketIds []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamMarketClient, error) {
+func (e *MockExchangeClient) StreamDerivativeMarket(ctx context.Context, marketIds []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamMarketClient, error) {
 	return nil, nil
 }
 
@@ -80,11 +80,11 @@ func (e *MockExchangeClient) GetDerivativeLiquidablePositions(ctx context.Contex
 	return &derivativeExchangePB.LiquidablePositionsResponse{}, nil
 }
 
-func (e *MockExchangeClient) StreamDerivativePositions(ctx context.Context, req *derivativeExchangePB.StreamPositionsRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamPositionsClient, error) {
+func (e *MockExchangeClient) StreamDerivativePositions(ctx context.Context, req *derivativeExchangePB.StreamPositionsRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamPositionsClient, error) {
 	return nil, nil
 }
 
-func (e *MockExchangeClient) StreamDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrdersClient, error) {
+func (e *MockExchangeClient) StreamDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrdersClient, error) {
 	return nil, nil
 }
 
@@ -96,11 +96,11 @@ func (e *MockExchangeClient) GetDerivativeTradesV2(ctx context.Context, req *der
 	return &derivativeExchangePB.TradesV2Response{}, nil
 }
 
-func (e *MockExchangeClient) StreamDerivativeTrades(ctx context.Context, req *derivativeExchangePB.StreamTradesRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamTradesClient, error) {
+func (e *MockExchangeClient) StreamDerivativeTrades(ctx context.Context, req *derivativeExchangePB.StreamTradesRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamTradesClient, error) {
 	return nil, nil
 }
 
-func (e *MockExchangeClient) StreamDerivativeV2Trades(ctx context.Context, req *derivativeExchangePB.StreamTradesV2Request) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamTradesV2Client, error) {
+func (e *MockExchangeClient) StreamDerivativeV2Trades(ctx context.Context, req *derivativeExchangePB.StreamTradesV2Request) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamTradesV2Client, error) {
 	return nil, nil
 }
 
@@ -116,7 +116,7 @@ func (e *MockExchangeClient) GetHistoricalDerivativeOrders(ctx context.Context, 
 	return &derivativeExchangePB.OrdersHistoryResponse{}, nil
 }
 
-func (e *MockExchangeClient) StreamHistoricalDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersHistoryRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrdersHistoryClient, error) {
+func (e *MockExchangeClient) StreamHistoricalDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersHistoryRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrdersHistoryClient, error) {
 	return nil, nil
 }
 
@@ -136,7 +136,7 @@ func (e *MockExchangeClient) GetOracleList(ctx context.Context) (*oraclePB.Oracl
 	return &oraclePB.OracleListResponse{}, nil
 }
 
-func (e *MockExchangeClient) StreamPrices(ctx context.Context, baseSymbol string, quoteSymbol string, oracleType string) (oraclePB.InjectiveOracleRPC_StreamPricesClient, error) {
+func (e *MockExchangeClient) StreamPrices(ctx context.Context, baseSymbol string, quoteSymbol string, oracleType string) (oraclePB.HeliosOracleRPC_StreamPricesClient, error) {
 	return nil, nil
 }
 
@@ -148,7 +148,7 @@ func (e *MockExchangeClient) GetAuctions(ctx context.Context) (*auctionPB.Auctio
 	return &auctionPB.AuctionsResponse{}, nil
 }
 
-func (e *MockExchangeClient) StreamBids(ctx context.Context) (auctionPB.InjectiveAuctionRPC_StreamBidsClient, error) {
+func (e *MockExchangeClient) StreamBids(ctx context.Context) (auctionPB.HeliosAuctionRPC_StreamBidsClient, error) {
 	return nil, nil
 }
 
@@ -160,7 +160,7 @@ func (e *MockExchangeClient) GetSubaccountBalance(ctx context.Context, subaccoun
 	return &accountPB.SubaccountBalanceEndpointResponse{}, nil
 }
 
-func (e *MockExchangeClient) StreamSubaccountBalance(ctx context.Context, subaccountId string) (accountPB.InjectiveAccountsRPC_StreamSubaccountBalanceClient, error) {
+func (e *MockExchangeClient) StreamSubaccountBalance(ctx context.Context, subaccountId string) (accountPB.HeliosAccountsRPC_StreamSubaccountBalanceClient, error) {
 	return nil, nil
 }
 
@@ -200,11 +200,11 @@ func (e *MockExchangeClient) GetSpotOrderbooksV2(ctx context.Context, marketIds 
 	return &spotExchangePB.OrderbooksV2Response{}, nil
 }
 
-func (e *MockExchangeClient) StreamSpotOrderbookV2(ctx context.Context, marketIds []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrderbookV2Client, error) {
+func (e *MockExchangeClient) StreamSpotOrderbookV2(ctx context.Context, marketIds []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrderbookV2Client, error) {
 	return nil, nil
 }
 
-func (e *MockExchangeClient) StreamSpotOrderbookUpdate(ctx context.Context, marketIds []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrderbookUpdateClient, error) {
+func (e *MockExchangeClient) StreamSpotOrderbookUpdate(ctx context.Context, marketIds []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrderbookUpdateClient, error) {
 	return nil, nil
 }
 
@@ -227,11 +227,11 @@ func (e *MockExchangeClient) GetSpotMarket(ctx context.Context, marketId string)
 	return &spotExchangePB.MarketResponse{}, nil
 }
 
-func (e *MockExchangeClient) StreamSpotMarket(ctx context.Context, marketIds []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamMarketsClient, error) {
+func (e *MockExchangeClient) StreamSpotMarket(ctx context.Context, marketIds []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamMarketsClient, error) {
 	return nil, nil
 }
 
-func (e *MockExchangeClient) StreamSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrdersClient, error) {
+func (e *MockExchangeClient) StreamSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrdersClient, error) {
 	return nil, nil
 }
 
@@ -243,11 +243,11 @@ func (e *MockExchangeClient) GetSpotTradesV2(ctx context.Context, req *spotExcha
 	return &spotExchangePB.TradesV2Response{}, nil
 }
 
-func (e *MockExchangeClient) StreamSpotTrades(ctx context.Context, req *spotExchangePB.StreamTradesRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamTradesClient, error) {
+func (e *MockExchangeClient) StreamSpotTrades(ctx context.Context, req *spotExchangePB.StreamTradesRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamTradesClient, error) {
 	return nil, nil
 }
 
-func (e *MockExchangeClient) StreamSpotTradesV2(ctx context.Context, req *spotExchangePB.StreamTradesV2Request) (spotExchangePB.InjectiveSpotExchangeRPC_StreamTradesV2Client, error) {
+func (e *MockExchangeClient) StreamSpotTradesV2(ctx context.Context, req *spotExchangePB.StreamTradesV2Request) (spotExchangePB.HeliosSpotExchangeRPC_StreamTradesV2Client, error) {
 	return nil, nil
 }
 
@@ -263,7 +263,7 @@ func (e *MockExchangeClient) GetHistoricalSpotOrders(ctx context.Context, req *s
 	return &spotExchangePB.OrdersHistoryResponse{}, nil
 }
 
-func (e *MockExchangeClient) StreamHistoricalSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersHistoryRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrdersHistoryClient, error) {
+func (e *MockExchangeClient) StreamHistoricalSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersHistoryRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrdersHistoryClient, error) {
 	return nil, nil
 }
 
@@ -283,11 +283,11 @@ func (e *MockExchangeClient) GetAccountPortfolioBalances(ctx context.Context, ac
 	return &portfolioExchangePB.AccountPortfolioBalancesResponse{}, nil
 }
 
-func (e *MockExchangeClient) StreamAccountPortfolio(ctx context.Context, accountAddress string, subaccountId, balanceType string) (portfolioExchangePB.InjectivePortfolioRPC_StreamAccountPortfolioClient, error) {
+func (e *MockExchangeClient) StreamAccountPortfolio(ctx context.Context, accountAddress string, subaccountId, balanceType string) (portfolioExchangePB.HeliosPortfolioRPC_StreamAccountPortfolioClient, error) {
 	return nil, nil
 }
 
-func (e *MockExchangeClient) StreamKeepalive(ctx context.Context) (metaPB.InjectiveMetaRPC_StreamKeepaliveClient, error) {
+func (e *MockExchangeClient) StreamKeepalive(ctx context.Context) (metaPB.HeliosMetaRPC_StreamKeepaliveClient, error) {
 	return nil, nil
 }
 

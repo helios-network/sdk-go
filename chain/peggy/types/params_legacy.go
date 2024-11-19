@@ -36,7 +36,7 @@ var (
 	// ParamsStoreKeyTargetBatchTimeout stores
 	ParamsStoreKeyTargetBatchTimeout = []byte("TargetBatchTimeout")
 
-	// ParamsStoreKeyAverageBlockTime stores the average block time of the Injective Chain in milliseconds
+	// ParamsStoreKeyAverageBlockTime stores the average block time of the Helios Chain in milliseconds
 	ParamsStoreKeyAverageBlockTime = []byte("AverageBlockTime")
 
 	// ParamsStoreKeyAverageEthereumBlockTime stores the average block time of Ethereum in milliseconds
@@ -66,6 +66,8 @@ var (
 	// ParamStoreValsetRewardAmount is the amount of the coin, both denom and amount to issue
 	// to a relayer when they relay a valset
 	ParamStoreValsetRewardAmount = []byte("ValsetReward")
+
+	ParamStoreAdmins = []byte("Admins")
 
 	// Ensure that params implements the proper interface
 	_ paramtypes.ParamSet = &Params{}
@@ -101,5 +103,6 @@ func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 		paramtypes.NewParamSetPair(ParamStoreClaimSlashingEnabled, &p.ClaimSlashingEnabled, validateClaimSlashingEnabled),
 		paramtypes.NewParamSetPair(ParamsStoreKeyBridgeContractStartHeight, &p.BridgeContractStartHeight, validateBridgeContractStartHeight),
 		paramtypes.NewParamSetPair(ParamStoreValsetRewardAmount, &p.ValsetReward, validateValsetReward),
+		paramtypes.NewParamSetPair(ParamStoreAdmins, &p.Admins, validateAdmins),
 	}
 }

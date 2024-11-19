@@ -1,4 +1,4 @@
-Copyright © 2020 - 2022 Injective Labs Inc. (https://injectivelabs.org/)
+Copyright © 2020 - 2022 Helios Labs Inc. (https://labs.org/)
 
                                  Apache License
                            Version 2.0, January 2004

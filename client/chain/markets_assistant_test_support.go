@@ -6,11 +6,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/bank/types"
 )
 
-func createINJTokenMeta() spotExchangePB.TokenMeta {
+func createHELIOSTokenMeta() spotExchangePB.TokenMeta {
 	return spotExchangePB.TokenMeta{
-		Name:      "Injective Protocol",
+		Name:      "Helios Protocol",
 		Address:   "0xe28b3B32B6c345A34Ff64674606124Dd5Aceca30",
-		Symbol:    "INJ",
+		Symbol:    "HELIOS",
 		Logo:      "https://static.alchemyapi.io/images/assets/7226.png",
 		Decimals:  18,
 		UpdatedAt: 1681739137644,
@@ -50,15 +50,15 @@ func createUSDTPerpTokenMeta() derivativeExchangePB.TokenMeta {
 	}
 }
 
-func createINJUSDTSpotMarketInfo() *spotExchangePB.SpotMarketInfo {
-	injTokenMeta := createINJTokenMeta()
+func createHELIOSUSDTSpotMarketInfo() *spotExchangePB.SpotMarketInfo {
+	heliosTokenMeta := createHELIOSTokenMeta()
 	usdtTokenMeta := createUSDTTokenMeta()
 	marketInfo := spotExchangePB.SpotMarketInfo{
 		MarketId:            "0x7a57e705bb4e09c88aecfc295569481dbf2fe1d5efe364651fbe72385938e9b0",
 		MarketStatus:        "active",
-		Ticker:              "INJ/USDT",
-		BaseDenom:           "inj",
-		BaseTokenMeta:       &injTokenMeta,
+		Ticker:              "HELIOS/USDT",
+		BaseDenom:           "helios",
+		BaseTokenMeta:       &heliosTokenMeta,
 		QuoteDenom:          "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5",
 		QuoteTokenMeta:      &usdtTokenMeta,
 		MakerFeeRate:        "-0.0001",
@@ -135,7 +135,7 @@ func createBTCUSDTDerivativeMarketInfo() *derivativeExchangePB.DerivativeMarketI
 
 func createSmartDenomMetadata() types.Metadata {
 	firstDenomUnit := types.DenomUnit{
-		Denom:    "factory/inj105ujajd95znwjvcy3hwcz80pgy8tc6v77spur0/SMART",
+		Denom:    "factory/helios105ujajd95znwjvcy3hwcz80pgy8tc6v77spur0/SMART",
 		Exponent: 0,
 		Aliases:  []string{"microSMART"},
 	}
@@ -147,7 +147,7 @@ func createSmartDenomMetadata() types.Metadata {
 	metadata := types.Metadata{
 		Description: "SMART",
 		DenomUnits:  []*types.DenomUnit{&firstDenomUnit, &secondDenomUnit},
-		Base:        "factory/inj105ujajd95znwjvcy3hwcz80pgy8tc6v77spur0/SMART",
+		Base:        "factory/helios105ujajd95znwjvcy3hwcz80pgy8tc6v77spur0/SMART",
 		Display:     "SMART",
 		Name:        "SMART",
 		Symbol:      "SMART",

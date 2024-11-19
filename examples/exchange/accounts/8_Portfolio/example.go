@@ -17,7 +17,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	accountAddress := "inj14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
+	accountAddress := "helios14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
 	res, err := exchangeClient.GetPortfolio(ctx, accountAddress)
 	if err != nil {
 		fmt.Println(err)

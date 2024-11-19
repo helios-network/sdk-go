@@ -16,11 +16,11 @@ func TestMarketAssistantCreationUsingMarketsFromExchange(t *testing.T) {
 	mockExchange := exchange.MockExchangeClient{}
 	var spotMarketInfos []*spotExchangePB.SpotMarketInfo
 	var derivativeMarketInfos []*derivativeExchangePB.DerivativeMarketInfo
-	injUsdtSpotMarketInfo := createINJUSDTSpotMarketInfo()
+	heliosUsdtSpotMarketInfo := createHELIOSUSDTSpotMarketInfo()
 	apeUsdtSpotMarketInfo := createAPEUSDTSpotMarketInfo()
 	btcUsdtDerivativeMarketInfo := createBTCUSDTDerivativeMarketInfo()
 
-	spotMarketInfos = append(spotMarketInfos, injUsdtSpotMarketInfo)
+	spotMarketInfos = append(spotMarketInfos, heliosUsdtSpotMarketInfo)
 	spotMarketInfos = append(spotMarketInfos, apeUsdtSpotMarketInfo)
 	derivativeMarketInfos = append(derivativeMarketInfos, btcUsdtDerivativeMarketInfo)
 
@@ -40,14 +40,14 @@ func TestMarketAssistantCreationUsingMarketsFromExchange(t *testing.T) {
 
 	assert.Len(t, tokens, 5)
 
-	symbols := strings.Split(injUsdtSpotMarketInfo.Ticker, "/")
-	injSymbol, usdtSymbol := symbols[0], symbols[1]
+	symbols := strings.Split(heliosUsdtSpotMarketInfo.Ticker, "/")
+	heliosSymbol, usdtSymbol := symbols[0], symbols[1]
 	symbols = strings.Split(apeUsdtSpotMarketInfo.Ticker, "/")
 	apeSymbol := symbols[0]
 	alternativeUSDTName := apeUsdtSpotMarketInfo.QuoteTokenMeta.Name
 	usdtPerpSymbol := btcUsdtDerivativeMarketInfo.QuoteTokenMeta.Symbol
 
-	_, isPresent := tokens[injSymbol]
+	_, isPresent := tokens[heliosSymbol]
 	assert.True(t, isPresent)
 	_, isPresent = tokens[usdtSymbol]
 	assert.True(t, isPresent)
@@ -61,7 +61,7 @@ func TestMarketAssistantCreationUsingMarketsFromExchange(t *testing.T) {
 	spotMarkets := assistant.AllSpotMarkets()
 	assert.Len(t, spotMarkets, 2)
 
-	_, isPresent = spotMarkets[injUsdtSpotMarketInfo.MarketId]
+	_, isPresent = spotMarkets[heliosUsdtSpotMarketInfo.MarketId]
 	assert.True(t, isPresent)
 	_, isPresent = spotMarkets[apeUsdtSpotMarketInfo.MarketId]
 	assert.True(t, isPresent)

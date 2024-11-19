@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"cosmossdk.io/math"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 )
 
@@ -14,13 +14,16 @@ var (
 	// DefaultAuctionPeriod represents the number of seconds in 1 week
 	DefaultAuctionPeriod int64 = 60 * 60 * 24 * 7
 	// DefaultMinNextBidIncrementRate represents default min increment rate 0.25%
-	DefaultMinNextBidIncrementRate = sdk.NewDecWithPrec(25, 4)
+	DefaultMinNextBidIncrementRate = math.LegacyNewDecWithPrec(25, 4)
+	// DefaultHeliosBasketMaxCap represents default helios basket max cap
+	DefaultHeliosBasketMaxCap = math.NewIntWithDecimal(10_000, 18)
 )
 
 // Parameter keys
 var (
 	KeyAuctionPeriod           = []byte("AuctionPeriod")
 	KeyMinNextBidIncrementRate = []byte("MinNextBidIncrementRate")
+	KeyHeliosBasketMaxCap      = []byte("HeliosBasketMaxCap")
 )
 
 // ParamKeyTable returns the parameter key table.
@@ -31,11 +34,13 @@ func ParamKeyTable() paramtypes.KeyTable {
 // NewParams creates a new Params instance
 func NewParams(
 	auctionPeriod int64,
-	minNextBidIncrementRate sdk.Dec,
+	minNextBidIncrementRate math.LegacyDec,
+	heliosBasketMaxCap math.Int,
 ) Params {
 	return Params{
 		AuctionPeriod:           auctionPeriod,
 		MinNextBidIncrementRate: minNextBidIncrementRate,
+		HeliosBasketMaxCap:      heliosBasketMaxCap,
 	}
 }
 
@@ -44,6 +49,7 @@ func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 	return paramtypes.ParamSetPairs{
 		paramtypes.NewParamSetPair(KeyAuctionPeriod, &p.AuctionPeriod, validateAuctionPeriodDuration),
 		paramtypes.NewParamSetPair(KeyMinNextBidIncrementRate, &p.MinNextBidIncrementRate, validateMinNextBidIncrementRate),
+		paramtypes.NewParamSetPair(KeyHeliosBasketMaxCap, &p.HeliosBasketMaxCap, validateHeliosBasketMaxCap),
 	}
 }
 
@@ -52,6 +58,7 @@ func DefaultParams() Params {
 	return Params{
 		AuctionPeriod:           DefaultAuctionPeriod,
 		MinNextBidIncrementRate: DefaultMinNextBidIncrementRate,
+		HeliosBasketMaxCap:      DefaultHeliosBasketMaxCap,
 	}
 }
 
@@ -62,6 +69,10 @@ func (p Params) Validate() error {
 	}
 
 	if err := validateMinNextBidIncrementRate(p.MinNextBidIncrementRate); err != nil {
+		return err
+	}
+
+	if err := validateHeliosBasketMaxCap(p.HeliosBasketMaxCap); err != nil {
 		return err
 	}
 
@@ -82,7 +93,7 @@ func validateAuctionPeriodDuration(i interface{}) error {
 }
 
 func validateMinNextBidIncrementRate(i interface{}) error {
-	v, ok := i.(sdk.Dec)
+	v, ok := i.(math.LegacyDec)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
 	}
@@ -91,13 +102,28 @@ func validateMinNextBidIncrementRate(i interface{}) error {
 		return fmt.Errorf("MinNextBidIncrementRate cannot be nil")
 	}
 
-	if v.Equal(sdk.ZeroDec()) {
+	if v.Equal(math.LegacyZeroDec()) {
 		return fmt.Errorf("MinNextBidIncrementRate must be positive: %s", v.String())
 	}
 
-	if v.GT(sdk.NewDecWithPrec(2, 1)) { // > 20%
+	if v.GT(math.LegacyNewDecWithPrec(2, 1)) { // > 20%
 		return fmt.Errorf("MinNextBidIncrementRate must be equal or less than 20 percent: %s", v.String())
 	}
 
+	return nil
+}
+
+func validateHeliosBasketMaxCap(i interface{}) error {
+	v, ok := i.(math.Int)
+	if !ok {
+		return fmt.Errorf("invalid parameter type: %T", i)
+	}
+
+	if v.IsNil() {
+		return fmt.Errorf("HeliosBasketMaxCap cannot be nil")
+	}
+	if v.IsNegative() {
+		return fmt.Errorf("HeliosBasketMaxCap cannot be negative")
+	}
 	return nil
 }

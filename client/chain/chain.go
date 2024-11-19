@@ -48,8 +48,8 @@ import (
 type OrderbookType string
 
 const (
-	SpotOrderbook       = "injective.exchange.v1beta1.EventOrderbookUpdate.spot_orderbooks"
-	DerivativeOrderbook = "injective.exchange.v1beta1.EventOrderbookUpdate.derivative_orderbooks"
+	SpotOrderbook       = ".exchange.v1beta1.EventOrderbookUpdate.spot_orderbooks"
+	DerivativeOrderbook = ".exchange.v1beta1.EventOrderbookUpdate.derivative_orderbooks"
 )
 
 const (
@@ -937,7 +937,7 @@ func (c *chainClient) runBatchBroadcast() {
 }
 
 func (c *chainClient) GetGasFee() (string, error) {
-	gasPrices := strings.Trim(c.opts.GasPrices, "inj")
+	gasPrices := strings.Trim(c.opts.GasPrices, "helios")
 
 	gas, err := strconv.ParseFloat(gasPrices, 64)
 
@@ -1227,7 +1227,7 @@ func (c *chainClient) StreamEventOrderFail(sender string, failEventCh chan map[s
 }
 
 func (c *chainClient) StreamEventOrderFailWithWebsocket(sender string, websocket *rpchttp.HTTP, failEventCh chan map[string]uint) {
-	filter := fmt.Sprintf("tm.event='Tx' AND message.sender='%s' AND message.action='/injective.exchange.v1beta1.MsgBatchUpdateOrders' AND injective.exchange.v1beta1.EventOrderFail.flags EXISTS", sender)
+	filter := fmt.Sprintf("tm.event='Tx' AND message.sender='%s' AND message.action='/.exchange.v1beta1.MsgBatchUpdateOrders' AND .exchange.v1beta1.EventOrderFail.flags EXISTS", sender)
 	eventCh, err := websocket.Subscribe(context.Background(), "OrderFail", filter, 10000)
 	if err != nil {
 		panic(err)
@@ -1238,13 +1238,13 @@ func (c *chainClient) StreamEventOrderFailWithWebsocket(sender string, websocket
 		e := <-eventCh
 
 		var failedOrderHashes []string
-		err = json.Unmarshal([]byte(e.Events["injective.exchange.v1beta1.EventOrderFail.hashes"][0]), &failedOrderHashes)
+		err = json.Unmarshal([]byte(e.Events[".exchange.v1beta1.EventOrderFail.hashes"][0]), &failedOrderHashes)
 		if err != nil {
 			panic(err)
 		}
 
 		var failedOrderCodes []uint
-		err = json.Unmarshal([]byte(e.Events["injective.exchange.v1beta1.EventOrderFail.flags"][0]), &failedOrderCodes)
+		err = json.Unmarshal([]byte(e.Events[".exchange.v1beta1.EventOrderFail.flags"][0]), &failedOrderCodes)
 		if err != nil {
 			panic(err)
 		}

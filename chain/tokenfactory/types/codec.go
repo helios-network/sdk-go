@@ -5,22 +5,21 @@ import (
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authzcdc "github.com/cosmos/cosmos-sdk/x/authz/codec"
-	govcdc "github.com/cosmos/cosmos-sdk/x/gov/codec"
-	groupcdc "github.com/cosmos/cosmos-sdk/x/group/codec"
-
 	// this line is used by starport scaffolding # 1
 	"github.com/cosmos/cosmos-sdk/types/msgservice"
 )
 
 func RegisterCodec(cdc *codec.LegacyAmino) {
-	cdc.RegisterConcrete(&MsgCreateDenom{}, "injective/tokenfactory/create-denom", nil)
-	cdc.RegisterConcrete(&MsgMint{}, "injective/tokenfactory/mint", nil)
-	cdc.RegisterConcrete(&MsgBurn{}, "injective/tokenfactory/burn", nil)
+	cdc.RegisterConcrete(&MsgCreateDenom{}, "helios/tokenfactory/create-denom", nil)
+	cdc.RegisterConcrete(&MsgMint{}, "helios/tokenfactory/mint", nil)
+	cdc.RegisterConcrete(&MsgBurn{}, "helios/tokenfactory/burn", nil)
 	// nolint:all
-	// cdc.RegisterConcrete(&MsgForceTransfer{}, "injective/tokenfactory/force-transfer", nil)
-	cdc.RegisterConcrete(&MsgChangeAdmin{}, "injective/tokenfactory/change-admin", nil)
-	cdc.RegisterConcrete(&MsgUpdateParams{}, "injective/tokenfactory/update-params", nil)
-	cdc.RegisterConcrete(&MsgSetDenomMetadata{}, "injective/tokenfactory/set-denom-metadata", nil)
+	// cdc.RegisterConcrete(&MsgForceTransfer{}, "helios/tokenfactory/force-transfer", nil)
+	cdc.RegisterConcrete(&MsgChangeAdmin{}, "helios/tokenfactory/change-admin", nil)
+	cdc.RegisterConcrete(&MsgUpdateParams{}, "helios/tokenfactory/update-params", nil)
+	cdc.RegisterConcrete(&MsgSetDenomMetadata{}, "helios/tokenfactory/set-denom-metadata", nil)
+	cdc.RegisterConcrete(&Params{}, "helios/tokenfactory/Params", nil)
+
 }
 
 func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
@@ -38,18 +37,15 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 }
 
 var (
-	amino     = codec.NewLegacyAmino()
-	ModuleCdc = codec.NewAminoCodec(amino)
+	ModuleCdc = codec.NewLegacyAmino()
 )
 
 func init() {
-	RegisterCodec(amino)
+	RegisterCodec(ModuleCdc)
 	// Register all Amino interfaces and concrete types on the authz Amino codec so that this can later be
 	// used to properly serialize MsgGrant and MsgExec instances
-	sdk.RegisterLegacyAminoCodec(amino)
-	RegisterCodec(govcdc.Amino)
+	sdk.RegisterLegacyAminoCodec(ModuleCdc)
 	RegisterCodec(authzcdc.Amino)
-	RegisterCodec(groupcdc.Amino)
 
-	amino.Seal()
+	ModuleCdc.Seal()
 }

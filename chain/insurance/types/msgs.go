@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
+	oracletypes "helios-core/helios-chain/modules/oracle/types"
 )
 
 const RouterKey = ModuleName
@@ -61,8 +61,8 @@ func (msg MsgCreateInsuranceFund) ValidateBasic() error {
 	if msg.Sender == "" {
 		return errors.Wrap(sdkerrors.ErrInvalidAddress, msg.Sender)
 	}
-	if msg.Ticker == "" {
-		return errors.Wrap(ErrInvalidTicker, "ticker should not be empty or exceed 30 characters")
+	if msg.Ticker == "" || len(msg.Ticker) > 40 {
+		return errors.Wrapf(ErrInvalidTicker, "ticker should not be empty or exceed 40 characters")
 	}
 	if msg.QuoteDenom == "" {
 		return errors.Wrap(ErrInvalidQuoteDenom, "quote denom should not be empty")

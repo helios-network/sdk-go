@@ -6,33 +6,41 @@ import (
 	"strings"
 
 	"cosmossdk.io/errors"
+	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdktypes "github.com/cosmos/cosmos-sdk/types"
+
+	"github.com/ethereum/go-ethereum/common"
 )
 
-// DefaultParamspace defines the default auth module parameter subspace
+// DefaultParamspace defines the default peggy module parameter subspace
 const (
-	// todo: implement oracle constants as params
 	DefaultParamspace = ModuleName
 )
 
 // DefaultParams returns a copy of the default params
 func DefaultParams() *Params {
 	return &Params{
-		PeggyId:                       "injective-peggyid",
-		SignedValsetsWindow:           10000,
-		SignedBatchesWindow:           10000,
-		SignedClaimsWindow:            10000,
+		PeggyId:                       "helios-peggyid",
+		BridgeEthereumAddress:         common.HexToAddress("0x8858eeb3dfffa017d4bce9801d340d36cf895ccf").Hex(),
+		BridgeChainId:                 1,
+		SignedValsetsWindow:           25000,
+		SignedBatchesWindow:           25000,
+		SignedClaimsWindow:            25000,
 		TargetBatchTimeout:            43200000,
-		AverageBlockTime:              5000,
+		AverageBlockTime:              2000,
 		AverageEthereumBlockTime:      15000,
-		SlashFractionValset:           sdk.NewDec(1).Quo(sdk.NewDec(1000)),
-		SlashFractionBatch:            sdk.NewDec(1).Quo(sdk.NewDec(1000)),
-		SlashFractionClaim:            sdk.NewDec(1).Quo(sdk.NewDec(1000)),
-		SlashFractionConflictingClaim: sdk.NewDec(1).Quo(sdk.NewDec(1000)),
-		SlashFractionBadEthSignature:  sdk.NewDec(1).Quo(sdk.NewDec(1000)),
-		CosmosCoinDenom:               "inj",
-		UnbondSlashingValsetsWindow:   10000,
+		SlashFractionValset:           math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		SlashFractionBatch:            math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		SlashFractionClaim:            math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		SlashFractionConflictingClaim: math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		SlashFractionBadEthSignature:  math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		CosmosCoinDenom:               "helios",
+		CosmosCoinErc20Contract:       "",
+		UnbondSlashingValsetsWindow:   25000,
 		ClaimSlashingEnabled:          false,
+		Admins:                        []string{"helios14q3hglvg277m2vzccevnsrjlwd5qj9a9q78wgs"}, // for whitelisting and blacklisting
+		ValsetReward:                  sdktypes.Coin{Denom: "helios", Amount: math.NewInt(0)},
 	}
 }
 
@@ -97,6 +105,9 @@ func (p Params) ValidateBasic() error {
 	}
 	if err := validateClaimSlashingEnabled(p.ClaimSlashingEnabled); err != nil {
 		return errors.Wrap(err, "claim slashing enabled")
+	}
+	if err := validateAdmins(p.Admins); err != nil {
+		return errors.Wrap(err, "admins")
 	}
 
 	return nil
@@ -199,7 +210,7 @@ func validateUnbondSlashingValsetsWindow(i interface{}) error {
 }
 
 func validateSlashFractionValset(i interface{}) error {
-	if _, ok := i.(sdk.Dec); !ok {
+	if _, ok := i.(math.LegacyDec); !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
 	}
 	return nil
@@ -220,21 +231,21 @@ func validateSignedClaimsWindow(i interface{}) error {
 }
 
 func validateSlashFractionBatch(i interface{}) error {
-	if _, ok := i.(sdk.Dec); !ok {
+	if _, ok := i.(math.LegacyDec); !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
 	}
 	return nil
 }
 
 func validateSlashFractionClaim(i interface{}) error {
-	if _, ok := i.(sdk.Dec); !ok {
+	if _, ok := i.(math.LegacyDec); !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
 	}
 	return nil
 }
 
 func validateSlashFractionConflictingClaim(i interface{}) error {
-	if _, ok := i.(sdk.Dec); !ok {
+	if _, ok := i.(math.LegacyDec); !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
 	}
 	return nil
@@ -284,12 +295,35 @@ func validateClaimSlashingEnabled(i interface{}) error {
 }
 
 func validateSlashFractionBadEthSignature(i interface{}) error {
-	if _, ok := i.(sdk.Dec); !ok {
+	if _, ok := i.(math.LegacyDec); !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
 	}
 	return nil
 }
 
 func validateValsetReward(i interface{}) error {
+	return nil
+}
+
+func validateAdmins(i interface{}) error {
+	v, ok := i.([]string)
+	if !ok {
+		return fmt.Errorf("invalid parameter type: %T", i)
+	}
+
+	admins := make(map[string]struct{})
+
+	for _, admin := range v {
+		adminAddr, err := sdk.AccAddressFromBech32(admin)
+		if err != nil {
+			return fmt.Errorf("invalid admin address: %s", admin)
+		}
+
+		if _, found := admins[adminAddr.String()]; found {
+			return fmt.Errorf("duplicate admin: %s", admin)
+		}
+		admins[adminAddr.String()] = struct{}{}
+	}
+
 	return nil
 }

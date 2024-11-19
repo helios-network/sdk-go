@@ -1,18 +1,18 @@
 // Code generated with goa v3.5.2, DO NOT EDIT.
 //
-// InjectiveCampaignRPC protocol buffer definition
+// HeliosCampaignRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/Helios-Chain-Labs/-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_campaign_rpc;
+package _campaign_rpc;
 
-option go_package = "/injective_campaign_rpcpb";
+option go_package = "/_campaign_rpcpb";
 
-// InjectiveCampaignRPC defined a gRPC service for Injective Campaigns.
-service InjectiveCampaignRPC {
+// HeliosCampaignRPC defined a gRPC service for Helios Campaigns.
+service HeliosCampaignRPC {
 	// Lists all participants in campaign
 	rpc Ranking (RankingRequest) returns (RankingResponse);
 	// List current round active campaigns

@@ -21,10 +21,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.d",
+		"d",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,
@@ -56,7 +56,7 @@ func main() {
 		panic(err)
 	}
 
-	creator := "inj1maeyvxfamtn8lfyxpjca8kuvauuf2qeu6gtxm3"
+	creator := "helios1maeyvxfamtn8lfyxpjca8kuvauuf2qeu6gtxm3"
 	ctx := context.Background()
 
 	res, err := chainClient.FetchDenomsFromCreator(ctx, creator)

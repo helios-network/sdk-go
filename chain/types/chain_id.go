@@ -14,7 +14,7 @@ var (
 	regexChainID     = `[a-z]*`
 	regexSeparator   = `-{1}`
 	regexEpoch       = `[1-9][0-9]*`
-	injectiveChainID = regexp.MustCompile(fmt.Sprintf(`^(%s)%s(%s)$`, regexChainID, regexSeparator, regexEpoch))
+	ChainID = regexp.MustCompile(fmt.Sprintf(`^(%s)%s(%s)$`, regexChainID, regexSeparator, regexEpoch))
 )
 
 // IsValidChainID returns false if the given chain identifier is incorrectly formatted.
@@ -23,7 +23,7 @@ func IsValidChainID(chainID string) bool {
 		return false
 	}
 
-	return injectiveChainID.MatchString(chainID)
+	return ChainID.MatchString(chainID)
 }
 
 // ParseChainID parses a string chain identifier's epoch to an Ethereum-compatible
@@ -34,7 +34,7 @@ func ParseChainID(chainID string) (*big.Int, error) {
 		return nil, errors.Wrapf(ErrInvalidChainID, "chain-id '%s' cannot exceed 48 chars", chainID)
 	}
 
-	matches := injectiveChainID.FindStringSubmatch(chainID)
+	matches := ChainID.FindStringSubmatch(chainID)
 	if matches == nil || len(matches) != 3 || matches[1] == "" {
 		return nil, errors.Wrap(ErrInvalidChainID, chainID)
 	}
@@ -50,5 +50,5 @@ func ParseChainID(chainID string) (*big.Int, error) {
 
 // GenerateRandomChainID returns a random chain-id in the valid format.
 func GenerateRandomChainID() string {
-	return fmt.Sprintf("injective-%d", 10+tmrand.Intn(10000))
+	return fmt.Sprintf("-%d", 10+tmrand.Intn(10000))
 }

@@ -20,10 +20,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.d",
+		"d",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"f9db9bf330e23cb7839039e944adef6e9df447b90b503d5b4464c90bea9022f3", // keyring will be used if pk not provided
 		false,
@@ -56,9 +56,9 @@ func main() {
 
 	message := new(tokenfactorytypes.MsgCreateDenom)
 	message.Sender = senderAddress.String()
-	message.Subdenom = "inj_test"
-	message.Name = "Injective Test Token"
-	message.Symbol = "INJTEST"
+	message.Subdenom = "helios_test"
+	message.Name = "Helios Test Token"
+	message.Symbol = "HELIOSTEST"
 
 	//AsyncBroadcastMsg, SyncBroadcastMsg, QueueBroadcastMsg
 	response, err := chainClient.AsyncBroadcastMsg(message)
