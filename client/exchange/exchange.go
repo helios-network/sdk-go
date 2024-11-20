@@ -6,16 +6,16 @@ import (
 
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	accountPB "github.com/InjectiveLabs/sdk-go/exchange/accounts_rpc/pb"
-	auctionPB "github.com/InjectiveLabs/sdk-go/exchange/auction_rpc/pb"
-	derivativeExchangePB "github.com/InjectiveLabs/sdk-go/exchange/derivative_exchange_rpc/pb"
-	insurancePB "github.com/InjectiveLabs/sdk-go/exchange/insurance_rpc/pb"
-	metaPB "github.com/InjectiveLabs/sdk-go/exchange/meta_rpc/pb"
-	oraclePB "github.com/InjectiveLabs/sdk-go/exchange/oracle_rpc/pb"
-	portfolioExchangePB "github.com/InjectiveLabs/sdk-go/exchange/portfolio_rpc/pb"
-	spotExchangePB "github.com/InjectiveLabs/sdk-go/exchange/spot_exchange_rpc/pb"
-	log "github.com/InjectiveLabs/suplog"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	accountPB "github.com/Helios-Chain-Labs/sdk-go/exchange/accounts_rpc/pb"
+	auctionPB "github.com/Helios-Chain-Labs/sdk-go/exchange/auction_rpc/pb"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	insurancePB "github.com/Helios-Chain-Labs/sdk-go/exchange/insurance_rpc/pb"
+	metaPB "github.com/Helios-Chain-Labs/sdk-go/exchange/meta_rpc/pb"
+	oraclePB "github.com/Helios-Chain-Labs/sdk-go/exchange/oracle_rpc/pb"
+	portfolioExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/portfolio_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
+	log "github.com/Helios-Chain-Labs/suplog"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )
@@ -26,35 +26,35 @@ type ExchangeClient interface {
 	GetDerivativeOrderbookV2(ctx context.Context, marketId string) (*derivativeExchangePB.OrderbookV2Response, error)
 	GetDerivativeOrderbooksV2(ctx context.Context, marketIDs []string) (*derivativeExchangePB.OrderbooksV2Response, error)
 	// StreamDerivativeOrderbook deprecated API
-	StreamDerivativeOrderbookV2(ctx context.Context, marketIDs []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrderbookV2Client, error)
-	StreamDerivativeOrderbookUpdate(ctx context.Context, marketIDs []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateClient, error)
-	StreamDerivativeMarket(ctx context.Context, marketIDs []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamMarketClient, error)
+	StreamDerivativeOrderbookV2(ctx context.Context, marketIDs []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrderbookV2Client, error)
+	StreamDerivativeOrderbookUpdate(ctx context.Context, marketIDs []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrderbookUpdateClient, error)
+	StreamDerivativeMarket(ctx context.Context, marketIDs []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamMarketClient, error)
 	GetDerivativeOrders(ctx context.Context, req *derivativeExchangePB.OrdersRequest) (*derivativeExchangePB.OrdersResponse, error)
 	GetDerivativeMarkets(ctx context.Context, req *derivativeExchangePB.MarketsRequest) (*derivativeExchangePB.MarketsResponse, error)
 	GetDerivativePositions(ctx context.Context, req *derivativeExchangePB.PositionsRequest) (*derivativeExchangePB.PositionsResponse, error)
 	GetDerivativePositionsV2(ctx context.Context, req *derivativeExchangePB.PositionsV2Request) (*derivativeExchangePB.PositionsV2Response, error)
 	GetDerivativeLiquidablePositions(ctx context.Context, req *derivativeExchangePB.LiquidablePositionsRequest) (*derivativeExchangePB.LiquidablePositionsResponse, error)
-	StreamDerivativePositions(ctx context.Context, req *derivativeExchangePB.StreamPositionsRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamPositionsClient, error)
-	StreamDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrdersClient, error)
+	StreamDerivativePositions(ctx context.Context, req *derivativeExchangePB.StreamPositionsRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamPositionsClient, error)
+	StreamDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrdersClient, error)
 	GetDerivativeTrades(ctx context.Context, req *derivativeExchangePB.TradesRequest) (*derivativeExchangePB.TradesResponse, error)
 	GetDerivativeTradesV2(ctx context.Context, req *derivativeExchangePB.TradesV2Request) (*derivativeExchangePB.TradesV2Response, error)
-	StreamDerivativeTrades(ctx context.Context, req *derivativeExchangePB.StreamTradesRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamTradesClient, error)
-	StreamDerivativeV2Trades(ctx context.Context, req *derivativeExchangePB.StreamTradesV2Request) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamTradesV2Client, error)
+	StreamDerivativeTrades(ctx context.Context, req *derivativeExchangePB.StreamTradesRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamTradesClient, error)
+	StreamDerivativeV2Trades(ctx context.Context, req *derivativeExchangePB.StreamTradesV2Request) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamTradesV2Client, error)
 	GetSubaccountDerivativeOrdersList(ctx context.Context, req *derivativeExchangePB.SubaccountOrdersListRequest) (*derivativeExchangePB.SubaccountOrdersListResponse, error)
 	GetSubaccountDerivativeTradesList(ctx context.Context, req *derivativeExchangePB.SubaccountTradesListRequest) (*derivativeExchangePB.SubaccountTradesListResponse, error)
 	GetHistoricalDerivativeOrders(ctx context.Context, req *derivativeExchangePB.OrdersHistoryRequest) (*derivativeExchangePB.OrdersHistoryResponse, error)
-	StreamHistoricalDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersHistoryRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrdersHistoryClient, error)
+	StreamHistoricalDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersHistoryRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrdersHistoryClient, error)
 	GetDerivativeFundingPayments(ctx context.Context, req *derivativeExchangePB.FundingPaymentsRequest) (*derivativeExchangePB.FundingPaymentsResponse, error)
 	GetDerivativeFundingRates(ctx context.Context, req *derivativeExchangePB.FundingRatesRequest) (*derivativeExchangePB.FundingRatesResponse, error)
 	GetPrice(ctx context.Context, baseSymbol string, quoteSymbol string, oracleType string, oracleScaleFactor uint32) (*oraclePB.PriceResponse, error)
 	GetOracleList(ctx context.Context) (*oraclePB.OracleListResponse, error)
-	StreamPrices(ctx context.Context, baseSymbol string, quoteSymbol string, oracleType string) (oraclePB.InjectiveOracleRPC_StreamPricesClient, error)
+	StreamPrices(ctx context.Context, baseSymbol string, quoteSymbol string, oracleType string) (oraclePB.HeliosOracleRPC_StreamPricesClient, error)
 	GetAuction(ctx context.Context, round int64) (*auctionPB.AuctionEndpointResponse, error)
 	GetAuctions(ctx context.Context) (*auctionPB.AuctionsResponse, error)
-	StreamBids(ctx context.Context) (auctionPB.InjectiveAuctionRPC_StreamBidsClient, error)
+	StreamBids(ctx context.Context) (auctionPB.HeliosAuctionRPC_StreamBidsClient, error)
 	GetSubaccountsList(ctx context.Context, accountAddress string) (*accountPB.SubaccountsListResponse, error)
 	GetSubaccountBalance(ctx context.Context, subaccountId string, denom string) (*accountPB.SubaccountBalanceEndpointResponse, error)
-	StreamSubaccountBalance(ctx context.Context, subaccountId string) (accountPB.InjectiveAccountsRPC_StreamSubaccountBalanceClient, error)
+	StreamSubaccountBalance(ctx context.Context, subaccountId string) (accountPB.HeliosAccountsRPC_StreamSubaccountBalanceClient, error)
 	GetSubaccountBalancesList(ctx context.Context, subaccountId string) (*accountPB.SubaccountBalancesListResponse, error)
 	GetSubaccountHistory(ctx context.Context, req *accountPB.SubaccountHistoryRequest) (*accountPB.SubaccountHistoryResponse, error)
 	GetSubaccountOrderSummary(ctx context.Context, req *accountPB.SubaccountOrderSummaryRequest) (*accountPB.SubaccountOrderSummaryResponse, error)
@@ -65,28 +65,28 @@ type ExchangeClient interface {
 	GetSpotOrderbookV2(ctx context.Context, marketId string) (*spotExchangePB.OrderbookV2Response, error)
 	GetSpotOrderbooksV2(ctx context.Context, marketIDs []string) (*spotExchangePB.OrderbooksV2Response, error)
 	// StreamSpotOrderbook deprecated API
-	StreamSpotOrderbookV2(ctx context.Context, marketIDs []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrderbookV2Client, error)
-	StreamSpotOrderbookUpdate(ctx context.Context, marketIDs []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrderbookUpdateClient, error)
+	StreamSpotOrderbookV2(ctx context.Context, marketIDs []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrderbookV2Client, error)
+	StreamSpotOrderbookUpdate(ctx context.Context, marketIDs []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrderbookUpdateClient, error)
 	GetSpotMarkets(ctx context.Context, req *spotExchangePB.MarketsRequest) (*spotExchangePB.MarketsResponse, error)
 	GetSpotMarket(ctx context.Context, marketId string) (*spotExchangePB.MarketResponse, error)
-	StreamSpotMarket(ctx context.Context, marketIDs []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamMarketsClient, error)
-	StreamSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrdersClient, error)
+	StreamSpotMarket(ctx context.Context, marketIDs []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamMarketsClient, error)
+	StreamSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrdersClient, error)
 	GetSpotTrades(ctx context.Context, req *spotExchangePB.TradesRequest) (*spotExchangePB.TradesResponse, error)
 	GetSpotTradesV2(ctx context.Context, req *spotExchangePB.TradesV2Request) (*spotExchangePB.TradesV2Response, error)
-	StreamSpotTrades(ctx context.Context, req *spotExchangePB.StreamTradesRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamTradesClient, error)
-	StreamSpotTradesV2(ctx context.Context, req *spotExchangePB.StreamTradesV2Request) (spotExchangePB.InjectiveSpotExchangeRPC_StreamTradesV2Client, error)
+	StreamSpotTrades(ctx context.Context, req *spotExchangePB.StreamTradesRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamTradesClient, error)
+	StreamSpotTradesV2(ctx context.Context, req *spotExchangePB.StreamTradesV2Request) (spotExchangePB.HeliosSpotExchangeRPC_StreamTradesV2Client, error)
 	GetSubaccountSpotOrdersList(ctx context.Context, req *spotExchangePB.SubaccountOrdersListRequest) (*spotExchangePB.SubaccountOrdersListResponse, error)
 	GetSubaccountSpotTradesList(ctx context.Context, req *spotExchangePB.SubaccountTradesListRequest) (*spotExchangePB.SubaccountTradesListResponse, error)
 	GetHistoricalSpotOrders(ctx context.Context, req *spotExchangePB.OrdersHistoryRequest) (*spotExchangePB.OrdersHistoryResponse, error)
-	StreamHistoricalSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersHistoryRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrdersHistoryClient, error)
+	StreamHistoricalSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersHistoryRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrdersHistoryClient, error)
 	GetInsuranceFunds(ctx context.Context, req *insurancePB.FundsRequest) (*insurancePB.FundsResponse, error)
 	GetRedemptions(ctx context.Context, req *insurancePB.RedemptionsRequest) (*insurancePB.RedemptionsResponse, error)
 
 	GetAccountPortfolio(ctx context.Context, accountAddress string) (*portfolioExchangePB.AccountPortfolioResponse, error)
 	GetAccountPortfolioBalances(ctx context.Context, accountAddress string) (*portfolioExchangePB.AccountPortfolioBalancesResponse, error)
-	StreamAccountPortfolio(ctx context.Context, accountAddress string, subaccountId, balanceType string) (portfolioExchangePB.InjectivePortfolioRPC_StreamAccountPortfolioClient, error)
+	StreamAccountPortfolio(ctx context.Context, accountAddress string, subaccountId, balanceType string) (portfolioExchangePB.HeliosPortfolioRPC_StreamAccountPortfolioClient, error)
 
-	StreamKeepalive(ctx context.Context) (metaPB.InjectiveMetaRPC_StreamKeepaliveClient, error)
+	StreamKeepalive(ctx context.Context) (metaPB.HeliosMetaRPC_StreamKeepaliveClient, error)
 	GetInfo(ctx context.Context, req *metaPB.InfoRequest) (*metaPB.InfoResponse, error)
 	GetVersion(ctx context.Context, req *metaPB.VersionRequest) (*metaPB.VersionResponse, error)
 	Ping(ctx context.Context, req *metaPB.PingRequest) (*metaPB.PingResponse, error)
@@ -127,14 +127,14 @@ func NewExchangeClient(network common.Network, options ...common.ClientOption) (
 		network: network,
 		conn:    conn,
 
-		metaClient:               metaPB.NewInjectiveMetaRPCClient(conn),
-		accountClient:            accountPB.NewInjectiveAccountsRPCClient(conn),
-		auctionClient:            auctionPB.NewInjectiveAuctionRPCClient(conn),
-		oracleClient:             oraclePB.NewInjectiveOracleRPCClient(conn),
-		insuranceClient:          insurancePB.NewInjectiveInsuranceRPCClient(conn),
-		spotExchangeClient:       spotExchangePB.NewInjectiveSpotExchangeRPCClient(conn),
-		derivativeExchangeClient: derivativeExchangePB.NewInjectiveDerivativeExchangeRPCClient(conn),
-		portfolioExchangeClient:  portfolioExchangePB.NewInjectivePortfolioRPCClient(conn),
+		metaClient:               metaPB.NewHeliosMetaRPCClient(conn),
+		accountClient:            accountPB.NewHeliosAccountsRPCClient(conn),
+		auctionClient:            auctionPB.NewHeliosAuctionRPCClient(conn),
+		oracleClient:             oraclePB.NewHeliosOracleRPCClient(conn),
+		insuranceClient:          insurancePB.NewHeliosInsuranceRPCClient(conn),
+		spotExchangeClient:       spotExchangePB.NewHeliosSpotExchangeRPCClient(conn),
+		derivativeExchangeClient: derivativeExchangePB.NewHeliosDerivativeExchangeRPCClient(conn),
+		portfolioExchangeClient:  portfolioExchangePB.NewHeliosPortfolioRPCClient(conn),
 
 		logger: log.WithFields(log.Fields{
 			"module": "sdk-go",
@@ -151,14 +151,14 @@ type exchangeClient struct {
 	conn    *grpc.ClientConn
 	logger  log.Logger
 
-	metaClient               metaPB.InjectiveMetaRPCClient
-	accountClient            accountPB.InjectiveAccountsRPCClient
-	auctionClient            auctionPB.InjectiveAuctionRPCClient
-	oracleClient             oraclePB.InjectiveOracleRPCClient
-	insuranceClient          insurancePB.InjectiveInsuranceRPCClient
-	spotExchangeClient       spotExchangePB.InjectiveSpotExchangeRPCClient
-	derivativeExchangeClient derivativeExchangePB.InjectiveDerivativeExchangeRPCClient
-	portfolioExchangeClient  portfolioExchangePB.InjectivePortfolioRPCClient
+	metaClient               metaPB.HeliosMetaRPCClient
+	accountClient            accountPB.HeliosAccountsRPCClient
+	auctionClient            auctionPB.HeliosAuctionRPCClient
+	oracleClient             oraclePB.HeliosOracleRPCClient
+	insuranceClient          insurancePB.HeliosInsuranceRPCClient
+	spotExchangeClient       spotExchangePB.HeliosSpotExchangeRPCClient
+	derivativeExchangeClient derivativeExchangePB.HeliosDerivativeExchangeRPCClient
+	portfolioExchangeClient  portfolioExchangePB.HeliosPortfolioRPCClient
 }
 
 func (c *exchangeClient) QueryClient() *grpc.ClientConn {
@@ -236,7 +236,7 @@ func (c *exchangeClient) GetDerivativeOrderbooksV2(ctx context.Context, marketID
 	return res, nil
 }
 
-func (c *exchangeClient) StreamDerivativeOrderbookV2(ctx context.Context, marketIDs []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrderbookV2Client, error) {
+func (c *exchangeClient) StreamDerivativeOrderbookV2(ctx context.Context, marketIDs []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrderbookV2Client, error) {
 	req := derivativeExchangePB.StreamOrderbookV2Request{
 		MarketIds: marketIDs,
 	}
@@ -251,7 +251,7 @@ func (c *exchangeClient) StreamDerivativeOrderbookV2(ctx context.Context, market
 	return stream, nil
 }
 
-func (c *exchangeClient) StreamDerivativeOrderbookUpdate(ctx context.Context, marketIDs []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateClient, error) {
+func (c *exchangeClient) StreamDerivativeOrderbookUpdate(ctx context.Context, marketIDs []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrderbookUpdateClient, error) {
 	req := derivativeExchangePB.StreamOrderbookUpdateRequest{
 		MarketIds: marketIDs,
 	}
@@ -290,7 +290,7 @@ func (c *exchangeClient) GetDerivativeMarket(ctx context.Context, marketId strin
 	return res, nil
 }
 
-func (c *exchangeClient) StreamDerivativeMarket(ctx context.Context, marketIDs []string) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamMarketClient, error) {
+func (c *exchangeClient) StreamDerivativeMarket(ctx context.Context, marketIDs []string) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamMarketClient, error) {
 	req := derivativeExchangePB.StreamMarketRequest{
 		MarketIds: marketIDs,
 	}
@@ -305,7 +305,7 @@ func (c *exchangeClient) StreamDerivativeMarket(ctx context.Context, marketIDs [
 	return stream, nil
 }
 
-func (c *exchangeClient) StreamDerivativePositions(ctx context.Context, req *derivativeExchangePB.StreamPositionsRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamPositionsClient, error) {
+func (c *exchangeClient) StreamDerivativePositions(ctx context.Context, req *derivativeExchangePB.StreamPositionsRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamPositionsClient, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.derivativeExchangeClient.StreamPositions, req)
 
 	if err != nil {
@@ -316,7 +316,7 @@ func (c *exchangeClient) StreamDerivativePositions(ctx context.Context, req *der
 	return stream, nil
 }
 
-func (c *exchangeClient) StreamDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrdersClient, error) {
+func (c *exchangeClient) StreamDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrdersClient, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.derivativeExchangeClient.StreamOrders, req)
 
 	if err != nil {
@@ -347,7 +347,7 @@ func (c *exchangeClient) GetDerivativeTradesV2(ctx context.Context, req *derivat
 	return res, nil
 }
 
-func (c *exchangeClient) StreamDerivativeTrades(ctx context.Context, req *derivativeExchangePB.StreamTradesRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamTradesClient, error) {
+func (c *exchangeClient) StreamDerivativeTrades(ctx context.Context, req *derivativeExchangePB.StreamTradesRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamTradesClient, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.derivativeExchangeClient.StreamTrades, req)
 
 	if err != nil {
@@ -358,7 +358,7 @@ func (c *exchangeClient) StreamDerivativeTrades(ctx context.Context, req *deriva
 	return stream, nil
 }
 
-func (c *exchangeClient) StreamDerivativeV2Trades(ctx context.Context, req *derivativeExchangePB.StreamTradesV2Request) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamTradesV2Client, error) {
+func (c *exchangeClient) StreamDerivativeV2Trades(ctx context.Context, req *derivativeExchangePB.StreamTradesV2Request) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamTradesV2Client, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.derivativeExchangeClient.StreamTradesV2, req)
 
 	if err != nil {
@@ -400,7 +400,7 @@ func (c *exchangeClient) GetHistoricalDerivativeOrders(ctx context.Context, req 
 	return res, nil
 }
 
-func (c *exchangeClient) StreamHistoricalDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersHistoryRequest) (derivativeExchangePB.InjectiveDerivativeExchangeRPC_StreamOrdersHistoryClient, error) {
+func (c *exchangeClient) StreamHistoricalDerivativeOrders(ctx context.Context, req *derivativeExchangePB.StreamOrdersHistoryRequest) (derivativeExchangePB.HeliosDerivativeExchangeRPC_StreamOrdersHistoryClient, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.derivativeExchangeClient.StreamOrdersHistory, req)
 
 	if err != nil {
@@ -463,7 +463,7 @@ func (c *exchangeClient) GetOracleList(ctx context.Context) (*oraclePB.OracleLis
 	return res, nil
 }
 
-func (c *exchangeClient) StreamPrices(ctx context.Context, baseSymbol, quoteSymbol, oracleType string) (oraclePB.InjectiveOracleRPC_StreamPricesClient, error) {
+func (c *exchangeClient) StreamPrices(ctx context.Context, baseSymbol, quoteSymbol, oracleType string) (oraclePB.HeliosOracleRPC_StreamPricesClient, error) {
 	req := oraclePB.StreamPricesRequest{
 		BaseSymbol:  baseSymbol,
 		QuoteSymbol: quoteSymbol,
@@ -508,7 +508,7 @@ func (c *exchangeClient) GetAuctions(ctx context.Context) (*auctionPB.AuctionsRe
 	return res, nil
 }
 
-func (c *exchangeClient) StreamBids(ctx context.Context) (auctionPB.InjectiveAuctionRPC_StreamBidsClient, error) {
+func (c *exchangeClient) StreamBids(ctx context.Context) (auctionPB.HeliosAuctionRPC_StreamBidsClient, error) {
 	req := auctionPB.StreamBidsRequest{}
 
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.auctionClient.StreamBids, &req)
@@ -554,7 +554,7 @@ func (c *exchangeClient) GetSubaccountBalance(ctx context.Context, subaccountId,
 	return res, nil
 }
 
-func (c *exchangeClient) StreamSubaccountBalance(ctx context.Context, subaccountId string) (accountPB.InjectiveAccountsRPC_StreamSubaccountBalanceClient, error) {
+func (c *exchangeClient) StreamSubaccountBalance(ctx context.Context, subaccountId string) (accountPB.HeliosAccountsRPC_StreamSubaccountBalanceClient, error) {
 	req := accountPB.StreamSubaccountBalanceRequest{
 		SubaccountId: subaccountId,
 	}
@@ -685,7 +685,7 @@ func (c *exchangeClient) GetSpotOrderbooksV2(ctx context.Context, marketIDs []st
 	return res, nil
 }
 
-func (c *exchangeClient) StreamSpotOrderbookUpdate(ctx context.Context, marketIDs []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrderbookUpdateClient, error) {
+func (c *exchangeClient) StreamSpotOrderbookUpdate(ctx context.Context, marketIDs []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrderbookUpdateClient, error) {
 	req := spotExchangePB.StreamOrderbookUpdateRequest{
 		MarketIds: marketIDs,
 	}
@@ -700,7 +700,7 @@ func (c *exchangeClient) StreamSpotOrderbookUpdate(ctx context.Context, marketID
 	return stream, nil
 }
 
-func (c *exchangeClient) StreamSpotOrderbookV2(ctx context.Context, marketIDs []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrderbookV2Client, error) {
+func (c *exchangeClient) StreamSpotOrderbookV2(ctx context.Context, marketIDs []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrderbookV2Client, error) {
 	req := spotExchangePB.StreamOrderbookV2Request{
 		MarketIds: marketIDs,
 	}
@@ -741,7 +741,7 @@ func (c *exchangeClient) GetSpotMarket(ctx context.Context, marketId string) (*s
 	return res, nil
 }
 
-func (c *exchangeClient) StreamSpotMarket(ctx context.Context, marketIDs []string) (spotExchangePB.InjectiveSpotExchangeRPC_StreamMarketsClient, error) {
+func (c *exchangeClient) StreamSpotMarket(ctx context.Context, marketIDs []string) (spotExchangePB.HeliosSpotExchangeRPC_StreamMarketsClient, error) {
 	req := spotExchangePB.StreamMarketsRequest{
 		MarketIds: marketIDs,
 	}
@@ -756,7 +756,7 @@ func (c *exchangeClient) StreamSpotMarket(ctx context.Context, marketIDs []strin
 	return stream, nil
 }
 
-func (c *exchangeClient) StreamSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrdersClient, error) {
+func (c *exchangeClient) StreamSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrdersClient, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.spotExchangeClient.StreamOrders, req)
 
 	if err != nil {
@@ -789,7 +789,7 @@ func (c *exchangeClient) GetSpotTradesV2(ctx context.Context, req *spotExchangeP
 	return res, nil
 }
 
-func (c *exchangeClient) StreamSpotTrades(ctx context.Context, req *spotExchangePB.StreamTradesRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamTradesClient, error) {
+func (c *exchangeClient) StreamSpotTrades(ctx context.Context, req *spotExchangePB.StreamTradesRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamTradesClient, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.spotExchangeClient.StreamTrades, req)
 
 	if err != nil {
@@ -800,7 +800,7 @@ func (c *exchangeClient) StreamSpotTrades(ctx context.Context, req *spotExchange
 	return stream, nil
 }
 
-func (c *exchangeClient) StreamSpotTradesV2(ctx context.Context, req *spotExchangePB.StreamTradesV2Request) (spotExchangePB.InjectiveSpotExchangeRPC_StreamTradesV2Client, error) {
+func (c *exchangeClient) StreamSpotTradesV2(ctx context.Context, req *spotExchangePB.StreamTradesV2Request) (spotExchangePB.HeliosSpotExchangeRPC_StreamTradesV2Client, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.spotExchangeClient.StreamTradesV2, req)
 
 	if err != nil {
@@ -842,7 +842,7 @@ func (c *exchangeClient) GetHistoricalSpotOrders(ctx context.Context, req *spotE
 	return res, nil
 }
 
-func (c *exchangeClient) StreamHistoricalSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersHistoryRequest) (spotExchangePB.InjectiveSpotExchangeRPC_StreamOrdersHistoryClient, error) {
+func (c *exchangeClient) StreamHistoricalSpotOrders(ctx context.Context, req *spotExchangePB.StreamOrdersHistoryRequest) (spotExchangePB.HeliosSpotExchangeRPC_StreamOrdersHistoryClient, error) {
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.spotExchangeClient.StreamOrdersHistory, req)
 
 	if err != nil {
@@ -906,7 +906,7 @@ func (c *exchangeClient) GetInfo(ctx context.Context, req *metaPB.InfoRequest) (
 	return res, nil
 }
 
-func (c *exchangeClient) StreamKeepalive(ctx context.Context) (metaPB.InjectiveMetaRPC_StreamKeepaliveClient, error) {
+func (c *exchangeClient) StreamKeepalive(ctx context.Context) (metaPB.HeliosMetaRPC_StreamKeepaliveClient, error) {
 	req := metaPB.StreamKeepaliveRequest{}
 
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExchangeCookieAssistant, c.metaClient.StreamKeepalive, &req)
@@ -946,7 +946,7 @@ func (c *exchangeClient) GetAccountPortfolioBalances(ctx context.Context, accoun
 	return res, nil
 }
 
-func (c *exchangeClient) StreamAccountPortfolio(ctx context.Context, accountAddress, subaccountId, balanceType string) (portfolioExchangePB.InjectivePortfolioRPC_StreamAccountPortfolioClient, error) {
+func (c *exchangeClient) StreamAccountPortfolio(ctx context.Context, accountAddress, subaccountId, balanceType string) (portfolioExchangePB.HeliosPortfolioRPC_StreamAccountPortfolioClient, error) {
 	req := &portfolioExchangePB.StreamAccountPortfolioRequest{
 		AccountAddress: accountAddress,
 		SubaccountId:   subaccountId,

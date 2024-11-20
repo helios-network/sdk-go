@@ -4,7 +4,7 @@ import (
 	"context"
 	"strconv"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
 	"github.com/ethereum/go-ethereum/common"
 	ethmath "github.com/ethereum/go-ethereum/common/math"
 	gethsigner "github.com/ethereum/go-ethereum/signer/core/apitypes"
@@ -50,7 +50,7 @@ type OrderHashes struct {
 }
 
 var domain = gethsigner.TypedDataDomain{
-	Name:              "Injective Protocol",
+	Name:              "Helios Protocol",
 	Version:           "2.0.0",
 	ChainId:           ethmath.NewHexOrDecimal256(888),
 	VerifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",

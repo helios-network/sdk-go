@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	chaintypes "github.com/InjectiveLabs/sdk-go/chain/types"
+	chaintypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
 )
 
 // Parameter store keys.
@@ -29,7 +29,7 @@ func NewParams(denomCreationFee sdk.Coins) Params {
 // default gamm module parameters.
 func DefaultParams() Params {
 	return Params{
-		DenomCreationFee: sdk.NewCoins(sdk.NewCoin(chaintypes.InjectiveCoin, math.NewIntWithDecimal(10, 18))), // 10 INJ
+		DenomCreationFee: sdk.NewCoins(sdk.NewCoin(chaintypes.HeliosCoin, math.NewIntWithDecimal(10, 18))), // 10 HELIOS
 	}
 }
 

@@ -1,8 +1,8 @@
 package common
 
 import (
-	ctypes "github.com/InjectiveLabs/sdk-go/chain/types"
-	log "github.com/InjectiveLabs/suplog"
+	ctypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	log "github.com/Helios-Chain-Labs/suplog"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/pkg/errors"
@@ -13,7 +13,7 @@ func init() {
 	// set the address prefixes
 	config := sdk.GetConfig()
 
-	// This is specific to Injective chain
+	// This is specific to Helios chain
 	ctypes.SetBech32Prefixes(config)
 	ctypes.SetBip44CoinType(config)
 }

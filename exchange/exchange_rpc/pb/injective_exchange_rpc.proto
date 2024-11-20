@@ -1,18 +1,18 @@
 // Code generated with goa v3.7.0, DO NOT EDIT.
 //
-// InjectiveExchangeRPC protocol buffer definition
+// HeliosExchangeRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/Helios-Chain-Labs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_exchange_rpc;
+package helios_exchange_rpc;
 
-option go_package = "/injective_exchange_rpcpb";
+option go_package = "/helios_exchange_rpcpb";
 
-// InjectiveExchangeRPC defines gRPC API of an Injective Exchange service.
-service InjectiveExchangeRPC {
+// HeliosExchangeRPC defines gRPC API of an Helios Exchange service.
+service HeliosExchangeRPC {
 	// GetTx gets transaction details by hash.
 	rpc GetTx (GetTxRequest) returns (GetTxResponse);
 	// PrepareTx generates a Web3-signable body for a Cosmos transaction

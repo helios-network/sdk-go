@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_portfolio_rpc.proto
+// source: goadesign_goagen_helios_portfolio_rpc.proto
 
-package injective_portfolio_rpcpb
+package helios_portfolio_rpcpb
 
 import (
 	context "context"
@@ -18,10 +18,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// InjectivePortfolioRPCClient is the client API for InjectivePortfolioRPC service.
+// HeliosPortfolioRPCClient is the client API for HeliosPortfolioRPC service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InjectivePortfolioRPCClient interface {
+type HeliosPortfolioRPCClient interface {
 	// Provide a list of addresses holding a specific token
 	TokenHolders(ctx context.Context, in *TokenHoldersRequest, opts ...grpc.CallOption) (*TokenHoldersResponse, error)
 	// Provide the account's portfolio
@@ -29,50 +29,50 @@ type InjectivePortfolioRPCClient interface {
 	// Provide the account's portfolio balances
 	AccountPortfolioBalances(ctx context.Context, in *AccountPortfolioBalancesRequest, opts ...grpc.CallOption) (*AccountPortfolioBalancesResponse, error)
 	// Stream the account's portfolio
-	StreamAccountPortfolio(ctx context.Context, in *StreamAccountPortfolioRequest, opts ...grpc.CallOption) (InjectivePortfolioRPC_StreamAccountPortfolioClient, error)
+	StreamAccountPortfolio(ctx context.Context, in *StreamAccountPortfolioRequest, opts ...grpc.CallOption) (HeliosPortfolioRPC_StreamAccountPortfolioClient, error)
 }
 
-type injectivePortfolioRPCClient struct {
+type heliosPortfolioRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInjectivePortfolioRPCClient(cc grpc.ClientConnInterface) InjectivePortfolioRPCClient {
-	return &injectivePortfolioRPCClient{cc}
+func NewHeliosPortfolioRPCClient(cc grpc.ClientConnInterface) HeliosPortfolioRPCClient {
+	return &heliosPortfolioRPCClient{cc}
 }
 
-func (c *injectivePortfolioRPCClient) TokenHolders(ctx context.Context, in *TokenHoldersRequest, opts ...grpc.CallOption) (*TokenHoldersResponse, error) {
+func (c *heliosPortfolioRPCClient) TokenHolders(ctx context.Context, in *TokenHoldersRequest, opts ...grpc.CallOption) (*TokenHoldersResponse, error) {
 	out := new(TokenHoldersResponse)
-	err := c.cc.Invoke(ctx, "/injective_portfolio_rpc.InjectivePortfolioRPC/TokenHolders", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_portfolio_rpc.HeliosPortfolioRPC/TokenHolders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectivePortfolioRPCClient) AccountPortfolio(ctx context.Context, in *AccountPortfolioRequest, opts ...grpc.CallOption) (*AccountPortfolioResponse, error) {
+func (c *heliosPortfolioRPCClient) AccountPortfolio(ctx context.Context, in *AccountPortfolioRequest, opts ...grpc.CallOption) (*AccountPortfolioResponse, error) {
 	out := new(AccountPortfolioResponse)
-	err := c.cc.Invoke(ctx, "/injective_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolio", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_portfolio_rpc.HeliosPortfolioRPC/AccountPortfolio", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectivePortfolioRPCClient) AccountPortfolioBalances(ctx context.Context, in *AccountPortfolioBalancesRequest, opts ...grpc.CallOption) (*AccountPortfolioBalancesResponse, error) {
+func (c *heliosPortfolioRPCClient) AccountPortfolioBalances(ctx context.Context, in *AccountPortfolioBalancesRequest, opts ...grpc.CallOption) (*AccountPortfolioBalancesResponse, error) {
 	out := new(AccountPortfolioBalancesResponse)
-	err := c.cc.Invoke(ctx, "/injective_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolioBalances", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_portfolio_rpc.HeliosPortfolioRPC/AccountPortfolioBalances", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectivePortfolioRPCClient) StreamAccountPortfolio(ctx context.Context, in *StreamAccountPortfolioRequest, opts ...grpc.CallOption) (InjectivePortfolioRPC_StreamAccountPortfolioClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectivePortfolioRPC_ServiceDesc.Streams[0], "/injective_portfolio_rpc.InjectivePortfolioRPC/StreamAccountPortfolio", opts...)
+func (c *heliosPortfolioRPCClient) StreamAccountPortfolio(ctx context.Context, in *StreamAccountPortfolioRequest, opts ...grpc.CallOption) (HeliosPortfolioRPC_StreamAccountPortfolioClient, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosPortfolioRPC_ServiceDesc.Streams[0], "/helios_portfolio_rpc.HeliosPortfolioRPC/StreamAccountPortfolio", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectivePortfolioRPCStreamAccountPortfolioClient{stream}
+	x := &heliosPortfolioRPCStreamAccountPortfolioClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -82,16 +82,16 @@ func (c *injectivePortfolioRPCClient) StreamAccountPortfolio(ctx context.Context
 	return x, nil
 }
 
-type InjectivePortfolioRPC_StreamAccountPortfolioClient interface {
+type HeliosPortfolioRPC_StreamAccountPortfolioClient interface {
 	Recv() (*StreamAccountPortfolioResponse, error)
 	grpc.ClientStream
 }
 
-type injectivePortfolioRPCStreamAccountPortfolioClient struct {
+type heliosPortfolioRPCStreamAccountPortfolioClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectivePortfolioRPCStreamAccountPortfolioClient) Recv() (*StreamAccountPortfolioResponse, error) {
+func (x *heliosPortfolioRPCStreamAccountPortfolioClient) Recv() (*StreamAccountPortfolioResponse, error) {
 	m := new(StreamAccountPortfolioResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -99,10 +99,10 @@ func (x *injectivePortfolioRPCStreamAccountPortfolioClient) Recv() (*StreamAccou
 	return m, nil
 }
 
-// InjectivePortfolioRPCServer is the server API for InjectivePortfolioRPC service.
-// All implementations must embed UnimplementedInjectivePortfolioRPCServer
+// HeliosPortfolioRPCServer is the server API for HeliosPortfolioRPC service.
+// All implementations must embed UnimplementedHeliosPortfolioRPCServer
 // for forward compatibility
-type InjectivePortfolioRPCServer interface {
+type HeliosPortfolioRPCServer interface {
 	// Provide a list of addresses holding a specific token
 	TokenHolders(context.Context, *TokenHoldersRequest) (*TokenHoldersResponse, error)
 	// Provide the account's portfolio
@@ -110,140 +110,140 @@ type InjectivePortfolioRPCServer interface {
 	// Provide the account's portfolio balances
 	AccountPortfolioBalances(context.Context, *AccountPortfolioBalancesRequest) (*AccountPortfolioBalancesResponse, error)
 	// Stream the account's portfolio
-	StreamAccountPortfolio(*StreamAccountPortfolioRequest, InjectivePortfolioRPC_StreamAccountPortfolioServer) error
-	mustEmbedUnimplementedInjectivePortfolioRPCServer()
+	StreamAccountPortfolio(*StreamAccountPortfolioRequest, HeliosPortfolioRPC_StreamAccountPortfolioServer) error
+	mustEmbedUnimplementedHeliosPortfolioRPCServer()
 }
 
-// UnimplementedInjectivePortfolioRPCServer must be embedded to have forward compatible implementations.
-type UnimplementedInjectivePortfolioRPCServer struct {
+// UnimplementedHeliosPortfolioRPCServer must be embedded to have forward compatible implementations.
+type UnimplementedHeliosPortfolioRPCServer struct {
 }
 
-func (UnimplementedInjectivePortfolioRPCServer) TokenHolders(context.Context, *TokenHoldersRequest) (*TokenHoldersResponse, error) {
+func (UnimplementedHeliosPortfolioRPCServer) TokenHolders(context.Context, *TokenHoldersRequest) (*TokenHoldersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TokenHolders not implemented")
 }
-func (UnimplementedInjectivePortfolioRPCServer) AccountPortfolio(context.Context, *AccountPortfolioRequest) (*AccountPortfolioResponse, error) {
+func (UnimplementedHeliosPortfolioRPCServer) AccountPortfolio(context.Context, *AccountPortfolioRequest) (*AccountPortfolioResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AccountPortfolio not implemented")
 }
-func (UnimplementedInjectivePortfolioRPCServer) AccountPortfolioBalances(context.Context, *AccountPortfolioBalancesRequest) (*AccountPortfolioBalancesResponse, error) {
+func (UnimplementedHeliosPortfolioRPCServer) AccountPortfolioBalances(context.Context, *AccountPortfolioBalancesRequest) (*AccountPortfolioBalancesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AccountPortfolioBalances not implemented")
 }
-func (UnimplementedInjectivePortfolioRPCServer) StreamAccountPortfolio(*StreamAccountPortfolioRequest, InjectivePortfolioRPC_StreamAccountPortfolioServer) error {
+func (UnimplementedHeliosPortfolioRPCServer) StreamAccountPortfolio(*StreamAccountPortfolioRequest, HeliosPortfolioRPC_StreamAccountPortfolioServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamAccountPortfolio not implemented")
 }
-func (UnimplementedInjectivePortfolioRPCServer) mustEmbedUnimplementedInjectivePortfolioRPCServer() {}
+func (UnimplementedHeliosPortfolioRPCServer) mustEmbedUnimplementedHeliosPortfolioRPCServer() {}
 
-// UnsafeInjectivePortfolioRPCServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InjectivePortfolioRPCServer will
+// UnsafeHeliosPortfolioRPCServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HeliosPortfolioRPCServer will
 // result in compilation errors.
-type UnsafeInjectivePortfolioRPCServer interface {
-	mustEmbedUnimplementedInjectivePortfolioRPCServer()
+type UnsafeHeliosPortfolioRPCServer interface {
+	mustEmbedUnimplementedHeliosPortfolioRPCServer()
 }
 
-func RegisterInjectivePortfolioRPCServer(s grpc.ServiceRegistrar, srv InjectivePortfolioRPCServer) {
-	s.RegisterService(&InjectivePortfolioRPC_ServiceDesc, srv)
+func RegisterHeliosPortfolioRPCServer(s grpc.ServiceRegistrar, srv HeliosPortfolioRPCServer) {
+	s.RegisterService(&HeliosPortfolioRPC_ServiceDesc, srv)
 }
 
-func _InjectivePortfolioRPC_TokenHolders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosPortfolioRPC_TokenHolders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TokenHoldersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectivePortfolioRPCServer).TokenHolders(ctx, in)
+		return srv.(HeliosPortfolioRPCServer).TokenHolders(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_portfolio_rpc.InjectivePortfolioRPC/TokenHolders",
+		FullMethod: "/helios_portfolio_rpc.HeliosPortfolioRPC/TokenHolders",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectivePortfolioRPCServer).TokenHolders(ctx, req.(*TokenHoldersRequest))
+		return srv.(HeliosPortfolioRPCServer).TokenHolders(ctx, req.(*TokenHoldersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectivePortfolioRPC_AccountPortfolio_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosPortfolioRPC_AccountPortfolio_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AccountPortfolioRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectivePortfolioRPCServer).AccountPortfolio(ctx, in)
+		return srv.(HeliosPortfolioRPCServer).AccountPortfolio(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolio",
+		FullMethod: "/helios_portfolio_rpc.HeliosPortfolioRPC/AccountPortfolio",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectivePortfolioRPCServer).AccountPortfolio(ctx, req.(*AccountPortfolioRequest))
+		return srv.(HeliosPortfolioRPCServer).AccountPortfolio(ctx, req.(*AccountPortfolioRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectivePortfolioRPC_AccountPortfolioBalances_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosPortfolioRPC_AccountPortfolioBalances_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AccountPortfolioBalancesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectivePortfolioRPCServer).AccountPortfolioBalances(ctx, in)
+		return srv.(HeliosPortfolioRPCServer).AccountPortfolioBalances(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_portfolio_rpc.InjectivePortfolioRPC/AccountPortfolioBalances",
+		FullMethod: "/helios_portfolio_rpc.HeliosPortfolioRPC/AccountPortfolioBalances",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectivePortfolioRPCServer).AccountPortfolioBalances(ctx, req.(*AccountPortfolioBalancesRequest))
+		return srv.(HeliosPortfolioRPCServer).AccountPortfolioBalances(ctx, req.(*AccountPortfolioBalancesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectivePortfolioRPC_StreamAccountPortfolio_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosPortfolioRPC_StreamAccountPortfolio_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamAccountPortfolioRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectivePortfolioRPCServer).StreamAccountPortfolio(m, &injectivePortfolioRPCStreamAccountPortfolioServer{stream})
+	return srv.(HeliosPortfolioRPCServer).StreamAccountPortfolio(m, &heliosPortfolioRPCStreamAccountPortfolioServer{stream})
 }
 
-type InjectivePortfolioRPC_StreamAccountPortfolioServer interface {
+type HeliosPortfolioRPC_StreamAccountPortfolioServer interface {
 	Send(*StreamAccountPortfolioResponse) error
 	grpc.ServerStream
 }
 
-type injectivePortfolioRPCStreamAccountPortfolioServer struct {
+type heliosPortfolioRPCStreamAccountPortfolioServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectivePortfolioRPCStreamAccountPortfolioServer) Send(m *StreamAccountPortfolioResponse) error {
+func (x *heliosPortfolioRPCStreamAccountPortfolioServer) Send(m *StreamAccountPortfolioResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-// InjectivePortfolioRPC_ServiceDesc is the grpc.ServiceDesc for InjectivePortfolioRPC service.
+// HeliosPortfolioRPC_ServiceDesc is the grpc.ServiceDesc for HeliosPortfolioRPC service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InjectivePortfolioRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_portfolio_rpc.InjectivePortfolioRPC",
-	HandlerType: (*InjectivePortfolioRPCServer)(nil),
+var HeliosPortfolioRPC_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "helios_portfolio_rpc.HeliosPortfolioRPC",
+	HandlerType: (*HeliosPortfolioRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "TokenHolders",
-			Handler:    _InjectivePortfolioRPC_TokenHolders_Handler,
+			Handler:    _HeliosPortfolioRPC_TokenHolders_Handler,
 		},
 		{
 			MethodName: "AccountPortfolio",
-			Handler:    _InjectivePortfolioRPC_AccountPortfolio_Handler,
+			Handler:    _HeliosPortfolioRPC_AccountPortfolio_Handler,
 		},
 		{
 			MethodName: "AccountPortfolioBalances",
-			Handler:    _InjectivePortfolioRPC_AccountPortfolioBalances_Handler,
+			Handler:    _HeliosPortfolioRPC_AccountPortfolioBalances_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "StreamAccountPortfolio",
-			Handler:       _InjectivePortfolioRPC_StreamAccountPortfolio_Handler,
+			Handler:       _HeliosPortfolioRPC_StreamAccountPortfolio_Handler,
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_portfolio_rpc.proto",
+	Metadata: "goadesign_goagen_helios_portfolio_rpc.proto",
 }

@@ -15,9 +15,9 @@ import (
 )
 
 const (
-	MainnetTokensListURL = "https://github.com/InjectiveLabs/injective-lists/raw/master/tokens/mainnet.json" // nolint:gosec // not credentials, just the link to the public tokens list
-	TestnetTokensListURL = "https://github.com/InjectiveLabs/injective-lists/raw/master/tokens/testnet.json" // nolint:gosec // not credentials, just the link to the public tokens list
-	DevnetTokensListURL  = "https://github.com/InjectiveLabs/injective-lists/raw/master/tokens/devnet.json"  // nolint:gosec // not credentials, just the link to the public tokens list
+	MainnetTokensListURL = "https://github.com/Helios-Chain-Labs/helios-lists/raw/master/tokens/mainnet.json" // nolint:gosec // not credentials, just the link to the public tokens list
+	TestnetTokensListURL = "https://github.com/Helios-Chain-Labs/helios-lists/raw/master/tokens/testnet.json" // nolint:gosec // not credentials, just the link to the public tokens list
+	DevnetTokensListURL  = "https://github.com/Helios-Chain-Labs/helios-lists/raw/master/tokens/devnet.json"  // nolint:gosec // not credentials, just the link to the public tokens list
 )
 
 func cookieByName(cookies []*http.Cookie, key string) *http.Cookie {
@@ -215,8 +215,8 @@ func LoadNetwork(name, node string) Network {
 			ChainStreamGrpcEndpoint: "tcp://localhost:9999",
 			ExchangeGrpcEndpoint:    "tcp://localhost:9910",
 			ExplorerGrpcEndpoint:    "tcp://localhost:9911",
-			ChainId:                 "injective-1",
-			FeeDenom:                "inj",
+			ChainId:                 "helios-1",
+			FeeDenom:                "helios",
 			Name:                    "local",
 			ChainCookieAssistant:    &DisabledCookieAssistant{},
 			ExchangeCookieAssistant: &DisabledCookieAssistant{},
@@ -226,14 +226,14 @@ func LoadNetwork(name, node string) Network {
 
 	case "devnet-1":
 		return Network{
-			LcdEndpoint:             "https://devnet-1.lcd.injective.dev",
-			TmEndpoint:              "https://devnet-1.tm.injective.dev:443",
-			ChainGrpcEndpoint:       "tcp://devnet-1.grpc.injective.dev:9900",
-			ChainStreamGrpcEndpoint: "tcp://devnet-1.grpc.injective.dev:9999",
-			ExchangeGrpcEndpoint:    "tcp://devnet-1.api.injective.dev:9910",
-			ExplorerGrpcEndpoint:    "tcp://devnet-1.api.injective.dev:9911",
-			ChainId:                 "injective-777",
-			FeeDenom:                "inj",
+			LcdEndpoint:             "https://devnet-1.lcd.helios.dev",
+			TmEndpoint:              "https://devnet-1.tm.helios.dev:443",
+			ChainGrpcEndpoint:       "tcp://devnet-1.grpc.helios.dev:9900",
+			ChainStreamGrpcEndpoint: "tcp://devnet-1.grpc.helios.dev:9999",
+			ExchangeGrpcEndpoint:    "tcp://devnet-1.api.helios.dev:9910",
+			ExplorerGrpcEndpoint:    "tcp://devnet-1.api.helios.dev:9911",
+			ChainId:                 "helios-777",
+			FeeDenom:                "helios",
 			Name:                    "devnet-1",
 			ChainCookieAssistant:    &DisabledCookieAssistant{},
 			ExchangeCookieAssistant: &DisabledCookieAssistant{},
@@ -242,14 +242,14 @@ func LoadNetwork(name, node string) Network {
 		}
 	case "devnet":
 		return Network{
-			LcdEndpoint:             "https://devnet.lcd.injective.dev",
-			TmEndpoint:              "https://devnet.tm.injective.dev:443",
-			ChainGrpcEndpoint:       "tcp://devnet.injective.dev:9900",
-			ChainStreamGrpcEndpoint: "tcp://devnet.injective.dev:9999",
-			ExchangeGrpcEndpoint:    "tcp://devnet.injective.dev:9910",
-			ExplorerGrpcEndpoint:    "tcp://devnet.api.injective.dev:9911",
-			ChainId:                 "injective-777",
-			FeeDenom:                "inj",
+			LcdEndpoint:             "https://devnet.lcd.helios.dev",
+			TmEndpoint:              "https://devnet.tm.helios.dev:443",
+			ChainGrpcEndpoint:       "tcp://devnet.helios.dev:9900",
+			ChainStreamGrpcEndpoint: "tcp://devnet.helios.dev:9999",
+			ExchangeGrpcEndpoint:    "tcp://devnet.helios.dev:9910",
+			ExplorerGrpcEndpoint:    "tcp://devnet.api.helios.dev:9911",
+			ChainId:                 "helios-777",
+			FeeDenom:                "helios",
 			Name:                    "devnet",
 			ChainCookieAssistant:    &DisabledCookieAssistant{},
 			ExchangeCookieAssistant: &DisabledCookieAssistant{},
@@ -266,12 +266,12 @@ func LoadNetwork(name, node string) Network {
 		var chainTLSCert, exchangeTLSCert, explorerTLSCert credentials.TransportCredentials
 		var chainCookieAssistant, exchangeCookieAssistant, explorerCookieAssistant CookieAssistant
 		if node == "lb" {
-			lcdEndpoint = "https://testnet.sentry.lcd.injective.network:443"
-			tmEndpoint = "https://testnet.sentry.tm.injective.network:443"
-			chainGrpcEndpoint = "testnet.sentry.chain.grpc.injective.network:443"
-			chainStreamGrpcEndpoint = "testnet.sentry.chain.stream.injective.network:443"
-			exchangeGrpcEndpoint = "testnet.sentry.exchange.grpc.injective.network:443"
-			explorerGrpcEndpoint = "testnet.sentry.explorer.grpc.injective.network:443"
+			lcdEndpoint = "https://testnet.sentry.lcd.helios.network:443"
+			tmEndpoint = "https://testnet.sentry.tm.helios.network:443"
+			chainGrpcEndpoint = "testnet.sentry.chain.grpc.helios.network:443"
+			chainStreamGrpcEndpoint = "testnet.sentry.chain.stream.helios.network:443"
+			exchangeGrpcEndpoint = "testnet.sentry.exchange.grpc.helios.network:443"
+			explorerGrpcEndpoint = "testnet.sentry.explorer.grpc.helios.network:443"
 			chainTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
 			exchangeTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
 			explorerTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
@@ -279,12 +279,12 @@ func LoadNetwork(name, node string) Network {
 			exchangeCookieAssistant = &BareMetalLoadBalancedCookieAssistant{}
 			explorerCookieAssistant = &BareMetalLoadBalancedCookieAssistant{}
 		} else if node == "sentry" {
-			lcdEndpoint = "https://testnet.lcd.injective.network:443"
-			tmEndpoint = "https://testnet.tm.injective.network:443"
-			chainGrpcEndpoint = "testnet.chain.grpc.injective.network:443"
-			chainStreamGrpcEndpoint = "testnet.chain.stream.injective.network:443"
-			exchangeGrpcEndpoint = "testnet.exchange.grpc.injective.network:443"
-			explorerGrpcEndpoint = "testnet.explorer.grpc.injective.network:443"
+			lcdEndpoint = "https://testnet.lcd.helios.network:443"
+			tmEndpoint = "https://testnet.tm.helios.network:443"
+			chainGrpcEndpoint = "testnet.chain.grpc.helios.network:443"
+			chainStreamGrpcEndpoint = "testnet.chain.stream.helios.network:443"
+			exchangeGrpcEndpoint = "testnet.exchange.grpc.helios.network:443"
+			explorerGrpcEndpoint = "testnet.explorer.grpc.helios.network:443"
 			chainTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
 			exchangeTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
 			explorerTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
@@ -303,8 +303,8 @@ func LoadNetwork(name, node string) Network {
 			ExchangeTLSCert:         exchangeTLSCert,
 			ExplorerGrpcEndpoint:    explorerGrpcEndpoint,
 			ExplorerTLSCert:         explorerTLSCert,
-			ChainId:                 "injective-888",
-			FeeDenom:                "inj",
+			ChainId:                 "helios-888",
+			FeeDenom:                "helios",
 			Name:                    "testnet",
 			ChainCookieAssistant:    chainCookieAssistant,
 			ExchangeCookieAssistant: exchangeCookieAssistant,
@@ -320,12 +320,12 @@ func LoadNetwork(name, node string) Network {
 		var chainTLSCert, exchangeTLSCert, explorerTLSCert credentials.TransportCredentials
 		var chainCookieAssistant, exchangeCookieAssistant, explorerCookieAssistant CookieAssistant
 
-		lcdEndpoint = "https://sentry.lcd.injective.network"
-		tmEndpoint = "https://sentry.tm.injective.network:443"
-		chainGrpcEndpoint = "sentry.chain.grpc.injective.network:443"
-		chainStreamGrpcEndpoint = "sentry.chain.stream.injective.network:443"
-		exchangeGrpcEndpoint = "sentry.exchange.grpc.injective.network:443"
-		explorerGrpcEndpoint = "sentry.explorer.grpc.injective.network:443"
+		lcdEndpoint = "https://sentry.lcd.helios.network"
+		tmEndpoint = "https://sentry.tm.helios.network:443"
+		chainGrpcEndpoint = "sentry.chain.grpc.helios.network:443"
+		chainStreamGrpcEndpoint = "sentry.chain.stream.helios.network:443"
+		exchangeGrpcEndpoint = "sentry.exchange.grpc.helios.network:443"
+		explorerGrpcEndpoint = "sentry.explorer.grpc.helios.network:443"
 		chainTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
 		exchangeTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
 		explorerTLSCert = credentials.NewServerTLSFromCert(&tls.Certificate{})
@@ -343,8 +343,8 @@ func LoadNetwork(name, node string) Network {
 			ExchangeTLSCert:         exchangeTLSCert,
 			ExplorerGrpcEndpoint:    explorerGrpcEndpoint,
 			ExplorerTLSCert:         explorerTLSCert,
-			ChainId:                 "injective-1",
-			FeeDenom:                "inj",
+			ChainId:                 "helios-1",
+			FeeDenom:                "helios",
 			Name:                    "mainnet",
 			ChainCookieAssistant:    chainCookieAssistant,
 			ExchangeCookieAssistant: exchangeCookieAssistant,

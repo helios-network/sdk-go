@@ -13,7 +13,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	permissionstypes "github.com/InjectiveLabs/sdk-go/chain/permissions/types"
+	permissionstypes "github.com/Helios-Chain-Labs/sdk-go/chain/permissions/types"
 
 	sdkmath "cosmossdk.io/math"
 
@@ -26,11 +26,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	chainstreamtypes "github.com/InjectiveLabs/sdk-go/chain/stream/types"
-	tokenfactorytypes "github.com/InjectiveLabs/sdk-go/chain/tokenfactory/types"
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	log "github.com/InjectiveLabs/suplog"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
+	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	log "github.com/Helios-Chain-Labs/suplog"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/tx"
@@ -61,8 +61,8 @@ const (
 	defaultBroadcastTimeout          = 40 * time.Second
 	defaultTimeoutHeight             = 20
 	defaultTimeoutHeightSyncInterval = 10 * time.Second
-	SpotOrderbook                    = "injective.exchange.v1beta1.EventOrderbookUpdate.spot_orderbooks"
-	DerivativeOrderbook              = "injective.exchange.v1beta1.EventOrderbookUpdate.derivative_orderbooks"
+	SpotOrderbook                    = "helios.exchange.v1beta1.EventOrderbookUpdate.spot_orderbooks"
+	DerivativeOrderbook              = "helios.exchange.v1beta1.EventOrderbookUpdate.derivative_orderbooks"
 )
 
 var (
@@ -1039,7 +1039,7 @@ func (c *chainClient) runBatchBroadcast() {
 }
 
 func (c *chainClient) GetGasFee() (string, error) {
-	gasPrices := strings.Trim(c.opts.GasPrices, "inj")
+	gasPrices := strings.Trim(c.opts.GasPrices, "helios")
 
 	gas, err := strconv.ParseFloat(gasPrices, 64)
 
@@ -1321,7 +1321,7 @@ func (c *chainClient) StreamEventOrderFail(sender string, failEventCh chan map[s
 }
 
 func (c *chainClient) StreamEventOrderFailWithWebsocket(sender string, websocket *rpchttp.HTTP, failEventCh chan map[string]uint) {
-	filter := fmt.Sprintf("tm.event='Tx' AND message.sender='%s' AND message.action='/injective.exchange.v1beta1.MsgBatchUpdateOrders' AND injective.exchange.v1beta1.EventOrderFail.flags EXISTS", sender)
+	filter := fmt.Sprintf("tm.event='Tx' AND message.sender='%s' AND message.action='/helios.exchange.v1beta1.MsgBatchUpdateOrders' AND helios.exchange.v1beta1.EventOrderFail.flags EXISTS", sender)
 	eventCh, err := websocket.Subscribe(context.Background(), "OrderFail", filter, 10000)
 	if err != nil {
 		panic(err)
@@ -1332,13 +1332,13 @@ func (c *chainClient) StreamEventOrderFailWithWebsocket(sender string, websocket
 		e := <-eventCh
 
 		var failedOrderHashes []string
-		err = json.Unmarshal([]byte(e.Events["injective.exchange.v1beta1.EventOrderFail.hashes"][0]), &failedOrderHashes)
+		err = json.Unmarshal([]byte(e.Events["helios.exchange.v1beta1.EventOrderFail.hashes"][0]), &failedOrderHashes)
 		if err != nil {
 			panic(err)
 		}
 
 		var failedOrderCodes []uint
-		err = json.Unmarshal([]byte(e.Events["injective.exchange.v1beta1.EventOrderFail.flags"][0]), &failedOrderCodes)
+		err = json.Unmarshal([]byte(e.Events["helios.exchange.v1beta1.EventOrderFail.flags"][0]), &failedOrderCodes)
 		if err != nil {
 			panic(err)
 		}

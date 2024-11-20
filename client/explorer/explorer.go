@@ -6,9 +6,9 @@ import (
 
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	explorerPB "github.com/InjectiveLabs/sdk-go/exchange/explorer_rpc/pb"
-	log "github.com/InjectiveLabs/suplog"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
+	log "github.com/Helios-Chain-Labs/suplog"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )
@@ -23,8 +23,8 @@ type ExplorerClient interface {
 	GetPeggyDeposits(ctx context.Context, req *explorerPB.GetPeggyDepositTxsRequest) (*explorerPB.GetPeggyDepositTxsResponse, error)
 	GetPeggyWithdrawals(ctx context.Context, req *explorerPB.GetPeggyWithdrawalTxsRequest) (*explorerPB.GetPeggyWithdrawalTxsResponse, error)
 	GetIBCTransfers(ctx context.Context, req *explorerPB.GetIBCTransferTxsRequest) (*explorerPB.GetIBCTransferTxsResponse, error)
-	StreamTxs(ctx context.Context) (explorerPB.InjectiveExplorerRPC_StreamTxsClient, error)
-	StreamBlocks(ctx context.Context) (explorerPB.InjectiveExplorerRPC_StreamBlocksClient, error)
+	StreamTxs(ctx context.Context) (explorerPB.HeliosExplorerRPC_StreamTxsClient, error)
+	StreamBlocks(ctx context.Context) (explorerPB.HeliosExplorerRPC_StreamBlocksClient, error)
 	GetWasmCodes(ctx context.Context, req *explorerPB.GetWasmCodesRequest) (*explorerPB.GetWasmCodesResponse, error)
 	GetWasmCodeByID(ctx context.Context, req *explorerPB.GetWasmCodeByIDRequest) (*explorerPB.GetWasmCodeByIDResponse, error)
 	GetWasmContracts(ctx context.Context, req *explorerPB.GetWasmContractsRequest) (*explorerPB.GetWasmContractsResponse, error)
@@ -65,7 +65,7 @@ func NewExplorerClient(network common.Network, options ...common.ClientOption) (
 		network: network,
 		conn:    conn,
 
-		explorerClient: explorerPB.NewInjectiveExplorerRPCClient(conn),
+		explorerClient: explorerPB.NewHeliosExplorerRPCClient(conn),
 		logger: log.WithFields(log.Fields{
 			"module": "sdk-go",
 			"svc":    "exchangeClient",
@@ -81,7 +81,7 @@ type explorerClient struct {
 	conn    *grpc.ClientConn
 	logger  log.Logger
 
-	explorerClient explorerPB.InjectiveExplorerRPCClient
+	explorerClient explorerPB.HeliosExplorerRPCClient
 }
 
 func (c *explorerClient) QueryClient() *grpc.ClientConn {
@@ -186,7 +186,7 @@ func (c *explorerClient) GetIBCTransfers(ctx context.Context, req *explorerPB.Ge
 	return res, nil
 }
 
-func (c *explorerClient) StreamTxs(ctx context.Context) (explorerPB.InjectiveExplorerRPC_StreamTxsClient, error) {
+func (c *explorerClient) StreamTxs(ctx context.Context) (explorerPB.HeliosExplorerRPC_StreamTxsClient, error) {
 	req := explorerPB.StreamTxsRequest{}
 
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExplorerCookieAssistant, c.explorerClient.StreamTxs, &req)
@@ -199,7 +199,7 @@ func (c *explorerClient) StreamTxs(ctx context.Context) (explorerPB.InjectiveExp
 	return stream, nil
 }
 
-func (c *explorerClient) StreamBlocks(ctx context.Context) (explorerPB.InjectiveExplorerRPC_StreamBlocksClient, error) {
+func (c *explorerClient) StreamBlocks(ctx context.Context) (explorerPB.HeliosExplorerRPC_StreamBlocksClient, error) {
 	req := explorerPB.StreamBlocksRequest{}
 
 	stream, err := common.ExecuteStreamCall(ctx, c.network.ExplorerCookieAssistant, c.explorerClient.StreamBlocks, &req)

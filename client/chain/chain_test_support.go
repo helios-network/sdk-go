@@ -24,11 +24,11 @@ import (
 	eth "github.com/ethereum/go-ethereum/common"
 	"google.golang.org/grpc"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	permissionstypes "github.com/InjectiveLabs/sdk-go/chain/permissions/types"
-	chainstreamtypes "github.com/InjectiveLabs/sdk-go/chain/stream/types"
-	tokenfactorytypes "github.com/InjectiveLabs/sdk-go/chain/tokenfactory/types"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	permissionstypes "github.com/Helios-Chain-Labs/sdk-go/chain/permissions/types"
+	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
+	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 var _ ChainClient = &MockChainClient{}

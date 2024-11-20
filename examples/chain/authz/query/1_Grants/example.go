@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/InjectiveLabs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
 
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	authztypes "github.com/cosmos/cosmos-sdk/x/authz"
 
@@ -23,10 +23,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,
@@ -58,9 +58,9 @@ func main() {
 		panic(err)
 	}
 
-	granter := "inj14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
-	grantee := "inj1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
-	msg_type_url := "/injective.exchange.v1beta1.MsgCreateSpotLimitOrder"
+	granter := "helios14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
+	grantee := "helios1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
+	msg_type_url := "/helios.exchange.v1beta1.MsgCreateSpotLimitOrder"
 
 	req := authztypes.QueryGrantsRequest{
 		Granter:    granter,

@@ -7,10 +7,10 @@ import (
 
 	"cosmossdk.io/math"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	sdktypes "github.com/cosmos/cosmos-sdk/types"
 	ibctransfertypes "github.com/cosmos/ibc-go/v8/modules/apps/transfer/types"
@@ -25,10 +25,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,
@@ -62,10 +62,10 @@ func main() {
 	sourcePort := "transfer"
 	sourceChannel := "channel-126"
 	coin := sdktypes.Coin{
-		Denom: "inj", Amount: math.NewInt(1000000000000000000), // 1 INJ
+		Denom: "helios", Amount: math.NewInt(1000000000000000000), // 1 HELIOS
 	}
 	sender := senderAddress.String()
-	receiver := "inj1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
+	receiver := "helios1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
 	timeoutHeight := ibccoretypes.Height{RevisionNumber: 10, RevisionHeight: 10}
 
 	msg := &ibctransfertypes.MsgTransfer{

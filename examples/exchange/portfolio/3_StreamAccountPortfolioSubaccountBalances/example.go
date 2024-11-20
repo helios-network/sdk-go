@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	exchangeclient "github.com/InjectiveLabs/sdk-go/client/exchange"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	exchangeclient "github.com/Helios-Chain-Labs/sdk-go/client/exchange"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 
 	ctx := context.Background()
 
-	stream, err := exchangeClient.StreamAccountPortfolio(ctx, "inj1clw20s2uxeyxtam6f7m84vgae92s9eh7vygagt", "0xc7dca7c15c364865f77a4fb67ab11dc95502e6fe000000000000000000000001", "total_balances")
+	stream, err := exchangeClient.StreamAccountPortfolio(ctx, "helios1clw20s2uxeyxtam6f7m84vgae92s9eh7vygagt", "0xc7dca7c15c364865f77a4fb67ab11dc95502e6fe000000000000000000000001", "total_balances")
 	if err != nil {
 		panic(err)
 	}

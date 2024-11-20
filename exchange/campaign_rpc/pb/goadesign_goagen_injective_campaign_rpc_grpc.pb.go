@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_campaign_rpc.proto
+// source: goadesign_goagen_helios_campaign_rpc.proto
 
-package injective_campaign_rpcpb
+package helios_campaign_rpcpb
 
 import (
 	context "context"
@@ -18,10 +18,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// InjectiveCampaignRPCClient is the client API for InjectiveCampaignRPC service.
+// HeliosCampaignRPCClient is the client API for HeliosCampaignRPC service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InjectiveCampaignRPCClient interface {
+type HeliosCampaignRPCClient interface {
 	// Lists all participants in campaign
 	Ranking(ctx context.Context, in *RankingRequest, opts ...grpc.CallOption) (*RankingResponse, error)
 	// List current round active campaigns
@@ -36,72 +36,72 @@ type InjectiveCampaignRPCClient interface {
 	GetGuildMember(ctx context.Context, in *GetGuildMemberRequest, opts ...grpc.CallOption) (*GetGuildMemberResponse, error)
 }
 
-type injectiveCampaignRPCClient struct {
+type heliosCampaignRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInjectiveCampaignRPCClient(cc grpc.ClientConnInterface) InjectiveCampaignRPCClient {
-	return &injectiveCampaignRPCClient{cc}
+func NewHeliosCampaignRPCClient(cc grpc.ClientConnInterface) HeliosCampaignRPCClient {
+	return &heliosCampaignRPCClient{cc}
 }
 
-func (c *injectiveCampaignRPCClient) Ranking(ctx context.Context, in *RankingRequest, opts ...grpc.CallOption) (*RankingResponse, error) {
+func (c *heliosCampaignRPCClient) Ranking(ctx context.Context, in *RankingRequest, opts ...grpc.CallOption) (*RankingResponse, error) {
 	out := new(RankingResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/Ranking", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.HeliosCampaignRPC/Ranking", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) Campaigns(ctx context.Context, in *CampaignsRequest, opts ...grpc.CallOption) (*CampaignsResponse, error) {
+func (c *heliosCampaignRPCClient) Campaigns(ctx context.Context, in *CampaignsRequest, opts ...grpc.CallOption) (*CampaignsResponse, error) {
 	out := new(CampaignsResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/Campaigns", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.HeliosCampaignRPC/Campaigns", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) CampaignsV2(ctx context.Context, in *CampaignsV2Request, opts ...grpc.CallOption) (*CampaignsV2Response, error) {
+func (c *heliosCampaignRPCClient) CampaignsV2(ctx context.Context, in *CampaignsV2Request, opts ...grpc.CallOption) (*CampaignsV2Response, error) {
 	out := new(CampaignsV2Response)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/CampaignsV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.HeliosCampaignRPC/CampaignsV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) ListGuilds(ctx context.Context, in *ListGuildsRequest, opts ...grpc.CallOption) (*ListGuildsResponse, error) {
+func (c *heliosCampaignRPCClient) ListGuilds(ctx context.Context, in *ListGuildsRequest, opts ...grpc.CallOption) (*ListGuildsResponse, error) {
 	out := new(ListGuildsResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/ListGuilds", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.HeliosCampaignRPC/ListGuilds", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) ListGuildMembers(ctx context.Context, in *ListGuildMembersRequest, opts ...grpc.CallOption) (*ListGuildMembersResponse, error) {
+func (c *heliosCampaignRPCClient) ListGuildMembers(ctx context.Context, in *ListGuildMembersRequest, opts ...grpc.CallOption) (*ListGuildMembersResponse, error) {
 	out := new(ListGuildMembersResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/ListGuildMembers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.HeliosCampaignRPC/ListGuildMembers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveCampaignRPCClient) GetGuildMember(ctx context.Context, in *GetGuildMemberRequest, opts ...grpc.CallOption) (*GetGuildMemberResponse, error) {
+func (c *heliosCampaignRPCClient) GetGuildMember(ctx context.Context, in *GetGuildMemberRequest, opts ...grpc.CallOption) (*GetGuildMemberResponse, error) {
 	out := new(GetGuildMemberResponse)
-	err := c.cc.Invoke(ctx, "/injective_campaign_rpc.InjectiveCampaignRPC/GetGuildMember", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_campaign_rpc.HeliosCampaignRPC/GetGuildMember", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// InjectiveCampaignRPCServer is the server API for InjectiveCampaignRPC service.
-// All implementations must embed UnimplementedInjectiveCampaignRPCServer
+// HeliosCampaignRPCServer is the server API for HeliosCampaignRPC service.
+// All implementations must embed UnimplementedHeliosCampaignRPCServer
 // for forward compatibility
-type InjectiveCampaignRPCServer interface {
+type HeliosCampaignRPCServer interface {
 	// Lists all participants in campaign
 	Ranking(context.Context, *RankingRequest) (*RankingResponse, error)
 	// List current round active campaigns
@@ -114,184 +114,184 @@ type InjectiveCampaignRPCServer interface {
 	ListGuildMembers(context.Context, *ListGuildMembersRequest) (*ListGuildMembersResponse, error)
 	// Get single member guild info
 	GetGuildMember(context.Context, *GetGuildMemberRequest) (*GetGuildMemberResponse, error)
-	mustEmbedUnimplementedInjectiveCampaignRPCServer()
+	mustEmbedUnimplementedHeliosCampaignRPCServer()
 }
 
-// UnimplementedInjectiveCampaignRPCServer must be embedded to have forward compatible implementations.
-type UnimplementedInjectiveCampaignRPCServer struct {
+// UnimplementedHeliosCampaignRPCServer must be embedded to have forward compatible implementations.
+type UnimplementedHeliosCampaignRPCServer struct {
 }
 
-func (UnimplementedInjectiveCampaignRPCServer) Ranking(context.Context, *RankingRequest) (*RankingResponse, error) {
+func (UnimplementedHeliosCampaignRPCServer) Ranking(context.Context, *RankingRequest) (*RankingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ranking not implemented")
 }
-func (UnimplementedInjectiveCampaignRPCServer) Campaigns(context.Context, *CampaignsRequest) (*CampaignsResponse, error) {
+func (UnimplementedHeliosCampaignRPCServer) Campaigns(context.Context, *CampaignsRequest) (*CampaignsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Campaigns not implemented")
 }
-func (UnimplementedInjectiveCampaignRPCServer) CampaignsV2(context.Context, *CampaignsV2Request) (*CampaignsV2Response, error) {
+func (UnimplementedHeliosCampaignRPCServer) CampaignsV2(context.Context, *CampaignsV2Request) (*CampaignsV2Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CampaignsV2 not implemented")
 }
-func (UnimplementedInjectiveCampaignRPCServer) ListGuilds(context.Context, *ListGuildsRequest) (*ListGuildsResponse, error) {
+func (UnimplementedHeliosCampaignRPCServer) ListGuilds(context.Context, *ListGuildsRequest) (*ListGuildsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListGuilds not implemented")
 }
-func (UnimplementedInjectiveCampaignRPCServer) ListGuildMembers(context.Context, *ListGuildMembersRequest) (*ListGuildMembersResponse, error) {
+func (UnimplementedHeliosCampaignRPCServer) ListGuildMembers(context.Context, *ListGuildMembersRequest) (*ListGuildMembersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListGuildMembers not implemented")
 }
-func (UnimplementedInjectiveCampaignRPCServer) GetGuildMember(context.Context, *GetGuildMemberRequest) (*GetGuildMemberResponse, error) {
+func (UnimplementedHeliosCampaignRPCServer) GetGuildMember(context.Context, *GetGuildMemberRequest) (*GetGuildMemberResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetGuildMember not implemented")
 }
-func (UnimplementedInjectiveCampaignRPCServer) mustEmbedUnimplementedInjectiveCampaignRPCServer() {}
+func (UnimplementedHeliosCampaignRPCServer) mustEmbedUnimplementedHeliosCampaignRPCServer() {}
 
-// UnsafeInjectiveCampaignRPCServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InjectiveCampaignRPCServer will
+// UnsafeHeliosCampaignRPCServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HeliosCampaignRPCServer will
 // result in compilation errors.
-type UnsafeInjectiveCampaignRPCServer interface {
-	mustEmbedUnimplementedInjectiveCampaignRPCServer()
+type UnsafeHeliosCampaignRPCServer interface {
+	mustEmbedUnimplementedHeliosCampaignRPCServer()
 }
 
-func RegisterInjectiveCampaignRPCServer(s grpc.ServiceRegistrar, srv InjectiveCampaignRPCServer) {
-	s.RegisterService(&InjectiveCampaignRPC_ServiceDesc, srv)
+func RegisterHeliosCampaignRPCServer(s grpc.ServiceRegistrar, srv HeliosCampaignRPCServer) {
+	s.RegisterService(&HeliosCampaignRPC_ServiceDesc, srv)
 }
 
-func _InjectiveCampaignRPC_Ranking_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosCampaignRPC_Ranking_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RankingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveCampaignRPCServer).Ranking(ctx, in)
+		return srv.(HeliosCampaignRPCServer).Ranking(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/Ranking",
+		FullMethod: "/helios_campaign_rpc.HeliosCampaignRPC/Ranking",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveCampaignRPCServer).Ranking(ctx, req.(*RankingRequest))
+		return srv.(HeliosCampaignRPCServer).Ranking(ctx, req.(*RankingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveCampaignRPC_Campaigns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosCampaignRPC_Campaigns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CampaignsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveCampaignRPCServer).Campaigns(ctx, in)
+		return srv.(HeliosCampaignRPCServer).Campaigns(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/Campaigns",
+		FullMethod: "/helios_campaign_rpc.HeliosCampaignRPC/Campaigns",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveCampaignRPCServer).Campaigns(ctx, req.(*CampaignsRequest))
+		return srv.(HeliosCampaignRPCServer).Campaigns(ctx, req.(*CampaignsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveCampaignRPC_CampaignsV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosCampaignRPC_CampaignsV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CampaignsV2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveCampaignRPCServer).CampaignsV2(ctx, in)
+		return srv.(HeliosCampaignRPCServer).CampaignsV2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/CampaignsV2",
+		FullMethod: "/helios_campaign_rpc.HeliosCampaignRPC/CampaignsV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveCampaignRPCServer).CampaignsV2(ctx, req.(*CampaignsV2Request))
+		return srv.(HeliosCampaignRPCServer).CampaignsV2(ctx, req.(*CampaignsV2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveCampaignRPC_ListGuilds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosCampaignRPC_ListGuilds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListGuildsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveCampaignRPCServer).ListGuilds(ctx, in)
+		return srv.(HeliosCampaignRPCServer).ListGuilds(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/ListGuilds",
+		FullMethod: "/helios_campaign_rpc.HeliosCampaignRPC/ListGuilds",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveCampaignRPCServer).ListGuilds(ctx, req.(*ListGuildsRequest))
+		return srv.(HeliosCampaignRPCServer).ListGuilds(ctx, req.(*ListGuildsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveCampaignRPC_ListGuildMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosCampaignRPC_ListGuildMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListGuildMembersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveCampaignRPCServer).ListGuildMembers(ctx, in)
+		return srv.(HeliosCampaignRPCServer).ListGuildMembers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/ListGuildMembers",
+		FullMethod: "/helios_campaign_rpc.HeliosCampaignRPC/ListGuildMembers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveCampaignRPCServer).ListGuildMembers(ctx, req.(*ListGuildMembersRequest))
+		return srv.(HeliosCampaignRPCServer).ListGuildMembers(ctx, req.(*ListGuildMembersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveCampaignRPC_GetGuildMember_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosCampaignRPC_GetGuildMember_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetGuildMemberRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveCampaignRPCServer).GetGuildMember(ctx, in)
+		return srv.(HeliosCampaignRPCServer).GetGuildMember(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_campaign_rpc.InjectiveCampaignRPC/GetGuildMember",
+		FullMethod: "/helios_campaign_rpc.HeliosCampaignRPC/GetGuildMember",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveCampaignRPCServer).GetGuildMember(ctx, req.(*GetGuildMemberRequest))
+		return srv.(HeliosCampaignRPCServer).GetGuildMember(ctx, req.(*GetGuildMemberRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// InjectiveCampaignRPC_ServiceDesc is the grpc.ServiceDesc for InjectiveCampaignRPC service.
+// HeliosCampaignRPC_ServiceDesc is the grpc.ServiceDesc for HeliosCampaignRPC service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InjectiveCampaignRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_campaign_rpc.InjectiveCampaignRPC",
-	HandlerType: (*InjectiveCampaignRPCServer)(nil),
+var HeliosCampaignRPC_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "helios_campaign_rpc.HeliosCampaignRPC",
+	HandlerType: (*HeliosCampaignRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Ranking",
-			Handler:    _InjectiveCampaignRPC_Ranking_Handler,
+			Handler:    _HeliosCampaignRPC_Ranking_Handler,
 		},
 		{
 			MethodName: "Campaigns",
-			Handler:    _InjectiveCampaignRPC_Campaigns_Handler,
+			Handler:    _HeliosCampaignRPC_Campaigns_Handler,
 		},
 		{
 			MethodName: "CampaignsV2",
-			Handler:    _InjectiveCampaignRPC_CampaignsV2_Handler,
+			Handler:    _HeliosCampaignRPC_CampaignsV2_Handler,
 		},
 		{
 			MethodName: "ListGuilds",
-			Handler:    _InjectiveCampaignRPC_ListGuilds_Handler,
+			Handler:    _HeliosCampaignRPC_ListGuilds_Handler,
 		},
 		{
 			MethodName: "ListGuildMembers",
-			Handler:    _InjectiveCampaignRPC_ListGuildMembers_Handler,
+			Handler:    _HeliosCampaignRPC_ListGuildMembers_Handler,
 		},
 		{
 			MethodName: "GetGuildMember",
-			Handler:    _InjectiveCampaignRPC_GetGuildMember_Handler,
+			Handler:    _HeliosCampaignRPC_GetGuildMember_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "goadesign_goagen_injective_campaign_rpc.proto",
+	Metadata: "goadesign_goagen_helios_campaign_rpc.proto",
 }

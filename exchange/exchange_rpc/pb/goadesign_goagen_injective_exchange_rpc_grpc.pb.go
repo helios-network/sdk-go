@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_exchange_rpc.proto
+// source: goadesign_goagen_helios_exchange_rpc.proto
 
-package injective_exchange_rpcpb
+package helios_exchange_rpcpb
 
 import (
 	context "context"
@@ -18,10 +18,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// InjectiveExchangeRPCClient is the client API for InjectiveExchangeRPC service.
+// HeliosExchangeRPCClient is the client API for HeliosExchangeRPC service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InjectiveExchangeRPCClient interface {
+type HeliosExchangeRPCClient interface {
 	// GetTx gets transaction details by hash.
 	GetTx(ctx context.Context, in *GetTxRequest, opts ...grpc.CallOption) (*GetTxResponse, error)
 	// PrepareTx generates a Web3-signable body for a Cosmos transaction
@@ -36,72 +36,72 @@ type InjectiveExchangeRPCClient interface {
 	GetFeePayer(ctx context.Context, in *GetFeePayerRequest, opts ...grpc.CallOption) (*GetFeePayerResponse, error)
 }
 
-type injectiveExchangeRPCClient struct {
+type heliosExchangeRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInjectiveExchangeRPCClient(cc grpc.ClientConnInterface) InjectiveExchangeRPCClient {
-	return &injectiveExchangeRPCClient{cc}
+func NewHeliosExchangeRPCClient(cc grpc.ClientConnInterface) HeliosExchangeRPCClient {
+	return &heliosExchangeRPCClient{cc}
 }
 
-func (c *injectiveExchangeRPCClient) GetTx(ctx context.Context, in *GetTxRequest, opts ...grpc.CallOption) (*GetTxResponse, error) {
+func (c *heliosExchangeRPCClient) GetTx(ctx context.Context, in *GetTxRequest, opts ...grpc.CallOption) (*GetTxResponse, error) {
 	out := new(GetTxResponse)
-	err := c.cc.Invoke(ctx, "/injective_exchange_rpc.InjectiveExchangeRPC/GetTx", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_exchange_rpc.HeliosExchangeRPC/GetTx", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExchangeRPCClient) PrepareTx(ctx context.Context, in *PrepareTxRequest, opts ...grpc.CallOption) (*PrepareTxResponse, error) {
+func (c *heliosExchangeRPCClient) PrepareTx(ctx context.Context, in *PrepareTxRequest, opts ...grpc.CallOption) (*PrepareTxResponse, error) {
 	out := new(PrepareTxResponse)
-	err := c.cc.Invoke(ctx, "/injective_exchange_rpc.InjectiveExchangeRPC/PrepareTx", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_exchange_rpc.HeliosExchangeRPC/PrepareTx", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExchangeRPCClient) BroadcastTx(ctx context.Context, in *BroadcastTxRequest, opts ...grpc.CallOption) (*BroadcastTxResponse, error) {
+func (c *heliosExchangeRPCClient) BroadcastTx(ctx context.Context, in *BroadcastTxRequest, opts ...grpc.CallOption) (*BroadcastTxResponse, error) {
 	out := new(BroadcastTxResponse)
-	err := c.cc.Invoke(ctx, "/injective_exchange_rpc.InjectiveExchangeRPC/BroadcastTx", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_exchange_rpc.HeliosExchangeRPC/BroadcastTx", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExchangeRPCClient) PrepareCosmosTx(ctx context.Context, in *PrepareCosmosTxRequest, opts ...grpc.CallOption) (*PrepareCosmosTxResponse, error) {
+func (c *heliosExchangeRPCClient) PrepareCosmosTx(ctx context.Context, in *PrepareCosmosTxRequest, opts ...grpc.CallOption) (*PrepareCosmosTxResponse, error) {
 	out := new(PrepareCosmosTxResponse)
-	err := c.cc.Invoke(ctx, "/injective_exchange_rpc.InjectiveExchangeRPC/PrepareCosmosTx", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_exchange_rpc.HeliosExchangeRPC/PrepareCosmosTx", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExchangeRPCClient) BroadcastCosmosTx(ctx context.Context, in *BroadcastCosmosTxRequest, opts ...grpc.CallOption) (*BroadcastCosmosTxResponse, error) {
+func (c *heliosExchangeRPCClient) BroadcastCosmosTx(ctx context.Context, in *BroadcastCosmosTxRequest, opts ...grpc.CallOption) (*BroadcastCosmosTxResponse, error) {
 	out := new(BroadcastCosmosTxResponse)
-	err := c.cc.Invoke(ctx, "/injective_exchange_rpc.InjectiveExchangeRPC/BroadcastCosmosTx", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_exchange_rpc.HeliosExchangeRPC/BroadcastCosmosTx", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveExchangeRPCClient) GetFeePayer(ctx context.Context, in *GetFeePayerRequest, opts ...grpc.CallOption) (*GetFeePayerResponse, error) {
+func (c *heliosExchangeRPCClient) GetFeePayer(ctx context.Context, in *GetFeePayerRequest, opts ...grpc.CallOption) (*GetFeePayerResponse, error) {
 	out := new(GetFeePayerResponse)
-	err := c.cc.Invoke(ctx, "/injective_exchange_rpc.InjectiveExchangeRPC/GetFeePayer", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_exchange_rpc.HeliosExchangeRPC/GetFeePayer", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// InjectiveExchangeRPCServer is the server API for InjectiveExchangeRPC service.
-// All implementations must embed UnimplementedInjectiveExchangeRPCServer
+// HeliosExchangeRPCServer is the server API for HeliosExchangeRPC service.
+// All implementations must embed UnimplementedHeliosExchangeRPCServer
 // for forward compatibility
-type InjectiveExchangeRPCServer interface {
+type HeliosExchangeRPCServer interface {
 	// GetTx gets transaction details by hash.
 	GetTx(context.Context, *GetTxRequest) (*GetTxResponse, error)
 	// PrepareTx generates a Web3-signable body for a Cosmos transaction
@@ -114,184 +114,184 @@ type InjectiveExchangeRPCServer interface {
 	BroadcastCosmosTx(context.Context, *BroadcastCosmosTxRequest) (*BroadcastCosmosTxResponse, error)
 	// Return fee payer information's
 	GetFeePayer(context.Context, *GetFeePayerRequest) (*GetFeePayerResponse, error)
-	mustEmbedUnimplementedInjectiveExchangeRPCServer()
+	mustEmbedUnimplementedHeliosExchangeRPCServer()
 }
 
-// UnimplementedInjectiveExchangeRPCServer must be embedded to have forward compatible implementations.
-type UnimplementedInjectiveExchangeRPCServer struct {
+// UnimplementedHeliosExchangeRPCServer must be embedded to have forward compatible implementations.
+type UnimplementedHeliosExchangeRPCServer struct {
 }
 
-func (UnimplementedInjectiveExchangeRPCServer) GetTx(context.Context, *GetTxRequest) (*GetTxResponse, error) {
+func (UnimplementedHeliosExchangeRPCServer) GetTx(context.Context, *GetTxRequest) (*GetTxResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTx not implemented")
 }
-func (UnimplementedInjectiveExchangeRPCServer) PrepareTx(context.Context, *PrepareTxRequest) (*PrepareTxResponse, error) {
+func (UnimplementedHeliosExchangeRPCServer) PrepareTx(context.Context, *PrepareTxRequest) (*PrepareTxResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PrepareTx not implemented")
 }
-func (UnimplementedInjectiveExchangeRPCServer) BroadcastTx(context.Context, *BroadcastTxRequest) (*BroadcastTxResponse, error) {
+func (UnimplementedHeliosExchangeRPCServer) BroadcastTx(context.Context, *BroadcastTxRequest) (*BroadcastTxResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BroadcastTx not implemented")
 }
-func (UnimplementedInjectiveExchangeRPCServer) PrepareCosmosTx(context.Context, *PrepareCosmosTxRequest) (*PrepareCosmosTxResponse, error) {
+func (UnimplementedHeliosExchangeRPCServer) PrepareCosmosTx(context.Context, *PrepareCosmosTxRequest) (*PrepareCosmosTxResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PrepareCosmosTx not implemented")
 }
-func (UnimplementedInjectiveExchangeRPCServer) BroadcastCosmosTx(context.Context, *BroadcastCosmosTxRequest) (*BroadcastCosmosTxResponse, error) {
+func (UnimplementedHeliosExchangeRPCServer) BroadcastCosmosTx(context.Context, *BroadcastCosmosTxRequest) (*BroadcastCosmosTxResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BroadcastCosmosTx not implemented")
 }
-func (UnimplementedInjectiveExchangeRPCServer) GetFeePayer(context.Context, *GetFeePayerRequest) (*GetFeePayerResponse, error) {
+func (UnimplementedHeliosExchangeRPCServer) GetFeePayer(context.Context, *GetFeePayerRequest) (*GetFeePayerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFeePayer not implemented")
 }
-func (UnimplementedInjectiveExchangeRPCServer) mustEmbedUnimplementedInjectiveExchangeRPCServer() {}
+func (UnimplementedHeliosExchangeRPCServer) mustEmbedUnimplementedHeliosExchangeRPCServer() {}
 
-// UnsafeInjectiveExchangeRPCServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InjectiveExchangeRPCServer will
+// UnsafeHeliosExchangeRPCServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HeliosExchangeRPCServer will
 // result in compilation errors.
-type UnsafeInjectiveExchangeRPCServer interface {
-	mustEmbedUnimplementedInjectiveExchangeRPCServer()
+type UnsafeHeliosExchangeRPCServer interface {
+	mustEmbedUnimplementedHeliosExchangeRPCServer()
 }
 
-func RegisterInjectiveExchangeRPCServer(s grpc.ServiceRegistrar, srv InjectiveExchangeRPCServer) {
-	s.RegisterService(&InjectiveExchangeRPC_ServiceDesc, srv)
+func RegisterHeliosExchangeRPCServer(s grpc.ServiceRegistrar, srv HeliosExchangeRPCServer) {
+	s.RegisterService(&HeliosExchangeRPC_ServiceDesc, srv)
 }
 
-func _InjectiveExchangeRPC_GetTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosExchangeRPC_GetTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTxRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveExchangeRPCServer).GetTx(ctx, in)
+		return srv.(HeliosExchangeRPCServer).GetTx(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_exchange_rpc.InjectiveExchangeRPC/GetTx",
+		FullMethod: "/helios_exchange_rpc.HeliosExchangeRPC/GetTx",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveExchangeRPCServer).GetTx(ctx, req.(*GetTxRequest))
+		return srv.(HeliosExchangeRPCServer).GetTx(ctx, req.(*GetTxRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveExchangeRPC_PrepareTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosExchangeRPC_PrepareTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PrepareTxRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveExchangeRPCServer).PrepareTx(ctx, in)
+		return srv.(HeliosExchangeRPCServer).PrepareTx(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_exchange_rpc.InjectiveExchangeRPC/PrepareTx",
+		FullMethod: "/helios_exchange_rpc.HeliosExchangeRPC/PrepareTx",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveExchangeRPCServer).PrepareTx(ctx, req.(*PrepareTxRequest))
+		return srv.(HeliosExchangeRPCServer).PrepareTx(ctx, req.(*PrepareTxRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveExchangeRPC_BroadcastTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosExchangeRPC_BroadcastTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BroadcastTxRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveExchangeRPCServer).BroadcastTx(ctx, in)
+		return srv.(HeliosExchangeRPCServer).BroadcastTx(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_exchange_rpc.InjectiveExchangeRPC/BroadcastTx",
+		FullMethod: "/helios_exchange_rpc.HeliosExchangeRPC/BroadcastTx",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveExchangeRPCServer).BroadcastTx(ctx, req.(*BroadcastTxRequest))
+		return srv.(HeliosExchangeRPCServer).BroadcastTx(ctx, req.(*BroadcastTxRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveExchangeRPC_PrepareCosmosTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosExchangeRPC_PrepareCosmosTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PrepareCosmosTxRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveExchangeRPCServer).PrepareCosmosTx(ctx, in)
+		return srv.(HeliosExchangeRPCServer).PrepareCosmosTx(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_exchange_rpc.InjectiveExchangeRPC/PrepareCosmosTx",
+		FullMethod: "/helios_exchange_rpc.HeliosExchangeRPC/PrepareCosmosTx",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveExchangeRPCServer).PrepareCosmosTx(ctx, req.(*PrepareCosmosTxRequest))
+		return srv.(HeliosExchangeRPCServer).PrepareCosmosTx(ctx, req.(*PrepareCosmosTxRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveExchangeRPC_BroadcastCosmosTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosExchangeRPC_BroadcastCosmosTx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BroadcastCosmosTxRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveExchangeRPCServer).BroadcastCosmosTx(ctx, in)
+		return srv.(HeliosExchangeRPCServer).BroadcastCosmosTx(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_exchange_rpc.InjectiveExchangeRPC/BroadcastCosmosTx",
+		FullMethod: "/helios_exchange_rpc.HeliosExchangeRPC/BroadcastCosmosTx",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveExchangeRPCServer).BroadcastCosmosTx(ctx, req.(*BroadcastCosmosTxRequest))
+		return srv.(HeliosExchangeRPCServer).BroadcastCosmosTx(ctx, req.(*BroadcastCosmosTxRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveExchangeRPC_GetFeePayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosExchangeRPC_GetFeePayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFeePayerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveExchangeRPCServer).GetFeePayer(ctx, in)
+		return srv.(HeliosExchangeRPCServer).GetFeePayer(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_exchange_rpc.InjectiveExchangeRPC/GetFeePayer",
+		FullMethod: "/helios_exchange_rpc.HeliosExchangeRPC/GetFeePayer",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveExchangeRPCServer).GetFeePayer(ctx, req.(*GetFeePayerRequest))
+		return srv.(HeliosExchangeRPCServer).GetFeePayer(ctx, req.(*GetFeePayerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// InjectiveExchangeRPC_ServiceDesc is the grpc.ServiceDesc for InjectiveExchangeRPC service.
+// HeliosExchangeRPC_ServiceDesc is the grpc.ServiceDesc for HeliosExchangeRPC service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InjectiveExchangeRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_exchange_rpc.InjectiveExchangeRPC",
-	HandlerType: (*InjectiveExchangeRPCServer)(nil),
+var HeliosExchangeRPC_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "helios_exchange_rpc.HeliosExchangeRPC",
+	HandlerType: (*HeliosExchangeRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetTx",
-			Handler:    _InjectiveExchangeRPC_GetTx_Handler,
+			Handler:    _HeliosExchangeRPC_GetTx_Handler,
 		},
 		{
 			MethodName: "PrepareTx",
-			Handler:    _InjectiveExchangeRPC_PrepareTx_Handler,
+			Handler:    _HeliosExchangeRPC_PrepareTx_Handler,
 		},
 		{
 			MethodName: "BroadcastTx",
-			Handler:    _InjectiveExchangeRPC_BroadcastTx_Handler,
+			Handler:    _HeliosExchangeRPC_BroadcastTx_Handler,
 		},
 		{
 			MethodName: "PrepareCosmosTx",
-			Handler:    _InjectiveExchangeRPC_PrepareCosmosTx_Handler,
+			Handler:    _HeliosExchangeRPC_PrepareCosmosTx_Handler,
 		},
 		{
 			MethodName: "BroadcastCosmosTx",
-			Handler:    _InjectiveExchangeRPC_BroadcastCosmosTx_Handler,
+			Handler:    _HeliosExchangeRPC_BroadcastCosmosTx_Handler,
 		},
 		{
 			MethodName: "GetFeePayer",
-			Handler:    _InjectiveExchangeRPC_GetFeePayer_Handler,
+			Handler:    _HeliosExchangeRPC_GetFeePayer_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "goadesign_goagen_injective_exchange_rpc.proto",
+	Metadata: "goadesign_goagen_helios_exchange_rpc.proto",
 }

@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	exchangeclient "github.com/InjectiveLabs/sdk-go/client/exchange"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	exchangeclient "github.com/Helios-Chain-Labs/sdk-go/client/exchange"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	accountAddress := "inj1clw20s2uxeyxtam6f7m84vgae92s9eh7vygagt"
+	accountAddress := "helios1clw20s2uxeyxtam6f7m84vgae92s9eh7vygagt"
 	res, err := exchangeClient.GetAccountPortfolioBalances(ctx, accountAddress)
 	if err != nil {
 		fmt.Println(err)

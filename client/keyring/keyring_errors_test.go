@@ -3,7 +3,7 @@ package keyring
 import (
 	"os"
 
-	"github.com/InjectiveLabs/sdk-go/chain/crypto/hd"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
 	cosmkeyring "github.com/cosmos/cosmos-sdk/crypto/keyring"
 )
 
@@ -185,7 +185,7 @@ func (s *KeyringTestSuite) TestErrUnexpectedAddress() {
 		s.cdc,
 		WithKey(
 			WithMnemonic(testMnemonic),
-			WithKeyFrom("inj1xypj9l9sjdaduaafhgx39ru70utnzfuklcpxz9"), // will not match mnemonic above
+			WithKeyFrom("helios1xypj9l9sjdaduaafhgx39ru70utnzfuklcpxz9"), // will not match mnemonic above
 		),
 	)
 

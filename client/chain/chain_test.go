@@ -9,17 +9,17 @@ import (
 	cosmtypes "github.com/cosmos/cosmos-sdk/types"
 	eth "github.com/ethereum/go-ethereum/common"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	"github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func accountForTests() (cosmtypes.AccAddress, keyring.Keyring, error) {
 	senderAddress, cosmosKeyring, err := chain.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,

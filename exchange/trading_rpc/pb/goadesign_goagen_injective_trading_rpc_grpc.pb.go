@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v4.25.3
-// source: goadesign_goagen_injective_trading_rpc.proto
+// source: goadesign_goagen_helios_trading_rpc.proto
 
-package injective_trading_rpcpb
+package helios_trading_rpcpb
 
 import (
 	context "context"
@@ -18,90 +18,90 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// InjectiveTradingRPCClient is the client API for InjectiveTradingRPC service.
+// HeliosTradingRPCClient is the client API for HeliosTradingRPC service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InjectiveTradingRPCClient interface {
+type HeliosTradingRPCClient interface {
 	// Lists all trading strategies
 	ListTradingStrategies(ctx context.Context, in *ListTradingStrategiesRequest, opts ...grpc.CallOption) (*ListTradingStrategiesResponse, error)
 }
 
-type injectiveTradingRPCClient struct {
+type heliosTradingRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInjectiveTradingRPCClient(cc grpc.ClientConnInterface) InjectiveTradingRPCClient {
-	return &injectiveTradingRPCClient{cc}
+func NewHeliosTradingRPCClient(cc grpc.ClientConnInterface) HeliosTradingRPCClient {
+	return &heliosTradingRPCClient{cc}
 }
 
-func (c *injectiveTradingRPCClient) ListTradingStrategies(ctx context.Context, in *ListTradingStrategiesRequest, opts ...grpc.CallOption) (*ListTradingStrategiesResponse, error) {
+func (c *heliosTradingRPCClient) ListTradingStrategies(ctx context.Context, in *ListTradingStrategiesRequest, opts ...grpc.CallOption) (*ListTradingStrategiesResponse, error) {
 	out := new(ListTradingStrategiesResponse)
-	err := c.cc.Invoke(ctx, "/injective_trading_rpc.InjectiveTradingRPC/ListTradingStrategies", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_trading_rpc.HeliosTradingRPC/ListTradingStrategies", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// InjectiveTradingRPCServer is the server API for InjectiveTradingRPC service.
-// All implementations must embed UnimplementedInjectiveTradingRPCServer
+// HeliosTradingRPCServer is the server API for HeliosTradingRPC service.
+// All implementations must embed UnimplementedHeliosTradingRPCServer
 // for forward compatibility
-type InjectiveTradingRPCServer interface {
+type HeliosTradingRPCServer interface {
 	// Lists all trading strategies
 	ListTradingStrategies(context.Context, *ListTradingStrategiesRequest) (*ListTradingStrategiesResponse, error)
-	mustEmbedUnimplementedInjectiveTradingRPCServer()
+	mustEmbedUnimplementedHeliosTradingRPCServer()
 }
 
-// UnimplementedInjectiveTradingRPCServer must be embedded to have forward compatible implementations.
-type UnimplementedInjectiveTradingRPCServer struct {
+// UnimplementedHeliosTradingRPCServer must be embedded to have forward compatible implementations.
+type UnimplementedHeliosTradingRPCServer struct {
 }
 
-func (UnimplementedInjectiveTradingRPCServer) ListTradingStrategies(context.Context, *ListTradingStrategiesRequest) (*ListTradingStrategiesResponse, error) {
+func (UnimplementedHeliosTradingRPCServer) ListTradingStrategies(context.Context, *ListTradingStrategiesRequest) (*ListTradingStrategiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTradingStrategies not implemented")
 }
-func (UnimplementedInjectiveTradingRPCServer) mustEmbedUnimplementedInjectiveTradingRPCServer() {}
+func (UnimplementedHeliosTradingRPCServer) mustEmbedUnimplementedHeliosTradingRPCServer() {}
 
-// UnsafeInjectiveTradingRPCServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InjectiveTradingRPCServer will
+// UnsafeHeliosTradingRPCServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HeliosTradingRPCServer will
 // result in compilation errors.
-type UnsafeInjectiveTradingRPCServer interface {
-	mustEmbedUnimplementedInjectiveTradingRPCServer()
+type UnsafeHeliosTradingRPCServer interface {
+	mustEmbedUnimplementedHeliosTradingRPCServer()
 }
 
-func RegisterInjectiveTradingRPCServer(s grpc.ServiceRegistrar, srv InjectiveTradingRPCServer) {
-	s.RegisterService(&InjectiveTradingRPC_ServiceDesc, srv)
+func RegisterHeliosTradingRPCServer(s grpc.ServiceRegistrar, srv HeliosTradingRPCServer) {
+	s.RegisterService(&HeliosTradingRPC_ServiceDesc, srv)
 }
 
-func _InjectiveTradingRPC_ListTradingStrategies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosTradingRPC_ListTradingStrategies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListTradingStrategiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveTradingRPCServer).ListTradingStrategies(ctx, in)
+		return srv.(HeliosTradingRPCServer).ListTradingStrategies(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_trading_rpc.InjectiveTradingRPC/ListTradingStrategies",
+		FullMethod: "/helios_trading_rpc.HeliosTradingRPC/ListTradingStrategies",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveTradingRPCServer).ListTradingStrategies(ctx, req.(*ListTradingStrategiesRequest))
+		return srv.(HeliosTradingRPCServer).ListTradingStrategies(ctx, req.(*ListTradingStrategiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// InjectiveTradingRPC_ServiceDesc is the grpc.ServiceDesc for InjectiveTradingRPC service.
+// HeliosTradingRPC_ServiceDesc is the grpc.ServiceDesc for HeliosTradingRPC service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InjectiveTradingRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_trading_rpc.InjectiveTradingRPC",
-	HandlerType: (*InjectiveTradingRPCServer)(nil),
+var HeliosTradingRPC_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "helios_trading_rpc.HeliosTradingRPC",
+	HandlerType: (*HeliosTradingRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "ListTradingStrategies",
-			Handler:    _InjectiveTradingRPC_ListTradingStrategies_Handler,
+			Handler:    _HeliosTradingRPC_ListTradingStrategies_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "goadesign_goagen_injective_trading_rpc.proto",
+	Metadata: "goadesign_goagen_helios_trading_rpc.proto",
 }

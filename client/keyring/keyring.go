@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/InjectiveLabs/sdk-go/chain/crypto/hd"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cosmcrypto "github.com/cosmos/cosmos-sdk/crypto"
 	cosmkeyring "github.com/cosmos/cosmos-sdk/crypto/keyring"

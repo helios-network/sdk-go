@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	explorerPB "github.com/InjectiveLabs/sdk-go/exchange/explorer_rpc/pb"
+	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	explorerclient "github.com/InjectiveLabs/sdk-go/client/explorer"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	explorerclient "github.com/Helios-Chain-Labs/sdk-go/client/explorer"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	receiver := "inj1ddcp5ftqmntudn4m6heg2adud6hn58urnwlmkh"
+	receiver := "helios1ddcp5ftqmntudn4m6heg2adud6hn58urnwlmkh"
 
 	req := explorerPB.GetIBCTransferTxsRequest{
 		Receiver: receiver,

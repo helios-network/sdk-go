@@ -12,12 +12,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	"github.com/InjectiveLabs/sdk-go/client/core"
-	"github.com/InjectiveLabs/sdk-go/client/exchange"
-	derivativeExchangePB "github.com/InjectiveLabs/sdk-go/exchange/derivative_exchange_rpc/pb"
-	spotExchangePB "github.com/InjectiveLabs/sdk-go/exchange/spot_exchange_rpc/pb"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client/core"
+	"github.com/Helios-Chain-Labs/sdk-go/client/exchange"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 )
 
 func TestMarketAssistantCreationUsingMarketsFromExchange(t *testing.T) {
@@ -34,11 +34,11 @@ func TestMarketAssistantCreationUsingMarketsFromExchange(t *testing.T) {
 	mockExchange.Network = network
 	var spotMarketInfos []*spotExchangePB.SpotMarketInfo
 	var derivativeMarketInfos []*derivativeExchangePB.DerivativeMarketInfo
-	injUsdtSpotMarketInfo := createINJUSDTSpotMarketInfo()
+	heliosUsdtSpotMarketInfo := createHELIOSUSDTSpotMarketInfo()
 	apeUsdtSpotMarketInfo := createAPEUSDTSpotMarketInfo()
 	btcUsdtDerivativeMarketInfo := createBTCUSDTDerivativeMarketInfo()
 
-	spotMarketInfos = append(spotMarketInfos, injUsdtSpotMarketInfo)
+	spotMarketInfos = append(spotMarketInfos, heliosUsdtSpotMarketInfo)
 	spotMarketInfos = append(spotMarketInfos, apeUsdtSpotMarketInfo)
 	derivativeMarketInfos = append(derivativeMarketInfos, btcUsdtDerivativeMarketInfo)
 
@@ -58,14 +58,14 @@ func TestMarketAssistantCreationUsingMarketsFromExchange(t *testing.T) {
 
 	assert.Len(t, tokens, 5)
 
-	symbols := strings.Split(injUsdtSpotMarketInfo.Ticker, "/")
-	injSymbol, usdtSymbol := symbols[0], symbols[1]
+	symbols := strings.Split(heliosUsdtSpotMarketInfo.Ticker, "/")
+	heliosSymbol, usdtSymbol := symbols[0], symbols[1]
 	symbols = strings.Split(apeUsdtSpotMarketInfo.Ticker, "/")
 	apeSymbol := symbols[0]
 	alternativeUSDTName := apeUsdtSpotMarketInfo.QuoteTokenMeta.Name
 	usdtPerpSymbol := btcUsdtDerivativeMarketInfo.QuoteTokenMeta.Symbol
 
-	_, isPresent := tokens[injSymbol]
+	_, isPresent := tokens[heliosSymbol]
 	assert.True(t, isPresent)
 	_, isPresent = tokens[usdtSymbol]
 	assert.True(t, isPresent)
@@ -79,7 +79,7 @@ func TestMarketAssistantCreationUsingMarketsFromExchange(t *testing.T) {
 	spotMarkets := assistant.AllSpotMarkets()
 	assert.Len(t, spotMarkets, 2)
 
-	_, isPresent = spotMarkets[injUsdtSpotMarketInfo.MarketId]
+	_, isPresent = spotMarkets[heliosUsdtSpotMarketInfo.MarketId]
 	assert.True(t, isPresent)
 	_, isPresent = spotMarkets[apeUsdtSpotMarketInfo.MarketId]
 	assert.True(t, isPresent)
@@ -125,24 +125,24 @@ func TestMarketAssistantCreation(t *testing.T) {
 			Name:              "Other USDT",
 			Logo:              "https://imagedelivery.net/lPzngbR8EltRfBOi_WYaXw/6f015260-c589-499f-b692-a57964af9900/public",
 			CoinGeckoId:       "",
-			Address:           "factory/inj10vkkttgxdeqcgeppu20x9qtyvuaxxev8qh0awq/usdt",
-			Denom:             "factory/inj10vkkttgxdeqcgeppu20x9qtyvuaxxev8qh0awq/usdt",
+			Address:           "factory/helios10vkkttgxdeqcgeppu20x9qtyvuaxxev8qh0awq/usdt",
+			Denom:             "factory/helios10vkkttgxdeqcgeppu20x9qtyvuaxxev8qh0awq/usdt",
 			ExternalLogo:      "unknown.png",
 			TokenType:         "tokenFactory",
 			TokenVerification: "internal",
 		},
 		{
-			Address:           "inj",
+			Address:           "helios",
 			IsNative:          true,
 			TokenVerification: "verified",
 			Decimals:          18,
-			Symbol:            "INJ",
-			Name:              "Injective",
+			Symbol:            "HELIOS",
+			Name:              "Helios",
 			Logo:              "https://imagedelivery.net/lPzngbR8EltRfBOi_WYaXw/18984c0b-3e61-431d-241d-dfbb60b57600/public",
-			CoinGeckoId:       "injective-protocol",
-			Denom:             "inj",
+			CoinGeckoId:       "helios-protocol",
+			Denom:             "helios",
 			TokenType:         "native",
-			ExternalLogo:      "injective-v3.png",
+			ExternalLogo:      "helios-v3.png",
 		},
 		{
 			Decimals:          6,
@@ -175,12 +175,12 @@ func TestMarketAssistantCreation(t *testing.T) {
 	var spotMarketInfos []*exchangetypes.SpotMarket
 	var fullDerivativeMarkets []*exchangetypes.FullDerivativeMarket
 	var binaryOptionsMarkets []*exchangetypes.BinaryOptionsMarket
-	injUsdtSpotMarketInfo := createINJUSDTChainSpotMarket()
+	heliosUsdtSpotMarketInfo := createHELIOSUSDTChainSpotMarket()
 	apeUsdtSpotMarketInfo := createAPEUSDTChainSpotMarket()
 	btcUsdtDerivativeMarketInfo := createBTCUSDTChainDerivativeMarket()
 	betBinaryOptionsMarket := createFirstMatchBetBinaryOptionsMarket()
 
-	spotMarketInfos = append(spotMarketInfos, injUsdtSpotMarketInfo)
+	spotMarketInfos = append(spotMarketInfos, heliosUsdtSpotMarketInfo)
 	spotMarketInfos = append(spotMarketInfos, apeUsdtSpotMarketInfo)
 	fullDerivativeMarkets = append(fullDerivativeMarkets, &exchangetypes.FullDerivativeMarket{
 		Market: btcUsdtDerivativeMarketInfo,
@@ -206,8 +206,8 @@ func TestMarketAssistantCreation(t *testing.T) {
 
 	assert.Len(t, tokens, 5)
 
-	symbols := strings.Split(injUsdtSpotMarketInfo.Ticker, "/")
-	injSymbol, usdtSymbol := symbols[0], symbols[1]
+	symbols := strings.Split(heliosUsdtSpotMarketInfo.Ticker, "/")
+	heliosSymbol, usdtSymbol := symbols[0], symbols[1]
 	symbols = strings.Split(apeUsdtSpotMarketInfo.Ticker, "/")
 	apeSymbol := symbols[0]
 	alternativeUSDTName := "Other USDT"
@@ -215,7 +215,7 @@ func TestMarketAssistantCreation(t *testing.T) {
 	usdtPerpToken := tokens["USDTPERP"]
 	usdtPerpSymbol := usdtPerpToken.Symbol
 
-	_, isPresent := tokens[injSymbol]
+	_, isPresent := tokens[heliosSymbol]
 	assert.True(t, isPresent)
 	_, isPresent = tokens[usdtSymbol]
 	assert.True(t, isPresent)
@@ -229,7 +229,7 @@ func TestMarketAssistantCreation(t *testing.T) {
 	spotMarkets := assistant.AllSpotMarkets()
 	assert.Len(t, spotMarkets, 2)
 
-	_, isPresent = spotMarkets[injUsdtSpotMarketInfo.MarketId]
+	_, isPresent = spotMarkets[heliosUsdtSpotMarketInfo.MarketId]
 	assert.True(t, isPresent)
 	_, isPresent = spotMarkets[apeUsdtSpotMarketInfo.MarketId]
 	assert.True(t, isPresent)

@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: goadesign_goagen_injective_derivative_exchange_rpc.proto
+// source: goadesign_goagen_helios_derivative_exchange_rpc.proto
 
-package injective_derivative_exchange_rpcpb
+package helios_derivative_exchange_rpcpb
 
 import (
 	context "context"
@@ -18,16 +18,16 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// InjectiveDerivativeExchangeRPCClient is the client API for InjectiveDerivativeExchangeRPC service.
+// HeliosDerivativeExchangeRPCClient is the client API for HeliosDerivativeExchangeRPC service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InjectiveDerivativeExchangeRPCClient interface {
+type HeliosDerivativeExchangeRPCClient interface {
 	// Markets gets a list of Derivative Markets
 	Markets(ctx context.Context, in *MarketsRequest, opts ...grpc.CallOption) (*MarketsResponse, error)
 	// Market gets details of a single derivative market
 	Market(ctx context.Context, in *MarketRequest, opts ...grpc.CallOption) (*MarketResponse, error)
 	// StreamMarket streams live updates of selected derivative markets
-	StreamMarket(ctx context.Context, in *StreamMarketRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamMarketClient, error)
+	StreamMarket(ctx context.Context, in *StreamMarketRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamMarketClient, error)
 	// BinaryOptionsMarkets gets a list of Binary Options Markets
 	BinaryOptionsMarkets(ctx context.Context, in *BinaryOptionsMarketsRequest, opts ...grpc.CallOption) (*BinaryOptionsMarketsResponse, error)
 	// BinaryOptionMarket gets details of a single binary options market
@@ -37,9 +37,9 @@ type InjectiveDerivativeExchangeRPCClient interface {
 	// Orderbooks gets the Orderbooks of requested derivative markets
 	OrderbooksV2(ctx context.Context, in *OrderbooksV2Request, opts ...grpc.CallOption) (*OrderbooksV2Response, error)
 	// Stream live snapshot updates of selected derivative market orderbook
-	StreamOrderbookV2(ctx context.Context, in *StreamOrderbookV2Request, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamOrderbookV2Client, error)
+	StreamOrderbookV2(ctx context.Context, in *StreamOrderbookV2Request, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamOrderbookV2Client, error)
 	// Stream live level updates of selected derivative market orderbook
-	StreamOrderbookUpdate(ctx context.Context, in *StreamOrderbookUpdateRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateClient, error)
+	StreamOrderbookUpdate(ctx context.Context, in *StreamOrderbookUpdateRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamOrderbookUpdateClient, error)
 	// DerivativeLimitOrders gets the limit orders of a derivative Market.
 	Orders(ctx context.Context, in *OrdersRequest, opts ...grpc.CallOption) (*OrdersResponse, error)
 	// Positions gets the positions for a trader.
@@ -54,17 +54,17 @@ type InjectiveDerivativeExchangeRPCClient interface {
 	// FundingRates gets the historical funding rates for a market.
 	FundingRates(ctx context.Context, in *FundingRatesRequest, opts ...grpc.CallOption) (*FundingRatesResponse, error)
 	// StreamPositions streams derivatives position updates.
-	StreamPositions(ctx context.Context, in *StreamPositionsRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamPositionsClient, error)
+	StreamPositions(ctx context.Context, in *StreamPositionsRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamPositionsClient, error)
 	// StreamOrders streams updates to individual orders of a Derivative Market.
-	StreamOrders(ctx context.Context, in *StreamOrdersRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamOrdersClient, error)
+	StreamOrders(ctx context.Context, in *StreamOrdersRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamOrdersClient, error)
 	// Trades gets the trades of a Derivative Market.
 	Trades(ctx context.Context, in *TradesRequest, opts ...grpc.CallOption) (*TradesResponse, error)
 	// Trades gets the trades of a Derivative Market.
 	TradesV2(ctx context.Context, in *TradesV2Request, opts ...grpc.CallOption) (*TradesV2Response, error)
 	// StreamTrades streams newly executed trades from Derivative Market.
-	StreamTrades(ctx context.Context, in *StreamTradesRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamTradesClient, error)
+	StreamTrades(ctx context.Context, in *StreamTradesRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamTradesClient, error)
 	// StreamTrades streams newly executed trades from Derivative Market.
-	StreamTradesV2(ctx context.Context, in *StreamTradesV2Request, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamTradesV2Client, error)
+	StreamTradesV2(ctx context.Context, in *StreamTradesV2Request, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamTradesV2Client, error)
 	// SubaccountOrdersList lists orders posted from this subaccount.
 	SubaccountOrdersList(ctx context.Context, in *SubaccountOrdersListRequest, opts ...grpc.CallOption) (*SubaccountOrdersListResponse, error)
 	// SubaccountTradesList gets a list of derivatives trades executed by this
@@ -73,41 +73,41 @@ type InjectiveDerivativeExchangeRPCClient interface {
 	// Lists history orders posted from a subaccount
 	OrdersHistory(ctx context.Context, in *OrdersHistoryRequest, opts ...grpc.CallOption) (*OrdersHistoryResponse, error)
 	// Stream updates to historical orders of a derivative Market
-	StreamOrdersHistory(ctx context.Context, in *StreamOrdersHistoryRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamOrdersHistoryClient, error)
+	StreamOrdersHistory(ctx context.Context, in *StreamOrdersHistoryRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamOrdersHistoryClient, error)
 }
 
-type injectiveDerivativeExchangeRPCClient struct {
+type heliosDerivativeExchangeRPCClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInjectiveDerivativeExchangeRPCClient(cc grpc.ClientConnInterface) InjectiveDerivativeExchangeRPCClient {
-	return &injectiveDerivativeExchangeRPCClient{cc}
+func NewHeliosDerivativeExchangeRPCClient(cc grpc.ClientConnInterface) HeliosDerivativeExchangeRPCClient {
+	return &heliosDerivativeExchangeRPCClient{cc}
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) Markets(ctx context.Context, in *MarketsRequest, opts ...grpc.CallOption) (*MarketsResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) Markets(ctx context.Context, in *MarketsRequest, opts ...grpc.CallOption) (*MarketsResponse, error) {
 	out := new(MarketsResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Markets", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Markets", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) Market(ctx context.Context, in *MarketRequest, opts ...grpc.CallOption) (*MarketResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) Market(ctx context.Context, in *MarketRequest, opts ...grpc.CallOption) (*MarketResponse, error) {
 	out := new(MarketResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Market", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Market", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) StreamMarket(ctx context.Context, in *StreamMarketRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamMarketClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveDerivativeExchangeRPC_ServiceDesc.Streams[0], "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/StreamMarket", opts...)
+func (c *heliosDerivativeExchangeRPCClient) StreamMarket(ctx context.Context, in *StreamMarketRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamMarketClient, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosDerivativeExchangeRPC_ServiceDesc.Streams[0], "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/StreamMarket", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveDerivativeExchangeRPCStreamMarketClient{stream}
+	x := &heliosDerivativeExchangeRPCStreamMarketClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -117,16 +117,16 @@ func (c *injectiveDerivativeExchangeRPCClient) StreamMarket(ctx context.Context,
 	return x, nil
 }
 
-type InjectiveDerivativeExchangeRPC_StreamMarketClient interface {
+type HeliosDerivativeExchangeRPC_StreamMarketClient interface {
 	Recv() (*StreamMarketResponse, error)
 	grpc.ClientStream
 }
 
-type injectiveDerivativeExchangeRPCStreamMarketClient struct {
+type heliosDerivativeExchangeRPCStreamMarketClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamMarketClient) Recv() (*StreamMarketResponse, error) {
+func (x *heliosDerivativeExchangeRPCStreamMarketClient) Recv() (*StreamMarketResponse, error) {
 	m := new(StreamMarketResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -134,48 +134,48 @@ func (x *injectiveDerivativeExchangeRPCStreamMarketClient) Recv() (*StreamMarket
 	return m, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) BinaryOptionsMarkets(ctx context.Context, in *BinaryOptionsMarketsRequest, opts ...grpc.CallOption) (*BinaryOptionsMarketsResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) BinaryOptionsMarkets(ctx context.Context, in *BinaryOptionsMarketsRequest, opts ...grpc.CallOption) (*BinaryOptionsMarketsResponse, error) {
 	out := new(BinaryOptionsMarketsResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/BinaryOptionsMarkets", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/BinaryOptionsMarkets", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) BinaryOptionsMarket(ctx context.Context, in *BinaryOptionsMarketRequest, opts ...grpc.CallOption) (*BinaryOptionsMarketResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) BinaryOptionsMarket(ctx context.Context, in *BinaryOptionsMarketRequest, opts ...grpc.CallOption) (*BinaryOptionsMarketResponse, error) {
 	out := new(BinaryOptionsMarketResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/BinaryOptionsMarket", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/BinaryOptionsMarket", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) OrderbookV2(ctx context.Context, in *OrderbookV2Request, opts ...grpc.CallOption) (*OrderbookV2Response, error) {
+func (c *heliosDerivativeExchangeRPCClient) OrderbookV2(ctx context.Context, in *OrderbookV2Request, opts ...grpc.CallOption) (*OrderbookV2Response, error) {
 	out := new(OrderbookV2Response)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/OrderbookV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/OrderbookV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) OrderbooksV2(ctx context.Context, in *OrderbooksV2Request, opts ...grpc.CallOption) (*OrderbooksV2Response, error) {
+func (c *heliosDerivativeExchangeRPCClient) OrderbooksV2(ctx context.Context, in *OrderbooksV2Request, opts ...grpc.CallOption) (*OrderbooksV2Response, error) {
 	out := new(OrderbooksV2Response)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/OrderbooksV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/OrderbooksV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) StreamOrderbookV2(ctx context.Context, in *StreamOrderbookV2Request, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamOrderbookV2Client, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveDerivativeExchangeRPC_ServiceDesc.Streams[1], "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/StreamOrderbookV2", opts...)
+func (c *heliosDerivativeExchangeRPCClient) StreamOrderbookV2(ctx context.Context, in *StreamOrderbookV2Request, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamOrderbookV2Client, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosDerivativeExchangeRPC_ServiceDesc.Streams[1], "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/StreamOrderbookV2", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveDerivativeExchangeRPCStreamOrderbookV2Client{stream}
+	x := &heliosDerivativeExchangeRPCStreamOrderbookV2Client{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -185,16 +185,16 @@ func (c *injectiveDerivativeExchangeRPCClient) StreamOrderbookV2(ctx context.Con
 	return x, nil
 }
 
-type InjectiveDerivativeExchangeRPC_StreamOrderbookV2Client interface {
+type HeliosDerivativeExchangeRPC_StreamOrderbookV2Client interface {
 	Recv() (*StreamOrderbookV2Response, error)
 	grpc.ClientStream
 }
 
-type injectiveDerivativeExchangeRPCStreamOrderbookV2Client struct {
+type heliosDerivativeExchangeRPCStreamOrderbookV2Client struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamOrderbookV2Client) Recv() (*StreamOrderbookV2Response, error) {
+func (x *heliosDerivativeExchangeRPCStreamOrderbookV2Client) Recv() (*StreamOrderbookV2Response, error) {
 	m := new(StreamOrderbookV2Response)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -202,12 +202,12 @@ func (x *injectiveDerivativeExchangeRPCStreamOrderbookV2Client) Recv() (*StreamO
 	return m, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) StreamOrderbookUpdate(ctx context.Context, in *StreamOrderbookUpdateRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveDerivativeExchangeRPC_ServiceDesc.Streams[2], "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/StreamOrderbookUpdate", opts...)
+func (c *heliosDerivativeExchangeRPCClient) StreamOrderbookUpdate(ctx context.Context, in *StreamOrderbookUpdateRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamOrderbookUpdateClient, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosDerivativeExchangeRPC_ServiceDesc.Streams[2], "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/StreamOrderbookUpdate", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveDerivativeExchangeRPCStreamOrderbookUpdateClient{stream}
+	x := &heliosDerivativeExchangeRPCStreamOrderbookUpdateClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -217,16 +217,16 @@ func (c *injectiveDerivativeExchangeRPCClient) StreamOrderbookUpdate(ctx context
 	return x, nil
 }
 
-type InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateClient interface {
+type HeliosDerivativeExchangeRPC_StreamOrderbookUpdateClient interface {
 	Recv() (*StreamOrderbookUpdateResponse, error)
 	grpc.ClientStream
 }
 
-type injectiveDerivativeExchangeRPCStreamOrderbookUpdateClient struct {
+type heliosDerivativeExchangeRPCStreamOrderbookUpdateClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamOrderbookUpdateClient) Recv() (*StreamOrderbookUpdateResponse, error) {
+func (x *heliosDerivativeExchangeRPCStreamOrderbookUpdateClient) Recv() (*StreamOrderbookUpdateResponse, error) {
 	m := new(StreamOrderbookUpdateResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -234,66 +234,66 @@ func (x *injectiveDerivativeExchangeRPCStreamOrderbookUpdateClient) Recv() (*Str
 	return m, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) Orders(ctx context.Context, in *OrdersRequest, opts ...grpc.CallOption) (*OrdersResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) Orders(ctx context.Context, in *OrdersRequest, opts ...grpc.CallOption) (*OrdersResponse, error) {
 	out := new(OrdersResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Orders", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Orders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) Positions(ctx context.Context, in *PositionsRequest, opts ...grpc.CallOption) (*PositionsResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) Positions(ctx context.Context, in *PositionsRequest, opts ...grpc.CallOption) (*PositionsResponse, error) {
 	out := new(PositionsResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Positions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Positions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) PositionsV2(ctx context.Context, in *PositionsV2Request, opts ...grpc.CallOption) (*PositionsV2Response, error) {
+func (c *heliosDerivativeExchangeRPCClient) PositionsV2(ctx context.Context, in *PositionsV2Request, opts ...grpc.CallOption) (*PositionsV2Response, error) {
 	out := new(PositionsV2Response)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/PositionsV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/PositionsV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) LiquidablePositions(ctx context.Context, in *LiquidablePositionsRequest, opts ...grpc.CallOption) (*LiquidablePositionsResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) LiquidablePositions(ctx context.Context, in *LiquidablePositionsRequest, opts ...grpc.CallOption) (*LiquidablePositionsResponse, error) {
 	out := new(LiquidablePositionsResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/LiquidablePositions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/LiquidablePositions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) FundingPayments(ctx context.Context, in *FundingPaymentsRequest, opts ...grpc.CallOption) (*FundingPaymentsResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) FundingPayments(ctx context.Context, in *FundingPaymentsRequest, opts ...grpc.CallOption) (*FundingPaymentsResponse, error) {
 	out := new(FundingPaymentsResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/FundingPayments", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/FundingPayments", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) FundingRates(ctx context.Context, in *FundingRatesRequest, opts ...grpc.CallOption) (*FundingRatesResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) FundingRates(ctx context.Context, in *FundingRatesRequest, opts ...grpc.CallOption) (*FundingRatesResponse, error) {
 	out := new(FundingRatesResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/FundingRates", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/FundingRates", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) StreamPositions(ctx context.Context, in *StreamPositionsRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamPositionsClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveDerivativeExchangeRPC_ServiceDesc.Streams[3], "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/StreamPositions", opts...)
+func (c *heliosDerivativeExchangeRPCClient) StreamPositions(ctx context.Context, in *StreamPositionsRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamPositionsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosDerivativeExchangeRPC_ServiceDesc.Streams[3], "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/StreamPositions", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveDerivativeExchangeRPCStreamPositionsClient{stream}
+	x := &heliosDerivativeExchangeRPCStreamPositionsClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -303,16 +303,16 @@ func (c *injectiveDerivativeExchangeRPCClient) StreamPositions(ctx context.Conte
 	return x, nil
 }
 
-type InjectiveDerivativeExchangeRPC_StreamPositionsClient interface {
+type HeliosDerivativeExchangeRPC_StreamPositionsClient interface {
 	Recv() (*StreamPositionsResponse, error)
 	grpc.ClientStream
 }
 
-type injectiveDerivativeExchangeRPCStreamPositionsClient struct {
+type heliosDerivativeExchangeRPCStreamPositionsClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamPositionsClient) Recv() (*StreamPositionsResponse, error) {
+func (x *heliosDerivativeExchangeRPCStreamPositionsClient) Recv() (*StreamPositionsResponse, error) {
 	m := new(StreamPositionsResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -320,12 +320,12 @@ func (x *injectiveDerivativeExchangeRPCStreamPositionsClient) Recv() (*StreamPos
 	return m, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) StreamOrders(ctx context.Context, in *StreamOrdersRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamOrdersClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveDerivativeExchangeRPC_ServiceDesc.Streams[4], "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/StreamOrders", opts...)
+func (c *heliosDerivativeExchangeRPCClient) StreamOrders(ctx context.Context, in *StreamOrdersRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamOrdersClient, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosDerivativeExchangeRPC_ServiceDesc.Streams[4], "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/StreamOrders", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveDerivativeExchangeRPCStreamOrdersClient{stream}
+	x := &heliosDerivativeExchangeRPCStreamOrdersClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -335,16 +335,16 @@ func (c *injectiveDerivativeExchangeRPCClient) StreamOrders(ctx context.Context,
 	return x, nil
 }
 
-type InjectiveDerivativeExchangeRPC_StreamOrdersClient interface {
+type HeliosDerivativeExchangeRPC_StreamOrdersClient interface {
 	Recv() (*StreamOrdersResponse, error)
 	grpc.ClientStream
 }
 
-type injectiveDerivativeExchangeRPCStreamOrdersClient struct {
+type heliosDerivativeExchangeRPCStreamOrdersClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamOrdersClient) Recv() (*StreamOrdersResponse, error) {
+func (x *heliosDerivativeExchangeRPCStreamOrdersClient) Recv() (*StreamOrdersResponse, error) {
 	m := new(StreamOrdersResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -352,30 +352,30 @@ func (x *injectiveDerivativeExchangeRPCStreamOrdersClient) Recv() (*StreamOrders
 	return m, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) Trades(ctx context.Context, in *TradesRequest, opts ...grpc.CallOption) (*TradesResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) Trades(ctx context.Context, in *TradesRequest, opts ...grpc.CallOption) (*TradesResponse, error) {
 	out := new(TradesResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Trades", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Trades", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) TradesV2(ctx context.Context, in *TradesV2Request, opts ...grpc.CallOption) (*TradesV2Response, error) {
+func (c *heliosDerivativeExchangeRPCClient) TradesV2(ctx context.Context, in *TradesV2Request, opts ...grpc.CallOption) (*TradesV2Response, error) {
 	out := new(TradesV2Response)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/TradesV2", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/TradesV2", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) StreamTrades(ctx context.Context, in *StreamTradesRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamTradesClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveDerivativeExchangeRPC_ServiceDesc.Streams[5], "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/StreamTrades", opts...)
+func (c *heliosDerivativeExchangeRPCClient) StreamTrades(ctx context.Context, in *StreamTradesRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamTradesClient, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosDerivativeExchangeRPC_ServiceDesc.Streams[5], "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/StreamTrades", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveDerivativeExchangeRPCStreamTradesClient{stream}
+	x := &heliosDerivativeExchangeRPCStreamTradesClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -385,16 +385,16 @@ func (c *injectiveDerivativeExchangeRPCClient) StreamTrades(ctx context.Context,
 	return x, nil
 }
 
-type InjectiveDerivativeExchangeRPC_StreamTradesClient interface {
+type HeliosDerivativeExchangeRPC_StreamTradesClient interface {
 	Recv() (*StreamTradesResponse, error)
 	grpc.ClientStream
 }
 
-type injectiveDerivativeExchangeRPCStreamTradesClient struct {
+type heliosDerivativeExchangeRPCStreamTradesClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamTradesClient) Recv() (*StreamTradesResponse, error) {
+func (x *heliosDerivativeExchangeRPCStreamTradesClient) Recv() (*StreamTradesResponse, error) {
 	m := new(StreamTradesResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -402,12 +402,12 @@ func (x *injectiveDerivativeExchangeRPCStreamTradesClient) Recv() (*StreamTrades
 	return m, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) StreamTradesV2(ctx context.Context, in *StreamTradesV2Request, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamTradesV2Client, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveDerivativeExchangeRPC_ServiceDesc.Streams[6], "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/StreamTradesV2", opts...)
+func (c *heliosDerivativeExchangeRPCClient) StreamTradesV2(ctx context.Context, in *StreamTradesV2Request, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamTradesV2Client, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosDerivativeExchangeRPC_ServiceDesc.Streams[6], "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/StreamTradesV2", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveDerivativeExchangeRPCStreamTradesV2Client{stream}
+	x := &heliosDerivativeExchangeRPCStreamTradesV2Client{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -417,16 +417,16 @@ func (c *injectiveDerivativeExchangeRPCClient) StreamTradesV2(ctx context.Contex
 	return x, nil
 }
 
-type InjectiveDerivativeExchangeRPC_StreamTradesV2Client interface {
+type HeliosDerivativeExchangeRPC_StreamTradesV2Client interface {
 	Recv() (*StreamTradesV2Response, error)
 	grpc.ClientStream
 }
 
-type injectiveDerivativeExchangeRPCStreamTradesV2Client struct {
+type heliosDerivativeExchangeRPCStreamTradesV2Client struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamTradesV2Client) Recv() (*StreamTradesV2Response, error) {
+func (x *heliosDerivativeExchangeRPCStreamTradesV2Client) Recv() (*StreamTradesV2Response, error) {
 	m := new(StreamTradesV2Response)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -434,39 +434,39 @@ func (x *injectiveDerivativeExchangeRPCStreamTradesV2Client) Recv() (*StreamTrad
 	return m, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) SubaccountOrdersList(ctx context.Context, in *SubaccountOrdersListRequest, opts ...grpc.CallOption) (*SubaccountOrdersListResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) SubaccountOrdersList(ctx context.Context, in *SubaccountOrdersListRequest, opts ...grpc.CallOption) (*SubaccountOrdersListResponse, error) {
 	out := new(SubaccountOrdersListResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/SubaccountOrdersList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/SubaccountOrdersList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) SubaccountTradesList(ctx context.Context, in *SubaccountTradesListRequest, opts ...grpc.CallOption) (*SubaccountTradesListResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) SubaccountTradesList(ctx context.Context, in *SubaccountTradesListRequest, opts ...grpc.CallOption) (*SubaccountTradesListResponse, error) {
 	out := new(SubaccountTradesListResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/SubaccountTradesList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/SubaccountTradesList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) OrdersHistory(ctx context.Context, in *OrdersHistoryRequest, opts ...grpc.CallOption) (*OrdersHistoryResponse, error) {
+func (c *heliosDerivativeExchangeRPCClient) OrdersHistory(ctx context.Context, in *OrdersHistoryRequest, opts ...grpc.CallOption) (*OrdersHistoryResponse, error) {
 	out := new(OrdersHistoryResponse)
-	err := c.cc.Invoke(ctx, "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/OrdersHistory", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/OrdersHistory", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *injectiveDerivativeExchangeRPCClient) StreamOrdersHistory(ctx context.Context, in *StreamOrdersHistoryRequest, opts ...grpc.CallOption) (InjectiveDerivativeExchangeRPC_StreamOrdersHistoryClient, error) {
-	stream, err := c.cc.NewStream(ctx, &InjectiveDerivativeExchangeRPC_ServiceDesc.Streams[7], "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/StreamOrdersHistory", opts...)
+func (c *heliosDerivativeExchangeRPCClient) StreamOrdersHistory(ctx context.Context, in *StreamOrdersHistoryRequest, opts ...grpc.CallOption) (HeliosDerivativeExchangeRPC_StreamOrdersHistoryClient, error) {
+	stream, err := c.cc.NewStream(ctx, &HeliosDerivativeExchangeRPC_ServiceDesc.Streams[7], "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/StreamOrdersHistory", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &injectiveDerivativeExchangeRPCStreamOrdersHistoryClient{stream}
+	x := &heliosDerivativeExchangeRPCStreamOrdersHistoryClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -476,16 +476,16 @@ func (c *injectiveDerivativeExchangeRPCClient) StreamOrdersHistory(ctx context.C
 	return x, nil
 }
 
-type InjectiveDerivativeExchangeRPC_StreamOrdersHistoryClient interface {
+type HeliosDerivativeExchangeRPC_StreamOrdersHistoryClient interface {
 	Recv() (*StreamOrdersHistoryResponse, error)
 	grpc.ClientStream
 }
 
-type injectiveDerivativeExchangeRPCStreamOrdersHistoryClient struct {
+type heliosDerivativeExchangeRPCStreamOrdersHistoryClient struct {
 	grpc.ClientStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamOrdersHistoryClient) Recv() (*StreamOrdersHistoryResponse, error) {
+func (x *heliosDerivativeExchangeRPCStreamOrdersHistoryClient) Recv() (*StreamOrdersHistoryResponse, error) {
 	m := new(StreamOrdersHistoryResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -493,16 +493,16 @@ func (x *injectiveDerivativeExchangeRPCStreamOrdersHistoryClient) Recv() (*Strea
 	return m, nil
 }
 
-// InjectiveDerivativeExchangeRPCServer is the server API for InjectiveDerivativeExchangeRPC service.
-// All implementations must embed UnimplementedInjectiveDerivativeExchangeRPCServer
+// HeliosDerivativeExchangeRPCServer is the server API for HeliosDerivativeExchangeRPC service.
+// All implementations must embed UnimplementedHeliosDerivativeExchangeRPCServer
 // for forward compatibility
-type InjectiveDerivativeExchangeRPCServer interface {
+type HeliosDerivativeExchangeRPCServer interface {
 	// Markets gets a list of Derivative Markets
 	Markets(context.Context, *MarketsRequest) (*MarketsResponse, error)
 	// Market gets details of a single derivative market
 	Market(context.Context, *MarketRequest) (*MarketResponse, error)
 	// StreamMarket streams live updates of selected derivative markets
-	StreamMarket(*StreamMarketRequest, InjectiveDerivativeExchangeRPC_StreamMarketServer) error
+	StreamMarket(*StreamMarketRequest, HeliosDerivativeExchangeRPC_StreamMarketServer) error
 	// BinaryOptionsMarkets gets a list of Binary Options Markets
 	BinaryOptionsMarkets(context.Context, *BinaryOptionsMarketsRequest) (*BinaryOptionsMarketsResponse, error)
 	// BinaryOptionMarket gets details of a single binary options market
@@ -512,9 +512,9 @@ type InjectiveDerivativeExchangeRPCServer interface {
 	// Orderbooks gets the Orderbooks of requested derivative markets
 	OrderbooksV2(context.Context, *OrderbooksV2Request) (*OrderbooksV2Response, error)
 	// Stream live snapshot updates of selected derivative market orderbook
-	StreamOrderbookV2(*StreamOrderbookV2Request, InjectiveDerivativeExchangeRPC_StreamOrderbookV2Server) error
+	StreamOrderbookV2(*StreamOrderbookV2Request, HeliosDerivativeExchangeRPC_StreamOrderbookV2Server) error
 	// Stream live level updates of selected derivative market orderbook
-	StreamOrderbookUpdate(*StreamOrderbookUpdateRequest, InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateServer) error
+	StreamOrderbookUpdate(*StreamOrderbookUpdateRequest, HeliosDerivativeExchangeRPC_StreamOrderbookUpdateServer) error
 	// DerivativeLimitOrders gets the limit orders of a derivative Market.
 	Orders(context.Context, *OrdersRequest) (*OrdersResponse, error)
 	// Positions gets the positions for a trader.
@@ -529,17 +529,17 @@ type InjectiveDerivativeExchangeRPCServer interface {
 	// FundingRates gets the historical funding rates for a market.
 	FundingRates(context.Context, *FundingRatesRequest) (*FundingRatesResponse, error)
 	// StreamPositions streams derivatives position updates.
-	StreamPositions(*StreamPositionsRequest, InjectiveDerivativeExchangeRPC_StreamPositionsServer) error
+	StreamPositions(*StreamPositionsRequest, HeliosDerivativeExchangeRPC_StreamPositionsServer) error
 	// StreamOrders streams updates to individual orders of a Derivative Market.
-	StreamOrders(*StreamOrdersRequest, InjectiveDerivativeExchangeRPC_StreamOrdersServer) error
+	StreamOrders(*StreamOrdersRequest, HeliosDerivativeExchangeRPC_StreamOrdersServer) error
 	// Trades gets the trades of a Derivative Market.
 	Trades(context.Context, *TradesRequest) (*TradesResponse, error)
 	// Trades gets the trades of a Derivative Market.
 	TradesV2(context.Context, *TradesV2Request) (*TradesV2Response, error)
 	// StreamTrades streams newly executed trades from Derivative Market.
-	StreamTrades(*StreamTradesRequest, InjectiveDerivativeExchangeRPC_StreamTradesServer) error
+	StreamTrades(*StreamTradesRequest, HeliosDerivativeExchangeRPC_StreamTradesServer) error
 	// StreamTrades streams newly executed trades from Derivative Market.
-	StreamTradesV2(*StreamTradesV2Request, InjectiveDerivativeExchangeRPC_StreamTradesV2Server) error
+	StreamTradesV2(*StreamTradesV2Request, HeliosDerivativeExchangeRPC_StreamTradesV2Server) error
 	// SubaccountOrdersList lists orders posted from this subaccount.
 	SubaccountOrdersList(context.Context, *SubaccountOrdersListRequest) (*SubaccountOrdersListResponse, error)
 	// SubaccountTradesList gets a list of derivatives trades executed by this
@@ -548,694 +548,694 @@ type InjectiveDerivativeExchangeRPCServer interface {
 	// Lists history orders posted from a subaccount
 	OrdersHistory(context.Context, *OrdersHistoryRequest) (*OrdersHistoryResponse, error)
 	// Stream updates to historical orders of a derivative Market
-	StreamOrdersHistory(*StreamOrdersHistoryRequest, InjectiveDerivativeExchangeRPC_StreamOrdersHistoryServer) error
-	mustEmbedUnimplementedInjectiveDerivativeExchangeRPCServer()
+	StreamOrdersHistory(*StreamOrdersHistoryRequest, HeliosDerivativeExchangeRPC_StreamOrdersHistoryServer) error
+	mustEmbedUnimplementedHeliosDerivativeExchangeRPCServer()
 }
 
-// UnimplementedInjectiveDerivativeExchangeRPCServer must be embedded to have forward compatible implementations.
-type UnimplementedInjectiveDerivativeExchangeRPCServer struct {
+// UnimplementedHeliosDerivativeExchangeRPCServer must be embedded to have forward compatible implementations.
+type UnimplementedHeliosDerivativeExchangeRPCServer struct {
 }
 
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) Markets(context.Context, *MarketsRequest) (*MarketsResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) Markets(context.Context, *MarketsRequest) (*MarketsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Markets not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) Market(context.Context, *MarketRequest) (*MarketResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) Market(context.Context, *MarketRequest) (*MarketResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Market not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) StreamMarket(*StreamMarketRequest, InjectiveDerivativeExchangeRPC_StreamMarketServer) error {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) StreamMarket(*StreamMarketRequest, HeliosDerivativeExchangeRPC_StreamMarketServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamMarket not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) BinaryOptionsMarkets(context.Context, *BinaryOptionsMarketsRequest) (*BinaryOptionsMarketsResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) BinaryOptionsMarkets(context.Context, *BinaryOptionsMarketsRequest) (*BinaryOptionsMarketsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BinaryOptionsMarkets not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) BinaryOptionsMarket(context.Context, *BinaryOptionsMarketRequest) (*BinaryOptionsMarketResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) BinaryOptionsMarket(context.Context, *BinaryOptionsMarketRequest) (*BinaryOptionsMarketResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BinaryOptionsMarket not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) OrderbookV2(context.Context, *OrderbookV2Request) (*OrderbookV2Response, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) OrderbookV2(context.Context, *OrderbookV2Request) (*OrderbookV2Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OrderbookV2 not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) OrderbooksV2(context.Context, *OrderbooksV2Request) (*OrderbooksV2Response, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) OrderbooksV2(context.Context, *OrderbooksV2Request) (*OrderbooksV2Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OrderbooksV2 not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) StreamOrderbookV2(*StreamOrderbookV2Request, InjectiveDerivativeExchangeRPC_StreamOrderbookV2Server) error {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) StreamOrderbookV2(*StreamOrderbookV2Request, HeliosDerivativeExchangeRPC_StreamOrderbookV2Server) error {
 	return status.Errorf(codes.Unimplemented, "method StreamOrderbookV2 not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) StreamOrderbookUpdate(*StreamOrderbookUpdateRequest, InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateServer) error {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) StreamOrderbookUpdate(*StreamOrderbookUpdateRequest, HeliosDerivativeExchangeRPC_StreamOrderbookUpdateServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamOrderbookUpdate not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) Orders(context.Context, *OrdersRequest) (*OrdersResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) Orders(context.Context, *OrdersRequest) (*OrdersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Orders not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) Positions(context.Context, *PositionsRequest) (*PositionsResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) Positions(context.Context, *PositionsRequest) (*PositionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Positions not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) PositionsV2(context.Context, *PositionsV2Request) (*PositionsV2Response, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) PositionsV2(context.Context, *PositionsV2Request) (*PositionsV2Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PositionsV2 not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) LiquidablePositions(context.Context, *LiquidablePositionsRequest) (*LiquidablePositionsResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) LiquidablePositions(context.Context, *LiquidablePositionsRequest) (*LiquidablePositionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LiquidablePositions not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) FundingPayments(context.Context, *FundingPaymentsRequest) (*FundingPaymentsResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) FundingPayments(context.Context, *FundingPaymentsRequest) (*FundingPaymentsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FundingPayments not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) FundingRates(context.Context, *FundingRatesRequest) (*FundingRatesResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) FundingRates(context.Context, *FundingRatesRequest) (*FundingRatesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FundingRates not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) StreamPositions(*StreamPositionsRequest, InjectiveDerivativeExchangeRPC_StreamPositionsServer) error {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) StreamPositions(*StreamPositionsRequest, HeliosDerivativeExchangeRPC_StreamPositionsServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamPositions not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) StreamOrders(*StreamOrdersRequest, InjectiveDerivativeExchangeRPC_StreamOrdersServer) error {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) StreamOrders(*StreamOrdersRequest, HeliosDerivativeExchangeRPC_StreamOrdersServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamOrders not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) Trades(context.Context, *TradesRequest) (*TradesResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) Trades(context.Context, *TradesRequest) (*TradesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Trades not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) TradesV2(context.Context, *TradesV2Request) (*TradesV2Response, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) TradesV2(context.Context, *TradesV2Request) (*TradesV2Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TradesV2 not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) StreamTrades(*StreamTradesRequest, InjectiveDerivativeExchangeRPC_StreamTradesServer) error {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) StreamTrades(*StreamTradesRequest, HeliosDerivativeExchangeRPC_StreamTradesServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamTrades not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) StreamTradesV2(*StreamTradesV2Request, InjectiveDerivativeExchangeRPC_StreamTradesV2Server) error {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) StreamTradesV2(*StreamTradesV2Request, HeliosDerivativeExchangeRPC_StreamTradesV2Server) error {
 	return status.Errorf(codes.Unimplemented, "method StreamTradesV2 not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) SubaccountOrdersList(context.Context, *SubaccountOrdersListRequest) (*SubaccountOrdersListResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) SubaccountOrdersList(context.Context, *SubaccountOrdersListRequest) (*SubaccountOrdersListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SubaccountOrdersList not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) SubaccountTradesList(context.Context, *SubaccountTradesListRequest) (*SubaccountTradesListResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) SubaccountTradesList(context.Context, *SubaccountTradesListRequest) (*SubaccountTradesListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SubaccountTradesList not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) OrdersHistory(context.Context, *OrdersHistoryRequest) (*OrdersHistoryResponse, error) {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) OrdersHistory(context.Context, *OrdersHistoryRequest) (*OrdersHistoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OrdersHistory not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) StreamOrdersHistory(*StreamOrdersHistoryRequest, InjectiveDerivativeExchangeRPC_StreamOrdersHistoryServer) error {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) StreamOrdersHistory(*StreamOrdersHistoryRequest, HeliosDerivativeExchangeRPC_StreamOrdersHistoryServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamOrdersHistory not implemented")
 }
-func (UnimplementedInjectiveDerivativeExchangeRPCServer) mustEmbedUnimplementedInjectiveDerivativeExchangeRPCServer() {
+func (UnimplementedHeliosDerivativeExchangeRPCServer) mustEmbedUnimplementedHeliosDerivativeExchangeRPCServer() {
 }
 
-// UnsafeInjectiveDerivativeExchangeRPCServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InjectiveDerivativeExchangeRPCServer will
+// UnsafeHeliosDerivativeExchangeRPCServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HeliosDerivativeExchangeRPCServer will
 // result in compilation errors.
-type UnsafeInjectiveDerivativeExchangeRPCServer interface {
-	mustEmbedUnimplementedInjectiveDerivativeExchangeRPCServer()
+type UnsafeHeliosDerivativeExchangeRPCServer interface {
+	mustEmbedUnimplementedHeliosDerivativeExchangeRPCServer()
 }
 
-func RegisterInjectiveDerivativeExchangeRPCServer(s grpc.ServiceRegistrar, srv InjectiveDerivativeExchangeRPCServer) {
-	s.RegisterService(&InjectiveDerivativeExchangeRPC_ServiceDesc, srv)
+func RegisterHeliosDerivativeExchangeRPCServer(s grpc.ServiceRegistrar, srv HeliosDerivativeExchangeRPCServer) {
+	s.RegisterService(&HeliosDerivativeExchangeRPC_ServiceDesc, srv)
 }
 
-func _InjectiveDerivativeExchangeRPC_Markets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_Markets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MarketsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Markets(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).Markets(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Markets",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Markets",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Markets(ctx, req.(*MarketsRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).Markets(ctx, req.(*MarketsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_Market_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_Market_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MarketRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Market(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).Market(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Market",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Market",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Market(ctx, req.(*MarketRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).Market(ctx, req.(*MarketRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_StreamMarket_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosDerivativeExchangeRPC_StreamMarket_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamMarketRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveDerivativeExchangeRPCServer).StreamMarket(m, &injectiveDerivativeExchangeRPCStreamMarketServer{stream})
+	return srv.(HeliosDerivativeExchangeRPCServer).StreamMarket(m, &heliosDerivativeExchangeRPCStreamMarketServer{stream})
 }
 
-type InjectiveDerivativeExchangeRPC_StreamMarketServer interface {
+type HeliosDerivativeExchangeRPC_StreamMarketServer interface {
 	Send(*StreamMarketResponse) error
 	grpc.ServerStream
 }
 
-type injectiveDerivativeExchangeRPCStreamMarketServer struct {
+type heliosDerivativeExchangeRPCStreamMarketServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamMarketServer) Send(m *StreamMarketResponse) error {
+func (x *heliosDerivativeExchangeRPCStreamMarketServer) Send(m *StreamMarketResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _InjectiveDerivativeExchangeRPC_BinaryOptionsMarkets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_BinaryOptionsMarkets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BinaryOptionsMarketsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).BinaryOptionsMarkets(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).BinaryOptionsMarkets(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/BinaryOptionsMarkets",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/BinaryOptionsMarkets",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).BinaryOptionsMarkets(ctx, req.(*BinaryOptionsMarketsRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).BinaryOptionsMarkets(ctx, req.(*BinaryOptionsMarketsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_BinaryOptionsMarket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_BinaryOptionsMarket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BinaryOptionsMarketRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).BinaryOptionsMarket(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).BinaryOptionsMarket(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/BinaryOptionsMarket",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/BinaryOptionsMarket",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).BinaryOptionsMarket(ctx, req.(*BinaryOptionsMarketRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).BinaryOptionsMarket(ctx, req.(*BinaryOptionsMarketRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_OrderbookV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_OrderbookV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrderbookV2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).OrderbookV2(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).OrderbookV2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/OrderbookV2",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/OrderbookV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).OrderbookV2(ctx, req.(*OrderbookV2Request))
+		return srv.(HeliosDerivativeExchangeRPCServer).OrderbookV2(ctx, req.(*OrderbookV2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_OrderbooksV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_OrderbooksV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrderbooksV2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).OrderbooksV2(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).OrderbooksV2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/OrderbooksV2",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/OrderbooksV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).OrderbooksV2(ctx, req.(*OrderbooksV2Request))
+		return srv.(HeliosDerivativeExchangeRPCServer).OrderbooksV2(ctx, req.(*OrderbooksV2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_StreamOrderbookV2_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosDerivativeExchangeRPC_StreamOrderbookV2_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamOrderbookV2Request)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveDerivativeExchangeRPCServer).StreamOrderbookV2(m, &injectiveDerivativeExchangeRPCStreamOrderbookV2Server{stream})
+	return srv.(HeliosDerivativeExchangeRPCServer).StreamOrderbookV2(m, &heliosDerivativeExchangeRPCStreamOrderbookV2Server{stream})
 }
 
-type InjectiveDerivativeExchangeRPC_StreamOrderbookV2Server interface {
+type HeliosDerivativeExchangeRPC_StreamOrderbookV2Server interface {
 	Send(*StreamOrderbookV2Response) error
 	grpc.ServerStream
 }
 
-type injectiveDerivativeExchangeRPCStreamOrderbookV2Server struct {
+type heliosDerivativeExchangeRPCStreamOrderbookV2Server struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamOrderbookV2Server) Send(m *StreamOrderbookV2Response) error {
+func (x *heliosDerivativeExchangeRPCStreamOrderbookV2Server) Send(m *StreamOrderbookV2Response) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _InjectiveDerivativeExchangeRPC_StreamOrderbookUpdate_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosDerivativeExchangeRPC_StreamOrderbookUpdate_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamOrderbookUpdateRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveDerivativeExchangeRPCServer).StreamOrderbookUpdate(m, &injectiveDerivativeExchangeRPCStreamOrderbookUpdateServer{stream})
+	return srv.(HeliosDerivativeExchangeRPCServer).StreamOrderbookUpdate(m, &heliosDerivativeExchangeRPCStreamOrderbookUpdateServer{stream})
 }
 
-type InjectiveDerivativeExchangeRPC_StreamOrderbookUpdateServer interface {
+type HeliosDerivativeExchangeRPC_StreamOrderbookUpdateServer interface {
 	Send(*StreamOrderbookUpdateResponse) error
 	grpc.ServerStream
 }
 
-type injectiveDerivativeExchangeRPCStreamOrderbookUpdateServer struct {
+type heliosDerivativeExchangeRPCStreamOrderbookUpdateServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamOrderbookUpdateServer) Send(m *StreamOrderbookUpdateResponse) error {
+func (x *heliosDerivativeExchangeRPCStreamOrderbookUpdateServer) Send(m *StreamOrderbookUpdateResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _InjectiveDerivativeExchangeRPC_Orders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_Orders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrdersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Orders(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).Orders(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Orders",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Orders",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Orders(ctx, req.(*OrdersRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).Orders(ctx, req.(*OrdersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_Positions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_Positions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PositionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Positions(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).Positions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Positions",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Positions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Positions(ctx, req.(*PositionsRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).Positions(ctx, req.(*PositionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_PositionsV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_PositionsV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PositionsV2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).PositionsV2(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).PositionsV2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/PositionsV2",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/PositionsV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).PositionsV2(ctx, req.(*PositionsV2Request))
+		return srv.(HeliosDerivativeExchangeRPCServer).PositionsV2(ctx, req.(*PositionsV2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_LiquidablePositions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_LiquidablePositions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LiquidablePositionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).LiquidablePositions(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).LiquidablePositions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/LiquidablePositions",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/LiquidablePositions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).LiquidablePositions(ctx, req.(*LiquidablePositionsRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).LiquidablePositions(ctx, req.(*LiquidablePositionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_FundingPayments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_FundingPayments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(FundingPaymentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).FundingPayments(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).FundingPayments(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/FundingPayments",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/FundingPayments",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).FundingPayments(ctx, req.(*FundingPaymentsRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).FundingPayments(ctx, req.(*FundingPaymentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_FundingRates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_FundingRates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(FundingRatesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).FundingRates(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).FundingRates(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/FundingRates",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/FundingRates",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).FundingRates(ctx, req.(*FundingRatesRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).FundingRates(ctx, req.(*FundingRatesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_StreamPositions_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosDerivativeExchangeRPC_StreamPositions_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamPositionsRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveDerivativeExchangeRPCServer).StreamPositions(m, &injectiveDerivativeExchangeRPCStreamPositionsServer{stream})
+	return srv.(HeliosDerivativeExchangeRPCServer).StreamPositions(m, &heliosDerivativeExchangeRPCStreamPositionsServer{stream})
 }
 
-type InjectiveDerivativeExchangeRPC_StreamPositionsServer interface {
+type HeliosDerivativeExchangeRPC_StreamPositionsServer interface {
 	Send(*StreamPositionsResponse) error
 	grpc.ServerStream
 }
 
-type injectiveDerivativeExchangeRPCStreamPositionsServer struct {
+type heliosDerivativeExchangeRPCStreamPositionsServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamPositionsServer) Send(m *StreamPositionsResponse) error {
+func (x *heliosDerivativeExchangeRPCStreamPositionsServer) Send(m *StreamPositionsResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _InjectiveDerivativeExchangeRPC_StreamOrders_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosDerivativeExchangeRPC_StreamOrders_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamOrdersRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveDerivativeExchangeRPCServer).StreamOrders(m, &injectiveDerivativeExchangeRPCStreamOrdersServer{stream})
+	return srv.(HeliosDerivativeExchangeRPCServer).StreamOrders(m, &heliosDerivativeExchangeRPCStreamOrdersServer{stream})
 }
 
-type InjectiveDerivativeExchangeRPC_StreamOrdersServer interface {
+type HeliosDerivativeExchangeRPC_StreamOrdersServer interface {
 	Send(*StreamOrdersResponse) error
 	grpc.ServerStream
 }
 
-type injectiveDerivativeExchangeRPCStreamOrdersServer struct {
+type heliosDerivativeExchangeRPCStreamOrdersServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamOrdersServer) Send(m *StreamOrdersResponse) error {
+func (x *heliosDerivativeExchangeRPCStreamOrdersServer) Send(m *StreamOrdersResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _InjectiveDerivativeExchangeRPC_Trades_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_Trades_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TradesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Trades(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).Trades(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/Trades",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/Trades",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).Trades(ctx, req.(*TradesRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).Trades(ctx, req.(*TradesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_TradesV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_TradesV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TradesV2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).TradesV2(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).TradesV2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/TradesV2",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/TradesV2",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).TradesV2(ctx, req.(*TradesV2Request))
+		return srv.(HeliosDerivativeExchangeRPCServer).TradesV2(ctx, req.(*TradesV2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_StreamTrades_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosDerivativeExchangeRPC_StreamTrades_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamTradesRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveDerivativeExchangeRPCServer).StreamTrades(m, &injectiveDerivativeExchangeRPCStreamTradesServer{stream})
+	return srv.(HeliosDerivativeExchangeRPCServer).StreamTrades(m, &heliosDerivativeExchangeRPCStreamTradesServer{stream})
 }
 
-type InjectiveDerivativeExchangeRPC_StreamTradesServer interface {
+type HeliosDerivativeExchangeRPC_StreamTradesServer interface {
 	Send(*StreamTradesResponse) error
 	grpc.ServerStream
 }
 
-type injectiveDerivativeExchangeRPCStreamTradesServer struct {
+type heliosDerivativeExchangeRPCStreamTradesServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamTradesServer) Send(m *StreamTradesResponse) error {
+func (x *heliosDerivativeExchangeRPCStreamTradesServer) Send(m *StreamTradesResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _InjectiveDerivativeExchangeRPC_StreamTradesV2_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosDerivativeExchangeRPC_StreamTradesV2_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamTradesV2Request)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveDerivativeExchangeRPCServer).StreamTradesV2(m, &injectiveDerivativeExchangeRPCStreamTradesV2Server{stream})
+	return srv.(HeliosDerivativeExchangeRPCServer).StreamTradesV2(m, &heliosDerivativeExchangeRPCStreamTradesV2Server{stream})
 }
 
-type InjectiveDerivativeExchangeRPC_StreamTradesV2Server interface {
+type HeliosDerivativeExchangeRPC_StreamTradesV2Server interface {
 	Send(*StreamTradesV2Response) error
 	grpc.ServerStream
 }
 
-type injectiveDerivativeExchangeRPCStreamTradesV2Server struct {
+type heliosDerivativeExchangeRPCStreamTradesV2Server struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamTradesV2Server) Send(m *StreamTradesV2Response) error {
+func (x *heliosDerivativeExchangeRPCStreamTradesV2Server) Send(m *StreamTradesV2Response) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _InjectiveDerivativeExchangeRPC_SubaccountOrdersList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_SubaccountOrdersList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SubaccountOrdersListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).SubaccountOrdersList(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).SubaccountOrdersList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/SubaccountOrdersList",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/SubaccountOrdersList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).SubaccountOrdersList(ctx, req.(*SubaccountOrdersListRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).SubaccountOrdersList(ctx, req.(*SubaccountOrdersListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_SubaccountTradesList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_SubaccountTradesList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SubaccountTradesListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).SubaccountTradesList(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).SubaccountTradesList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/SubaccountTradesList",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/SubaccountTradesList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).SubaccountTradesList(ctx, req.(*SubaccountTradesListRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).SubaccountTradesList(ctx, req.(*SubaccountTradesListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_OrdersHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HeliosDerivativeExchangeRPC_OrdersHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrdersHistoryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InjectiveDerivativeExchangeRPCServer).OrdersHistory(ctx, in)
+		return srv.(HeliosDerivativeExchangeRPCServer).OrdersHistory(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC/OrdersHistory",
+		FullMethod: "/helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC/OrdersHistory",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InjectiveDerivativeExchangeRPCServer).OrdersHistory(ctx, req.(*OrdersHistoryRequest))
+		return srv.(HeliosDerivativeExchangeRPCServer).OrdersHistory(ctx, req.(*OrdersHistoryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InjectiveDerivativeExchangeRPC_StreamOrdersHistory_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _HeliosDerivativeExchangeRPC_StreamOrdersHistory_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(StreamOrdersHistoryRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(InjectiveDerivativeExchangeRPCServer).StreamOrdersHistory(m, &injectiveDerivativeExchangeRPCStreamOrdersHistoryServer{stream})
+	return srv.(HeliosDerivativeExchangeRPCServer).StreamOrdersHistory(m, &heliosDerivativeExchangeRPCStreamOrdersHistoryServer{stream})
 }
 
-type InjectiveDerivativeExchangeRPC_StreamOrdersHistoryServer interface {
+type HeliosDerivativeExchangeRPC_StreamOrdersHistoryServer interface {
 	Send(*StreamOrdersHistoryResponse) error
 	grpc.ServerStream
 }
 
-type injectiveDerivativeExchangeRPCStreamOrdersHistoryServer struct {
+type heliosDerivativeExchangeRPCStreamOrdersHistoryServer struct {
 	grpc.ServerStream
 }
 
-func (x *injectiveDerivativeExchangeRPCStreamOrdersHistoryServer) Send(m *StreamOrdersHistoryResponse) error {
+func (x *heliosDerivativeExchangeRPCStreamOrdersHistoryServer) Send(m *StreamOrdersHistoryResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-// InjectiveDerivativeExchangeRPC_ServiceDesc is the grpc.ServiceDesc for InjectiveDerivativeExchangeRPC service.
+// HeliosDerivativeExchangeRPC_ServiceDesc is the grpc.ServiceDesc for HeliosDerivativeExchangeRPC service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InjectiveDerivativeExchangeRPC_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "injective_derivative_exchange_rpc.InjectiveDerivativeExchangeRPC",
-	HandlerType: (*InjectiveDerivativeExchangeRPCServer)(nil),
+var HeliosDerivativeExchangeRPC_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "helios_derivative_exchange_rpc.HeliosDerivativeExchangeRPC",
+	HandlerType: (*HeliosDerivativeExchangeRPCServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Markets",
-			Handler:    _InjectiveDerivativeExchangeRPC_Markets_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_Markets_Handler,
 		},
 		{
 			MethodName: "Market",
-			Handler:    _InjectiveDerivativeExchangeRPC_Market_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_Market_Handler,
 		},
 		{
 			MethodName: "BinaryOptionsMarkets",
-			Handler:    _InjectiveDerivativeExchangeRPC_BinaryOptionsMarkets_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_BinaryOptionsMarkets_Handler,
 		},
 		{
 			MethodName: "BinaryOptionsMarket",
-			Handler:    _InjectiveDerivativeExchangeRPC_BinaryOptionsMarket_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_BinaryOptionsMarket_Handler,
 		},
 		{
 			MethodName: "OrderbookV2",
-			Handler:    _InjectiveDerivativeExchangeRPC_OrderbookV2_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_OrderbookV2_Handler,
 		},
 		{
 			MethodName: "OrderbooksV2",
-			Handler:    _InjectiveDerivativeExchangeRPC_OrderbooksV2_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_OrderbooksV2_Handler,
 		},
 		{
 			MethodName: "Orders",
-			Handler:    _InjectiveDerivativeExchangeRPC_Orders_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_Orders_Handler,
 		},
 		{
 			MethodName: "Positions",
-			Handler:    _InjectiveDerivativeExchangeRPC_Positions_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_Positions_Handler,
 		},
 		{
 			MethodName: "PositionsV2",
-			Handler:    _InjectiveDerivativeExchangeRPC_PositionsV2_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_PositionsV2_Handler,
 		},
 		{
 			MethodName: "LiquidablePositions",
-			Handler:    _InjectiveDerivativeExchangeRPC_LiquidablePositions_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_LiquidablePositions_Handler,
 		},
 		{
 			MethodName: "FundingPayments",
-			Handler:    _InjectiveDerivativeExchangeRPC_FundingPayments_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_FundingPayments_Handler,
 		},
 		{
 			MethodName: "FundingRates",
-			Handler:    _InjectiveDerivativeExchangeRPC_FundingRates_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_FundingRates_Handler,
 		},
 		{
 			MethodName: "Trades",
-			Handler:    _InjectiveDerivativeExchangeRPC_Trades_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_Trades_Handler,
 		},
 		{
 			MethodName: "TradesV2",
-			Handler:    _InjectiveDerivativeExchangeRPC_TradesV2_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_TradesV2_Handler,
 		},
 		{
 			MethodName: "SubaccountOrdersList",
-			Handler:    _InjectiveDerivativeExchangeRPC_SubaccountOrdersList_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_SubaccountOrdersList_Handler,
 		},
 		{
 			MethodName: "SubaccountTradesList",
-			Handler:    _InjectiveDerivativeExchangeRPC_SubaccountTradesList_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_SubaccountTradesList_Handler,
 		},
 		{
 			MethodName: "OrdersHistory",
-			Handler:    _InjectiveDerivativeExchangeRPC_OrdersHistory_Handler,
+			Handler:    _HeliosDerivativeExchangeRPC_OrdersHistory_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "StreamMarket",
-			Handler:       _InjectiveDerivativeExchangeRPC_StreamMarket_Handler,
+			Handler:       _HeliosDerivativeExchangeRPC_StreamMarket_Handler,
 			ServerStreams: true,
 		},
 		{
 			StreamName:    "StreamOrderbookV2",
-			Handler:       _InjectiveDerivativeExchangeRPC_StreamOrderbookV2_Handler,
+			Handler:       _HeliosDerivativeExchangeRPC_StreamOrderbookV2_Handler,
 			ServerStreams: true,
 		},
 		{
 			StreamName:    "StreamOrderbookUpdate",
-			Handler:       _InjectiveDerivativeExchangeRPC_StreamOrderbookUpdate_Handler,
+			Handler:       _HeliosDerivativeExchangeRPC_StreamOrderbookUpdate_Handler,
 			ServerStreams: true,
 		},
 		{
 			StreamName:    "StreamPositions",
-			Handler:       _InjectiveDerivativeExchangeRPC_StreamPositions_Handler,
+			Handler:       _HeliosDerivativeExchangeRPC_StreamPositions_Handler,
 			ServerStreams: true,
 		},
 		{
 			StreamName:    "StreamOrders",
-			Handler:       _InjectiveDerivativeExchangeRPC_StreamOrders_Handler,
+			Handler:       _HeliosDerivativeExchangeRPC_StreamOrders_Handler,
 			ServerStreams: true,
 		},
 		{
 			StreamName:    "StreamTrades",
-			Handler:       _InjectiveDerivativeExchangeRPC_StreamTrades_Handler,
+			Handler:       _HeliosDerivativeExchangeRPC_StreamTrades_Handler,
 			ServerStreams: true,
 		},
 		{
 			StreamName:    "StreamTradesV2",
-			Handler:       _InjectiveDerivativeExchangeRPC_StreamTradesV2_Handler,
+			Handler:       _HeliosDerivativeExchangeRPC_StreamTradesV2_Handler,
 			ServerStreams: true,
 		},
 		{
 			StreamName:    "StreamOrdersHistory",
-			Handler:       _InjectiveDerivativeExchangeRPC_StreamOrdersHistory_Handler,
+			Handler:       _HeliosDerivativeExchangeRPC_StreamOrdersHistory_Handler,
 			ServerStreams: true,
 		},
 	},
-	Metadata: "goadesign_goagen_injective_derivative_exchange_rpc.proto",
+	Metadata: "goadesign_goagen_helios_derivative_exchange_rpc.proto",
 }

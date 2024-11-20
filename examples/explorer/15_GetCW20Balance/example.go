@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	explorerPB "github.com/InjectiveLabs/sdk-go/exchange/explorer_rpc/pb"
+	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	explorerclient "github.com/InjectiveLabs/sdk-go/client/explorer"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	explorerclient "github.com/Helios-Chain-Labs/sdk-go/client/explorer"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 	ctx := context.Background()
 
 	req := explorerPB.GetCw20BalanceRequest{
-		Address: "inj1dc6rrxhfjaxexzdcrec5w3ryl4jn6x5t7t9j3z",
+		Address: "helios1dc6rrxhfjaxexzdcrec5w3ryl4jn6x5t7t9j3z",
 	}
 	res, err := explorerClient.GetCW20Balance(ctx, &req)
 	if err != nil {

@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	"github.com/cosmos/cosmos-sdk/types/query"
 
@@ -22,10 +22,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,
@@ -57,7 +57,7 @@ func main() {
 		panic(err)
 	}
 
-	denoms := []string{"factory/inj107aqkjc3t5r3l9j4n9lgrma5tm3jav8qgppz6m/position"}
+	denoms := []string{"factory/helios107aqkjc3t5r3l9j4n9lgrma5tm3jav8qgppz6m/position"}
 	pagination := query.PageRequest{Limit: 10}
 	ctx := context.Background()
 

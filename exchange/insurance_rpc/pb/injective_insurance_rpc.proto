@@ -1,18 +1,18 @@
 // Code generated with goa v3.7.0, DO NOT EDIT.
 //
-// InjectiveInsuranceRPC protocol buffer definition
+// HeliosInsuranceRPC protocol buffer definition
 //
 // Command:
-// $ goa gen github.com/InjectiveLabs/injective-indexer/api/design -o ../
+// $ goa gen github.com/Helios-Chain-Labs/helios-indexer/api/design -o ../
 
 syntax = "proto3";
 
-package injective_insurance_rpc;
+package helios_insurance_rpc;
 
-option go_package = "/injective_insurance_rpcpb";
+option go_package = "/helios_insurance_rpcpb";
 
-// InjectiveInsuranceRPC defines gRPC API of Insurance provider.
-service InjectiveInsuranceRPC {
+// HeliosInsuranceRPC defines gRPC API of Insurance provider.
+service HeliosInsuranceRPC {
 	// Funds lists all insurance funds.
 	rpc Funds (FundsRequest) returns (FundsResponse);
 	// Funds returns an insurance fund for a given insurance fund token denom.

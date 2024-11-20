@@ -12,10 +12,10 @@ import (
 	authztypes "github.com/cosmos/cosmos-sdk/x/authz"
 	"github.com/shopspring/decimal"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func main() {
@@ -26,10 +26,10 @@ func main() {
 	}
 
 	granterAddress, _, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,
@@ -40,10 +40,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"f9db9bf330e23cb7839039e944adef6e9df447b90b503d5b4464c90bea9022f3", // keyring will be used if pk not provided
 		false,
@@ -86,7 +86,7 @@ func main() {
 	// note that we use grantee keyring to send the msg on behalf of granter here
 	// sender, subaccount are from granter
 	granter := granterAddress.String()
-	grantee := "inj1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
+	grantee := "helios1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r"
 	defaultSubaccountID := chainClient.DefaultSubaccount(granterAddress)
 
 	marketId := "0x0511ddc4e6586f3bfe1acb2dd905f8b8a82c97e1edaef654b12ca7e6031ca0fa"
@@ -135,5 +135,5 @@ func main() {
 		return
 	}
 
-	fmt.Println("gas fee:", gasFee, "INJ")
+	fmt.Println("gas fee:", gasFee, "HELIOS")
 }

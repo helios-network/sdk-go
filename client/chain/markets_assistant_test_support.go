@@ -4,17 +4,17 @@ import (
 	"cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	oracletypes "github.com/InjectiveLabs/sdk-go/chain/oracle/types"
-	derivativeExchangePB "github.com/InjectiveLabs/sdk-go/exchange/derivative_exchange_rpc/pb"
-	spotExchangePB "github.com/InjectiveLabs/sdk-go/exchange/spot_exchange_rpc/pb"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
+	derivativeExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/derivative_exchange_rpc/pb"
+	spotExchangePB "github.com/Helios-Chain-Labs/sdk-go/exchange/spot_exchange_rpc/pb"
 )
 
-func createINJTokenMeta() spotExchangePB.TokenMeta {
+func createHELIOSTokenMeta() spotExchangePB.TokenMeta {
 	return spotExchangePB.TokenMeta{
-		Name:      "Injective Protocol",
+		Name:      "Helios Protocol",
 		Address:   "0xe28b3B32B6c345A34Ff64674606124Dd5Aceca30",
-		Symbol:    "INJ",
+		Symbol:    "HELIOS",
 		Logo:      "https://static.alchemyapi.io/images/assets/7226.png",
 		Decimals:  18,
 		UpdatedAt: 1681739137644,
@@ -54,15 +54,15 @@ func createUSDTPerpTokenMeta() derivativeExchangePB.TokenMeta {
 	}
 }
 
-func createINJUSDTSpotMarketInfo() *spotExchangePB.SpotMarketInfo {
-	injTokenMeta := createINJTokenMeta()
+func createHELIOSUSDTSpotMarketInfo() *spotExchangePB.SpotMarketInfo {
+	heliosTokenMeta := createHELIOSTokenMeta()
 	usdtTokenMeta := createUSDTTokenMeta()
 	marketInfo := spotExchangePB.SpotMarketInfo{
 		MarketId:            "0x7a57e705bb4e09c88aecfc295569481dbf2fe1d5efe364651fbe72385938e9b0",
 		MarketStatus:        "active",
-		Ticker:              "INJ/USDT",
-		BaseDenom:           "inj",
-		BaseTokenMeta:       &injTokenMeta,
+		Ticker:              "HELIOS/USDT",
+		BaseDenom:           "helios",
+		BaseTokenMeta:       &heliosTokenMeta,
 		QuoteDenom:          "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5",
 		QuoteTokenMeta:      &usdtTokenMeta,
 		MakerFeeRate:        "-0.0001",
@@ -142,7 +142,7 @@ func createBTCUSDTDerivativeMarketInfo() *derivativeExchangePB.DerivativeMarketI
 
 func createSmartDenomMetadata() types.Metadata {
 	firstDenomUnit := types.DenomUnit{
-		Denom:    "factory/inj105ujajd95znwjvcy3hwcz80pgy8tc6v77spur0/SMART",
+		Denom:    "factory/helios105ujajd95znwjvcy3hwcz80pgy8tc6v77spur0/SMART",
 		Exponent: 0,
 		Aliases:  []string{"microSMART"},
 	}
@@ -154,7 +154,7 @@ func createSmartDenomMetadata() types.Metadata {
 	metadata := types.Metadata{
 		Description: "SMART",
 		DenomUnits:  []*types.DenomUnit{&firstDenomUnit, &secondDenomUnit},
-		Base:        "factory/inj105ujajd95znwjvcy3hwcz80pgy8tc6v77spur0/SMART",
+		Base:        "factory/helios105ujajd95znwjvcy3hwcz80pgy8tc6v77spur0/SMART",
 		Display:     "SMART",
 		Name:        "SMART",
 		Symbol:      "SMART",
@@ -165,10 +165,10 @@ func createSmartDenomMetadata() types.Metadata {
 	return metadata
 }
 
-func createINJUSDTChainSpotMarket() *exchangetypes.SpotMarket {
+func createHELIOSUSDTChainSpotMarket() *exchangetypes.SpotMarket {
 	marketInfo := exchangetypes.SpotMarket{
-		Ticker:              "INJ/USDT",
-		BaseDenom:           "inj",
+		Ticker:              "HELIOS/USDT",
+		BaseDenom:           "helios",
 		QuoteDenom:          "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5",
 		MakerFeeRate:        math.LegacyMustNewDecFromStr("-0.0001"),
 		TakerFeeRate:        math.LegacyMustNewDecFromStr("0.001"),
@@ -187,7 +187,7 @@ func createAPEUSDTChainSpotMarket() *exchangetypes.SpotMarket {
 	marketInfo := exchangetypes.SpotMarket{
 		Ticker:              "APE/USDT",
 		BaseDenom:           "peggy0x44C21afAaF20c270EBbF5914Cfc3b5022173FEB7",
-		QuoteDenom:          "factory/inj10vkkttgxdeqcgeppu20x9qtyvuaxxev8qh0awq/usdt",
+		QuoteDenom:          "factory/helios10vkkttgxdeqcgeppu20x9qtyvuaxxev8qh0awq/usdt",
 		MakerFeeRate:        math.LegacyMustNewDecFromStr("-0.0001"),
 		TakerFeeRate:        math.LegacyMustNewDecFromStr("0.001"),
 		RelayerFeeShareRate: math.LegacyMustNewDecFromStr("0.4"),
@@ -234,7 +234,7 @@ func createFirstMatchBetBinaryOptionsMarket() *exchangetypes.BinaryOptionsMarket
 		OracleScaleFactor:   6,
 		ExpirationTimestamp: 1708099200,
 		SettlementTimestamp: 1707099200,
-		Admin:               "inj1zlh5sqevkfphtwnu9cul8p89vseme2eqt0snn9",
+		Admin:               "helios1zlh5sqevkfphtwnu9cul8p89vseme2eqt0snn9",
 		QuoteDenom:          "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5",
 		MarketId:            "0x230dcce315364ff6360097838701b14713e2f4007d704df20ed3d81d09eec957",
 		MakerFeeRate:        math.LegacyMustNewDecFromStr("0"),

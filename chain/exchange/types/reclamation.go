@@ -5,7 +5,7 @@ import (
 
 	sdksecp256k1 "github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 
-	"github.com/InjectiveLabs/sdk-go/chain/crypto/ethsecp256k1"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/ethsecp256k1"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
@@ -36,6 +36,6 @@ func ValidateFundsReclaimSignature(
 func ConstructFundsReclaimMessage(
 	recipient, signer sdk.AccAddress,
 ) []byte {
-	message := fmt.Sprintf("I authorize %s to reclaim my funds from locked account %s on Injective", recipient.String(), signer.String())
+	message := fmt.Sprintf("I authorize %s to reclaim my funds from locked account %s on Helios", recipient.String(), signer.String())
 	return []byte(message)
 }

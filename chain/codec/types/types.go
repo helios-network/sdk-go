@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/tx"
 	"github.com/cosmos/gogoproto/proto"
 
-	injcodec "github.com/InjectiveLabs/sdk-go/chain/codec"
+	helioscodec "github.com/Helios-Chain-Labs/sdk-go/chain/codec"
 )
 
 type EncodingConfig struct {
@@ -32,8 +32,8 @@ func MakeEncodingConfig() EncodingConfig {
 		Amino:             cdc,
 	}
 
-	injcodec.RegisterInterfaces(encodingConfig.InterfaceRegistry)
-	injcodec.RegisterLegacyAminoCodec(encodingConfig.Amino)
+	helioscodec.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	helioscodec.RegisterLegacyAminoCodec(encodingConfig.Amino)
 	return encodingConfig
 }
 

@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	explorerPB "github.com/InjectiveLabs/sdk-go/exchange/explorer_rpc/pb"
+	explorerPB "github.com/Helios-Chain-Labs/sdk-go/exchange/explorer_rpc/pb"
 
-	"github.com/InjectiveLabs/sdk-go/client/common"
-	explorerclient "github.com/InjectiveLabs/sdk-go/client/explorer"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
+	explorerclient "github.com/Helios-Chain-Labs/sdk-go/client/explorer"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	sender := "inj14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
+	sender := "helios14au322k9munkmx5wrchz9q30juf5wjgz2cfqku"
 
 	req := explorerPB.GetPeggyWithdrawalTxsRequest{
 		Sender: sender,

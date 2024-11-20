@@ -8,11 +8,11 @@ import (
 	"cosmossdk.io/math"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 
-	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
-	oracletypes "github.com/InjectiveLabs/sdk-go/chain/oracle/types"
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	oracletypes "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func main() {
@@ -23,10 +23,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,

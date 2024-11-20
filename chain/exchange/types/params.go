@@ -21,13 +21,13 @@ const (
 	// funding is consistently applied on the hour for all perpetual markets.
 	DefaultFundingMultipleSeconds int64 = 3600
 
-	// SpotMarketInstantListingFee is 20 INJ
+	// SpotMarketInstantListingFee is 20 HELIOS
 	SpotMarketInstantListingFee int64 = 20
 
-	// DerivativeMarketInstantListingFee is 20 INJ
+	// DerivativeMarketInstantListingFee is 20 HELIOS
 	DerivativeMarketInstantListingFee int64 = 20
 
-	// BinaryOptionsMarketInstantListingFee is 100 INJ
+	// BinaryOptionsMarketInstantListingFee is 100 HELIOS
 	BinaryOptionsMarketInstantListingFee int64 = 100
 
 	// MaxDerivativeOrderSideCount is 20
@@ -82,7 +82,7 @@ var (
 	KeyDefaultHourlyFundingRateCap                 = []byte("DefaultHourlyFundingRateCap")
 	KeyDefaultHourlyInterestRate                   = []byte("DefaultHourlyInterestRate")
 	KeyMaxDerivativeOrderSideCount                 = []byte("MaxDerivativeOrderSideCount")
-	KeyInjRewardStakedRequirementThreshold         = []byte("KeyInjRewardStakedRequirementThreshold")
+	KeyHeliosRewardStakedRequirementThreshold      = []byte("KeyHeliosRewardStakedRequirementThreshold")
 	KeyTradingRewardsVestingDuration               = []byte("TradingRewardsVestingDuration")
 	KeyLiquidatorRewardShareRate                   = []byte("LiquidatorRewardShareRate")
 	KeyBinaryOptionsMarketInstantListingFee        = []byte("BinaryOptionsMarketInstantListingFee")
@@ -116,7 +116,7 @@ func NewParams(
 	defaultHourlyFundingRateCap math.LegacyDec,
 	defaultHourlyInterestRate math.LegacyDec,
 	maxDerivativeSideOrderCount uint32,
-	injRewardStakedRequirementThreshold math.Int,
+	heliosRewardStakedRequirementThreshold math.Int,
 	tradingRewardsVestingDuration int64,
 	liquidatorRewardShareRate math.LegacyDec,
 	binaryOptionsMarketInstantListingFee sdk.Coin,
@@ -142,7 +142,7 @@ func NewParams(
 		DefaultHourlyFundingRateCap:                 defaultHourlyFundingRateCap,
 		DefaultHourlyInterestRate:                   defaultHourlyInterestRate,
 		MaxDerivativeOrderSideCount:                 maxDerivativeSideOrderCount,
-		InjRewardStakedRequirementThreshold:         injRewardStakedRequirementThreshold,
+		HeliosRewardStakedRequirementThreshold:      heliosRewardStakedRequirementThreshold,
 		TradingRewardsVestingDuration:               tradingRewardsVestingDuration,
 		LiquidatorRewardShareRate:                   liquidatorRewardShareRate,
 		BinaryOptionsMarketInstantListingFee:        binaryOptionsMarketInstantListingFee,
@@ -173,7 +173,7 @@ func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 		paramtypes.NewParamSetPair(KeyDefaultHourlyFundingRateCap, &p.DefaultHourlyFundingRateCap, ValidateFee),
 		paramtypes.NewParamSetPair(KeyDefaultHourlyInterestRate, &p.DefaultHourlyInterestRate, ValidateFee),
 		paramtypes.NewParamSetPair(KeyMaxDerivativeOrderSideCount, &p.MaxDerivativeOrderSideCount, validateDerivativeOrderSideCount),
-		paramtypes.NewParamSetPair(KeyInjRewardStakedRequirementThreshold, &p.InjRewardStakedRequirementThreshold, validateInjRewardStakedRequirementThreshold),
+		paramtypes.NewParamSetPair(KeyHeliosRewardStakedRequirementThreshold, &p.HeliosRewardStakedRequirementThreshold, validateHeliosRewardStakedRequirementThreshold),
 		paramtypes.NewParamSetPair(KeyTradingRewardsVestingDuration, &p.TradingRewardsVestingDuration, validateTradingRewardsVestingDuration),
 		paramtypes.NewParamSetPair(KeyLiquidatorRewardShareRate, &p.LiquidatorRewardShareRate, validateLiquidatorRewardShareRate),
 		paramtypes.NewParamSetPair(KeyBinaryOptionsMarketInstantListingFee, &p.BinaryOptionsMarketInstantListingFee, validateBinaryOptionsMarketInstantListingFee),
@@ -190,8 +190,8 @@ func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 // DefaultParams returns a default set of parameters.
 func DefaultParams() Params {
 	return Params{
-		SpotMarketInstantListingFee:                 sdk.NewCoin("inj", math.NewIntWithDecimal(SpotMarketInstantListingFee, 18)),
-		DerivativeMarketInstantListingFee:           sdk.NewCoin("inj", math.NewIntWithDecimal(DerivativeMarketInstantListingFee, 18)),
+		SpotMarketInstantListingFee:                 sdk.NewCoin("helios", math.NewIntWithDecimal(SpotMarketInstantListingFee, 18)),
+		DerivativeMarketInstantListingFee:           sdk.NewCoin("helios", math.NewIntWithDecimal(DerivativeMarketInstantListingFee, 18)),
 		DefaultSpotMakerFeeRate:                     math.LegacyNewDecWithPrec(-1, 4), // default -0.01% maker fees
 		DefaultSpotTakerFeeRate:                     math.LegacyNewDecWithPrec(1, 3),  // default 0.1% taker fees
 		DefaultDerivativeMakerFeeRate:               math.LegacyNewDecWithPrec(-1, 4), // default -0.01% maker fees
@@ -204,10 +204,10 @@ func DefaultParams() Params {
 		DefaultHourlyFundingRateCap:                 math.LegacyNewDecWithPrec(625, 6),     // default 0.0625% max hourly funding rate
 		DefaultHourlyInterestRate:                   math.LegacyNewDecWithPrec(416666, 11), // 0.01% daily interest rate = 0.0001 / 24 = 0.00000416666
 		MaxDerivativeOrderSideCount:                 MaxDerivativeOrderSideCount,
-		InjRewardStakedRequirementThreshold:         math.NewIntWithDecimal(100, 18), // 100 INJ
+		HeliosRewardStakedRequirementThreshold:      math.NewIntWithDecimal(100, 18), // 100 HELIOS
 		TradingRewardsVestingDuration:               604800,                          // 7 days
 		LiquidatorRewardShareRate:                   math.LegacyNewDecWithPrec(5, 2), // 5% liquidator reward
-		BinaryOptionsMarketInstantListingFee:        sdk.NewCoin("inj", math.NewIntWithDecimal(BinaryOptionsMarketInstantListingFee, 18)),
+		BinaryOptionsMarketInstantListingFee:        sdk.NewCoin("helios", math.NewIntWithDecimal(BinaryOptionsMarketInstantListingFee, 18)),
 		AtomicMarketOrderAccessLevel:                AtomicMarketOrderAccessLevel_SmartContractsOnly,
 		SpotAtomicMarketOrderFeeMultiplier:          math.LegacyNewDecWithPrec(25, 1),        // default 2.5 multiplier
 		DerivativeAtomicMarketOrderFeeMultiplier:    math.LegacyNewDecWithPrec(25, 1),        // default 2.5 multiplier
@@ -262,8 +262,8 @@ func (p Params) Validate() error {
 	if err := validateDerivativeOrderSideCount(p.MaxDerivativeOrderSideCount); err != nil {
 		return fmt.Errorf("max_derivative_order_side_count is incorrect: %w", err)
 	}
-	if err := validateInjRewardStakedRequirementThreshold(p.InjRewardStakedRequirementThreshold); err != nil {
-		return fmt.Errorf("inj_reward_staked_requirement_threshold is incorrect: %w", err)
+	if err := validateHeliosRewardStakedRequirementThreshold(p.HeliosRewardStakedRequirementThreshold); err != nil {
+		return fmt.Errorf("helios_reward_staked_requirement_threshold is incorrect: %w", err)
 	}
 	if err := validateLiquidatorRewardShareRate(p.LiquidatorRewardShareRate); err != nil {
 		return fmt.Errorf("liquidator_reward_share_rate is incorrect: %w", err)
@@ -576,18 +576,18 @@ func validateDerivativeOrderSideCount(i interface{}) error {
 	return nil
 }
 
-func validateInjRewardStakedRequirementThreshold(i interface{}) error {
+func validateHeliosRewardStakedRequirementThreshold(i interface{}) error {
 	v, ok := i.(math.Int)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
 	}
 
 	if v.IsZero() {
-		return fmt.Errorf("InjRewardStakedRequirementThreshold cannot be zero: %d", v)
+		return fmt.Errorf("HeliosRewardStakedRequirementThreshold cannot be zero: %d", v)
 	}
 
 	if v.IsNegative() {
-		return fmt.Errorf("InjRewardStakedRequirementThreshold cannot be negative: %d", v)
+		return fmt.Errorf("HeliosRewardStakedRequirementThreshold cannot be negative: %d", v)
 	}
 
 	return nil

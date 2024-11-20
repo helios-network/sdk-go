@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/InjectiveLabs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
 
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 )
 
 func main() {
@@ -32,7 +32,7 @@ func main() {
 	}
 
 	failEventCh := make(chan map[string]uint, 10000)
-	go chainClient.StreamEventOrderFail("inj1rwv4zn3jptsqs7l8lpa3uvzhs57y8duemete9e", failEventCh)
+	go chainClient.StreamEventOrderFail("helios1rwv4zn3jptsqs7l8lpa3uvzhs57y8duemete9e", failEventCh)
 	for {
 		e := <-failEventCh
 		fmt.Println(e)
