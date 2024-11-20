@@ -5,7 +5,7 @@ import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "helios/insurance/v1beta1/insurance.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chain/modules/insurance/types";
+option go_package = "helios-core/helios-chain/modules/insurance/types";
 
 message EventInsuranceFundUpdate { InsuranceFund fund = 1; }
 

@@ -6,7 +6,7 @@ import "gogoproto/gogo.proto";
 import "helios/exchange/v1beta1/events.proto";
 import "helios/exchange/v1beta1/exchange.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chain/stream/types";
+option go_package = "helios-core/helios-chain/stream/types";
 
 // ChainStream defines the gRPC streaming service.
 service Stream { rpc Stream(StreamRequest) returns (stream StreamResponse); }
@@ -67,8 +67,7 @@ message SubaccountDeposits {
 
 message SubaccountDeposit {
   string denom = 1;
-  helios.exchange.v1beta1.Deposit deposit = 2
-      [ (gogoproto.nullable) = false ];
+  helios.exchange.v1beta1.Deposit deposit = 2 [ (gogoproto.nullable) = false ];
 }
 
 enum OrderUpdateStatus {

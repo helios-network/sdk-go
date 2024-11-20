@@ -7,7 +7,7 @@ import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
 import "amino/amino.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chain/modules/oracle/types";
+option go_package = "helios-core/helios-chain/modules/oracle/types";
 
 // Msg defines the oracle Msg service.
 service Msg {

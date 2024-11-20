@@ -5,7 +5,7 @@ import "google/api/annotations.proto";
 import "helios/oracle/v1beta1/oracle.proto";
 import "helios/oracle/v1beta1/genesis.proto";
 import "gogoproto/gogo.proto";
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chain/modules/oracle/types";
+option go_package = "helios-core/helios-chain/modules/oracle/types";
 
 // Query defines the gRPC querier service.
 service Query {
@@ -24,8 +24,7 @@ service Query {
   // Retrieves the state for all band price feeds
   rpc BandPriceStates(QueryBandPriceStatesRequest)
       returns (QueryBandPriceStatesResponse) {
-    option (google.api.http).get =
-        "/helios/oracle/v1beta1/band_price_states";
+    option (google.api.http).get = "/helios/oracle/v1beta1/band_price_states";
   }
 
   // Retrieves the state for all band ibc price feeds
@@ -52,15 +51,13 @@ service Query {
   // Retrieves the state for all pyth price feeds
   rpc PythPriceStates(QueryPythPriceStatesRequest)
       returns (QueryPythPriceStatesResponse) {
-    option (google.api.http).get =
-        "/helios/oracle/v1beta1/pyth_price_states";
+    option (google.api.http).get = "/helios/oracle/v1beta1/pyth_price_states";
   }
 
   // Retrieves the state for all stork price feeds
   rpc StorkPriceStates(QueryStorkPriceStatesRequest)
       returns (QueryStorkPriceStatesResponse) {
-    option (google.api.http).get =
-        "/helios/oracle/v1beta1/stork_price_states";
+    option (google.api.http).get = "/helios/oracle/v1beta1/stork_price_states";
   }
 
   // Retrieves all stork publishers

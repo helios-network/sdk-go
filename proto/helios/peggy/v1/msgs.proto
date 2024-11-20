@@ -11,7 +11,7 @@ import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
 import "amino/amino.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chain/modules/peggy/types";
+option go_package = "helios-core/helios-chain/modules/peggy/types";
 
 service Msg {
   option (cosmos.msg.v1.service) = true;
@@ -44,8 +44,7 @@ service Msg {
   }
   rpc SetOrchestratorAddresses(MsgSetOrchestratorAddresses)
       returns (MsgSetOrchestratorAddressesResponse) {
-    option (google.api.http).post =
-        "/helios/peggy/v1/set_orchestrator_address";
+    option (google.api.http).post = "/helios/peggy/v1/set_orchestrator_address";
   }
   rpc CancelSendToEth(MsgCancelSendToEth) returns (MsgCancelSendToEthResponse) {
     option (google.api.http).post = "/helios/peggy/v1/cancel_send_to_eth";

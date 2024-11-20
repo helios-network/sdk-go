@@ -38,31 +38,31 @@ copy-chain-types:
 	rm -rf chain/crypto/ethsecp256k1/*test.go rm -rf chain/crypto/ethsecp256k1/*gw.go
 	cp ../helios-core/helios-chain/codec/types/*.go chain/codec/types
 	rm -rf chain/codec/types/*test.go rm -rf chain/codec/types/*gw.go
-	cp ../helios-core/helios-chain/modules/auction/types/*.go chain/auction/types
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/auction/types/*.go chain/auction/types
 	rm -rf chain/auction/types/*test.go  rm -rf chain/auction/types/*gw.go
-	cp ../helios-core/helios-chain/modules/exchange/types/*.go chain/exchange/types
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types/*.go chain/exchange/types
 	rm -rf chain/exchange/types/*test.go  rm -rf chain/exchange/types/*gw.go
-	cp ../helios-core/helios-chain/modules/insurance/types/*.go chain/insurance/types
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/insurance/types/*.go chain/insurance/types
 	rm -rf chain/insurance/types/*test.go  rm -rf chain/insurance/types/*gw.go
-	cp ../helios-core/helios-chain/modules/ocr/types/*.go chain/ocr/types
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/ocr/types/*.go chain/ocr/types
 	rm -rf chain/ocr/types/*test.go  rm -rf chain/ocr/types/*gw.go
-	cp ../helios-core/helios-chain/modules/oracle/types/*.go chain/oracle/types
-	cp -r ../helios-core/helios-chain/modules/oracle/bandchain chain/oracle
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types/*.go chain/oracle/types
+	cp -r ../github.com/Helios-Chain-Labs/sdk-go/chain/oracle/bandchain chain/oracle
 	rm -rf chain/oracle/types/*test.go  rm -rf chain/oracle/types/*gw.go
-	cp ../helios-core/helios-chain/modules/peggy/types/*.go chain/peggy/types
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/peggy/types/*.go chain/peggy/types
 	rm -rf chain/peggy/types/*test.go  rm -rf chain/peggy/types/*gw.go
-	cp ../helios-core/helios-chain/modules/permissions/types/*.go chain/permissions/types
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/permissions/types/*.go chain/permissions/types
 	rm -rf chain/permissions/types/*test.go  rm -rf chain/permissions/types/*gw.go
-	cp ../helios-core/helios-chain/modules/tokenfactory/types/*.go chain/tokenfactory/types
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types/*.go chain/tokenfactory/types
 	rm -rf chain/tokenfactory/types/*test.go  rm -rf chain/tokenfactory/types/*gw.go
-	cp ../helios-core/helios-chain/modules/wasmx/types/*.go chain/wasmx/types
+	cp ../github.com/Helios-Chain-Labs/sdk-go/chain/wasmx/types/*.go chain/wasmx/types
 	rm -rf chain/wasmx/types/*test.go  rm -rf chain/wasmx/types/*gw.go
 	cp ../helios-core/helios-chain/stream/types/*.go chain/stream/types
 	rm -rf chain/stream/types/*test.go  rm -rf chain/stream/types/*gw.go
 	cp ../helios-core/helios-chain/types/*.go chain/types
 	rm -rf chain/types/*test.go rm -rf chain/types/*gw.go
 
-	@echo "👉 Replace helios-core/helios-chain/modules with sdk-go/chain"
+	@echo "👉 Replace github.com/Helios-Chain-Labs/sdk-go/chain with sdk-go/chain"
 	@echo "👉 Replace helios-core/helios-chain/codec with sdk-go/chain/codec"
 	@echo "👉 Replace helios-core/helios-chain/codec/types with sdk-go/chain/codec/types"
 	@echo "👉 Replace helios-core/helios-chain/types with sdk-go/chain/types"

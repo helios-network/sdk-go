@@ -4,7 +4,7 @@ package helios.peggy.v1;
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chain/modules/peggy/types";
+option go_package = "github.com/Helios-Chain-Labs/github.com/Helios-Chain-Labs/sdk-go/chain/peggy/types";
 
 message BlacklistEthereumAddressesProposal {
   option (gogoproto.equal) = false;

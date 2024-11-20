@@ -9,7 +9,7 @@ import "helios/insurance/v1beta1/insurance.proto";
 import "helios/oracle/v1beta1/oracle.proto";
 import "amino/amino.proto";
 
-option go_package = "github.com/Helios-Chain-Labs/helios-core/helios-chain/modules/insurance/types";
+option go_package = "helios-core/helios-chain/modules/insurance/types";
 
 // Msg defines the insurance Msg service.
 service Msg {
