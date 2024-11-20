@@ -3686,7 +3686,7 @@ func (this *Params) Equal(that interface{}) bool {
 	if this.MaxDerivativeOrderSideCount != that1.MaxDerivativeOrderSideCount {
 		return false
 	}
-	if !this.InjRewardStakedRequirementThreshold.Equal(that1.InjRewardStakedRequirementThreshold) {
+	if !this.HeliosRewardStakedRequirementThreshold.Equal(that1.HeliosRewardStakedRequirementThreshold) {
 		return false
 	}
 	if this.TradingRewardsVestingDuration != that1.TradingRewardsVestingDuration {
@@ -3730,7 +3730,7 @@ func (this *Params) Equal(that interface{}) bool {
 			return false
 		}
 	}
-	if !this.InjAuctionMaxCap.Equal(that1.InjAuctionMaxCap) {
+	if !this.HeliosAuctionMaxCap.Equal(that1.HeliosAuctionMaxCap) {
 		return false
 	}
 	return true
@@ -3756,9 +3756,9 @@ func (m *Params) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	var l int
 	_ = l
 	{
-		size := m.InjAuctionMaxCap.Size()
+		size := m.HeliosAuctionMaxCap.Size()
 		i -= size
-		if _, err := m.InjAuctionMaxCap.MarshalTo(dAtA[i:]); err != nil {
+		if _, err := m.HeliosAuctionMaxCap.MarshalTo(dAtA[i:]); err != nil {
 			return 0, err
 		}
 		i = encodeVarintExchange(dAtA, i, uint64(size))
@@ -3891,9 +3891,9 @@ func (m *Params) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0x80
 	}
 	{
-		size := m.InjRewardStakedRequirementThreshold.Size()
+		size := m.HeliosRewardStakedRequirementThreshold.Size()
 		i -= size
-		if _, err := m.InjRewardStakedRequirementThreshold.MarshalTo(dAtA[i:]); err != nil {
+		if _, err := m.HeliosRewardStakedRequirementThreshold.MarshalTo(dAtA[i:]); err != nil {
 			return 0, err
 		}
 		i = encodeVarintExchange(dAtA, i, uint64(size))
@@ -7007,7 +7007,7 @@ func (m *Params) Size() (n int) {
 	if m.MaxDerivativeOrderSideCount != 0 {
 		n += 1 + sovExchange(uint64(m.MaxDerivativeOrderSideCount))
 	}
-	l = m.InjRewardStakedRequirementThreshold.Size()
+	l = m.HeliosRewardStakedRequirementThreshold.Size()
 	n += 1 + l + sovExchange(uint64(l))
 	if m.TradingRewardsVestingDuration != 0 {
 		n += 2 + sovExchange(uint64(m.TradingRewardsVestingDuration))
@@ -7042,7 +7042,7 @@ func (m *Params) Size() (n int) {
 			n += 2 + l + sovExchange(uint64(l))
 		}
 	}
-	l = m.InjAuctionMaxCap.Size()
+	l = m.HeliosAuctionMaxCap.Size()
 	n += 2 + l + sovExchange(uint64(l))
 	return n
 }
@@ -8616,7 +8616,7 @@ func (m *Params) Unmarshal(dAtA []byte) error {
 			}
 		case 15:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field InjRewardStakedRequirementThreshold", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field HeliosRewardStakedRequirementThreshold", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -8644,7 +8644,7 @@ func (m *Params) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if err := m.InjRewardStakedRequirementThreshold.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.HeliosRewardStakedRequirementThreshold.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -8981,7 +8981,7 @@ func (m *Params) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 28:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field InjAuctionMaxCap", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field HeliosAuctionMaxCap", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -9009,7 +9009,7 @@ func (m *Params) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if err := m.InjAuctionMaxCap.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.HeliosAuctionMaxCap.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
