@@ -9,7 +9,7 @@ import (
 	authzcdc "github.com/cosmos/cosmos-sdk/x/authz/codec"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	helioscodectypes "helios-core/helios-chain/codec/types"
+	helioscodectypes "github.com/Helios-Chain-Labs/sdk-go/codec/types"
 )
 
 // RegisterLegacyAminoCodec registers the necessary x/oracle interfaces and concrete types

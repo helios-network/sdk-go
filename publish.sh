@@ -1,4 +1,4 @@
-VERSION=${VERSION:-"v0.50.10-helios-23"}
+VERSION=${VERSION:-"v0.50.10-helios-24"}
 
 echo "Deploy sdk-go"
 git add .

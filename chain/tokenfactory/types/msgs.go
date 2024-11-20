@@ -1,7 +1,7 @@
 package types
 
 import (
-	"helios-core/helios-chain/types"
+	"github.com/Helios-Chain-Labs/sdk-go/types"
 	"strings"
 
 	"cosmossdk.io/errors"
