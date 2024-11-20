@@ -211,11 +211,11 @@ func LoadNetwork(name, node string) Network {
 		return Network{
 			LcdEndpoint:             "http://localhost:10337",
 			TmEndpoint:              "http://localhost:26657",
-			ChainGrpcEndpoint:       "tcp://localhost:9900",
+			ChainGrpcEndpoint:       "tcp://localhost:9090",
 			ChainStreamGrpcEndpoint: "tcp://localhost:9999",
 			ExchangeGrpcEndpoint:    "tcp://localhost:9910",
 			ExplorerGrpcEndpoint:    "tcp://localhost:9911",
-			ChainId:                 "helios-1",
+			ChainId:                 "4242",
 			FeeDenom:                "helios",
 			Name:                    "local",
 			ChainCookieAssistant:    &DisabledCookieAssistant{},

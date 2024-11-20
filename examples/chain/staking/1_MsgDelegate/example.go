@@ -17,7 +17,7 @@ import (
 )
 
 func main() {
-	network := common.LoadNetwork("testnet", "lb")
+	network := common.LoadNetwork("local", "lb")
 	tmClient, err := rpchttp.New(network.TmEndpoint, "/websocket")
 	if err != nil {
 		panic(err)
@@ -26,10 +26,10 @@ func main() {
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
 		os.Getenv("HOME")+"/.heliades",
 		"heliades",
-		"file",
+		"test",
 		"helios-user",
-		"12345678",
-		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
+		"",
+		"cec6921f279a6f6c598b3406a9dc17875db23d36ae6809e703d1eb75ba9835e6", // keyring will be used if pk not provided
 		false,
 	)
 
@@ -61,9 +61,9 @@ func main() {
 
 	msg := new(stakingtypes.MsgDelegate)
 	msg.DelegatorAddress = senderAddress.String()
-	msg.ValidatorAddress = "heliosvaloper14gy4acwjm96wd20awm9ar6j54lev5p7espy9ug"
+	msg.ValidatorAddress = "heliosvaloper1f9ddqdwc2lj9x7vkhrerdeuemtxg5csk6wrjjx"
 	msg.Amount = sdktypes.Coin{
-		Denom: "helios", Amount: math.NewInt(1000000000000000000), // 1 HELIOS
+		Denom: "ahelios", Amount: math.NewInt(1000000000000000000), // 1 HELIOS
 	}
 
 	// AsyncBroadcastMsg, SyncBroadcastMsg, QueueBroadcastMsg
