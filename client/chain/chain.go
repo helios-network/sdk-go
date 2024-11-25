@@ -376,6 +376,13 @@ func NewChainClient(
 		if opts.GasPrices != "" {
 			txFactory = txFactory.WithGasPrices(opts.GasPrices)
 		}
+		if opts.Gas != "" {
+			gas, err := strconv.ParseUint(opts.Gas, 10, 64)
+			if err != nil {
+				return nil, errors.Wrap(err, "error parsing gas limit")
+			}
+			txFactory = txFactory.WithGas(gas)
+		}
 	} else {
 		txFactory = *opts.TxFactory
 	}
