@@ -25,6 +25,7 @@ import (
 	"google.golang.org/grpc"
 
 	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	peggytypes "github.com/Helios-Chain-Labs/sdk-go/chain/peggy/types"
 	permissionstypes "github.com/Helios-Chain-Labs/sdk-go/chain/permissions/types"
 	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
 	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
@@ -230,6 +231,10 @@ func (c *MockChainClient) Close() {}
 
 func (c *MockChainClient) GetGasFee() (string, error) {
 	return "", nil
+}
+
+func (c *MockChainClient) GetAttestation(ctx context.Context, eventNonce uint64, claimHash []byte) (*peggytypes.QueryAttestationResponse, error) {
+	return &peggytypes.QueryAttestationResponse{}, nil
 }
 
 func (c *MockChainClient) FetchContractInfo(ctx context.Context, address string) (*wasmtypes.QueryContractInfoResponse, error) {
