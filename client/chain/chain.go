@@ -27,6 +27,7 @@ import (
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 	exchangetypes "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
+	peggytypes "github.com/Helios-Chain-Labs/sdk-go/chain/peggy/types"
 	chainstreamtypes "github.com/Helios-Chain-Labs/sdk-go/chain/stream/types"
 	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
@@ -142,6 +143,9 @@ type ChainClient interface {
 
 	// get tx from chain node
 	GetTx(ctx context.Context, txHash string) (*txtypes.GetTxResponse, error)
+
+	// peggy module
+	GetAttestation(ctx context.Context, eventNonce uint64, claimHash []byte)
 
 	// wasm module
 	FetchContractInfo(ctx context.Context, address string) (*wasmtypes.QueryContractInfoResponse, error)
@@ -339,6 +343,7 @@ type chainClient struct {
 	tokenfactoryQueryClient  tokenfactorytypes.QueryClient
 	txClient                 txtypes.ServiceClient
 	wasmQueryClient          wasmtypes.QueryClient
+	peggyQueryClient         peggytypes.QueryClient
 	subaccountToNonce        map[ethcommon.Hash]uint32
 
 	closed  int64
@@ -1448,6 +1453,18 @@ func (c *chainClient) ChainStream(ctx context.Context, req chainstreamtypes.Stre
 	}
 
 	return stream, nil
+}
+
+// peggy module
+
+func (c *chainClient) GetAttestation(ctx context.Context, eventNonce uint64, claimHash []byte) (*peggytypes.QueryAttestationResponse, error) {
+	req := &peggytypes.QueryAttestationRequest{
+		Nonce:     eventNonce,
+		ClaimHash: claimHash,
+	}
+	res, err := common.ExecuteCall(ctx, c.network.ChainCookieAssistant, c.peggyQueryClient.Attestation, req)
+
+	return res, err
 }
 
 // wasm module
