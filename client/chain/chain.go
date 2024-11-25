@@ -145,7 +145,7 @@ type ChainClient interface {
 	GetTx(ctx context.Context, txHash string) (*txtypes.GetTxResponse, error)
 
 	// peggy module
-	GetAttestation(ctx context.Context, eventNonce uint64, claimHash []byte)
+	GetAttestation(ctx context.Context, eventNonce uint64, claimHash []byte) (*peggytypes.QueryAttestationResponse, error)
 
 	// wasm module
 	FetchContractInfo(ctx context.Context, address string) (*wasmtypes.QueryContractInfoResponse, error)
@@ -1144,7 +1144,7 @@ func (c *chainClient) GetAuthzGrants(ctx context.Context, req authztypes.QueryGr
 	return res, err
 }
 
-func (c *chainClient) BuildGenericAuthz(granter, grantee, msgtype string, expireIn time.Time) *authztypes.MsgGrant {
+func (c *chainClient) BuildGenericAuthz(granter string, grantee string, msgtype string, expireIn time.Time) *authztypes.MsgGrant {
 	if c.ofacChecker.IsBlacklisted(granter) {
 		panic("Address is in the OFAC list") // panics should generally be avoided, but otherwise function signature should be changed
 	}
@@ -1458,6 +1458,7 @@ func (c *chainClient) ChainStream(ctx context.Context, req chainstreamtypes.Stre
 // peggy module
 
 func (c *chainClient) GetAttestation(ctx context.Context, eventNonce uint64, claimHash []byte) (*peggytypes.QueryAttestationResponse, error) {
+	// Ensure the return type matches the interface definition
 	req := &peggytypes.QueryAttestationRequest{
 		Nonce:     eventNonce,
 		ClaimHash: claimHash,
