@@ -1,12 +1,12 @@
 syntax = "proto3";
-package helios.peggy.v1;
+package helios.hyperion.v1;
 
 // TODO-JT: add ERC20DeployedEvent claim
 
 import "gogoproto/gogo.proto";
 import "google/protobuf/any.proto";
 
-option go_package = "helios-core/helios-chain/modules/peggy/types";
+option go_package = "helios-core/helios-chain/modules/hyperion/types";
 
 // ClaimType is the cosmos type of an event from the counterpart chain that can
 // be handled
@@ -28,12 +28,12 @@ enum ClaimType {
 // Attestation is an aggregate of `claims` that eventually becomes `observed` by
 // all orchestrators
 // EVENT_NONCE:
-// EventNonce a nonce provided by the peggy contract that is unique per event
+// EventNonce a nonce provided by the hyperion contract that is unique per event
 // fired These event nonces must be relayed in order. This is a correctness
 // issue, if relaying out of order transaction replay attacks become possible
 // OBSERVED:
 // Observed indicates that >67% of validators have attested to the event,
-// and that the event should be executed by the peggy state machine
+// and that the event should be executed by the hyperion state machine
 //
 // The actual content of the claims is passed in with the transaction making the
 // claim and then passed through the call stack alongside the attestation while
