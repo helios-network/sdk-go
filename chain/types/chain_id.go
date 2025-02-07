@@ -11,10 +11,10 @@ import (
 )
 
 var (
-	regexChainID     = `[a-z]*`
-	regexSeparator   = `-{1}`
-	regexEpoch       = `[1-9][0-9]*`
-	heliosChainID = regexp.MustCompile(fmt.Sprintf(`^(%s)%s(%s)$`, regexChainID, regexSeparator, regexEpoch))
+	regexChainID   = `([a-z]*|[0-9]+)`
+	regexSeparator = `-{1}`
+	regexEpoch     = `[1-9][0-9]*`
+	heliosChainID  = regexp.MustCompile(fmt.Sprintf(`^(%s)(%s(%s))?$`, regexChainID, regexSeparator, regexEpoch))
 )
 
 // IsValidChainID returns false if the given chain identifier is incorrectly formatted.
@@ -35,12 +35,13 @@ func ParseChainID(chainID string) (*big.Int, error) {
 	}
 
 	matches := heliosChainID.FindStringSubmatch(chainID)
-	if matches == nil || len(matches) != 3 || matches[1] == "" {
-		return nil, errors.Wrap(ErrInvalidChainID, chainID)
-	}
+	// if matches == nil || len(matches) != 3 || matches[1] == "" {
+	// 	return nil, errors.Wrap(ErrInvalidChainID, chainID)
+	// }
 
 	// verify that the chain-id entered is a base 10 integer
 	chainIDInt, ok := new(big.Int).SetString(matches[2], 10)
+
 	if !ok {
 		return nil, errors.Wrapf(ErrInvalidChainID, "epoch %s must be base-10 integer format", matches[2])
 	}
