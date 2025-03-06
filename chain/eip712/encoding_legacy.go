@@ -12,7 +12,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	txTypes "github.com/cosmos/cosmos-sdk/types/tx"
 
-	helios "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	helios "helios-core/helios-chain/types"
 
 	apitypes "github.com/ethereum/go-ethereum/signer/core/apitypes"
 )
