@@ -9,7 +9,7 @@ import (
 	"crypto/subtle"
 	"fmt"
 
-	"helios-core/helios-chain/eip712"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/eip712"
 
 	errorsmod "cosmossdk.io/errors"
 	tmcrypto "github.com/cometbft/cometbft/crypto"
