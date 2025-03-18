@@ -15,9 +15,9 @@ import (
 )
 
 const (
-	MainnetTokensListURL = "https://github.com/Helios-Chain-Labs/helios-lists/raw/master/tokens/mainnet.json" // nolint:gosec // not credentials, just the link to the public tokens list
-	TestnetTokensListURL = "https://github.com/Helios-Chain-Labs/helios-lists/raw/master/tokens/testnet.json" // nolint:gosec // not credentials, just the link to the public tokens list
-	DevnetTokensListURL  = "https://github.com/Helios-Chain-Labs/helios-lists/raw/master/tokens/devnet.json"  // nolint:gosec // not credentials, just the link to the public tokens list
+	MainnetTokensListURL = "https://github.com/helios-network/helios-lists/raw/master/tokens/mainnet.json" // nolint:gosec // not credentials, just the link to the public tokens list
+	TestnetTokensListURL = "https://github.com/helios-network/helios-lists/raw/master/tokens/testnet.json" // nolint:gosec // not credentials, just the link to the public tokens list
+	DevnetTokensListURL  = "https://github.com/helios-network/helios-lists/raw/master/tokens/devnet.json"  // nolint:gosec // not credentials, just the link to the public tokens list
 )
 
 func cookieByName(cookies []*http.Cookie, key string) *http.Cookie {

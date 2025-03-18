@@ -19,15 +19,9 @@ import (
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 
-	auction "github.com/Helios-Chain-Labs/sdk-go/chain/auction/types"
-	exchange "github.com/Helios-Chain-Labs/sdk-go/chain/exchange/types"
-	insurance "github.com/Helios-Chain-Labs/sdk-go/chain/insurance/types"
-	ocr "github.com/Helios-Chain-Labs/sdk-go/chain/ocr/types"
-	oracle "github.com/Helios-Chain-Labs/sdk-go/chain/oracle/types"
-	peggy "github.com/Helios-Chain-Labs/sdk-go/chain/peggy/types"
+	hyperion "github.com/Helios-Chain-Labs/sdk-go/chain/hyperion/types"
 	tokenfactory "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
 	chaintypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
-	wasmx "github.com/Helios-Chain-Labs/sdk-go/chain/wasmx/types"
 
 	evidencetypes "cosmossdk.io/x/evidence/types"
 	feegranttypes "cosmossdk.io/x/feegrant"
@@ -77,13 +71,7 @@ func NewTxConfig(signModes []signingtypes.SignMode) client.TxConfig {
 	interfaceRegistry := NewInterfaceRegistry()
 	keyscodec.RegisterInterfaces(interfaceRegistry)
 	std.RegisterInterfaces(interfaceRegistry)
-	exchange.RegisterInterfaces(interfaceRegistry)
-	oracle.RegisterInterfaces(interfaceRegistry)
-	insurance.RegisterInterfaces(interfaceRegistry)
-	auction.RegisterInterfaces(interfaceRegistry)
-	peggy.RegisterInterfaces(interfaceRegistry)
-	ocr.RegisterInterfaces(interfaceRegistry)
-	wasmx.RegisterInterfaces(interfaceRegistry)
+	hyperion.RegisterInterfaces(interfaceRegistry)
 	chaintypes.RegisterInterfaces(interfaceRegistry)
 	tokenfactory.RegisterInterfaces(interfaceRegistry)
 
@@ -124,13 +112,7 @@ func NewClientContext(
 	interfaceRegistry := NewInterfaceRegistry()
 	keyscodec.RegisterInterfaces(interfaceRegistry)
 	std.RegisterInterfaces(interfaceRegistry)
-	exchange.RegisterInterfaces(interfaceRegistry)
-	insurance.RegisterInterfaces(interfaceRegistry)
-	auction.RegisterInterfaces(interfaceRegistry)
-	oracle.RegisterInterfaces(interfaceRegistry)
-	peggy.RegisterInterfaces(interfaceRegistry)
-	ocr.RegisterInterfaces(interfaceRegistry)
-	wasmx.RegisterInterfaces(interfaceRegistry)
+	hyperion.RegisterInterfaces(interfaceRegistry)
 	chaintypes.RegisterInterfaces(interfaceRegistry)
 	tokenfactory.RegisterInterfaces(interfaceRegistry)
 

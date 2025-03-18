@@ -74,7 +74,7 @@ func main() {
 			{
 				Address: senderAddress.String(),
 				Coins: []sdktypes.Coin{{
-					Denom: "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5", Amount: math.NewInt(1000000)}, // 1 USDT
+					Denom: "hyperion0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5", Amount: math.NewInt(1000000)}, // 1 USDT
 				},
 			},
 		},
@@ -88,7 +88,7 @@ func main() {
 			{
 				Address: "helios1hkhdaj2a2clmq5jq6mspsggqs32vynpk228q3r",
 				Coins: []sdktypes.Coin{{
-					Denom: "peggy0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5", Amount: math.NewInt(1000000)}, // 1 USDT
+					Denom: "hyperion0x87aB3B4C8661e07D6372361211B96ed4Dc36B1B5", Amount: math.NewInt(1000000)}, // 1 USDT
 				},
 			},
 		},
