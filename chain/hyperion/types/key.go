@@ -122,22 +122,34 @@ func GetEthereumBlacklistStoreKey(addr common.Address) []byte {
 // GetOrchestratorAddressKey returns the following key format
 // prefix
 // [0xe8][cosmos1ahx7f8wyertuus9r20284ej0asrs085case3kn]
-func GetOrchestratorAddressKey(orc sdk.AccAddress) []byte {
-	return append(KeyOrchestratorAddress, orc.Bytes()...)
+func GetOrchestratorAddressKey(hyperionId uint64, orc sdk.AccAddress) []byte {
+	buf := make([]byte, 0, len(KeyOrchestratorAddress)+8+len(orc.Bytes()))
+	buf = append(buf, KeyOrchestratorAddress...)
+	buf = append(buf, UInt64Bytes(hyperionId)...)
+	buf = append(buf, orc.Bytes()...)
+	return buf
 }
 
 // GetEthAddressByValidatorKey returns the following key format
-// prefix              cosmos-validator
-// [0x0][cosmosvaloper1ahx7f8wyertuus9r20284ej0asrs085case3kn]
-func GetEthAddressByValidatorKey(validator sdk.ValAddress) []byte {
-	return append(EthAddressByValidatorKey, validator.Bytes()...)
+// prefix      hyperionId        cosmos-validator
+// [0x0][0 0 0 0 0 0 0 1][cosmosvaloper1ahx7f8wyertuus9r20284ej0asrs085case3kn]
+func GetEthAddressByValidatorKey(hyperionId uint64, validator sdk.ValAddress) []byte {
+	buf := make([]byte, 0, len(EthAddressByValidatorKey)+8+len(validator.Bytes()))
+	buf = append(buf, EthAddressByValidatorKey...)
+	buf = append(buf, UInt64Bytes(hyperionId)...)
+	buf = append(buf, validator.Bytes()...)
+	return buf
 }
 
 // GetValidatorByEthAddressKey returns the following key format
-// prefix              cosmos-validator
-// [0xf9][0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B]
-func GetValidatorByEthAddressKey(ethAddress common.Address) []byte {
-	return append(ValidatorByEthAddressKey, ethAddress.Bytes()...)
+// prefix      hyperionId        cosmos-validator
+// [0xf9][0 0 0 0 0 0 0 1][0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B]
+func GetValidatorByEthAddressKey(hyperionId uint64, ethAddress common.Address) []byte {
+	buf := make([]byte, 0, len(ValidatorByEthAddressKey)+8+len(ethAddress.Bytes()))
+	buf = append(buf, ValidatorByEthAddressKey...)
+	buf = append(buf, UInt64Bytes(hyperionId)...)
+	buf = append(buf, ethAddress.Bytes()...)
+	return buf
 }
 
 // GetValsetKey returns the following key format
@@ -264,11 +276,12 @@ func GetBatchConfirmKey(hyperionId uint64, tokenContract common.Address, batchNo
 }
 
 // GetFeeSecondIndexKey returns the following key format
-// prefix            eth-contract-address            					fee_amount
-// [0x9][0xc783df8a850f42e7F7e57013759C285caa701eB6][0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
-func GetFeeSecondIndexKey(tokenContract common.Address, fee *ERC20Token) []byte {
-	buf := make([]byte, 0, len(SecondIndexOutgoingTXFeeKey)+ETHContractAddressLen+32)
+// prefix    hyperionId        eth-contract-address            					fee_amount
+// [0x9][0 0 0 0 0 0 0 1][0xc783df8a850f42e7F7e57013759C285caa701eB6][0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+func GetFeeSecondIndexKey(hyperionId uint64, tokenContract common.Address, fee *ERC20Token) []byte {
+	buf := make([]byte, 0, len(SecondIndexOutgoingTXFeeKey)+8+ETHContractAddressLen+32)
 	buf = append(buf, SecondIndexOutgoingTXFeeKey...)
+	buf = append(buf, UInt64Bytes(hyperionId)...)
 	buf = append(buf, tokenContract.Bytes()...)
 
 	// sdk.BigInt represented as a zero-extended big-endian byte slice (32 bytes)
@@ -279,43 +292,40 @@ func GetFeeSecondIndexKey(tokenContract common.Address, fee *ERC20Token) []byte 
 	return buf
 }
 
-// GetLastEventNonceByValidatorKey indexes lateset event nonce by validator
-// GetLastEventNonceByValidatorKey returns the following key format
-// prefix              cosmos-validator
-// [0x0][cosmos1ahx7f8wyertuus9r20284ej0asrs085case3kn]
-func GetLastEventNonceByValidatorKey(validator sdk.ValAddress) []byte {
-	// buf := make([]byte, 0, len(LastEventNonceByValidatorKey)+len(validator))
-	// buf = append(buf, LastEventNonceByValidatorKey...)
-	// buf = append(buf, validator.Bytes()...)
+func GetPrefixRangeForGetFeeSecondIndexKeyOnSpecificalTokenContract(hyperionId uint64, tokenContract common.Address) []byte {
+	return append(UInt64Bytes(hyperionId), tokenContract.Bytes()...)
+}
 
-	// return buf
-	return validator.Bytes()
+func GetPrefixRangeForGetFeeSecondIndexKey(hyperionId uint64) []byte {
+	return UInt64Bytes(hyperionId)
 }
 
 // GetLastEventByValidatorKey indexes lateset event by validator
 // GetLastEventByValidatorKey returns the following key format
-// prefix              cosmos-validator
-// [0x0][cosmos1ahx7f8wyertuus9r20284ej0asrs085case3kn]
-func GetLastEventByValidatorKey(validator sdk.ValAddress) []byte {
-	// buf := make([]byte, 0, len(LastEventByValidatorKey)+len(validator))
-	// buf = append(buf, LastEventByValidatorKey...)
-	// buf = append(buf, validator.Bytes()...)
+// prefix    hyperionId        cosmos-validator
+// [0x0][0,0,0,0,0,0,0,1][cosmos1ahx7f8wyertuus9r20284ej0asrs085case3kn]
+func GetLastEventByValidatorKey(hyperionId uint64, validator sdk.ValAddress) []byte {
+	buf := make([]byte, 0, len(LastEventByValidatorKey)+8+len(validator))
+	buf = append(buf, LastEventByValidatorKey...)
+	buf = append(buf, UInt64Bytes(hyperionId)...)
+	buf = append(buf, validator.Bytes()...)
 
-	// return buf
-	return validator.Bytes()
+	return buf
 }
 
-func GetCosmosDenomToERC20Key(denom string) []byte {
-	buf := make([]byte, 0, len(DenomToERC20Key)+len(denom))
+func GetCosmosDenomToERC20Key(hyperionId uint64, denom string) []byte {
+	buf := make([]byte, 0, len(DenomToERC20Key)+8+len(denom))
 	buf = append(buf, DenomToERC20Key...)
+	buf = append(buf, UInt64Bytes(hyperionId)...)
 	buf = append(buf, denom...)
 
 	return buf
 }
 
-func GetERC20ToCosmosDenomKey(tokenContract common.Address) []byte {
-	buf := make([]byte, 0, len(ERC20ToDenomKey)+ETHContractAddressLen)
+func GetERC20ToCosmosDenomKey(hyperionId uint64, tokenContract common.Address) []byte {
+	buf := make([]byte, 0, len(ERC20ToDenomKey)+8+ETHContractAddressLen)
 	buf = append(buf, ERC20ToDenomKey...)
+	buf = append(buf, UInt64Bytes(hyperionId)...)
 	buf = append(buf, tokenContract.Bytes()...)
 
 	return buf
@@ -326,4 +336,12 @@ func GetERC20ToCosmosDenomKey(tokenContract common.Address) []byte {
 // [0x0][ checkpoint bytes ]
 func GetPastEthSignatureCheckpointKey(checkpoint common.Hash) []byte {
 	return append(PastEthSignatureCheckpointKey, checkpoint[:]...)
+}
+
+func GetLastOutgoingBatchIDKey(hyperionId uint64) []byte {
+	return append(KeyLastOutgoingBatchID, UInt64Bytes(hyperionId)...)
+}
+
+func GetLastTXPoolIDKey(hyperionId uint64) []byte {
+	return append(KeyLastTXPoolID, UInt64Bytes(hyperionId)...)
 }

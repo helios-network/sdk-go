@@ -17,6 +17,11 @@ import (
 	evmtypes "github.com/Helios-Chain-Labs/sdk-go/chain/evm/types"
 )
 
+var (
+	LEGACY_CRON               = "1"
+	CALLBACK_CONDITIONED_CRON = "2"
+)
+
 type EVMKeeper interface {
 	GetParams(ctx sdk.Context) evmtypes.Params
 	GetAccountWithoutBalance(ctx sdk.Context, addr common.Address) *statedb.Account
