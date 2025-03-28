@@ -1,3 +1,3 @@
 # Protobufs
 
-This is the public protocol buffers API for [Injective core](https://github.com/InjectiveLabs/injective-core).
+This is the public protocol buffers API for [Helios Core](https://github.com/HeliosLabs/helios-core).

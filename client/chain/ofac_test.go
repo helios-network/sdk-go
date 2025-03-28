@@ -6,9 +6,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	"github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	"github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	cosmtypes "github.com/cosmos/cosmos-sdk/types"
@@ -69,7 +69,7 @@ func (suite *OfacTestSuite) TestOfacList() {
 	testChecker, err := chain.NewOfacChecker()
 	suite.NoError(err)
 	suite.True(testChecker.IsBlacklisted(suite.senderAddress.String()))
-	suite.False(testChecker.IsBlacklisted("inj1"))
+	suite.False(testChecker.IsBlacklisted("helios1"))
 
 	_, err = chain.NewChainClient(
 		clientCtx,

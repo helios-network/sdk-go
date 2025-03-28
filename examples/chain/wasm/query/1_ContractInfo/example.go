@@ -7,26 +7,26 @@ import (
 
 	"os"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 
 func main() {
-	network := common.LoadNetwork("testnet", "lb")
+	network := common.LoadNetwork("local", "lb")
 	tmClient, err := rpchttp.New(network.TmEndpoint, "/websocket")
 	if err != nil {
 		panic(err)
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
-		"file",
-		"inj-user",
-		"12345678",
-		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
+		"test",
+		"heliosUser",
+		"",
+		"cec6921f279a6f6c598b3406a9dc17875db23d36ae6809e703d1eb75ba9835e6", // keyring will be used if pk not provided
 		false,
 	)
 
@@ -56,7 +56,7 @@ func main() {
 		panic(err)
 	}
 
-	address := "inj1ady3s7whq30l4fx8sj3x6muv5mx4dfdlcpv8n7"
+	address := "helios1080sh639k3z9pdz3vm8n8lymwv9zrvn86jwrnc"
 	ctx := context.Background()
 
 	res, err := chainClient.FetchContractInfo(ctx, address)

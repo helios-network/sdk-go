@@ -6,15 +6,15 @@ import (
 
 	cosmoshd "github.com/cosmos/cosmos-sdk/crypto/hd"
 
-	"github.com/InjectiveLabs/sdk-go/chain/crypto/ethsecp256k1"
-	"github.com/InjectiveLabs/sdk-go/chain/crypto/hd"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/ethsecp256k1"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
 )
 
 // AppName defines the Ledger app used for signing. Evmos uses the Ethereum app
 const AppName = "Ethereum"
 
 var (
-	// SupportedAlgorithms defines the list of signing algorithms used on Injective:
+	// SupportedAlgorithms defines the list of signing algorithms used on Helios:
 	//  - eth_secp256k1 (Ethereum)
 	//  - secp256k1 (Tendermint)
 	SupportedAlgorithms = keyring.SigningAlgoList{hd.EthSecp256k1, cosmoshd.Secp256k1}

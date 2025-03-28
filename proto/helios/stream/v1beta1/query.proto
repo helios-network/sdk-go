@@ -1,0 +1,32 @@
+syntax = "proto3";
+package helios.stream.v1beta1;
+
+import "cosmos/base/v1beta1/coin.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "helios-core/helios-chain/stream/types";
+
+// ChainStream defines the gRPC streaming service.
+service Stream { rpc Stream(StreamRequest) returns (stream StreamResponse); }
+
+message StreamRequest {
+  BankBalancesFilter bank_balances_filter = 1 [ (gogoproto.nullable) = true ];
+}
+
+message StreamResponse {
+  uint64 block_height = 1;
+  int64 block_time = 2;
+  repeated BankBalance bank_balances = 3;
+}
+
+message BankBalance {
+  string account = 1;
+  repeated cosmos.base.v1beta1.Coin balances = 2 [
+    (gogoproto.nullable) = false,
+    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"
+  ];
+}
+
+message BankBalancesFilter { repeated string accounts = 1; }
+
+

@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/InjectiveLabs/sdk-go/client"
-	chainclient "github.com/InjectiveLabs/sdk-go/client/chain"
-	"github.com/InjectiveLabs/sdk-go/client/common"
+	"github.com/Helios-Chain-Labs/sdk-go/client"
+	chainclient "github.com/Helios-Chain-Labs/sdk-go/client/chain"
+	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	rpchttp "github.com/cometbft/cometbft/rpc/client/http"
 )
 
@@ -20,10 +20,10 @@ func main() {
 	}
 
 	senderAddress, cosmosKeyring, err := chainclient.InitCosmosKeyring(
-		os.Getenv("HOME")+"/.injectived",
-		"injectived",
+		os.Getenv("HOME")+"/.heliades",
+		"heliades",
 		"file",
-		"inj-user",
+		"helios-user",
 		"12345678",
 		"5d386fbdbf11f1141010f81a46b40f94887367562bd33b452bbaa6ce1cd1381e", // keyring will be used if pk not provided
 		false,
@@ -55,7 +55,7 @@ func main() {
 		panic(err)
 	}
 
-	address := "inj1ady3s7whq30l4fx8sj3x6muv5mx4dfdlcpv8n7"
+	address := "helios1ady3s7whq30l4fx8sj3x6muv5mx4dfdlcpv8n7"
 	queryData := []byte("{\"get_count\": {}}")
 	ctx := context.Background()
 

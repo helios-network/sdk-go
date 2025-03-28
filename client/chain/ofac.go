@@ -10,11 +10,11 @@ import (
 )
 
 const (
-	DefaultOfacListURL = "https://raw.githubusercontent.com/InjectiveLabs/injective-lists/refs/heads/master/json/wallets/ofac.json"
+	DefaultOfacListURL = "https://raw.githubusercontent.com/helios-network/helios-lists/refs/heads/master/json/wallets/ofac.json"
 )
 
 var (
-	OfacListPath     = "injective_data"
+	OfacListPath     = "helios_data"
 	OfacListFilename = "ofac.json"
 )
 

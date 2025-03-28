@@ -7,11 +7,11 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-func createINJToken() Token {
+func createHELIOSToken() Token {
 	token := Token{
-		Name:     "Injective Protocol",
-		Symbol:   "INJ",
-		Denom:    "inj",
+		Name:     "Helios Protocol",
+		Symbol:   "HELIOS",
+		Denom:    "helios",
 		Address:  "0xe28b3B32B6c345A34Ff64674606124Dd5Aceca30",
 		Decimals: 18,
 		Logo:     "https://static.alchemyapi.io/images/assets/7226.png",
@@ -37,7 +37,7 @@ func createUSDTToken() Token {
 
 func TestChainFormattedValue(t *testing.T) {
 	value := decimal.RequireFromString("1.3456")
-	token := createINJToken()
+	token := createHELIOSToken()
 
 	chainFormattedValue := token.ChainFormattedValue(value)
 	multiplier := decimal.New(1, int32(token.Decimals))

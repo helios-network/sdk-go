@@ -1,4 +1,4 @@
-# Injective Chain Keyring Helper
+# Helios Chain Keyring Helper
 
 Creates a new keyring from a variety of options. See `ConfigOpt` and related options. This keyring helper allows initializing the Cosmos SDK keyring used for signing transactions.
 
@@ -15,7 +15,7 @@ NewCosmosKeyring(cdc codec.Codec, opts ...ConfigOpt) (sdk.AccAddress, cosmkeyrin
 These options are global on the keyring level.
 
 * `WithKeyringDir` option sets keyring path in the filesystem, useful when keyring backend is `file`.
-* `WithKeyringAppName` option sets keyring application name (defaults to `injectived`)
+* `WithKeyringAppName` option sets keyring application name (defaults to `heliades`)
 * `WithKeyringBackend` sets the keyring backend. Expected values: `test`, `file`, `os`.
 * `WithUseLedger` sets the option to use hardware wallet, if available on the system.
 
@@ -95,7 +95,7 @@ coverage: 83.1% of statements
 ```bash
 > cd testdata
 
-> injectived keys --keyring-dir `pwd` --keyring-backend file add test
+> heliades keys --keyring-dir `pwd` --keyring-backend file add test
 ```
 
 Passphrase should be `test12345678` for this fixture to work.

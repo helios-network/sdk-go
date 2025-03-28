@@ -9,8 +9,8 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-func createINJUSDTSpotMarket() SpotMarket {
-	injToken := createINJToken()
+func createHELIOSUSDTSpotMarket() SpotMarket {
+	heliosToken := createHELIOSToken()
 	usdtToken := createUSDTToken()
 
 	makerFeeRate := decimal.RequireFromString("-0.0001")
@@ -23,8 +23,8 @@ func createINJUSDTSpotMarket() SpotMarket {
 	market := SpotMarket{
 		Id:                  "0x7a57e705bb4e09c88aecfc295569481dbf2fe1d5efe364651fbe72385938e9b0",
 		Status:              "active",
-		Ticker:              "INJ/USDT",
-		BaseToken:           injToken,
+		Ticker:              "HELIOS/USDT",
+		BaseToken:           heliosToken,
 		QuoteToken:          usdtToken,
 		MakerFeeRate:        makerFeeRate,
 		TakerFeeRate:        takerFeeRate,
@@ -103,7 +103,7 @@ func createBetBinaryOptionMarket() BinaryOptionMarket {
 // Spot market tests
 
 func TestConvertQuantityToChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	originalQuantity := decimal.RequireFromString("123.456789")
 
 	chainValue := spotMarket.QuantityToChainFormat(originalQuantity)
@@ -115,7 +115,7 @@ func TestConvertQuantityToChainFormatForSpotMarket(t *testing.T) {
 }
 
 func TestConvertPriceToChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	originalPrice := decimal.RequireFromString("123.456789")
 
 	chainValue := spotMarket.PriceToChainFormat(originalPrice)
@@ -128,7 +128,7 @@ func TestConvertPriceToChainFormatForSpotMarket(t *testing.T) {
 }
 
 func TestConvertNotionalToChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	originalNotional := decimal.RequireFromString("123.456789")
 
 	chainValue := spotMarket.NotionalToChainFormat(originalNotional)
@@ -140,7 +140,7 @@ func TestConvertNotionalToChainFormatForSpotMarket(t *testing.T) {
 }
 
 func TestConvertQuantityFromChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	expectedQuantity := decimal.RequireFromString("123.456")
 
 	chainFormatQuantity := expectedQuantity.Mul(decimal.New(1, spotMarket.BaseToken.Decimals))
@@ -150,7 +150,7 @@ func TestConvertQuantityFromChainFormatForSpotMarket(t *testing.T) {
 }
 
 func TestConvertPriceFromChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	expectedPrice := decimal.RequireFromString("123.456")
 
 	priceDecimals := spotMarket.QuoteToken.Decimals - spotMarket.BaseToken.Decimals
@@ -161,7 +161,7 @@ func TestConvertPriceFromChainFormatForSpotMarket(t *testing.T) {
 }
 
 func TestConvertNotionalFromChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	expectedNotional := decimal.RequireFromString("123.456")
 
 	notionalDecimals := spotMarket.QuoteToken.Decimals
@@ -172,7 +172,7 @@ func TestConvertNotionalFromChainFormatForSpotMarket(t *testing.T) {
 }
 
 func TestConvertQuantityFromExtendedChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	expectedQuantity := decimal.RequireFromString("123.456")
 
 	chainFormatQuantity := expectedQuantity.Mul(decimal.New(1, spotMarket.BaseToken.Decimals)).Mul(decimal.New(1, AdditionalChainFormatDecimals))
@@ -182,7 +182,7 @@ func TestConvertQuantityFromExtendedChainFormatForSpotMarket(t *testing.T) {
 }
 
 func TestConvertPriceFromExtendedChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	expectedPrice := decimal.RequireFromString("123.456")
 
 	priceDecimals := spotMarket.QuoteToken.Decimals - spotMarket.BaseToken.Decimals
@@ -193,7 +193,7 @@ func TestConvertPriceFromExtendedChainFormatForSpotMarket(t *testing.T) {
 }
 
 func TestConvertNotionalFromExtendedChainFormatForSpotMarket(t *testing.T) {
-	spotMarket := createINJUSDTSpotMarket()
+	spotMarket := createHELIOSUSDTSpotMarket()
 	expectedNotional := decimal.RequireFromString("123.456")
 
 	notionalDecimals := spotMarket.QuoteToken.Decimals

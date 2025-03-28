@@ -12,10 +12,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	crypto_cdc "github.com/InjectiveLabs/sdk-go/chain/crypto/codec"
-	"github.com/InjectiveLabs/sdk-go/chain/crypto/hd"
-	ctypes "github.com/InjectiveLabs/sdk-go/chain/types"
-	"github.com/InjectiveLabs/sdk-go/client/chain"
+	crypto_cdc "github.com/Helios-Chain-Labs/sdk-go/chain/crypto/codec"
+	"github.com/Helios-Chain-Labs/sdk-go/chain/crypto/hd"
+	ctypes "github.com/Helios-Chain-Labs/sdk-go/chain/types"
+	"github.com/Helios-Chain-Labs/sdk-go/client/chain"
 )
 
 const KeyringAppName = "keyring_test"
@@ -275,9 +275,9 @@ func (s *KeyringTestSuite) TestNamedKeys() {
 	requireT.Equal(testSig, res)
 }
 
-const expectedPubKeyType = "/injective.crypto.v1beta1.ethsecp256k1.PubKey"
+const expectedPubKeyType = "/helios.crypto.v1beta1.ethsecp256k1.PubKey"
 
-const testAccAddressBech = "inj1ycc302kea06htx5zw2kj4eyk3hgj63sz206fq0"
+const testAccAddressBech = "helios1ycc302kea06htx5zw2kj4eyk3hgj63sz206fq0"
 
 //nolint:lll // mnemonic fixture
 const testMnemonic = `real simple naive tissue alcohol bar short joy maze shoe reason item tray attitude panda century pulse skirt original autumn sea shop exhaust love`

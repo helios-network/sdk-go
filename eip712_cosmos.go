@@ -20,7 +20,7 @@ import (
 	ethmath "github.com/ethereum/go-ethereum/common/math"
 	"github.com/pkg/errors"
 
-	"github.com/InjectiveLabs/sdk-go/typeddata"
+	"github.com/Helios-Chain-Labs/sdk-go/typeddata"
 )
 
 type EIP712Wrapper func(
@@ -62,7 +62,7 @@ func WrapTxToEIP712(
 	}
 
 	domain := typeddata.TypedDataDomain{
-		Name:              "Injective Web3",
+		Name:              "Helios Web3",
 		Version:           "1.0.0",
 		ChainId:           ethmath.NewHexOrDecimal256(int64(chainID)),
 		VerifyingContract: "cosmos",
@@ -498,7 +498,7 @@ func WrapTxToEIP712V2(
 	feeDelegation *FeeDelegationOptions,
 ) (typeddata.TypedData, error) {
 	domain := typeddata.TypedDataDomain{
-		Name:              "Injective Web3",
+		Name:              "Helios Web3",
 		Version:           "1.0.0",
 		ChainId:           ethmath.NewHexOrDecimal256(int64(chainID)),
 		VerifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
