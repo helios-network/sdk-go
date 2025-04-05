@@ -63,15 +63,22 @@ message ClaimData {
   string data = 2;
 }
 
+message Proof {
+  string orchestrators = 1;
+  string hashs = 2;
+}
+
 message TransferTx {
-  uint64 hyperion_id = 1;
+  uint64 hyperion_id = 1 [(gogoproto.jsontag) = "hyperionId"];
   uint64 id = 2;
   uint64 height = 3;
   string sender = 4;
-  string dest_address = 5;
-  ERC20Token erc20_token = 6;
-  ERC20Token erc20_fee = 7;
+  string dest_address = 5 [(gogoproto.jsontag) = "destAddress"];
+  ERC20Token erc20_token = 6 [(gogoproto.jsontag) = "erc20Token"];
+  ERC20Token erc20_fee = 7 [(gogoproto.jsontag) = "erc20Fee"];
   string status = 8;
   string direction = 9;
-  uint64 chain_id = 10;
+  uint64 chain_id = 10 [(gogoproto.jsontag) = "chainId"];
+  Proof proof = 11;
+  string tx_hash = 12 [(gogoproto.jsontag) = "txHash"];
 }
