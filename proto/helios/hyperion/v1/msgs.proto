@@ -71,7 +71,7 @@ service Msg {
   rpc RevokeEthereumBlacklist(MsgRevokeEthereumBlacklist)
       returns (MsgRevokeEthereumBlacklistResponse);
 
-  rpc ForceSetValset(MsgForceSetValset) returns (MsgForceSetValsetResponse);
+  rpc ForceSetValsetAndLastObservedEventNonce(MsgForceSetValsetAndLastObservedEventNonce) returns (MsgForceSetValsetAndLastObservedEventNonceResponse);
 }
 
 // MsgSetOrchestratorAddresses
@@ -364,13 +364,14 @@ message MsgRevokeEthereumBlacklist {
 // response type.
 message MsgRevokeEthereumBlacklistResponse {}
 
-message MsgForceSetValset {
-  option (amino.name) = "hyperion/MsgForceSetValset";
+message MsgForceSetValsetAndLastObservedEventNonce {
+  option (amino.name) = "hyperion/MsgForceSetValsetAndLastObservedEventNonce";
   option (cosmos.msg.v1.signer) = "signer";
 
   string signer = 1;
   uint64 hyperion_id = 2;
   Valset valset = 3;
+  uint64 last_observed_event_nonce = 4;
 }
 
-message MsgForceSetValsetResponse {}
+message MsgForceSetValsetAndLastObservedEventNonceResponse {}
