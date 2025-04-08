@@ -88,11 +88,11 @@ service Query {
 
   rpc TokenAddressToDenom(QueryTokenAddressToDenomRequest)
       returns (QueryTokenAddressToDenomResponse) {
-    option (google.api.http).get = "/hyperion/v1/cosmos_originated/erc20_to_denom";
+    option (google.api.http).get = "/hyperion/v1/tokens/token_address_to_denom";
   }
   rpc DenomToTokenAddress(QueryDenomToTokenAddressRequest)
       returns (QueryDenomToTokenAddressResponse) {
-    option (google.api.http).get = "/hyperion/v1/cosmos_originated/denom_to_token_address";
+    option (google.api.http).get = "/hyperion/v1/tokens/denom_to_token_address";
   }
 
   rpc GetDelegateKeyByValidator(QueryDelegateKeysByValidatorAddress)
