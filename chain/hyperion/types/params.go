@@ -23,10 +23,46 @@ const (
 func DefaultParams() *Params {
 	return &Params{
 		CounterpartyChainParams: []*CounterpartyChainParams{
-			DefaultPolygonAmoyTestnet21ChainParams(),
-			DefaultEthereumSepoliaTestnet22ChainParams(),
+			// DefaultPolygonAmoyTestnet21ChainParams(),
+			// DefaultEthereumSepoliaTestnet22ChainParams(),
+			DefaultLocalPolygonAmoyTestnet21ChainParams(),
 		},
 		Admins: []string{"helios1zun8av07cvqcfr2t29qwmh8ufz29gfatfue0cf"}, // for whitelisting and blacklisting
+	}
+}
+
+func DefaultLocalPolygonAmoyTestnet21ChainParams() *CounterpartyChainParams {
+	return &CounterpartyChainParams{
+		HyperionId:                    21,
+		BridgeCounterpartyAddress:     common.HexToAddress("0xB8ed88AcD8b7ac80d9f546F4D75F33DD19dD5746").Hex(),
+		BridgeChainId:                 80002,
+		BridgeChainName:               "Polygon Amoy Testnet",
+		BridgeChainLogo:               "51ff5cb29b89cebe3bb8c9c3191fd5109122a5419c2c0bbebddd7a080b20a3b1",
+		BridgeChainType:               "evm",
+		SignedValsetsWindow:           25000,
+		SignedBatchesWindow:           25000,
+		SignedClaimsWindow:            25000,
+		TargetBatchTimeout:            43200000, // 12 hours
+		TargetOutgoingTxTimeout:       600000,   // 10 minutes
+		AverageBlockTime:              2000,     // 2 seconds
+		AverageCounterpartyBlockTime:  2000,     // chain blocktime 2seconds
+		SlashFractionValset:           math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		SlashFractionBatch:            math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		SlashFractionClaim:            math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		SlashFractionConflictingClaim: math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		SlashFractionBadEthSignature:  math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
+		UnbondSlashingValsetsWindow:   25000,
+		ClaimSlashingEnabled:          false,
+		BridgeContractStartHeight:     20193284,
+		ValsetReward:                  sdktypes.Coin{Denom: "ahelios", Amount: math.NewInt(0)},
+		Initializer:                   "helios1zun8av07cvqcfr2t29qwmh8ufz29gfatfue0cf",
+		DefaultTokenAddressToDenoms: []*TokenAddressToDenom{
+			{
+				Denom:              "ahelios",
+				TokenAddress:       "0x8916f85e0Da4A2Ff2c304e67105dd9d6B0a7F81c",
+				IsCosmosOriginated: true,
+			},
+		},
 	}
 }
 
@@ -57,8 +93,9 @@ func DefaultPolygonAmoyTestnet21ChainParams() *CounterpartyChainParams {
 		Initializer:                   "helios1zun8av07cvqcfr2t29qwmh8ufz29gfatfue0cf",
 		DefaultTokenAddressToDenoms: []*TokenAddressToDenom{
 			{
-				Denom:        "ahelios",
-				TokenAddress: "0x8916f85e0Da4A2Ff2c304e67105dd9d6B0a7F81c",
+				Denom:              "ahelios",
+				TokenAddress:       "0x8916f85e0Da4A2Ff2c304e67105dd9d6B0a7F81c",
+				IsCosmosOriginated: true,
 			},
 		},
 	}
@@ -91,8 +128,9 @@ func DefaultEthereumSepoliaTestnet22ChainParams() *CounterpartyChainParams {
 		Initializer:                   "helios1zun8av07cvqcfr2t29qwmh8ufz29gfatfue0cf",
 		DefaultTokenAddressToDenoms: []*TokenAddressToDenom{
 			{
-				Denom:        "ahelios",
-				TokenAddress: "0x462D63407eb86531dce7f948F2145382bc269E7C",
+				Denom:              "ahelios",
+				TokenAddress:       "0x462D63407eb86531dce7f948F2145382bc269E7C",
+				IsCosmosOriginated: true,
 			},
 		},
 	}

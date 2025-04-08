@@ -50,6 +50,7 @@ message TokenAddressToDenom {
   string chain_id = 1;
   string token_address = 2;
   string denom = 3;
+  bool is_cosmos_originated = 4;
 }
 
 message TokenMetadata {
