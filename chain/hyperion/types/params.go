@@ -50,21 +50,15 @@ func DefaultPolygonAmoyTestnet21ChainParams() *CounterpartyChainParams {
 		SlashFractionClaim:            math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
 		SlashFractionConflictingClaim: math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
 		SlashFractionBadEthSignature:  math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
-		CosmosCoinDenom:               "ahelios",
-		CosmosCoinErc20Contract:       "0x8916f85e0Da4A2Ff2c304e67105dd9d6B0a7F81c",
 		UnbondSlashingValsetsWindow:   25000,
 		ClaimSlashingEnabled:          false,
 		BridgeContractStartHeight:     20101217,
 		ValsetReward:                  sdktypes.Coin{Denom: "ahelios", Amount: math.NewInt(0)},
 		Initializer:                   "helios1zun8av07cvqcfr2t29qwmh8ufz29gfatfue0cf",
-		Erc20ToDenoms: []*ERC20ToDenom{
+		DefaultTokenAddressToDenoms: []*TokenAddressToDenom{
 			{
-				Denom: "helios",
-				Erc20: "0x8916f85e0Da4A2Ff2c304e67105dd9d6B0a7F81c",
-			},
-			{
-				Denom: "ahelios",
-				Erc20: "0x8916f85e0Da4A2Ff2c304e67105dd9d6B0a7F81c",
+				Denom:        "ahelios",
+				TokenAddress: "0x8916f85e0Da4A2Ff2c304e67105dd9d6B0a7F81c",
 			},
 		},
 	}
@@ -90,21 +84,15 @@ func DefaultEthereumSepoliaTestnet22ChainParams() *CounterpartyChainParams {
 		SlashFractionClaim:            math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
 		SlashFractionConflictingClaim: math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
 		SlashFractionBadEthSignature:  math.LegacyNewDec(1).Quo(math.LegacyNewDec(1000)),
-		CosmosCoinDenom:               "ahelios",
-		CosmosCoinErc20Contract:       "0x462D63407eb86531dce7f948F2145382bc269E7C",
 		UnbondSlashingValsetsWindow:   25000,
 		ClaimSlashingEnabled:          false,
 		BridgeContractStartHeight:     8062855,
 		ValsetReward:                  sdktypes.Coin{Denom: "ahelios", Amount: math.NewInt(0)},
 		Initializer:                   "helios1zun8av07cvqcfr2t29qwmh8ufz29gfatfue0cf",
-		Erc20ToDenoms: []*ERC20ToDenom{
+		DefaultTokenAddressToDenoms: []*TokenAddressToDenom{
 			{
-				Denom: "helios",
-				Erc20: "0x462D63407eb86531dce7f948F2145382bc269E7C",
-			},
-			{
-				Denom: "ahelios",
-				Erc20: "0x462D63407eb86531dce7f948F2145382bc269E7C",
+				Denom:        "ahelios",
+				TokenAddress: "0x462D63407eb86531dce7f948F2145382bc269E7C",
 			},
 		},
 	}
@@ -154,12 +142,6 @@ func validateCounterpartyChainParams(i interface{}) error {
 	}
 	if err := validateBridgeChainID(v.BridgeChainId); err != nil {
 		return errors.Wrap(err, "bridge chain id")
-	}
-	if err := validateCosmosCoinDenom(v.CosmosCoinDenom); err != nil {
-		return errors.Wrap(err, "cosmos coin denom")
-	}
-	if err := validateCosmosCoinErc20Contract(v.CosmosCoinErc20Contract); err != nil {
-		return errors.Wrap(err, "cosmos coin erc20 contract address")
 	}
 	if err := validateTargetBatchTimeout(v.TargetBatchTimeout); err != nil {
 		return errors.Wrap(err, "Batch timeout")
@@ -339,32 +321,6 @@ func strToFixByteArray(s string) ([32]byte, error) {
 	}
 	copy(out[:], s)
 	return out, nil
-}
-
-func validateCosmosCoinDenom(i interface{}) error {
-	v, ok := i.(string)
-	if !ok {
-		return fmt.Errorf("invalid parameter type: %T", i)
-	}
-
-	if _, err := strToFixByteArray(v); err != nil {
-		return err
-	}
-	return nil
-}
-
-func validateCosmosCoinErc20Contract(i interface{}) error {
-	v, ok := i.(string)
-	if !ok {
-		return fmt.Errorf("invalid parameter type: %T", i)
-	}
-
-	// empty address is valid
-	if v == "" {
-		return nil
-	}
-
-	return ValidateEthAddress(v)
 }
 
 func validateClaimSlashingEnabled(i interface{}) error {
