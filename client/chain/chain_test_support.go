@@ -54,6 +54,9 @@ func (c *MockChainClient) GetAccNonce() (accNum, accSeq uint64) {
 	return 1, 2
 }
 
+func (c *MockChainClient) ForceSyncNonce() {
+}
+
 func (c *MockChainClient) SimulateMsg(clientCtx client.Context, msgs ...sdk.Msg) (*txtypes.SimulateResponse, error) {
 	return &txtypes.SimulateResponse{}, nil
 }
