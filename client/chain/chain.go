@@ -52,7 +52,7 @@ const (
 	defaultBroadcastStatusPoll       = 100 * time.Millisecond
 	defaultBroadcastTimeout          = 40 * time.Second
 	defaultTimeoutHeight             = 20
-	defaultTimeoutHeightSyncInterval = 10 * time.Second
+	defaultTimeoutHeightSyncInterval = 20 * time.Second
 	SpotOrderbook                    = "helios.exchange.v1beta1.EventOrderbookUpdate.spot_orderbooks"
 	DerivativeOrderbook              = "helios.exchange.v1beta1.EventOrderbookUpdate.derivative_orderbooks"
 )
@@ -71,6 +71,7 @@ type ChainClient interface {
 	ClientContext() client.Context
 	// return account number and sequence without increasing sequence
 	GetAccNonce() (accNum uint64, accSeq uint64)
+	ForceSyncNonce()
 
 	SimulateMsg(clientCtx client.Context, msgs ...sdk.Msg) (*txtypes.SimulateResponse, error)
 	AsyncBroadcastMsg(msgs ...sdk.Msg) (*txtypes.BroadcastTxResponse, error)
@@ -450,6 +451,10 @@ func (c *chainClient) getAccSeq() uint64 {
 
 func (c *chainClient) GetAccNonce() (accNum, accSeq uint64) {
 	return c.accNum, c.accSeq
+}
+
+func (c *chainClient) ForceSyncNonce() {
+	c.syncNonce()
 }
 
 func (c *chainClient) QueryClient() *grpc.ClientConn {
