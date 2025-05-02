@@ -53,16 +53,15 @@ $ git push origin master --tags
 
 Reach out to us at one of the following places!
 
-- Website at <a href="https://helios.com" target="_blank">`helios.com`</a>
-- Twitter at <a href="https://twitter.com/Helios-Chain-Labs" target="_blank">`@Helios-Chain-Labs`</a>
+- Website at <a href="https://helioschain.network/" target="_blank">`https://helioschain.network/`</a>
+- Twitter at <a href="https://twitter.com/helios_layer1" target="_blank">`@helios_layer1`</a>
 
 ---
 
 ## License
 
 Copyright © 2024 - 2025 Helios Labs Inc. (https://helioslabs.org/)
-
-Originally released by Helios Labs Inc, Based on Injective Labs sdk-go under: <br />
+Based on Injective Labs sdk-go under: <br />
 Apache License <br />
 Version 2.0, January 2004 <br />
 http://www.apache.org/licenses/
