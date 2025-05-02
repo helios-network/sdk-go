@@ -60,9 +60,7 @@ Reach out to us at one of the following places!
 
 ## License
 
-Copyright © 2020 - 2022 Helios Labs Inc. (https://helioslabs.org/)
-
-<a href="https://drive.google.com/uc?export=view&id=1-fPQRh_D_dnun2yTtSsPW5MypVBOVYJP"><img src="https://drive.google.com/uc?export=view&id=1-fPQRh_D_dnun2yTtSsPW5MypVBOVYJP" style="width: 300px; max-width: 100%; height: auto" />
+Copyright © 2024 - 2025 Helios Labs Inc. (https://helioslabs.org/)
 
 Originally released by Helios Labs Inc, Based on Injective Labs sdk-go under: <br />
 Apache License <br />
