@@ -301,7 +301,8 @@ message MsgExternalDataClaim {
   string external_contract_address = 5;
   string orchestrator = 6;
   string call_data_result = 7;
-  string rpc_used = 8;
+  string call_data_result_error = 8;
+  string rpc_used = 9;
 }
 
 message MsgExternalDataClaimResponse {}
