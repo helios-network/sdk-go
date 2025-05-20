@@ -300,7 +300,6 @@ type EthereumClaim interface {
 var (
 	_ EthereumClaim = &MsgDepositClaim{}
 	_ EthereumClaim = &MsgWithdrawClaim{}
-	_ EthereumClaim = &MsgExternalDataClaim{}
 	_ EthereumClaim = &MsgERC20DeployedClaim{}
 )
 
@@ -317,7 +316,7 @@ func (msg *MsgExternalDataClaim) ValidateBasic() error {
 	if err := ValidateEthAddress(msg.ExternalContractAddress); err != nil {
 		return errors.Wrap(err, "external contract address")
 	}
-	if msg.EventNonce == 0 {
+	if msg.TxNonce == 0 {
 		return fmt.Errorf("nonce == 0")
 	}
 	return nil
@@ -325,7 +324,7 @@ func (msg *MsgExternalDataClaim) ValidateBasic() error {
 
 // Hash implements WithdrawBatch.Hash
 func (msg *MsgExternalDataClaim) ClaimHash() []byte {
-	path := fmt.Sprintf("%s/%d/%d/%s", msg.ExternalContractAddress, msg.EventNonce, msg.HyperionId, msg.Orchestrator)
+	path := fmt.Sprintf("%s/%d/%d/%s", msg.ExternalContractAddress, msg.TxNonce, msg.HyperionId, msg.Orchestrator)
 	return tmhash.Sum([]byte(path))
 }
 

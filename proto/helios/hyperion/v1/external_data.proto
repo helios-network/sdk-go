@@ -2,7 +2,7 @@ syntax = "proto3";
 package helios.hyperion.v1;
 
 import "helios/hyperion/v1/attestation.proto";
-// import "helios/hyperion/v1/types.proto";
+import "helios/hyperion/v1/msgs.proto";
 
 option go_package = "helios-core/helios-chain/x/hyperion/types";
 
@@ -18,4 +18,6 @@ message OutgoingExternalDataTx {
   uint64 timeout = 8;
   uint64 nonce = 9;
   uint64 block = 10;
+  repeated MsgExternalDataClaim claims = 11;
+  repeated string votes = 12;
 }

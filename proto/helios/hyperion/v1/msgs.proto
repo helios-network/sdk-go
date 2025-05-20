@@ -295,14 +295,13 @@ message MsgExternalDataClaim {
   option (cosmos.msg.v1.signer) = "orchestrator";
 
   uint64 hyperion_id = 1;
-  uint64 event_nonce = 2;
-  uint64 block_height = 3;
-  uint64 tx_nonce = 4;
-  string external_contract_address = 5;
-  string orchestrator = 6;
-  string call_data_result = 7;
-  string call_data_result_error = 8;
-  string rpc_used = 9;
+  uint64 block_height = 2;
+  uint64 tx_nonce = 3;
+  string external_contract_address = 4;
+  string orchestrator = 5;
+  string call_data_result = 6;
+  string call_data_result_error = 7;
+  string rpc_used = 8;
 }
 
 message MsgExternalDataClaimResponse {}
