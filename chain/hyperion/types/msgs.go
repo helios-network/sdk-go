@@ -324,7 +324,7 @@ func (msg *MsgExternalDataClaim) ValidateBasic() error {
 
 // Hash implements WithdrawBatch.Hash
 func (msg *MsgExternalDataClaim) ClaimHash() []byte {
-	path := fmt.Sprintf("%s/%d/%d/%s", msg.ExternalContractAddress, msg.TxNonce, msg.HyperionId, msg.Orchestrator)
+	path := fmt.Sprintf("%s/%d/%d/%d/%s/%s/%s", msg.ExternalContractAddress, msg.BlockHeight, msg.TxNonce, msg.HyperionId, msg.Orchestrator, msg.CallDataResult, msg.CallDataResultError)
 	return tmhash.Sum([]byte(path))
 }
 
