@@ -78,17 +78,17 @@ service Msg {
     option (google.api.http).post = "/helios/hyperion/v1/update_params";
   }
 
-  // BlacklistEthereumAddresses adds Ethereum addresses to the hyperion blacklist.
-  rpc BlacklistEthereumAddresses(MsgBlacklistEthereumAddresses)
-      returns (MsgBlacklistEthereumAddressesResponse) {
-    option (google.api.http).post = "/helios/hyperion/v1/blacklist_ethereum_addresses";
+  // BlacklistAddresses adds addresses to the hyperion blacklist.
+  rpc BlacklistAddresses(MsgBlacklistAddresses)
+      returns (MsgBlacklistAddressesResponse) {
+    option (google.api.http).post = "/helios/hyperion/v1/blacklist_addresses";
   }
 
-  // RevokeEthereumBlacklist removes Ethereum addresses from the hyperion
+  // RevokeBlacklist removes addresses from the hyperion
   // blacklist.
-  rpc RevokeEthereumBlacklist(MsgRevokeEthereumBlacklist)
-      returns (MsgRevokeEthereumBlacklistResponse) {
-    option (google.api.http).post = "/helios/hyperion/v1/revoke_ethereum_blacklist";
+  rpc RevokeBlacklist(MsgRevokeBlacklist)
+      returns (MsgRevokeBlacklistResponse) {
+    option (google.api.http).post = "/helios/hyperion/v1/revoke_blacklist";
   }
 
   // Testnet -->
@@ -153,6 +153,11 @@ service Msg {
     option (google.api.http).post = "/helios/hyperion/v1/set_token_to_chain";
   }
 
+  rpc RemoveTokenFromChain(MsgRemoveTokenFromChain)
+      returns (MsgRemoveTokenFromChainResponse) {
+    option (google.api.http).post = "/helios/hyperion/v1/remove_token_from_chain";
+  }
+
   rpc MintToken(MsgMintToken)
       returns (MsgMintTokenResponse) {
     option (google.api.http).post = "/helios/hyperion/v1/mint_token";
@@ -181,6 +186,21 @@ service Msg {
   rpc SetUnbondSlashingValsetsWindow(MsgSetUnbondSlashingValsetsWindow)
       returns (MsgSetUnbondSlashingValsetsWindowResponse) {
     option (google.api.http).post = "/helios/hyperion/v1/set_unbond_slashing_valsets_window";
+  }
+
+  rpc UpdateDefaultToken(MsgUpdateDefaultToken)
+      returns (MsgUpdateDefaultTokenResponse) {
+    option (google.api.http).post = "/helios/hyperion/v1/update_default_token";
+  }
+
+  rpc UpdateOutTxTimeout(MsgUpdateOutTxTimeout)
+      returns (MsgUpdateOutTxTimeoutResponse) {
+    option (google.api.http).post = "/helios/hyperion/v1/update_out_tx_timeout";
+  }
+
+  rpc CancelAllPendingOutgoingTxs(MsgCancelAllPendingOutgoingTxs)
+      returns (MsgCancelAllPendingOutgoingTxsResponse) {
+    option (google.api.http).post = "/helios/hyperion/v1/cancel_all_pending_outgoing_txs";
   }
 
   // <-- Testnet
@@ -464,37 +484,34 @@ message MsgUpdateParams {
 
 message MsgUpdateParamsResponse {}
 
-// MsgBlacklistEthereumAddresses defines the message used to add Ethereum
-// addresses to hyperion blacklist.
-message MsgBlacklistEthereumAddresses {
-  option (amino.name) = "hyperion/MsgBlacklistEthereumAddresses";
+// MsgBlacklistAddresses defines the message used to add addresses to hyperion blacklist.
+message MsgBlacklistAddresses {
+  option (amino.name) = "hyperion/MsgBlacklistAddresses";
   option (cosmos.msg.v1.signer) = "signer";
 
   // signer address
   string signer = 1;
-  // Ethereum addresses to include in the blacklist
+  // addresses to include in the blacklist
   repeated string blacklist_addresses = 2;
 }
 
-// MsgBlacklistEthereumAddressesResponse defines the
-// MsgBlacklistEthereumAddresses response type.
-message MsgBlacklistEthereumAddressesResponse {}
+// MsgBlacklistAddressesResponse defines the
+// MsgBlacklistAddresses response type.
+message MsgBlacklistAddressesResponse {}
 
-// MsgRevokeEthereumBlacklist defines the message used to remove Ethereum
-// addresses from hyperion blacklist.
-message MsgRevokeEthereumBlacklist {
-  option (amino.name) = "hyperion/MsgRevokeEthereumBlacklist";
+// MsgRevokeBlacklist defines the message used to remove addresses from hyperion blacklist.
+message MsgRevokeBlacklist {
+  option (amino.name) = "hyperion/MsgRevokeBlacklist";
   option (cosmos.msg.v1.signer) = "signer";
 
   // signer address
   string signer = 1;
-  // Ethereum addresses to include in the blacklist
+  // addresses to include in the blacklist
   repeated string blacklist_addresses = 2;
 }
 
-// MsgRevokeEthereumBlacklistResponse defines the MsgRevokeEthereumBlacklist
-// response type.
-message MsgRevokeEthereumBlacklistResponse {}
+// MsgRevokeBlacklistResponse defines the MsgRevokeBlacklist response type.
+message MsgRevokeBlacklistResponse {}
 
 message MsgForceSetValsetAndLastObservedEventNonce {
   option (amino.name) = "hyperion/MsgForceSetValsetAndLastObservedEventNonce";
@@ -654,6 +671,17 @@ message MsgSetTokenToChain {
 
 message MsgSetTokenToChainResponse {}
 
+message MsgRemoveTokenFromChain {
+  option (amino.name) = "hyperion/MsgRemoveTokenFromChain";
+  option (cosmos.msg.v1.signer) = "signer";
+
+  string signer = 1;
+  uint64 chain_id = 2;
+  TokenAddressToDenom token = 3;
+}
+
+message MsgRemoveTokenFromChainResponse {}
+
 message MsgMintToken {
   option (amino.name) = "hyperion/MsgMintToken";
   option (cosmos.msg.v1.signer) = "signer";
@@ -732,3 +760,41 @@ message MsgSetUnbondSlashingValsetsWindow {
 }
 
 message MsgSetUnbondSlashingValsetsWindowResponse {}
+
+message MsgUpdateDefaultToken {
+  option (amino.name) = "hyperion/MsgUpdateDefaultToken";
+  option (cosmos.msg.v1.signer) = "signer";
+
+  string signer = 1;
+  uint64 chain_id = 2;
+  string token_address = 3;
+  string denom = 4;
+  string symbol = 5;
+  uint64 decimals = 6;
+  bool is_concensus_token = 7;
+  bool is_cosmos_originated = 8;
+}
+
+message MsgUpdateDefaultTokenResponse {}
+
+message MsgUpdateOutTxTimeout {
+  option (amino.name) = "hyperion/MsgUpdateOutTxTimeout";
+  option (cosmos.msg.v1.signer) = "signer";
+
+  string signer = 1;
+  uint64 chain_id = 2;
+  uint64 target_outgoing_tx_timeout = 3;
+  uint64 target_batch_timeout = 4;
+}
+
+message MsgUpdateOutTxTimeoutResponse {}
+
+message MsgCancelAllPendingOutgoingTxs {
+  option (amino.name) = "hyperion/MsgCancelAllPendingOutgoingTxs";
+  option (cosmos.msg.v1.signer) = "signer";
+
+  string signer = 1;
+  uint64 chain_id = 2;
+}
+
+message MsgCancelAllPendingOutgoingTxsResponse {}

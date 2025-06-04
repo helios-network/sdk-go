@@ -85,12 +85,6 @@ var (
 	// LastObservedEthereumBlockHeightKey indexes the latest Ethereum block height
 	LastObservedEthereumBlockHeightKey = []byte{0xf9}
 
-	// DenomToTokenAddressKey prefixes the index of Cosmos originated asset denoms to ERC20s
-	DenomToTokenAddressKey = []byte{0xf3}
-
-	// TokenAddressToDenomKey prefixes the index of Cosmos originated asset denoms to ERC20s
-	TokenAddressToDenomKey = []byte{0xf4}
-
 	// LastSlashedValsetNonce indexes the latest slashed valset nonce
 	LastSlashedValsetNonce = []byte{0xf5}
 
@@ -112,7 +106,7 @@ var (
 	// PastEthSignatureCheckpointKey indexes eth signature checkpoints that have existed
 	PastEthSignatureCheckpointKey = []byte{0x1b}
 
-	EthereumBlacklistKey = []byte{0x1c}
+	BlacklistKey = []byte{0x1c}
 
 	FinalizedTxKey = []byte{0x1d}
 
@@ -123,8 +117,8 @@ var (
 	OutgoingExternalDataBlockKey = []byte{0x20}
 )
 
-func GetEthereumBlacklistStoreKey(addr common.Address) []byte {
-	return append(EthereumBlacklistKey, addr.Bytes()...)
+func GetBlacklistStoreKey(addr common.Address) []byte {
+	return append(BlacklistKey, addr.Bytes()...)
 }
 
 // GetOrchestratorAddressKey returns the following key format
@@ -317,24 +311,6 @@ func GetLastEventByValidatorKey(hyperionId uint64, validator sdk.ValAddress) []b
 	buf = append(buf, LastEventByValidatorKey...)
 	buf = append(buf, UInt64Bytes(hyperionId)...)
 	buf = append(buf, validator.Bytes()...)
-
-	return buf
-}
-
-func GetCosmosDenomToTokenAddressKey(hyperionId uint64, denom string) []byte {
-	buf := make([]byte, 0, len(DenomToTokenAddressKey)+8+len(denom))
-	buf = append(buf, DenomToTokenAddressKey...)
-	buf = append(buf, UInt64Bytes(hyperionId)...)
-	buf = append(buf, denom...)
-
-	return buf
-}
-
-func GetTokenAddressToCosmosDenomKey(hyperionId uint64, tokenContract common.Address) []byte {
-	buf := make([]byte, 0, len(TokenAddressToDenomKey)+8+ETHContractAddressLen)
-	buf = append(buf, TokenAddressToDenomKey...)
-	buf = append(buf, UInt64Bytes(hyperionId)...)
-	buf = append(buf, tokenContract.Bytes()...)
 
 	return buf
 }

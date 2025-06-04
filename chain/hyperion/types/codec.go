@@ -42,8 +42,8 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 		&MsgCancelSendToChain{},
 		&MsgSubmitBadSignatureEvidence{},
 		&MsgUpdateParams{},
-		&MsgBlacklistEthereumAddresses{},
-		&MsgRevokeEthereumBlacklist{},
+		&MsgBlacklistAddresses{},
+		&MsgRevokeBlacklist{},
 
 		&MsgAddCounterpartyChainParams{},
 		&MsgUpdateChainSmartContract{},
@@ -65,6 +65,10 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 		&MsgSetUnbondSlashingValsetsWindow{},
 		&MsgUnpauseChain{},
 		&MsgPauseChain{},
+		&MsgUpdateDefaultToken{},
+		&MsgUpdateOutTxTimeout{},
+		&MsgCancelAllPendingOutgoingTxs{},
+		&MsgRemoveTokenFromChain{},
 	)
 
 	registry.RegisterInterface(
@@ -105,8 +109,8 @@ func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&Attestation{}, "hyperion/Attestation", nil)
 	cdc.RegisterConcrete(&MsgSubmitBadSignatureEvidence{}, "hyperion/MsgSubmitBadSignatureEvidence", nil)
 	cdc.RegisterConcrete(&MsgUpdateParams{}, "hyperion/MsgUpdateParams", nil)
-	cdc.RegisterConcrete(&MsgBlacklistEthereumAddresses{}, "hyperion/MsgBlacklistEthereumAddresses", nil)
-	cdc.RegisterConcrete(&MsgRevokeEthereumBlacklist{}, "hyperion/MsgRevokeEthereumBlacklist", nil)
+	cdc.RegisterConcrete(&MsgBlacklistAddresses{}, "hyperion/MsgBlacklistAddresses", nil)
+	cdc.RegisterConcrete(&MsgRevokeBlacklist{}, "hyperion/MsgRevokeBlacklist", nil)
 
 	cdc.RegisterConcrete(&MsgAddCounterpartyChainParams{}, "hyperion/MsgAddCounterpartyChainParams", nil)
 	cdc.RegisterConcrete(&MsgUpdateChainSmartContract{}, "hyperion/MsgUpdateChainSmartContract", nil)
@@ -127,6 +131,10 @@ func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgSetUnbondSlashingValsetsWindow{}, "hyperion/MsgSetUnbondSlashingValsetsWindow", nil)
 	cdc.RegisterConcrete(&MsgUnpauseChain{}, "hyperion/MsgUnpauseChain", nil)
 	cdc.RegisterConcrete(&MsgPauseChain{}, "hyperion/MsgPauseChain", nil)
+	cdc.RegisterConcrete(&MsgUpdateDefaultToken{}, "hyperion/MsgUpdateDefaultToken", nil)
+	cdc.RegisterConcrete(&MsgUpdateOutTxTimeout{}, "hyperion/MsgUpdateOutTxTimeout", nil)
+	cdc.RegisterConcrete(&MsgCancelAllPendingOutgoingTxs{}, "hyperion/MsgCancelAllPendingOutgoingTxs", nil)
+	cdc.RegisterConcrete(&MsgRemoveTokenFromChain{}, "hyperion/MsgRemoveTokenFromChain", nil)
 
 	cdc.RegisterConcrete(&Params{}, "hyperion/Params", nil)
 }
