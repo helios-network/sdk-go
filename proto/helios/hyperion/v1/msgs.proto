@@ -25,6 +25,9 @@ service Msg {
   rpc RequestBatch(MsgRequestBatch) returns (MsgRequestBatchResponse) {
     option (google.api.http).post = "/helios/hyperion/v1/request_batch";
   }
+  rpc RequestBatchWithMinimumFee(MsgRequestBatchWithMinimumFee) returns (MsgRequestBatchWithMinimumFeeResponse) {
+    option (google.api.http).post = "/helios/hyperion/v1/request_batch_with_minimum_fee";
+  }
   rpc ConfirmBatch(MsgConfirmBatch) returns (MsgConfirmBatchResponse) {
     option (google.api.http).post = "/helios/hyperion/v1/confirm_batch";
   }
@@ -335,6 +338,17 @@ message MsgRequestBatch {
 }
 
 message MsgRequestBatchResponse {}
+
+message MsgRequestBatchWithMinimumFee {
+  option (amino.name) = "hyperion/MsgRequestBatchWithMinimumFee";
+  option (cosmos.msg.v1.signer) = "orchestrator";
+  uint64 hyperion_id = 1;
+  string orchestrator = 2;
+  string denom = 3;
+  cosmos.base.v1beta1.Coin minimum_fee = 4 [ (gogoproto.nullable) = false ];
+}
+
+message MsgRequestBatchWithMinimumFeeResponse {}
 
 // MsgConfirmBatch
 // When validators observe a MsgRequestBatch they form a batch by ordering
