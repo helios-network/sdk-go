@@ -345,7 +345,8 @@ message MsgRequestBatchWithMinimumFee {
   uint64 hyperion_id = 1;
   string orchestrator = 2;
   string denom = 3;
-  cosmos.base.v1beta1.Coin minimum_fee = 4 [ (gogoproto.nullable) = false ];
+  cosmos.base.v1beta1.Coin minimum_batch_fee = 4 [ (gogoproto.nullable) = false ];
+  cosmos.base.v1beta1.Coin minimum_tx_fee = 5 [ (gogoproto.nullable) = false ];
 }
 
 message MsgRequestBatchWithMinimumFeeResponse {}
