@@ -2,6 +2,7 @@ syntax = "proto3";
 package helios.hyperion.v1;
 
 import "cosmos/base/query/v1beta1/pagination.proto";
+import "cosmos/base/v1beta1/coin.proto";
 import "helios/hyperion/v1/attestation.proto";
 import "helios/hyperion/v1/genesis.proto";
 import "helios/hyperion/v1/params.proto";
