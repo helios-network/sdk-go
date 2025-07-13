@@ -240,7 +240,7 @@ message QueryBatchFeeWithMinimumFeeRequest {
   cosmos.base.v1beta1.Coin minimum_batch_fee = 2 [ (gogoproto.nullable) = false ];
   cosmos.base.v1beta1.Coin minimum_tx_fee = 3 [ (gogoproto.nullable) = false ];
 }
-message QueryBatchFeeWithMinimumFeeResponse { repeated BatchFees batchFees = 1; }
+message QueryBatchFeeWithMinimumFeeResponse { repeated BatchFeesWithIds batchFees = 1; }
 
 message QueryLastPendingBatchRequestByAddrRequest {
   uint64 hyperion_id = 1;

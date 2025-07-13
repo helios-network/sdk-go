@@ -347,6 +347,7 @@ message MsgRequestBatchWithMinimumFee {
   string denom = 3;
   cosmos.base.v1beta1.Coin minimum_batch_fee = 4 [ (gogoproto.nullable) = false ];
   cosmos.base.v1beta1.Coin minimum_tx_fee = 5 [ (gogoproto.nullable) = false ];
+  repeated uint64 tx_ids = 6;
 }
 
 message MsgRequestBatchWithMinimumFeeResponse {}
