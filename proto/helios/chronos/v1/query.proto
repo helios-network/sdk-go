@@ -70,6 +70,14 @@ service Query {
   rpc QueryGetCronTransactionsByPageAndSize(QueryGetCronTransactionsByPageAndSizeRequest) returns (QueryGetCronTransactionsByPageAndSizeResponse) {
     option (google.api.http).get = "/helios/chronos/cron/address/{address}/transactions";
   }
+
+  rpc QueryGetCronStatistics(QueryGetCronStatisticsRequest) returns (QueryGetCronStatisticsResponse) {
+    option (google.api.http).get = "/helios/chronos/statistics";
+  }
+
+  rpc QueryGetCronTransactionReceiptsHashsByBlockNumber(QueryGetCronTransactionReceiptsHashsByBlockNumberRequest) returns (QueryGetCronTransactionReceiptsHashsByBlockNumberResponse) {
+    option (google.api.http).get = "/helios/chronos/block/transaction/receipts/hashs/{block_number}";
+  }
 }
 
 message QueryParamsRequest {}
@@ -197,4 +205,18 @@ message QueryGetCronTransactionsByPageAndSizeRequest {
 message QueryGetCronTransactionsByPageAndSizeResponse {
   repeated CronTransactionRPC transactions = 1;
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetCronStatisticsRequest {}
+
+message QueryGetCronStatisticsResponse {
+  CronStatistics statistics = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetCronTransactionReceiptsHashsByBlockNumberRequest {
+  uint64 block_number = 1;
+}
+
+message QueryGetCronTransactionReceiptsHashsByBlockNumberResponse {
+  repeated string hashs = 1;
 }
