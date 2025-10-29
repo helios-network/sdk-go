@@ -892,6 +892,8 @@ func (c *chainClient) runBatchBroadcast() {
 				c.txFactory = c.txFactory.WithAccountNumber(c.accNum)
 				log.Debugln("retrying broadcastTx with nonce", sequence)
 				res, err = c.broadcastTx(c.ctx, c.txFactory, true, toSubmit...)
+			} else if strings.Contains(err.Error(), "account sequence mismatch") {
+				fmt.Println("account sequence mismatch ShouldFixSequenceMismatch == false")
 			}
 			if err != nil {
 				resJSON, _ := json.MarshalIndent(res, "", "\t")
