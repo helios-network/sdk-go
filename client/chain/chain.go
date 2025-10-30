@@ -608,12 +608,23 @@ func (c *chainClient) SyncBroadcastMsg(msgs ...sdk.Msg) (*txtypes.BroadcastTxRes
 	res, err := c.broadcastTx(c.ctx, c.txFactory, true, msgs...)
 
 	if err != nil {
-		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") {
+		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") && strings.Contains(err.Error(), "expected ") {
+			// parse sequence number from error
+			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], " ")[0], 10, 64)
+			if err != nil {
+				err = errors.Wrap(err, "failed to parse sequence number from error")
+				return nil, err
+			}
 			c.syncNonce()
-			sequence := c.getAccSeq()
+			sequenceOfChain := c.getAccSeq()
+			if sequenceOfChain != sequence {
+				err = errors.Wrap(err, "sequence of chain does not match expected sequence")
+				fmt.Println("Warning: sequence of chain does not match expected sequence, continuing...")
+			}
+
 			c.txFactory = c.txFactory.WithSequence(sequence)
 			c.txFactory = c.txFactory.WithAccountNumber(c.accNum)
-			log.Debugln("retrying broadcastTx with nonce", sequence)
+			log.Debugln("retrying SimulateMsg with nonce", sequence)
 			res, err = c.broadcastTx(c.ctx, c.txFactory, true, msgs...)
 		}
 		if err != nil {
@@ -646,9 +657,20 @@ func (c *chainClient) SimulateMsg(clientCtx client.Context, msgs ...sdk.Msg) (*t
 	simRes, err := common.ExecuteCall(ctx, c.network.ChainCookieAssistant, c.txClient.Simulate, req)
 
 	if err != nil {
-		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") {
+		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") && strings.Contains(err.Error(), "expected ") {
+			// parse sequence number from error
+			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], " ")[0], 10, 64)
+			if err != nil {
+				err = errors.Wrap(err, "failed to parse sequence number from error")
+				return nil, err
+			}
 			c.syncNonce()
-			sequence := c.getAccSeq()
+			sequenceOfChain := c.getAccSeq()
+			if sequenceOfChain != sequence {
+				err = errors.Wrap(err, "sequence of chain does not match expected sequence")
+				fmt.Println("Warning: sequence of chain does not match expected sequence, continuing...")
+			}
+
 			c.txFactory = c.txFactory.WithSequence(sequence)
 			c.txFactory = c.txFactory.WithAccountNumber(c.accNum)
 			log.Debugln("retrying SimulateMsg with nonce", sequence)
@@ -657,8 +679,6 @@ func (c *chainClient) SimulateMsg(clientCtx client.Context, msgs ...sdk.Msg) (*t
 				err = errors.Wrap(err, "failed to SimulateMsg")
 				return nil, err
 			}
-		} else if strings.Contains(err.Error(), "account sequence mismatch") {
-			fmt.Println("account sequence mismatch and ShouldFixSequenceMismatch == false")
 		}
 		if err != nil {
 			err = errors.Wrap(err, "failed to SimulateMsg")
@@ -681,12 +701,23 @@ func (c *chainClient) AsyncBroadcastMsg(msgs ...sdk.Msg) (*txtypes.BroadcastTxRe
 	c.txFactory = c.txFactory.WithAccountNumber(c.accNum)
 	res, err := c.broadcastTx(c.ctx, c.txFactory, false, msgs...)
 	if err != nil {
-		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") {
+		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") && strings.Contains(err.Error(), "expected ") {
+			// parse sequence number from error
+			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], " ")[0], 10, 64)
+			if err != nil {
+				err = errors.Wrap(err, "failed to parse sequence number from error")
+				return nil, err
+			}
 			c.syncNonce()
-			sequence := c.getAccSeq()
+			sequenceOfChain := c.getAccSeq()
+			if sequenceOfChain != sequence {
+				err = errors.Wrap(err, "sequence of chain does not match expected sequence")
+				fmt.Println("Warning: sequence of chain does not match expected sequence, continuing...")
+			}
+
 			c.txFactory = c.txFactory.WithSequence(sequence)
 			c.txFactory = c.txFactory.WithAccountNumber(c.accNum)
-			log.Debugln("retrying broadcastTx with nonce", sequence)
+			log.Debugln("retrying SimulateMsg with nonce", sequence)
 			res, err = c.broadcastTx(c.ctx, c.txFactory, false, msgs...)
 		}
 		if err != nil {
@@ -901,16 +932,35 @@ func (c *chainClient) runBatchBroadcast() {
 		log.Debugln("broadcastTx with nonce", sequence)
 		res, err := c.broadcastTx(c.ctx, c.txFactory, true, toSubmit...)
 		if err != nil {
-			if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") {
+			if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") && strings.Contains(err.Error(), "expected ") {
+				// parse sequence number from error
+				sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], " ")[0], 10, 64)
+				if err != nil {
+					log.WithError(err).Errorln("failed to parse sequence number from error")
+					return
+				}
 				c.syncNonce()
-				sequence := c.getAccSeq()
+				sequenceOfChain := c.getAccSeq()
+				if sequenceOfChain != sequence {
+					err = errors.Wrap(err, "sequence of chain does not match expected sequence")
+					fmt.Println("Warning: sequence of chain does not match expected sequence, continuing...")
+				}
+
 				c.txFactory = c.txFactory.WithSequence(sequence)
 				c.txFactory = c.txFactory.WithAccountNumber(c.accNum)
-				log.Debugln("retrying broadcastTx with nonce", sequence)
-				res, err = c.broadcastTx(c.ctx, c.txFactory, true, toSubmit...)
-			} else if strings.Contains(err.Error(), "account sequence mismatch") {
-				fmt.Println("account sequence mismatch and ShouldFixSequenceMismatch == false")
+				log.Debugln("retrying SimulateMsg with nonce", sequence)
+				res, err = c.broadcastTx(c.ctx, c.txFactory, false, toSubmit...)
 			}
+			// if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") {
+			// 	c.syncNonce()
+			// 	sequence := c.getAccSeq()
+			// 	c.txFactory = c.txFactory.WithSequence(sequence)
+			// 	c.txFactory = c.txFactory.WithAccountNumber(c.accNum)
+			// 	log.Debugln("retrying broadcastTx with nonce", sequence)
+			// 	res, err = c.broadcastTx(c.ctx, c.txFactory, true, toSubmit...)
+			// } else if strings.Contains(err.Error(), "account sequence mismatch") {
+			// 	fmt.Println("account sequence mismatch and ShouldFixSequenceMismatch == false")
+			// }
 			if err != nil {
 				resJSON, _ := json.MarshalIndent(res, "", "\t")
 				c.logger.WithField("size", len(toSubmit)).WithError(err).Errorln("failed to broadcast messages batch:", string(resJSON))
