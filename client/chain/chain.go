@@ -610,7 +610,7 @@ func (c *chainClient) SyncBroadcastMsg(msgs ...sdk.Msg) (*txtypes.BroadcastTxRes
 	if err != nil {
 		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") && strings.Contains(err.Error(), "expected ") {
 			// parse sequence number from error
-			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], " ")[0], 10, 64)
+			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], ",")[0], 10, 64)
 			if err != nil {
 				err = errors.Wrap(err, "failed to parse sequence number from error")
 				return nil, err
@@ -659,7 +659,7 @@ func (c *chainClient) SimulateMsg(clientCtx client.Context, msgs ...sdk.Msg) (*t
 	if err != nil {
 		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") && strings.Contains(err.Error(), "expected ") {
 			// parse sequence number from error
-			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], " ")[0], 10, 64)
+			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], ",")[0], 10, 64)
 			if err != nil {
 				err = errors.Wrap(err, "failed to parse sequence number from error")
 				return nil, err
@@ -703,7 +703,7 @@ func (c *chainClient) AsyncBroadcastMsg(msgs ...sdk.Msg) (*txtypes.BroadcastTxRe
 	if err != nil {
 		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") && strings.Contains(err.Error(), "expected ") {
 			// parse sequence number from error
-			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], " ")[0], 10, 64)
+			sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], ",")[0], 10, 64)
 			if err != nil {
 				err = errors.Wrap(err, "failed to parse sequence number from error")
 				return nil, err
@@ -934,7 +934,7 @@ func (c *chainClient) runBatchBroadcast() {
 		if err != nil {
 			if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") && strings.Contains(err.Error(), "expected ") {
 				// parse sequence number from error
-				sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], " ")[0], 10, 64)
+				sequence, err := strconv.ParseUint(strings.Split(strings.Split(err.Error(), "expected ")[1], ",")[0], 10, 64)
 				if err != nil {
 					log.WithError(err).Errorln("failed to parse sequence number from error")
 					return
