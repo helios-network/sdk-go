@@ -646,8 +646,22 @@ func (c *chainClient) SimulateMsg(clientCtx client.Context, msgs ...sdk.Msg) (*t
 	simRes, err := common.ExecuteCall(ctx, c.network.ChainCookieAssistant, c.txClient.Simulate, req)
 
 	if err != nil {
-		err = errors.Wrap(err, "failed to CalculateGas")
-		return nil, err
+		if c.opts.ShouldFixSequenceMismatch && strings.Contains(err.Error(), "account sequence mismatch") {
+			c.syncNonce()
+			sequence := c.getAccSeq()
+			c.txFactory = c.txFactory.WithSequence(sequence)
+			c.txFactory = c.txFactory.WithAccountNumber(c.accNum)
+			log.Debugln("retrying SimulateMsg with nonce", sequence)
+			simRes, err = common.ExecuteCall(ctx, c.network.ChainCookieAssistant, c.txClient.Simulate, req)
+			if err != nil {
+				err = errors.Wrap(err, "failed to SimulateMsg")
+				return nil, err
+			}
+		}
+		if err != nil {
+			err = errors.Wrap(err, "failed to SimulateMsg")
+			return nil, err
+		}
 	}
 
 	return simRes, nil
@@ -893,7 +907,7 @@ func (c *chainClient) runBatchBroadcast() {
 				log.Debugln("retrying broadcastTx with nonce", sequence)
 				res, err = c.broadcastTx(c.ctx, c.txFactory, true, toSubmit...)
 			} else if strings.Contains(err.Error(), "account sequence mismatch") {
-				fmt.Println("account sequence mismatch ShouldFixSequenceMismatch == false")
+				fmt.Println("account sequence mismatch and ShouldFixSequenceMismatch == false")
 			}
 			if err != nil {
 				resJSON, _ := json.MarshalIndent(res, "", "\t")
