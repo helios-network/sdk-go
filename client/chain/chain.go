@@ -657,6 +657,8 @@ func (c *chainClient) SimulateMsg(clientCtx client.Context, msgs ...sdk.Msg) (*t
 				err = errors.Wrap(err, "failed to SimulateMsg")
 				return nil, err
 			}
+		} else if strings.Contains(err.Error(), "account sequence mismatch") {
+			fmt.Println("account sequence mismatch and ShouldFixSequenceMismatch == false")
 		}
 		if err != nil {
 			err = errors.Wrap(err, "failed to SimulateMsg")
