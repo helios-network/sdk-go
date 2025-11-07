@@ -203,6 +203,7 @@ type ChainClient interface {
 
 	GetNetwork() common.Network
 	Close()
+	Reconnect() error
 }
 
 var _ ChainClient = &chainClient{}
@@ -376,6 +377,63 @@ func NewChainClient(
 
 	return cc, nil
 }
+
+func (c *chainClient) Reconnect() error {
+	oldConn := c.conn
+	oldChainStreamConn := c.chainStreamConn
+
+	var err error
+	c.conn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(c.opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
+	if err != nil {
+		return errors.Wrapf(err, "failed to connect to the gRPC: %s", c.network.ChainGrpcEndpoint)
+	}
+	c.chainStreamConn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(c.opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
+	if err != nil {
+		return errors.Wrapf(err, "failed to connect to the gRPC: %s", c.network.ChainGrpcEndpoint)
+	}
+
+	c.authQueryClient = authtypes.NewQueryClient(c.conn)
+	c.authzQueryClient = authztypes.NewQueryClient(c.conn)
+	c.bankQueryClient = banktypes.NewQueryClient(c.conn)
+	c.distributionQueryClient = distributiontypes.NewQueryClient(c.conn)
+	c.ibcChannelQueryClient = ibcchanneltypes.NewQueryClient(c.conn)
+	c.ibcClientQueryClient = ibcclienttypes.NewQueryClient(c.conn)
+	c.ibcConnectionQueryClient = ibcconnectiontypes.NewQueryClient(c.conn)
+	c.ibcTransferQueryClient = ibctransfertypes.NewQueryClient(c.conn)
+	c.permissionsQueryClient = permissionstypes.NewQueryClient(c.conn)
+	c.tendermintQueryClient = cmtservice.NewServiceClient(c.conn)
+	c.tokenfactoryQueryClient = tokenfactorytypes.NewQueryClient(c.conn)
+	c.txClient = txtypes.NewServiceClient(c.conn)
+	c.wasmQueryClient = wasmtypes.NewQueryClient(c.conn)
+	c.hyperionQueryClient = hyperiontypes.NewQueryClient(c.conn)
+
+	if oldConn != nil {
+		oldConn.Close()
+	}
+	if oldChainStreamConn != nil {
+		oldChainStreamConn.Close()
+	}
+
+	c.ofacChecker, err = NewOfacChecker()
+	if err != nil {
+		return errors.Wrap(err, "Error creating OFAC checker")
+	}
+	if c.canSign {
+		var err error
+		account, err := c.txFactory.AccountRetriever().GetAccount(c.ctx, c.ctx.GetFromAddress())
+		if err != nil {
+			err = errors.Wrapf(err, "failed to get account")
+			return err
+		}
+		if c.ofacChecker.IsBlacklisted(account.GetAddress().String()) {
+			return errors.Errorf("Address %s is in the OFAC list", account.GetAddress())
+		}
+		c.accNum, c.accSeq = account.GetAccountNumber(), account.GetSequence()
+	}
+
+	return nil
+}
+
 func (c *chainClient) syncNonce() {
 	num, seq, err := c.txFactory.AccountRetriever().GetAccountNumberSequence(c.ctx, c.ctx.GetFromAddress())
 	if err != nil {
