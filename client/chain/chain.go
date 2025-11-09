@@ -203,7 +203,7 @@ type ChainClient interface {
 
 	GetNetwork() common.Network
 	Close()
-	Reconnect() error
+	Reconnect(options ...common.ClientOption) error
 }
 
 var _ ChainClient = &chainClient{}
@@ -378,20 +378,72 @@ func NewChainClient(
 	return cc, nil
 }
 
-func (c *chainClient) Reconnect() error {
-	oldConn := c.conn
-	oldChainStreamConn := c.chainStreamConn
+func (c *chainClient) Reconnect(options ...common.ClientOption) error {
 
+	// process options
+	opts := common.DefaultClientOptions()
+
+	if c.network.ChainTLSCert != nil {
+		options = append(options, common.OptionTLSCert(c.network.ChainTLSCert))
+	}
+	for _, opt := range options {
+		if err := opt(opts); err != nil {
+			err = errors.Wrap(err, "error in client option")
+			return err
+		}
+	}
+
+	// init tx factory
+	var txFactory tx.Factory
+	if opts.TxFactory == nil {
+		txFactory = NewTxFactory(c.ctx)
+		if opts.GasPrices != "" {
+			txFactory = txFactory.WithGasPrices(opts.GasPrices)
+		}
+		if opts.Gas != "" {
+			gas, err := strconv.ParseUint(opts.Gas, 10, 64)
+			if err != nil {
+				return errors.Wrap(err, "error parsing gas limit")
+			}
+			txFactory = txFactory.WithGas(gas)
+		}
+	} else {
+		txFactory = *opts.TxFactory
+	}
+
+	// oldConn := c.conn
+	// oldChainStreamConn := c.chainStreamConn
+
+	// init grpc connection
+	var conn *grpc.ClientConn
 	var err error
-	c.conn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(c.opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
-	if err != nil {
-		return errors.Wrapf(err, "failed to connect to the gRPC: %s", c.network.ChainGrpcEndpoint)
+	stickySessionEnabled := true
+	if opts.TLSCert != nil {
+		conn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
+	} else {
+		conn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
+		stickySessionEnabled = false
 	}
-	c.chainStreamConn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(c.opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
 	if err != nil {
-		return errors.Wrapf(err, "failed to connect to the gRPC: %s", c.network.ChainGrpcEndpoint)
+		err = errors.Wrapf(err, "failed to connect to the gRPC: %s", c.network.ChainGrpcEndpoint)
+		return err
 	}
 
+	var chainStreamConn *grpc.ClientConn
+	if opts.TLSCert != nil {
+		chainStreamConn, err = grpc.Dial(c.network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
+	} else {
+		chainStreamConn, err = grpc.Dial(c.network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
+	}
+	if err != nil {
+		err = errors.Wrapf(err, "failed to connect to the chain stream gRPC: %s", c.network.ChainStreamGrpcEndpoint)
+		return err
+	}
+
+	c.conn = conn
+	c.chainStreamConn = chainStreamConn
+
+	c.txFactory = txFactory
 	c.authQueryClient = authtypes.NewQueryClient(c.conn)
 	c.authzQueryClient = authztypes.NewQueryClient(c.conn)
 	c.bankQueryClient = banktypes.NewQueryClient(c.conn)
@@ -406,13 +458,7 @@ func (c *chainClient) Reconnect() error {
 	c.txClient = txtypes.NewServiceClient(c.conn)
 	c.wasmQueryClient = wasmtypes.NewQueryClient(c.conn)
 	c.hyperionQueryClient = hyperiontypes.NewQueryClient(c.conn)
-
-	if oldConn != nil {
-		oldConn.Close()
-	}
-	if oldChainStreamConn != nil {
-		oldChainStreamConn.Close()
-	}
+	c.sessionEnabled = stickySessionEnabled
 
 	c.ofacChecker, err = NewOfacChecker()
 	if err != nil {
@@ -430,6 +476,13 @@ func (c *chainClient) Reconnect() error {
 		}
 		c.accNum, c.accSeq = account.GetAccountNumber(), account.GetSequence()
 	}
+
+	// if oldConn != nil {
+	// 	oldConn.Close()
+	// }
+	// if oldChainStreamConn != nil {
+	// 	oldChainStreamConn.Close()
+	// }
 
 	return nil
 }

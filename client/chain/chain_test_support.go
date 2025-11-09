@@ -57,7 +57,7 @@ func (c *MockChainClient) GetAccNonce() (accNum, accSeq uint64) {
 func (c *MockChainClient) ForceSyncNonce() {
 }
 
-func (c *MockChainClient) Reconnect() error {
+func (c *MockChainClient) Reconnect(options ...common.ClientOption) error {
 	return nil
 }
 
