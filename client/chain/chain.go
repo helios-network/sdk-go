@@ -411,8 +411,8 @@ func (c *chainClient) Reconnect(options ...common.ClientOption) error {
 		txFactory = *opts.TxFactory
 	}
 
-	oldConn := c.conn
-	oldChainStreamConn := c.chainStreamConn
+	// oldConn := c.conn
+	// oldChainStreamConn := c.chainStreamConn
 
 	// init grpc connection
 	var conn *grpc.ClientConn
@@ -478,21 +478,21 @@ func (c *chainClient) Reconnect(options ...common.ClientOption) error {
 	}
 
 	// close asyncronously old connections manage errors to not block the main thread
-	go func() {
-		defer func() {
-			if r := recover(); r != nil {
-				log.WithField("error", r).Errorln("failed to close old connections")
-			}
-		}()
-		if oldConn != nil {
-			oldConn.Close()
-			log.Infoln("old connection closed")
-		}
-		if oldChainStreamConn != nil {
-			oldChainStreamConn.Close()
-			log.Infoln("old chain stream connection closed")
-		}
-	}()
+	// go func() {
+	// 	defer func() {
+	// 		if r := recover(); r != nil {
+	// 			log.WithField("error", r).Errorln("failed to close old connections")
+	// 		}
+	// 	}()
+	// 	if oldConn != nil {
+	// 		oldConn.Close()
+	// 		log.Infoln("old connection closed")
+	// 	}
+	// 	if oldChainStreamConn != nil {
+	// 		oldChainStreamConn.Close()
+	// 		log.Infoln("old chain stream connection closed")
+	// 	}
+	// }()
 
 	return nil
 }
