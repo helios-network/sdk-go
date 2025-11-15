@@ -24,7 +24,6 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
-	hyperiontypes "github.com/Helios-Chain-Labs/sdk-go/chain/hyperion/types"
 	tokenfactorytypes "github.com/Helios-Chain-Labs/sdk-go/chain/tokenfactory/types"
 	"github.com/Helios-Chain-Labs/sdk-go/client/common"
 	log "github.com/Helios-Chain-Labs/suplog"
@@ -105,9 +104,6 @@ type ChainClient interface {
 
 	// get tx from chain node
 	GetTx(ctx context.Context, txHash string) (*txtypes.GetTxResponse, error)
-
-	// hyperion module
-	GetAttestation(ctx context.Context, eventNonce uint64, claimHash []byte) (*hyperiontypes.QueryAttestationResponse, error)
 
 	// wasm module
 	FetchContractInfo(ctx context.Context, address string) (*wasmtypes.QueryContractInfoResponse, error)
@@ -247,7 +243,6 @@ type chainClient struct {
 	tokenfactoryQueryClient  tokenfactorytypes.QueryClient
 	txClient                 txtypes.ServiceClient
 	wasmQueryClient          wasmtypes.QueryClient
-	hyperionQueryClient      hyperiontypes.QueryClient
 	subaccountToNonce        map[ethcommon.Hash]uint32
 
 	closed  int64
@@ -462,7 +457,6 @@ func (c *chainClient) Reconnect(options ...common.ClientOption) error {
 	c.tokenfactoryQueryClient = tokenfactorytypes.NewQueryClient(c.conn)
 	c.txClient = txtypes.NewServiceClient(c.conn)
 	c.wasmQueryClient = wasmtypes.NewQueryClient(c.conn)
-	c.hyperionQueryClient = hyperiontypes.NewQueryClient(c.conn)
 	c.sessionEnabled = stickySessionEnabled
 
 	c.ofacChecker, err = NewOfacChecker()
@@ -1192,19 +1186,6 @@ func (c *chainClient) GetTx(ctx context.Context, txHash string) (*txtypes.GetTxR
 		Hash: txHash,
 	}
 	res, err := common.ExecuteCall(ctx, c.network.ChainCookieAssistant, c.txClient.GetTx, req)
-
-	return res, err
-}
-
-// hyperion module
-
-func (c *chainClient) GetAttestation(ctx context.Context, eventNonce uint64, claimHash []byte) (*hyperiontypes.QueryAttestationResponse, error) {
-	// Ensure the return type matches the interface definition
-	req := &hyperiontypes.QueryAttestationRequest{
-		Nonce:     eventNonce,
-		ClaimHash: claimHash,
-	}
-	res, err := common.ExecuteCall(ctx, c.network.ChainCookieAssistant, c.hyperionQueryClient.Attestation, req)
 
 	return res, err
 }
