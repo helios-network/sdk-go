@@ -504,6 +504,7 @@ func awaitConnection(conn *grpc.ClientConn, timeout time.Duration) *grpc.ClientC
 		select {
 		case <-ctx.Done():
 			fmt.Println("GRPC service wait timed out")
+			return nil
 		default:
 			state := conn.GetState()
 			if state != connectivity.Ready {
