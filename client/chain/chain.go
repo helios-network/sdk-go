@@ -20,6 +20,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/types/query"
 
+	"google.golang.org/grpc/connectivity"
 	"google.golang.org/grpc/credentials/insecure"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
@@ -295,11 +296,9 @@ func NewChainClient(
 	var err error
 	stickySessionEnabled := true
 	if opts.TLSCert != nil {
-		conn, err = grpc.NewClient(network.ChainGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
-		// conn, err = grpc.Dial(network.ChainGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
+		conn, err = grpc.Dial(network.ChainGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
 	} else {
-		conn, err = grpc.NewClient(network.ChainGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
-		// conn, err = grpc.Dial(network.ChainGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
+		conn, err = grpc.Dial(network.ChainGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
 		stickySessionEnabled = false
 	}
 	if err != nil {
@@ -309,11 +308,9 @@ func NewChainClient(
 
 	var chainStreamConn *grpc.ClientConn
 	if opts.TLSCert != nil {
-		chainStreamConn, err = grpc.NewClient(network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
-		// chainStreamConn, err = grpc.Dial(network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
+		chainStreamConn, err = grpc.Dial(network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
 	} else {
-		chainStreamConn, err = grpc.NewClient(network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
-		// chainStreamConn, err = grpc.Dial(network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
+		chainStreamConn, err = grpc.Dial(network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
 	}
 	if err != nil {
 		err = errors.Wrapf(err, "failed to connect to the chain stream gRPC: %s", network.ChainStreamGrpcEndpoint)
@@ -415,19 +412,17 @@ func (c *chainClient) Reconnect(options ...common.ClientOption) error {
 		txFactory = *opts.TxFactory
 	}
 
-	// oldConn := c.conn
-	// oldChainStreamConn := c.chainStreamConn
+	oldConn := c.conn
+	oldChainStreamConn := c.chainStreamConn
 
 	// init grpc connection
 	var conn *grpc.ClientConn
 	var err error
 	stickySessionEnabled := true
 	if opts.TLSCert != nil {
-		conn, err = grpc.NewClient(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
-		// conn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
+		conn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
 	} else {
-		conn, err = grpc.NewClient(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
-		// conn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
+		conn, err = grpc.Dial(c.network.ChainGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
 		stickySessionEnabled = false
 	}
 	if err != nil {
@@ -437,15 +432,17 @@ func (c *chainClient) Reconnect(options ...common.ClientOption) error {
 
 	var chainStreamConn *grpc.ClientConn
 	if opts.TLSCert != nil {
-		chainStreamConn, err = grpc.NewClient(c.network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
-		// chainStreamConn, err = grpc.Dial(c.network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
+		chainStreamConn, err = grpc.Dial(c.network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(opts.TLSCert), grpc.WithContextDialer(common.DialerFunc))
 	} else {
-		chainStreamConn, err = grpc.NewClient(c.network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
-		// chainStreamConn, err = grpc.Dial(c.network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
+		chainStreamConn, err = grpc.Dial(c.network.ChainStreamGrpcEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(common.DialerFunc))
 	}
 	if err != nil {
 		err = errors.Wrapf(err, "failed to connect to the chain stream gRPC: %s", c.network.ChainStreamGrpcEndpoint)
 		return err
+	}
+
+	if connTest := awaitConnection(conn, 1*time.Minute); connTest == nil {
+		return errors.New("failed to connect to the gRPC")
 	}
 
 	c.conn = conn
@@ -486,23 +483,43 @@ func (c *chainClient) Reconnect(options ...common.ClientOption) error {
 	}
 
 	// close asyncronously old connections manage errors to not block the main thread
-	// go func() {
-	// 	defer func() {
-	// 		if r := recover(); r != nil {
-	// 			log.WithField("error", r).Errorln("failed to close old connections")
-	// 		}
-	// 	}()
-	// 	if oldConn != nil {
-	// 		oldConn.Close()
-	// 		log.Infoln("old connection closed")
-	// 	}
-	// 	if oldChainStreamConn != nil {
-	// 		oldChainStreamConn.Close()
-	// 		log.Infoln("old chain stream connection closed")
-	// 	}
-	// }()
+	go func() {
+		defer func() {
+			if r := recover(); r != nil {
+				log.WithField("error", r).Errorln("failed to close old connections")
+			}
+		}()
+		if oldConn != nil {
+			oldConn.Close()
+			log.Infoln("old connection closed")
+		}
+		if oldChainStreamConn != nil {
+			oldChainStreamConn.Close()
+			log.Infoln("old chain stream connection closed")
+		}
+	}()
 
 	return nil
+}
+
+func awaitConnection(conn *grpc.ClientConn, timeout time.Duration) *grpc.ClientConn {
+	ctx, cancelWait := context.WithTimeout(context.Background(), timeout)
+	defer cancelWait()
+
+	for {
+		select {
+		case <-ctx.Done():
+			fmt.Println("GRPC service wait timed out")
+		default:
+			state := conn.GetState()
+			if state != connectivity.Ready {
+				fmt.Println("state of GRPC connection not ready", state.String())
+				time.Sleep(5 * time.Second)
+				continue
+			}
+			return conn
+		}
+	}
 }
 
 func (c *chainClient) syncNonce() {
